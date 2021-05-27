@@ -1,0 +1,7 @@
+{
+  "name": "google-login",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

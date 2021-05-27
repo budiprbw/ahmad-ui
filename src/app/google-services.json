@@ -1,0 +1,43 @@
+{
+  "project_info": {
+    "project_number": "629579797547",
+    "project_id": "project-ahmad",
+    "storage_bucket": "project-ahmad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:629579797547:android:30e9cbce08f36de743466e",
+        "android_client_info": {
+          "package_name": "Project.ahmad.socialmedia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "629579797547-vbb3done3h01sqq8f0o1dcligm3s4c2h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "Project.ahmad.socialmedia",
+            "certificate_hash": "2d0f182d19bc061ec1f051643b6286a5f5a7b0f0"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbedhpgw3fygy6axwdx0Af9P2AaYPbJEA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "629579797547-cpcns49a7tbkrfvcqivl2j3h8qk4tmcv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
