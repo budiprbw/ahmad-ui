@@ -1,9 +1,55 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>donaturlogin</ion-title>
+    <ion-title>Masuk</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+  <div *ngIf="isGoogleLogin">
+  <ion-card>
+    <ion-card-header>
 
+        <ion-card-title class="ion-text-center"><b>{{user.displayName}}</b>        
+        </ion-card-title>
+    
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-img [src]="user.photoURL" style="border-radius: 1px;"  ></ion-img>
+      <ion-item>
+        <ion-label>email:</ion-label>
+        <span>{{user.email}}</span>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</div>
+
+<ion-content padding>
+    <ion-grid>
+      <ion-row>
+        <ion-col  size="12"  size-md="5" offset-md="2" size-lg="6" offset-lg="3" class="colx"  >
+            <ion-text color="warning" >
+              <div style="color:black;font-weight: bold; text-align: center">Masuk untuk mulai belajar dan berdonasi untuk amal jariyah terbaik</div>
+              </ion-text>
+        <form id="form">
+          <ion-input placeholder="Email" [(ngModel)]="user_email" name="user_email"></ion-input>
+          <ion-input type="password" placeholder="password" [(ngModel)]="user_password" name="user_password"></ion-input>
+          <ion-button color="warning" expand="block"   routerLink="/isiprofile">Lanjutkan</ion-button>
+          <ion-text  >belum punya akun? </ion-text>
+            <button ion-button icon-only (click)="donaturregclick()" clear>Registrasi<ion-icon name="arrow-back"></ion-icon></button>
+        </form>
+        <ion-text style="text-align: center"><h3>Atau lebih cepat</h3></ion-text>
+
+        <div style="text-align: center">
+        <ion-button  color="danger"  (click)="doLogin()"  >
+            Sign in With Google
+            <ion-icon name="logo-google"></ion-icon>
+          </ion-button>
+          <ion-button expand="block" (click)="logout()" color="danger" *ngIf="isGoogleLogin">
+            Log Out
+          </ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+   
+</ion-grid>
 </ion-content>

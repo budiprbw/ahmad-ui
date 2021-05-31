@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registrasi Donatur</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-grid>
+      <ion-row>
+        <ion-col  size="12"  size-md="5" offset-md="2" size-lg="6" offset-lg="3"  class="colx" >
+            <ion-text color="warning" >
+              <div style="color:black;font-weight: bold; text-align: center">Tidak Ada Kata Terlambat untuk belajar kebesaran Allah SWT</div>
+            </ion-text>
+            <form id="form">
+              <ion-input placeholder="Email" [(ngModel)]="user_email" name="user_email" ></ion-input>
+              <ion-input placeholder="Nama Lengkap" [(ngModel)]="user_name" name="user_name"></ion-input>
+              <ion-button color="warning" expand="block"  (click)="saveregstrasi()">Lanjutkan</ion-button>
+              <ion-text  >Sudah punya akun? </ion-text>              
+              <button ion-button icon-only (click)="donaturloginclick()" clear>Masuk<ion-icon name="arrow-back"></ion-icon></button>
+            </form>
+            <ion-text style="text-align: center"><h3>Atau lebih cepat</h3></ion-text>
+            <div style="text-align: center">
+            <ion-button  color="danger"  (click)="doLogin()"  >
+                Sign in With Google
+                <ion-icon name="logo-google"></ion-icon>
+              </ion-button>
+              <ion-button expand="block" (click)="logout()" color="danger" *ngIf="isGoogleLogin">
+                Log Out
+              </ion-button>
+            </div>
+      </ion-col>
+    </ion-row>
+   
+</ion-grid>
+</ion-content>

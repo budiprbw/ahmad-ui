@@ -29,58 +29,58 @@ export class SantriloginPage implements OnInit {
       message: 'Connecting ...'
     });
   }
-  doLogin(){
-    let params: any;
-    if (this.platform.is('cordova')) {
-      if (this.platform.is('android')) {
-        params = {
-          webClientId: '<WEB_CLIENT_ID>', //  webclientID 'string'
-          offline: true
-        };
-      } else {
-        params = {};
+    doLogin(){
+      let params: any;
+      if (this.platform.is('cordova')) {
+        if (this.platform.is('android')) {
+          params = {
+            webClientId: '<WEB_CLIENT_ID>', //  webclientID 'string'
+            offline: true
+          };
+        } else {
+          params = {};
+        }
+        this.google.login(params)
+        .then((response) => {
+          const { idToken, accessToken } = response;
+          this.onLoginSuccess(idToken, accessToken);
+        }).catch((error) => {
+          console.log(error);
+          alert('error:' + JSON.stringify(error));
+        });
+      } else{
+        console.log('else...');
+        this.fireAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(success => {
+          console.log('success in google login', success);
+          this.isGoogleLogin = true;
+          this.user =  success.user;
+          
+        }).catch(err => {
+          console.log(err.message, 'error in google login');
+        });
       }
-      this.google.login(params)
-      .then((response) => {
-        const { idToken, accessToken } = response;
-        this.onLoginSuccess(idToken, accessToken);
-      }).catch((error) => {
-        console.log(error);
-        alert('error:' + JSON.stringify(error));
-      });
-    } else{
-      console.log('else...');
-      this.fireAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(success => {
-        console.log('success in google login', success);
-        this.isGoogleLogin = true;
-        this.user =  success.user;
-        
-      }).catch(err => {
-        console.log(err.message, 'error in google login');
+    }
+    onLoginSuccess(accessToken, accessSecret) {
+      const credential = accessSecret ? firebase.auth.GoogleAuthProvider
+          .credential(accessToken, accessSecret) : firebase.auth.GoogleAuthProvider
+              .credential(accessToken);
+      this.fireAuth.signInWithCredential(credential)
+        .then((success) => {
+          alert('successfully');
+          this.isGoogleLogin = true;
+          this.user =  success.user;
+          this.loading.dismiss();
+        });
+
+    }
+    onLoginError(err) {
+      console.log(err);
+    }
+    logout() {
+      this.fireAuth.signOut().then(() => {
+        this.isGoogleLogin = false;
       });
     }
-  }
-  onLoginSuccess(accessToken, accessSecret) {
-    const credential = accessSecret ? firebase.auth.GoogleAuthProvider
-        .credential(accessToken, accessSecret) : firebase.auth.GoogleAuthProvider
-            .credential(accessToken);
-    this.fireAuth.signInWithCredential(credential)
-      .then((success) => {
-        alert('successfully');
-        this.isGoogleLogin = true;
-        this.user =  success.user;
-        this.loading.dismiss();
-      });
-
-  }
-  onLoginError(err) {
-    console.log(err);
-  }
-  logout() {
-    this.fireAuth.signOut().then(() => {
-      this.isGoogleLogin = false;
-    });
-  }
  
 
 }

@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   firebaseConfig : {
+    production: false,
     apiKey: "AIzaSyDigoGVRiEnHjg4910uDU2weKnMBjIbr74",
     authDomain: "project-ahmad.firebaseapp.com",
     projectId: "project-ahmad",

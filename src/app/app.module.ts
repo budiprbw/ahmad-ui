@@ -12,18 +12,23 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { environment } from 'src/environments/environment';
+import { AhmadproviderService } from './ahmadprovider.service';
+import { HttpClientModule } from '@angular/common/http';
+import {  RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireAuthModule],
+    AngularFireAuthModule,HttpClientModule,RouterModule],    
+    
   providers: [
     StatusBar,
     SplashScreen,
     GooglePlus,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    AhmadproviderService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,5 +1,6 @@
 // Ionic Variables and Theming. For more info, please see:
 // http://ionicframework.com/docs/theming/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 
 /** Ionic CSS Variables **/
 :root {
@@ -74,7 +75,13 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+  --ion-color-goldd:#fcc604;
+  --ion-color-white : white;
+  --ion-color-black: #050404;
 }
+
+
+
 
 @media (prefers-color-scheme: dark) {
   /*
@@ -233,4 +240,85 @@
 
     --ion-card-background: #1e1e1e;
   }
+  .logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  @media(max-width :375px){
+    .hide-xs{
+      display: none
+    }
+  }
+  @media( min-width:375px) and (max-width :812px){
+    .hide-sm{
+      display: none
+    }
+  } 
 }
+.colx{
+  background-color:white; border-radius: 25px;
+}
+.colx-dark{
+  background-color:black; border-radius: 25px;
+}
+ion-content{
+  width: 1440px;
+  height: 4020px;
+  background-color: #efeffe;  
+}
+
+.logo {
+  width: 167px;
+  height: 38px;
+  margin: 1px 39px 1px 0;
+  object-fit: contain;
+}
+.toolbar-title {
+  width: 1440px;
+  height: 97px;
+  margin: 0 0 136px;
+  padding: 28px 98px 29px;
+  background-color: var(--white);
+}
+@font-face {
+  font-family: 'Poppins-Black';
+  font-style:normal;
+  src: url('../assets/fonts/Poppins/Poppins-Black.ttf');
+}
+/*
+@font-face {
+  font-family: 'Poppins-BlackItalic';
+  font-style:italic;
+  src: url('../assets/fonts/Poppins/Poppins-BlackItalic.ttf');
+}
+@font-face {
+  font-family: 'Poppins-Bold';
+  font-style:Bold;
+  src: url('../assets/fonts/Poppins/Poppins-Bold.ttf');
+}
+@font-face {
+  font-family: 'Poppins-BoldItalic';
+  font-style: italic;
+  font-weight: bold;
+  src: url('../assets/fonts/Poppins/Poppins-BoldItalic.ttf');
+}
+@font-face {
+  font-family: 'Poppins-ExtraBold';
+  font-style: normal;
+  font-weight: bolder;
+  src: url('../assets/fonts/Poppins/Poppins-ExtraBold.ttf');
+}
+@font-face {
+  font-family: 'Poppins-ExtraBoldItalic';
+  font-style: italic;
+  font-weight: bolder;
+  src: url('../assets/fonts/Poppins/Poppins-ExtraBoldItalic.ttf');
+}
+@font-face {
+  font-family: 'Poppins-ExtraLight';
+  font-style: normal  ;
+  font-weight: light;
+  src: url('../assets/fonts/Poppins/Poppins-ExtraLight.ttf');
+}
+*/

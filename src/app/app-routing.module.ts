@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./mobiledashboard/mobiledashboard.module').then( m => m.MobiledashboardPageModule)
   },
   {
     path: 'signin',
@@ -29,6 +29,22 @@ const routes: Routes = [
   {
     path: 'isiprofile',
     loadChildren: () => import('./isiprofile/isiprofile.module').then( m => m.IsiprofilePageModule)
+  },
+  {
+    path: 'donaturreg',
+    loadChildren: () => import('./donaturreg/donaturreg.module').then( m => m.DonaturregPageModule)
+  },
+  {
+    path: 'santrireg',
+    loadChildren: () => import('./santrireg/santrireg.module').then( m => m.SantriregPageModule)
+  },
+  {
+    path: 'webdashboard',
+    loadChildren: () => import('./webdashboard/webdashboard.module').then( m => m.WebdashboardPageModule)
+  },
+  {
+    path: 'mobiledashboard',
+    loadChildren: () => import('./mobiledashboard/mobiledashboard.module').then( m => m.MobiledashboardPageModule)
   }
 ];
 @NgModule({

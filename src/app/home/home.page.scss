@@ -1,16 +1,4 @@
-.logo {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-  @media(max-width :576px){
-    .hide-xs{
-      display: none
-    }
-  }
-  @media( min-width:576px) and (max-width :768px){
-    .hide-sm{
-      display: none
-    }
-  }
-  
+ion-row{
+  border-bottom-style: none;
+  border:0;
+}

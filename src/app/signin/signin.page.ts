@@ -3,6 +3,7 @@ import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { LoadingController, Platform } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/auth';
 import  firebase from 'firebase';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-signin',
@@ -20,6 +21,7 @@ export class SigninPage implements OnInit {
     public loadingController: LoadingController,
     private fireAuth: AngularFireAuth,
     private platform: Platform,
+    public location: Location
   ) {}
 
  
@@ -78,6 +80,9 @@ export class SigninPage implements OnInit {
     this.fireAuth.signOut().then(() => {
       this.isGoogleLogin = false;
     });
+  }
+  goblBack(){
+    this.location.back();
   }
 
 

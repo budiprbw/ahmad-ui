@@ -1,21 +1,33 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>MASUK</ion-title>
-  </ion-toolbar>
+<ion-header >
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-button color="primary"  (click)="goblBack()">
+            <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+        <ion-title  class="ion-text-center">MASUK</ion-title>
+      </ion-toolbar>            
 </ion-header>
-<ion-content padding>
-    <ion-grid>
+<ion-grid>
+  <ion-row  class="Login-Wall">
+<ion-col      >
+    <ion-card class="Rectangle-597" >          
+        <ion-card-content>
+            <div class="Pilih-salah-satu">Pilih salah satu</div>            
+            <ion-button  fill="clear" class="s-button" routerLink="/santrilogin">
+              <ion-text class="s-sign-up" >Santri</ion-text>
+            </ion-button>
+            <ion-button  fill="clear" class="s-button" routerLink="/donaturlogin">
+              <ion-text class="s-sign-up" >Donatur</ion-text>
+            </ion-button>
+            <ion-button  fill="clear" class="s-button" routerLink="/donaturlogin">
+              <ion-text class="s-sign-up" >Pendamping</ion-text>
+            </ion-button>
+
+        </ion-card-content> 
+     </ion-card>          
+</ion-col>
+</ion-row>
+</ion-grid>
   
-        <ion-row>
-             <ion-col  size="12"  size-md="5" offset-md="2" size-lg="6" offset-lg="3"  style="background: var(--ion-color-dark);">
-                  <ion-text color="warning" ><div style="color:white;text-align: center">Pilih salah satu</div>
-                   </ion-text>
-                   <ion-button color="warning" expand="full"   routerLink="/santrilogin">Santri</ion-button><br>
-                   <ion-button color="warning" expand="full"   routerLink="/donaturlogin">Donatur</ion-button>
-          </ion-col>
          
-        </ion-row>
-      </ion-grid>
-     
-         
-  </ion-content>
