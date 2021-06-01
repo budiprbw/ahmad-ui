@@ -179,10 +179,19 @@
             <ion-col>
                    
                 <ion-card class="card5-Rectangle-611">
-                    <ion-card-content>
+                    <ion-card-content padding>
                             <div class="card5-Frequently-Ask-Question">
                                     Frequently Ask Question
                             </div>
+                          <ion-list>
+                              <div *ngFor="let d of ask_question; let i=index" text-wrap (click)="toggleGroup(i)" [ngClass]="{active: isGroupShown(i)}" >
+                                    <div class="card5-Rectangle-614">
+                                    <div class="card5-title">{{d.question_title}}</div>            
+                                    <ion-icon color="warning" item-right [name]="isGroupShown(i) ? 'arrow-down-circle-outline' : 'arrow-up-circle-outline'" ></ion-icon>                                    
+                                    </div>                                                                
+                                    <div *ngIf="isGroupShown(i)" class="card5-content">{{d.question_desc}}</div>                                    
+                              </div>                            
+                          </ion-list>
                     </ion-card-content>
                 </ion-card>
             </ion-col>
@@ -202,7 +211,8 @@
                               </div>          
                     </ion-card-content>
                 </ion-card>
-                </ion-col>
-                </ion-row>
+            </ion-col>
+        </ion-row>
+       
     </ion-grid>
 </ion-slide>

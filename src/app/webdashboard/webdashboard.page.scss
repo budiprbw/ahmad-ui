@@ -554,6 +554,46 @@ ion-card {
   text-align: center;
   color: var(--ion-color-black);
 }
+.card5-Rectangle-614 {
+  //width: 1155px;
+  height: 72px;
+  margin: 0 0 24px;
+  padding: 24px 54px;
+  border-radius: 32px;
+  background-color:var(--ion-color-black);
+  cursor: pointer;
+}
+
+.card5-title{
+  position: absolute; 
+  width: 191px;
+  height: 24px;
+  margin: 0 832px 0 0;
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.3px;
+  text-align: center;
+  color: var(--ion-color-goldd);
+}
+.card5-content{
+  width: 1051px;
+  height: 82px;
+  margin: 24px 54px 0 50px;
+  padding: 10px 54px 100px 50px;
+  font-family: Poppins;
+  font-size: 18px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.3px;
+  text-align: left;
+  color: var(--ion-color-black);
+}
 .card6-Rectangle-621  {
   width: 1245px;
   height: 381px;
@@ -577,3 +617,12 @@ ion-card {
   text-align: center;
   color: var(--ion-color-black);
 }
+.card6-Rectangle-612{
+  width: 1155px;
+  height: 72px;
+  margin: 0 0 24px;
+  padding: 24px 54px;
+  border-radius: 32px;
+  color: var(--ion-color-black);
+}
+
