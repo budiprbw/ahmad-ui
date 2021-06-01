@@ -15,6 +15,7 @@ import { environment } from 'src/environments/environment';
 import { AhmadproviderService } from './ahmadprovider.service';
 import { HttpClientModule } from '@angular/common/http';
 import {  RouterModule } from '@angular/router';
+import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,7 +29,8 @@ import {  RouterModule } from '@angular/router';
     SplashScreen,
     GooglePlus,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    AhmadproviderService
+    AhmadproviderService,
+    GoogleAnalytics
   ],
   bootstrap: [AppComponent]
 })

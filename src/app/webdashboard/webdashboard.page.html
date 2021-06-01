@@ -1,79 +1,208 @@
-<ion-header >
-    <ion-toolbar >
-        <ion-toolbar>        
-        <ion-title><img src="assets/images/logo.svg" class="logo"></ion-title>
-      </ion-toolbar>
-      
-      <ion-buttons slot="end">
-        <ion-button class="button_masuk"  routerLink="/signin" >
-          <ion-text class="login" >
-              MASUK
-          </ion-text>        
-        </ion-button> 
-        <ion-button class="button_registrasi"  routerLink="/signin" >
-          <ion-text class="Sign-up">
-              Registrasi        
-          </ion-text>          
-        </ion-button>      
-      </ion-buttons>
+<ion-header>
+    <ion-toolbar>
+        <ion-toolbar>
+            <ion-title><img src="assets/images/logo.svg" class="logo"></ion-title>
+        </ion-toolbar>
+
+        <ion-buttons slot="end">
+            <ion-button class="button_masuk" routerLink="/signin">
+                <ion-text class="login">
+                    MASUK
+                </ion-text>
+            </ion-button>
+            <ion-button class="button_registrasi" routerLink="/signin">
+                <ion-text class="Sign-up">
+                    Registrasi
+                </ion-text>
+            </ion-button>
+        </ion-buttons>
     </ion-toolbar>
-  </ion-header>
-  <ion-slide>
-      <ion-grid>
-          <ion-row class="space_row">
-               <ion-col>                 
-                  <ion-card class="card1_banner">          
-                        <ion-card-content>
-                            <img src="assets/images/banner.webp"  />   
-                            <div class="card1-title">
-                                Belajar Alquran <span style="color:white" >Lebih</span>,
-                                <span  style="color:white">Bersedekah</span> Lebih
-                            </div>           
-                            <div class="card1-content">
-                                Asmaul Husna Makna dan Doa (AHMaD) project adalah sebuah
-                                program khusus untuk siapa saja yang ingin belajar memahami makna 
-                                dibalik nama-nama ALLAH SWT yang terdapat didalam Ayat Alquran
+</ion-header>
+<ion-slide>
+    <ion-grid>
+        <ion-row class="space_row">
+            <ion-col>
+                <ion-card class="card1_banner">
+                    <ion-card-content>
+                        <img src="assets/images/banner.webp" />
+                        <div class="card1-title">
+                            Belajar Alquran <span style="color:white">Lebih</span>,
+                            <span style="color:white">Bersedekah</span> Lebih
+                        </div>
+                        <div class="card1-content">
+                            Asmaul Husna Makna dan Doa (AHMaD) project adalah sebuah program khusus untuk siapa saja yang ingin belajar memahami makna
+                            dibalik nama-nama ALLAH SWT yang terdapat didalam Ayat Alquran
+                        </div>
+                        <ion-button class="card1-button_lanjut" fill="clear" routerLink="/signin">
+                            <ion-text class="card2-Sign-up">
+                                Pelajari lebih lanjut
+                            </ion-text>
+                        </ion-button>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+        <ion-row class="space_row">
+            <ion-col>
+                <ion-card class="card2_Rectangle">
+                    <ion-card-content>
+                        <div class="card2-title">
+                            Apa itu AHMaD Project
+                        </div>
+                        <div class="card2-content">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Arcu vel ut ut eget eu neque, risus. Dolor integer aliquet commodo
+                            purus. In aliquam enim lobortis pharetra praesent aliquet arcu. Feugiat mattis fermentum sit
+                            at in praesent pulvinar tortor imperdiet. Viverra volutpat duis ultrices neque, in arcu, massa.
+                            Id quam pulvinar ornare pellentesque. Cursus vel magnis ut sem id integer. Eget quisque facilisis
+                            morbi nullam eu risus.
+                        </div>
+                        <div class="row_card2">
+                            <div class="column_2">
+                                <div class="card2-image-santri ">
+                                    <img src="assets/images/image-santri.webp" />
+                                </div>
                             </div>
-                            <ion-button class="card1-button_lanjut" fill="clear" routerLink="/signin" >
-                              <ion-text class="card2-Sign-up" >
-                                  Pelajari lebih lanjut
-                              </ion-text>          
-                            </ion-button> 
-                        </ion-card-content>                           
-                  </ion-card>
-                 </ion-col>
-            </ion-row>  
-            <ion-row class="space_row">
-                  <ion-col>
-                      <ion-card class="card2_Rectangle-597">                       
-                              <ion-card-content  >
-                                <div class="card2-title">
-                                    Apa itu AHMaD Project
-                                </div>        
-                                <div class="card2-content">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Arcu vel ut ut eget eu neque, risus. Dolor integer aliquet commodo purus. In aliquam enim lobortis pharetra praesent aliquet arcu. Feugiat mattis fermentum sit at in praesent pulvinar tortor imperdiet. Viverra volutpat duis ultrices neque, in arcu, massa. Id quam pulvinar ornare pellentesque. Cursus vel magnis ut sem id integer. Eget quisque facilisis morbi nullam eu risus.
+                            <div class="column_2">
+                                <div class="card2-Program-Santri-title">
+                                    Program Santri
                                 </div>
-                                <div class="row_card2">
-                                    <div class="column_2">
-                                        <div class="card2-image-santri " >
-                                            <img src="assets/images/image-santri.webp" />                                 
-                                        </div>      
-                                    </div>
-                                    <div class="column_2">
-                                        <div class="card2-program-santri">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nullam aliquam placerat mauris risus. Consequat consequat lacus nulla ut sit. In enim at vel nulla ullamcorper. Tortor justo diam elementum mattis congue in in amet.
-                                        </div>  
-                                        <ion-button class="card2-button_lanjut" fill="clear" routerLink="/signin" >
-                                          <ion-text class="card2-Sign-up" >
-                                              Pelajari lebih lanjut
-                                          </ion-text>          
-                                        </ion-button> 
-                                    </div>     
-                                                                 
+                                <div class="card2-program-santri">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nullam aliquam placerat mauris risus. Consequat consequat lacus
+                                    nulla ut sit. In enim at vel nulla ullamcorper. Tortor justo diam elementum mattis congue
+                                    in in amet.
                                 </div>
-                              </ion-card-content>                       
-                      </ion-card>         
-                  </ion-col>
+                                <ion-button class="card2-button_lanjut" fill="clear" routerLink="/signin">
+                                    <ion-text class="card2-Sign-up">
+                                        Pelajari lebih lanjut
+                                    </ion-text>
+                                </ion-button>
+                            </div>
+
+                        </div>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+        <ion-row class="space_row">
+            <ion-col>
+                <ion-card class="card3_Rectangle">
+                    <ion-card-content>
+                        <div class="row_card2">
+                            <div class="column_31">
+                                <div class="card3-image-paket">
+                                    <img src="assets/images/image-paket.webp" />
+                                </div>
+                            </div>
+                            <div class="column_32">
+                                <div class="card3-Paket-Pembelajaran">
+                                    Paket Pembelajaran
+                                </div>
+                                <div class="card3-content-1">
+                                    Setiap Santri yang berkesempatan memperoleh Program AHMaD Project ini akan mendapatkan satu (1) paket pembelajaran dibawah
+                                    ini:
+                                </div>
+
+                                <div class="card3-content-2">
+                                    <table>
+                                        <tr style="padding-bottom: 16px;">
+                                            <td style="vertical-align: top">
+                                                <ion-icon name="checkmark-circle-outline"></ion-icon>
+                                            </td>
+                                            <td style="vertical-align: top">
+                                                Satu (1) buah Kitab Alquran Asmaul Husna, yang berisikan tentang penjelasan makna nama Allah SWT di ayat Alquran yang berpasangan
+                                                antara satu dan lainnya
+                                            </td>
+                                        </tr>
+                                        <tr style="padding-bottom: 16px">
+                                            <td style="vertical-align: top">
+                                                <ion-icon name="checkmark-circle-outline"></ion-icon>
+                                            </td>
+                                            <td style="vertical-align: top">
+                                                Satu (1) unit USB Flashdisk, yang berisikan file audio sebagai pelengkap dari materi Kitab Alquran Asmaul Husna
+                                            </td>
+                                        </tr>
+                                        <tr style="padding-bottom: 16px">
+                                            <td style="vertical-align: top">
+                                                <ion-icon name="checkmark-circle-outline"></ion-icon>
+                                            </td>
+                                            <td style="vertical-align: top">
+                                                Mendapatkan program pendampingan belajar selama 10 bulan, diharapkan agar materi dapat meresap kedalam kalbu.
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <ion-button class="card3-button_detail" fill="clear" routerLink="/signin">
+                                        <ion-text class="card3-Sign-up">
+                                            Lihat detail Paket Pembelajaran
+                                        </ion-text>
+                                    </ion-button>
+                                    <ion-button class="card3-button_lanjut" fill="clear" routerLink="/signin">
+                                        <ion-text class="card3-lebih-lanjut">
+                                            Bagikan Produk ini
+                                        </ion-text>
+                                    </ion-button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </ion-card-content>
+                </ion-card>
+
+            </ion-col>
+        </ion-row>
+        <ion-row class="space_row">
+            <ion-col>
+                <div class="card4-Program-Donatur">
+                            Program Donatur
+                </div>
+                <div class="card4-Program-content">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id ullamcorper egestas imperdiet diam augue. Erat egestas amet, sit felis nisl tristique. Vitae a ultricies risus quam enim vel metus rhoncus, sagittis. In tristique sodales id convallis ac. Rhoncus viverra hendrerit magna bibendum.
+                            <div class="card4-button-lanjut">
+                                <ion-button fill="clear" routerLink="/signin">
+                                    <ion-text class="card4-sign-up">
+                                        Pelajari Lebih Lanjut
+                                    </ion-text>
+                                </ion-button>
+                                
+                            </div>
+                            <div class="card4-button-bagikan-informasi">
+                                    <ion-button fill="clear"  routerLink="/signin">
+                                        <ion-text class="card4-sign-up-bagikan-informasi">
+                                            Bagikan Informasi ini
+                                        </ion-text>
+                                    </ion-button>
+                            </div>    
+                </div>                
+                <img src="assets/images/Rectangle 608.webp" />  
+            </ion-col>
+        </ion-row>
+        <ion-row class="space_row">
+            <ion-col>
+                   
+                <ion-card class="card5-Rectangle-611">
+                    <ion-card-content>
+                            <div class="card5-Frequently-Ask-Question">
+                                    Frequently Ask Question
+                            </div>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+        <ion-row class="space_row">
+                <ion-col>
+                <ion-card class="card6-Rectangle-621">
+                    <ion-card-content>
+                            <div class="row_card2">
+                                    <div class="column_2">
+                                            <div class="card6-Kontak">
+                                                    Kontak  
+                                            </div>
+                                    </div>   
+                                    <div class="column_2">
+                                    </div>   
+                              </div>          
+                    </ion-card-content>
+                </ion-card>
+                </ion-col>
                 </ion-row>
-        </ion-grid>        
-  </ion-slide>
+    </ion-grid>
+</ion-slide>
