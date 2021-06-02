@@ -1,46 +1,53 @@
-<ion-header>
-    <ion-toolbar>
-        <ion-toolbar>
-            <ion-title><img src="assets/images/logo.svg" class="logo"></ion-title>
-        </ion-toolbar>
-
-        <ion-buttons slot="end">
-            <ion-button class="button_masuk" routerLink="/signin">
-                <ion-text class="login">
-                    MASUK
-                </ion-text>
-            </ion-button>
-            <ion-button class="button_registrasi" routerLink="/signin">
-                <ion-text class="Sign-up">
-                    Registrasi
-                </ion-text>
-            </ion-button>
-        </ion-buttons>
-    </ion-toolbar>
+<ion-header class="navbar">
+    <div >
+           
+        <ion-toolbar >
+                <ion-toolbar >
+                    <ion-title><img src="assets/images/logo.svg" class="logo" ></ion-title>
+                </ion-toolbar>
+                <ion-button class="button_masuk" slot="end" fill="clear" routerLink="/signin">
+                    <ion-text class="text-masuk">
+                        MASUK
+                    </ion-text>
+                </ion-button>
+                <ion-button class="button_registrasi" fill="clear" slot="end" routerLink="/signin">
+                    <ion-text class="Sign-up">
+                        Registrasi
+                    </ion-text>
+                </ion-button>      
+            </ion-toolbar>
+    </div>
+   
 </ion-header>
 <ion-slide>
     <ion-grid>
         <ion-row class="space_row">
-            <ion-col>
-                <ion-card class="card1_banner">
-                    <ion-card-content>
-                        <img src="assets/images/banner.webp" />
-                        <div class="card1-title">
-                            Belajar Alquran <span style="color:white">Lebih</span>,
-                            <span style="color:white">Bersedekah</span> Lebih
-                        </div>
+            <ion-col>                
+                <div class="card1-title">
+                        Belajar Alquran <span style="color:white">Lebih</span>,
+                        <span style="color:white">Bersedekah</span> Lebih
+                </div>
+                
+                <div class="card1_banner">                                                         
                         <div class="card1-content">
                             Asmaul Husna Makna dan Doa (AHMaD) project adalah sebuah program khusus untuk siapa saja yang ingin belajar memahami makna
                             dibalik nama-nama ALLAH SWT yang terdapat didalam Ayat Alquran
                         </div>
+                       
                         <ion-button class="card1-button_lanjut" fill="clear" routerLink="/signin">
                             <ion-text class="card2-Sign-up">
                                 Pelajari lebih lanjut
                             </ion-text>
-                        </ion-button>
-                    </ion-card-content>
-                </ion-card>
-            </ion-col>
+                        </ion-button>                    
+                </div>
+                <div class="Ellipse-2" (click)="darkmode()" >
+                            <img src="assets/images/Vector.svg" class="Vector "   >
+                </div>                
+                <div class="Ellipse-1" (click)="lightmode()" >
+                        <img src="assets/images/akar-icons_circle-chevron-up.svg" class="akar-iconscircle-chevron-up ">
+            </div>                
+            </ion-col>           
+            
         </ion-row>
         <ion-row class="space_row">
             <ion-col>
@@ -86,65 +93,55 @@
         <ion-row class="space_row">
             <ion-col>
                 <ion-card class="card3_Rectangle">
-                    <ion-card-content>
-                        <div class="row_card2">
-                            <div class="column_31">
-                                <div class="card3-image-paket">
-                                    <img src="assets/images/image-paket.webp" />
+                                <div class="card3-image-paket">                                    
                                 </div>
+                            <div class="card3-Paket-Pembelajaran">
+                                Paket Pembelajaran
                             </div>
-                            <div class="column_32">
-                                <div class="card3-Paket-Pembelajaran">
-                                    Paket Pembelajaran
-                                </div>
-                                <div class="card3-content-1">
-                                    Setiap Santri yang berkesempatan memperoleh Program AHMaD Project ini akan mendapatkan satu (1) paket pembelajaran dibawah
-                                    ini:
-                                </div>
-
-                                <div class="card3-content-2">
-                                    <table>
-                                        <tr style="padding-bottom: 16px;">
-                                            <td style="vertical-align: top">
-                                                <ion-icon name="checkmark-circle-outline"></ion-icon>
-                                            </td>
-                                            <td style="vertical-align: top">
-                                                Satu (1) buah Kitab Alquran Asmaul Husna, yang berisikan tentang penjelasan makna nama Allah SWT di ayat Alquran yang berpasangan
-                                                antara satu dan lainnya
-                                            </td>
-                                        </tr>
-                                        <tr style="padding-bottom: 16px">
-                                            <td style="vertical-align: top">
-                                                <ion-icon name="checkmark-circle-outline"></ion-icon>
-                                            </td>
-                                            <td style="vertical-align: top">
-                                                Satu (1) unit USB Flashdisk, yang berisikan file audio sebagai pelengkap dari materi Kitab Alquran Asmaul Husna
-                                            </td>
-                                        </tr>
-                                        <tr style="padding-bottom: 16px">
-                                            <td style="vertical-align: top">
-                                                <ion-icon name="checkmark-circle-outline"></ion-icon>
-                                            </td>
-                                            <td style="vertical-align: top">
-                                                Mendapatkan program pendampingan belajar selama 10 bulan, diharapkan agar materi dapat meresap kedalam kalbu.
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <ion-button class="card3-button_detail" fill="clear" routerLink="/signin">
-                                        <ion-text class="card3-Sign-up">
-                                            Lihat detail Paket Pembelajaran
-                                        </ion-text>
-                                    </ion-button>
-                                    <ion-button class="card3-button_lanjut" fill="clear" routerLink="/signin">
-                                        <ion-text class="card3-lebih-lanjut">
-                                            Bagikan Produk ini
-                                        </ion-text>
-                                    </ion-button>
-
-                                </div>
+                            <div class="card3-content-1">
+                                Setiap Santri yang berkesempatan memperoleh Program AHMaD Project ini akan mendapatkan satu (1) paket pembelajaran dibawah
+                                ini:
                             </div>
-                        </div>
-                    </ion-card-content>
+                            
+                            <div class="card3-content-2">
+                                <table>
+                                    <tr style="padding-bottom: 16px;">
+                                        <td style="vertical-align: top">
+                                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                                        </td>
+                                        <td style="vertical-align: top">
+                                            Satu (1) buah Kitab Alquran Asmaul Husna, yang berisikan tentang penjelasan makna nama Allah SWT di ayat Alquran yang berpasangan
+                                            antara satu dan lainnya
+                                        </td>
+                                    </tr>
+                                    <tr style="padding-bottom: 16px">
+                                        <td style="vertical-align: top">
+                                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                                        </td>
+                                        <td style="vertical-align: top">
+                                            Satu (1) unit USB Flashdisk, yang berisikan file audio sebagai pelengkap dari materi Kitab Alquran Asmaul Husna
+                                        </td>
+                                    </tr>
+                                    <tr style="padding-bottom: 16px">
+                                        <td style="vertical-align: top">
+                                            <ion-icon name="checkmark-circle-outline"></ion-icon>
+                                        </td>
+                                        <td style="vertical-align: top">
+                                            Mendapatkan program pendampingan belajar selama 10 bulan, diharapkan agar materi dapat meresap kedalam kalbu.
+                                        </td>
+                                    </tr>
+                                </table>
+                                <ion-button class="card3-button_detail" fill="clear" routerLink="/signin">
+                                    <ion-text class="card3-Sign-up">
+                                        Lihat detail Paket Pembelajaran
+                                    </ion-text>
+                                </ion-button>
+                                <ion-button class="card3-button_lanjut" fill="clear" routerLink="/signin">
+                                    <ion-text class="card3-lebih-lanjut">
+                                        Bagikan Produk ini
+                                    </ion-text>
+                                </ion-button>                            
+                            </div>                        
                 </ion-card>
 
             </ion-col>
@@ -184,10 +181,10 @@
                                     Frequently Ask Question
                             </div>
                           <ion-list>
-                              <div *ngFor="let d of ask_question; let i=index" text-wrap (click)="toggleGroup(i)" [ngClass]="{active: isGroupShown(i)}" >
+                              <div *ngFor="let d of ask_question; let i=index" text-wrap (click)="toggleGroup(i)" [ngClass]="{active: isGroupShown(i)}"  >
                                     <div class="card5-Rectangle-614">
-                                    <div class="card5-title">{{d.question_title}}</div>            
-                                    <ion-icon color="warning" item-right [name]="isGroupShown(i) ? 'arrow-down-circle-outline' : 'arrow-up-circle-outline'" ></ion-icon>                                    
+                                    <div class="card5-title"  >{{d.question_title}}</div><span style="margin-right: 741px">&nbsp;</span>
+                                    <ion-icon color="warning" item-right [name]="isGroupShown(i) ? 'arrow-down-circle-outline' : 'arrow-up-circle-outline'" size="large"></ion-icon>                                    
                                     </div>                                                                
                                     <div *ngIf="isGroupShown(i)" class="card5-content">{{d.question_desc}}</div>                                    
                               </div>                            
