@@ -3,7 +3,7 @@ import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { LoadingController, Platform } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/auth';
 import  firebase from 'firebase';
-
+import { AhmadproviderService } from '../ahmadprovider.service';
 
 @Component({
   selector: 'app-santrilogin',
@@ -22,6 +22,7 @@ export class SantriloginPage implements OnInit {
     public loadingController: LoadingController,
     private fireAuth: AngularFireAuth,
     private platform: Platform,
+    public asp: AhmadproviderService,
   ) { }
 
   async ngOnInit() {
@@ -81,7 +82,9 @@ export class SantriloginPage implements OnInit {
         this.isGoogleLogin = false;
       });
     }
- 
+    goblBack(){
+      this.asp.go_previous_page();
+    } 
 
 }
 

@@ -80,13 +80,28 @@
   --ion-color-black: #050404;
 
   --mobile-breakpoint: 600px;
+  --fill-placeholder:#fafafa;
 }
 
 @media screen and (max-width: 600px) {
   :root {
-     body{
-       background-color: #000000;
-     }
+
+    .card1_banner {
+      //width: 1244px;
+      height: 660px;
+      margin: 36px 46px 36px 46px;
+      padding: 36px 43px 36px 46px;
+      object-fit: contain;
+      //transform: rotate(180deg);
+      border-radius: 32px;
+      box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
+      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), linear-gradient(to top, rgba(185, 185, 185, 0.68), #212121), linear-gradient(to bottom, #c4c4c4, #c4c4c4);
+      background-size: auto;
+      background-position: center;
+      background-image: url('../assets/images/banner.webp');
+    }   
+
+
   }
 }
 
@@ -256,6 +271,7 @@
     align-items: center;
   }
   @media(max-width :375px){
+    
     .hide-xs{
       display: none
     }
@@ -806,42 +822,42 @@ background-color: var(--ion-color-goldd);
 }
 .card4-sign-up{
 //width: 184px;
-height: 20px;
-flex-grow: 0;
-font-family: Poppins;
-font-size: 16px;
-font-weight: 500;
-padding: 30px 63px 30px 20px;
-font-stretch: normal;
-font-style: normal;
-line-height: 1.25;
-letter-spacing: normal;
-text-align: center;
-color: var(--ion-color-goldd);
+  height: 20px;
+  flex-grow: 0;
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 30px 63px 30px 20px;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.25;
+  letter-spacing: normal;
+  text-align: center;
+  color: var(--ion-color-goldd);
 }
 .card4-sign-up-bagikan-informasi{
-//width: 170px;
-top: 215px;   
-height: 20px;
-flex-grow: 0;
-font-family: Poppins;
-font-size: 16px;
-font-weight: 500;
-font-stretch: normal;
-font-style: normal;
-line-height: 1.25;
-letter-spacing: normal;
-text-align: center;
-color: var(--ion-color-black);
+  //width: 170px;
+  top: 215px;   
+  height: 20px;
+  flex-grow: 0;
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.25;
+  letter-spacing: normal;
+  text-align: center;
+  color: var(--ion-color-black);
 }
 .card5-Rectangle-611{
-width: 1245.3px;
-height: 722px;
-margin: 36px 46px 36px 46px;
-padding: 36px 43px 36px 46px;
-border-radius: 32px;
-box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
-background-color: var(--ion-color-white);
+  width: 1245.3px;
+  height: 722px;
+  margin: 36px 46px 36px 46px;
+  padding: 36px 43px 36px 46px;
+  border-radius: 32px;
+  box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
+  background-color: var(--ion-color-white);
 }
 .card4-button-bagikan-informasi{
 position: absolute;
@@ -924,18 +940,18 @@ box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 1
 background-color: var(--ion-color-white);
 } 
 .card6-Kontak {
-width: 115px;
-height: 48px;
-margin: 36px 462px 26px 0;
-font-family: Poppins;
-font-size: 32px;
-font-weight: 600;
-font-stretch: normal;
-font-style: normal;
-line-height: normal;
-letter-spacing: -0.3px;
-text-align: center;
-color: var(--ion-color-black);
+  width: 115px;
+  height: 48px;
+  margin: 36px 462px 26px 0;
+  font-family: Poppins;
+  font-size: 32px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.3px;
+  text-align: center;
+  color: var(--ion-color-black);
 }
 .card6-Rectangle-612{
 width: 1155px;
@@ -995,4 +1011,111 @@ color: var(--ion-color-black);
   //margin: 0 0 136px;
   //padding: 28px 98px 29px;
   background-color: var(--ion-color-white);
+}
+
+.footer-Rectangle-622 {
+  width: 1435px;
+  height: 414px;
+  margin: 36px 3px 0 2px;
+  padding: 66px 316px 33px 317px;
+  background-color: var(--ion-color-black);
+}
+.footer-Vector {
+  width: 17.3px;
+  height: 35.4px;
+  flex-grow: 0;
+  margin: 0 9.8px 0 9.3px;
+  background-color: var(--ion-color-white);
+}
+.masuk-santri-donatur {
+  width: 375px;
+  height: 812px;
+  padding: 0 0 152px;
+  background-color: #efeffe;
+}
+.masuk-santri-donatur-Rectangle-597 {
+  width: 343px;
+  height: 376px;
+  margin: 16px;
+  padding: 24px 16px;
+  border-radius: 14px;
+  box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
+  background-color: var(--ion-color-white);
+}
+.masuk-santri-card-title{
+    width: 307px;
+    height: 40px;
+    margin: 0 4px 32px 0;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000000;
+}
+ion-input{
+  width: 311px;
+  height: 52px;
+  margin: 32px 0 24px;
+  padding: 16px 188px 16px 16px;
+  border-radius: 14px;
+  border: solid 1px var(--ion-color-goldd) ;
+  background-color:var(--fill-placeholder);
+}
+.masuk-santri-donatur-button {
+  width: 311px;
+  height: 52px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 32px 0 24px;
+  //padding: 16px 0px;
+  object-fit: contain;
+  border-radius: 14px;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.17), 0 0 3px 0 rgba(0, 0, 0, 0.08);
+  background-color: var(--ion-color-goldd);
+}
+.masuk-santri-donatur-ion{
+  position: absolute;
+  top : -7px;
+  padding: 1px 10px 10px 150px;
+  width: 16px;
+  height: 16px;
+  flex-grow: 0;
+  object-fit: contain;
+}
+.masuk-santri-donatur-text{
+  width: 141px;
+  height: 20px;
+  flex-grow: 0;
+  margin: 0 6px 0 0;
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--ion-color-black);
+}
+.masuk-santri-donatur-Registrasi {
+  width: 71px;
+  height: 20px;
+  flex-grow: 0;
+  margin: 0 0 0 6px;
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--ion-color-goldd);
 }

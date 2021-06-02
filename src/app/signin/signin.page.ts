@@ -4,6 +4,7 @@ import { LoadingController, Platform } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/auth';
 import  firebase from 'firebase';
 import { Location } from '@angular/common';
+import { AhmadproviderService } from '../ahmadprovider.service';
 
 @Component({
   selector: 'app-signin',
@@ -21,7 +22,8 @@ export class SigninPage implements OnInit {
     public loadingController: LoadingController,
     private fireAuth: AngularFireAuth,
     private platform: Platform,
-    public location: Location
+    public location: Location,
+    public asp: AhmadproviderService
   ) {}
 
  
@@ -82,7 +84,7 @@ export class SigninPage implements OnInit {
     });
   }
   goblBack(){
-    this.location.back();
+     this.asp.go_previous_page();
   }
 
 
