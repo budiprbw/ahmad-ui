@@ -4,6 +4,7 @@ import { LoadingController, Platform } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/auth';
 import  firebase from 'firebase';
 import { AhmadproviderService } from '../ahmadprovider.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-santrilogin',
@@ -23,6 +24,7 @@ export class SantriloginPage implements OnInit {
     private fireAuth: AngularFireAuth,
     private platform: Platform,
     public asp: AhmadproviderService,
+    public router : Router
   ) { }
 
   async ngOnInit() {
@@ -85,7 +87,10 @@ export class SantriloginPage implements OnInit {
     goblBack(){
       this.asp.go_previous_page();
     } 
-
+    gotoregistrasi(){
+      this.router.navigateByUrl('/santrireg', { replaceUrl:true });
+    }
+      
 }
 
 

@@ -805,7 +805,7 @@
           width: 1435px;
           height: 414px;
           margin: 36px 3px 0 2px;
-          padding: 66px 316px 33px 317px;
+          padding: 66px 316px 33px 210px;
           background-color: var(--ion-color-black);
         }
         .footer-Vector {
@@ -874,7 +874,238 @@
           text-align: center;
           color: var(--ion-color-goldd);
         }
-     
+        .heroicons-solidoffice-building {
+          width: 24px;
+          height: 24px;
+          margin: 28px 16px 76px 0;
+          object-fit: contain;
+        }     
+        .Vector1 {
+          width: 16.8px;
+          height: 19.2px;
+          flex-grow: 0;
+        }
+        .heroicons-solidphone{
+          width: 24px;
+          height: 24px;
+          margin: 26px 16px 19px 0;
+          object-fit: contain;
+        }
+        .Vector2 {
+          width: 19.2px;
+          height: 19.2px;
+          flex-grow: 0;
+        }
+        .heroicons-solidmail {
+          width: 24px;
+          height: 24px;
+          margin: 28px 16px 47px 0;
+          object-fit: contain;
+        }
+        .Vector3 {
+          width: 24px;
+          height: 24px;
+          margin: 28px 16px 47px 0;
+          object-fit: contain;
+        }
+        .card7-kontak1{
+          position: absolute;
+          top:20%;
+          width: 492px;
+          height: 76px;
+          margin: 32px 47px 26px 35px;
+          padding: 16px 47px 26px 30px;
+          font-family: Poppins;
+          font-size: 18px;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: -0.3px;
+          text-align: left;
+          color: var(--ion-color-black);
+        }
+        .card7-kontak21{
+          position: absolute;
+          top:52%;
+          width: 136px;
+          height: 27px;
+          margin: 32px 47px 26px 60px;
+          font-family: Poppins;
+          font-size: 18px;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: -0.3px;
+          text-align: left;
+          color: var(--ion-color-black);
+        }
+        .card7-kontak22{
+          position: absolute;
+          top:62%;
+          width: 136px;
+          height: 27px;
+          margin: 32px 47px 26px 60px;
+          font-family: Poppins;
+          font-size: 18px;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: -0.3px;
+          text-align: left;
+          color: var(--ion-color-black);
+        }
+        .card7-kontak3{
+          position: absolute;
+          top:76%;
+          //width: 269px; 
+          height: 27px;
+          margin: 26px 270px 46px 60px;
+          font-family: Poppins;
+          font-size: 18px;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: -0.3px;
+          text-align: left;
+          color: var(--ion-color-black);
+        }
+        .card7-Rectangle-623{
+          width: 622px;
+          height: 381px;
+          margin: 0 0 0 57px;
+          padding: 0px 9px 8px 10px;
+          object-fit: contain;
+        }
+        .column_2_7 {
+          float: left;
+          width: 50%;
+        }
+        .footer-Frame-2 {
+          position: absolute;
+          //width: 186px;
+          height: 53px;
+          flex-grow: 0;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+          margin: 0 24px 0 0;
+          padding: 16px 24px;
+          border-radius: 14px;
+          border: solid 1px var(--ion-color-white);
+        }
+        .footer-Paket-Pembelajaran {
+          width: 138px;
+          height: 21px;
+          flex-grow: 0;
+          font-family: Poppins;
+          font-size: 14px;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: -0.3px;
+          text-align: center;
+          color: var(--ion-color-white);
+        }
+        .footer-Frame-3 {
+          position: absolute;
+          //width: 186px;
+          height: 53px;
+          flex-grow: 0;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+          margin: 0 245px;
+          padding: 16px 24px;
+          border-radius: 14px;
+          border: solid 1px var(--ion-color-white);
+        }
+        .footer-Program-Santri{
+              //width: 103px;
+              height: 21px;
+              flex-grow: 0;
+              font-family: Poppins;
+              font-size: 14px;
+              font-weight: 500;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: normal;
+              letter-spacing: -0.3px;
+              text-align: center;
+              color: var(--ion-color-white);
+        }
+        .footer-Frame-4 {
+          position: absolute;
+          //width: 186px;
+            height: 53px;
+            flex-grow: 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin: 0 475px;
+            padding: 16px 24px;
+            border-radius: 14px;
+            border: solid 1px var(--ion-color-white);
+        }
+        .footer-Program-Donatur {
+          width: 119px;
+          height: 21px;
+          flex-grow: 0;
+          font-family: Poppins;
+          font-size: 14px;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: -0.3px;
+          text-align: center;
+          color: var(--ion-color-white);
+        }
+        .footer-Frame-5{
+            width: 230px;
+            height: 53px;
+            flex-grow: 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin: 0 0 0 700px;
+            padding: 16px 24px;
+            border-radius: 14px;
+            border: solid 1px var(--ion-color-white);
+        }
+        .footer-Program-Pendamping{
+            //width: 152px;
+            height: 21px;
+            flex-grow: 0;
+            font-family: Poppins;
+            font-size: 14px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: -0.3px;
+            text-align: center;
+            color: var(--ion-color-white);
+        }
+        .space30
+            {
+                margin-bottom: 46px !important;
+                margin-top :0px!important;
+            }
+          
+          
 
 }
 
@@ -1291,7 +1522,7 @@
                   width: 1435px;
                   height: 414px;
                   margin: 36px 3px 0 2px;
-                  padding: 66px 316px 33px 317px;
+                  padding: 66px 316px 33px 210px;
                   background-color: var(--ion-color-dark)
                 }
                 .card6-Rectangle-625 {
@@ -1363,7 +1594,13 @@
                text-align: center;
                color: var(--ion-color-black);
              }
-                
+             .logo_putih {
+              width: 210.9px;
+              height: 48px;
+              margin: 0 50.1px 32px 50px;
+              object-fit: contain;              
+            }           
+            
     
   }
   
@@ -1723,7 +1960,7 @@
                   width: 1435px;
                   height: 414px;
                   margin: 36px 3px 0 2px;
-                  padding: 66px 316px 33px 317px;
+                  padding: 66px 316px 33px 210px;
                   background-color: var(--ion-color-dark)
                 }
                 .card6-Rectangle-625 {
@@ -2167,7 +2404,7 @@
                   width: 1435px;
                   height: 414px;
                   margin: 36px 3px 0 2px;
-                  padding: 66px 316px 33px 317px;
+                  padding: 66px 316px 33px 210px;
                   background-color: var(--ion-color-dark)
                 }
                 .card6-Rectangle-625 {

@@ -53,22 +53,13 @@ export class WebdashboardPage implements OnInit {
       return this.shownGroup === group;
   };
       
-  toogleTheme(event)
-  {
-    
-    if (event.detail.checked){      
-      document.body.setAttribute('color-theme','dark');
-    }
-    else{
-      document.body.setAttribute('color-theme','light');
-    }
-  }
+ 
   darkmode()
   {       
       document.body.setAttribute('color-theme','dark');    
   }
   lightmode()
   {       
-    document.body.setAttribute('color-theme','light');
+      document.body.setAttribute('color-theme','light');
   }
 }
