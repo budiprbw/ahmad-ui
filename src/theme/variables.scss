@@ -81,6 +81,801 @@
 
   --mobile-breakpoint: 600px;
   --fill-placeholder:#fafafa;
+  --bluey-grey:#92949b;
+        /*====for web =======*/
+        /*=== dashboard =====*/
+        .logo {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          background-image: url('../assets/images/logo.svg');
+        }
+        .button_masuk {
+          //width: 88px;
+          width: 88px;
+          height: 40px;
+          flex-grow: 0;
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          align-items: center;
+          gap: 10px;
+          //  margin-right: 16px;
+          margin:28px 16px 26px 26px;
+          padding: 10px 20px;
+          border-radius: 14px;
+          border: solid 1px var(--ion-color-black);
+        }
+        .text-masuk {
+          //width: 48px;
+          height: 20px;
+          flex-grow: 0;
+          font-family: Poppins;
+          font-size: 14px;
+          font-weight: 600;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.43;
+          letter-spacing: normal;
+          text-align: center;
+          color: var(--ion-color-black);
+        }
+
+        .button_registrasi {
+          width: 111px;
+          height: 40px;
+          flex-grow: 0;
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          align-items: center;
+          gap: 10px;
+          margin:28px 66px 26px 1px;
+          //padding: 36px 43px 36px 46px;
+          object-fit: contain;
+          border-radius: 14px;
+          background-color: var(--ion-color-black);  
+        }
+        .card1_banner {
+          width: 1244px;
+          height: 660px;
+          margin: 36px 46px 36px 46px;
+          padding: 36px 43px 36px 46px;
+          object-fit: contain;
+          //transform: rotate(180deg);
+          border-radius: 32px;
+          box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
+          background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), linear-gradient(to top, rgba(185, 185, 185, 0.68), #212121), linear-gradient(to bottom, #c4c4c4, #c4c4c4);
+          background-size: auto;
+          background-position: center;
+          background-image: url('../assets/images/banner.webp');
+        }   
+        .card2_Rectangle {
+          width: 1244px;
+          height: 660px;
+          margin: 36px 46px 36px 46px;
+          padding: 36px 43px 36px 46px;
+          border-radius: 32px;
+          box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
+          background-color: var(--ion-color-white);
+        }
+
+        .Sign-up {
+          width: 71px;
+          height: 20px;
+          flex-grow: 0;
+          font-family: Poppins;
+          font-size: 14px;
+          font-weight: 600;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.43;
+          letter-spacing: normal;
+          text-align: center;
+          color: var(--ion-color-goldd);
+        }
+
+        .banner-title{    
+          width: 681px;
+          height: 138px;
+          margin: 118px 501px 19px 128px;
+          font-family: Poppins;
+          font-size: 62px;
+          font-weight: 600;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.12;
+          letter-spacing: -0.3px;
+          text-align: left;
+          color: var(--goldd);
+        }
+        ion-card {
+          position: relative;
+          text-align: center;
+        }
+
+        .card1-title {
+          position: absolute;
+          top: 0%;    
+          width: 681px;
+          height: 138px;
+          margin: 118px 501px 19px 128px;
+          font-family: Poppins;
+          font-size: 62px;
+          font-stretch: normal;
+          font-style: normal;
+          font-weight: 600;
+          letter-spacing: -0.3px;
+          text-align: left;
+          color: var(--ion-color-goldd);
+        }
+        .card1-content{
+          position: absolute;
+          top: 275px;    
+          width: 716px;
+          height: 99px;
+          margin: 19px 466px 116px 128px;
+          font-family: Poppins;
+          font-size: 20px;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.63;
+          letter-spacing: -0.3px;
+          text-align: left;
+          color: var(--ion-color-goldd);
+        }
+        .card1-button_lanjut{
+          position: absolute;
+          top: 50%;  
+          width: 260px;
+          height: 52px;
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          align-items: center;
+          gap: 10px;
+          margin: 116px 954px 34px 128px;
+          padding: 16px 20px;
+          object-fit: contain;
+          border-radius: 14px;
+          box-shadow: 2px 4px 12px 0 rgba(252, 198, 4, 0.2);
+          background-color: var(--ion-color-goldd);
+        }
+        .card2-title{
+          width: 358px;
+          height: 48px;
+          margin: 0 401px 24px 396px;
+          font-family: Poppins;
+          font-size: 32px;
+          font-weight: 600;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: -0.3px;
+          text-align: center;
+          color: var(--ion-color-black);
+        }
+        .card-subtitle {
+          font-size: 1.0em;
+          position: absolute;
+          top: 52%;
+          width: 100%;
+          color: #fff;
+        }
+        .card2-content{
+          width: 1152px;
+          height: 122px;
+          margin: 24px 3px 36px 0;
+          font-family: Poppins;
+          font-size: 18px;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: -0.3px;
+          text-align: left;
+          color: var(--ion-color-black);
+        }
+        .card2-image-santri{
+          width: 500px;
+          height: 321px;
+          flex-grow: 0;
+          margin: 0 46px 0 0;
+          object-fit: contain;
+          border-radius: 32px;
+          background-color: var(--ion-color-goldd);
+        }
+        .card2-Program-Santri-title{
+          width: 213px;
+          height: 42px;
+          flex-grow: 0;
+          margin: 0 393px 18px 0;
+          font-family: Poppins;
+          font-size: 28px;
+          font-weight: 600;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: -0.3px;
+          text-align: left;
+          color: var(--ion-color-black);
+        }
+        .card2-program-santri{
+          width: 606px;
+          height: 103px;
+          flex-grow: 0;
+          margin: 18px 0 0;
+          font-family: Poppins;
+          font-size: 18px;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: -0.3px;
+          text-align: left;
+          color: var(--ion-color-black);
+        }
+        .card2-button_lanjut{
+          width: 260px;
+          height: 52px;
+          flex-grow: 0;
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          align-items: center;
+          gap: 10px;
+          margin: 32px 386px 0 0;
+          padding: 16px 20px;
+          object-fit: contain;
+          border-radius: 14px;
+          border: solid 1px #000000;
+          --background-color: #ffffff;
+        }
+        .card2-Sign-up{
+          width: 154px;
+          height: 20px;
+          flex-grow: 0;
+          font-family: Poppins;
+          font-size: 16px;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.25;
+          letter-spacing: normal;
+          text-align: center;
+          color: var(--ion-color-black);
+        }
+
+        ion-slide{
+          overflow-y: scroll;
+        }
+        .swiper-slide{
+            display: block;
+        }
+        .column_2 {
+          float: left;
+          width: 50%;
+        }
+        .row_card2:after {
+          content: "";
+          display: table;
+          clear: both;
+        }    
+        .card3_Rectangle{
+          width: 1244px;
+          height: 530px;
+          flex-grow: 0;
+          margin: 36px 46px 36px 46px;
+          border-radius: 32px;
+          box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
+          background-color: var(--ion-color-white);
+        }
+        .card3-image-paket {
+          width: 474px;
+          height: 529px;
+          flex-grow: 0;
+          margin: 0 46px 0 0;
+          padding: 36px 43px 36px 46px;
+          object-fit: contain;
+          background-color: --ion-color-black;
+          background-size: auto;
+          background-position: left;
+          background-image: url('../assets/images/image-paket.webp');
+        }
+        .card3-Paket-Pembelajaran{
+        position: absolute;
+        width: 347px;
+        top: 36px;   
+        height: 38px;
+        flex-grow: 0;
+        margin: 0px 46px 16px 520px;
+        font-family: Poppins;
+        font-size: 34px;
+        font-weight: 600;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.12;
+        letter-spacing: -0.3px;
+        text-align: left;
+        color: var(--ion-color-black);
+        }
+        .column_31 {
+        float: left;
+        width: 474px;
+        }
+        .column_32 {
+        float: left;
+        width: 770px;
+        }
+        .card3-Rectangle-599 {
+          width: 1244px;
+          height: 530px;
+          flex-grow: 0;
+          margin: 36px 0 36px 66px;
+          padding: 0 46px 1px 0;
+          border-radius: 32px;
+          box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
+          background-color: var(--ion-color-white);
+          
+        }
+
+        .card3-content-1{
+        position: absolute;
+        top: 52px; 
+        width: 678px;
+        height: 50px;
+        flex-grow: 0;
+        margin: 16px 0 16px 520px;
+        font-family: Poppins;
+        font-size: 18px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: -0.3px;
+        text-align: left;
+        color: var(--ion-color-black);
+        }  
+        .card3-content-2{
+        position: absolute;
+        top: 118px; 
+        width: 678px;
+        height: 84px;
+        flex-grow: 0;
+        margin: 16px 0 16px 520px;
+        font-family: Poppins;
+        font-size: 18px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.63;
+        letter-spacing: -0.3px;
+        text-align: left;
+        color: var(--ion-color-black);
+        }  
+        .card3-content-21{
+          position: absolute;
+          top: 118px; 
+          width: 678px;
+          height: 84px;
+          flex-grow: 0;
+          margin: 16px 0 16px 546px;
+          font-family: Poppins;
+          font-size: 18px;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.63;
+          letter-spacing: -0.3px;
+          text-align: left;
+          color: var(--ion-color-black);
+        }  
+        .card3-button_detail{
+        position: absolute;
+        //top: 294px; 
+        width: 326px;
+        height: 52px;
+        flex-grow: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10px;
+        margin: 42px 16px 45px 10px;
+        padding: 16px 20px;
+        object-fit: contain;
+        border-radius: 14px;
+        box-shadow: 2px 4px 12px 0 rgba(252, 198, 4, 0.2);
+        background-color: var(--ion-color-goldd);
+        }
+        .card3-Sign-up{
+          width: 280px;
+          height: 20px;
+          flex-grow: 0;
+          font-family: Poppins;
+          font-size: 16px;
+          font-weight: 600;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.25;
+          letter-spacing: normal;
+          text-align: center;
+          color: var(--ion-color-black);
+        }
+        .card3-button_lanjut{
+          position: absolute;
+          width: 336px;
+          height: 52px;
+          flex-grow: 0;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+          margin: 42px 0 45px 350px;
+          padding: 16px 20px;
+          object-fit: contain;
+          border-radius: 14px;
+          border: solid 1px #000000;
+          background-color: #ffffff;
+        }
+        .card3-lebih-lanjut{
+          width: 150px;
+          height: 20px;
+          flex-grow: 0;
+          font-family: Poppins;
+          font-size: 16px;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.25;
+          letter-spacing: normal;
+          text-align: center;
+          color: var(--ion-color-black);
+        }
+        .card4-Rectangle-608 {
+          width: 1244px;
+          height: 322px;
+          margin: 36px 0 36px 66px;
+          padding: 36px 400px 38px 46px;
+          object-fit: contain;
+          border-radius: 32px;
+          box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
+          background-image: linear-gradient(to top, var(--goldd), rgba(255, 255, 255, 0)), linear-gradient(to bottom, rgba(252, 198, 4, 0.6), rgba(252, 198, 4, 0.6)), linear-gradient(to bottom, var(--ion-color-goldd), var(--ion-color-goldd));
+        }
+
+        .card4-Program-Donatur{
+          position: absolute;
+          top: 0%;   
+        //width: 244px;
+          height: 42px;
+          flex-grow: 0;
+          margin: 0 554px 19px 0;
+          padding: 36px 63px 36px 66px;
+          font-family: Poppins;
+          font-size: 28px;
+          font-weight: 600;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: -0.3px;
+          text-align: left;
+          color: var(--ion-color-black);
+        }
+        .card4-Program-content{
+          position: absolute;
+          top: 0%;   
+          width: 798px;
+          height: 103px;
+          flex-grow: 0;
+          margin: 19px 0 0;
+          padding: 78px 63px 36px 66px;
+          font-family: Poppins;
+          font-size: 18px;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: -0.3px;
+          text-align: left;
+          color: var(--on-color-black);
+        }
+        .card4-button-lanjut{
+          position: absolute;
+          top: 190px;   
+          width: 250px;
+          height: 52px;
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          align-items: center;
+          gap: 10px;
+          margin: 32px 16px 0 0;
+          padding: 10px 63px 36px 5px;
+          object-fit: contain;
+          border-radius: 14px;
+          box-shadow: 2px 4px 4px 0 rgba(0, 0, 0, 0.15);
+          background-color: var(--ion-color-black);
+        }
+        .card4-sign-up{
+        //width: 184px;
+          height: 20px;
+          flex-grow: 0;
+          font-family: Poppins;
+          font-size: 16px;
+          font-weight: 500;
+          padding: 30px 63px 30px 20px;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.25;
+          letter-spacing: normal;
+          text-align: center;
+          color: var(--ion-color-goldd);
+        }
+        .card4-sign-up-bagikan-informasi{
+          //width: 170px;
+          top: 215px;   
+          height: 20px;
+          flex-grow: 0;
+          font-family: Poppins;
+          font-size: 16px;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.25;
+          letter-spacing: normal;
+          text-align: center;
+          color: var(--ion-color-black);
+        }
+        .card5-Rectangle-611{
+          width: 1245.3px;
+          height: 722px;
+          margin: 36px 46px 36px 46px;
+          padding: 36px 43px 36px 46px;
+          border-radius: 32px;
+          box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
+          background-color: var(--ion-color-white);
+        }
+        .card4-button-bagikan-informasi{
+        position: absolute;
+        top: 190px; 
+        //width: 210px;
+        height: 52px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10px;
+        margin: 32px 352px 0 270px;
+        padding: 16px 20px;
+        object-fit: contain;
+        border-radius: 14px;
+        border: solid 1px #000000;
+        color: var(--ion-color-black);
+        }
+        .card5-Frequently-Ask-Question {
+        width: 389px;
+        height: 48px;
+        margin: 0 382px 36px 384px;
+        font-family: Poppins;
+        font-size: 32px;
+        font-weight: 600;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: -0.3px;
+        text-align: center;
+        color: var(--ion-color-black);
+        }
+        .card5-Rectangle-614 {
+        //width: 1155px;
+        height: 72px;
+        margin: 0 0 24px;
+        padding: 24px 54px;
+        border-radius: 32px;
+        background-color:var(--ion-color-black);
+        cursor: pointer;
+        }
+
+        .card5-title{
+        position: absolute; 
+        width: 191px;
+        height: 24px;
+        margin: 0 832px 0 0;
+        font-family: Poppins;
+        font-size: 16px;
+        font-weight: 600;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: -0.3px;
+        text-align: center;
+        color: var(--ion-color-goldd);
+        }
+        .card5-content{
+        width: 1051px;
+        height: 82px;
+        margin: 24px 54px 0 50px;
+        padding: 10px 54px 100px 50px;
+        font-family: Poppins;
+        font-size: 18px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: -0.3px;
+        text-align: left;
+        color: var(--ion-color-black);
+        }
+        .card6-Rectangle-625 {
+          width: 1244px;
+          height: 322px;
+          margin: 36px 0 36px 66px;
+          padding: 36px 46px 38px;
+          object-fit: contain;
+          border-radius: 32px;
+          box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
+          background-color: var(--ion-color-white);
+        }
+        .card7-Rectangle-621  {
+        width: 1245px;
+        height: 381px;
+        margin: 36px 46px 36px 46px;
+        padding: 36px 43px 36px 46px;
+        border-radius: 32px;
+        box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
+        background-color: var(--ion-color-white);
+        } 
+        .card7-Kontak {
+          width: 115px;
+          height: 48px;
+          margin: 36px 462px 26px 0;
+          font-family: Poppins;
+          font-size: 32px;
+          font-weight: 600;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: -0.3px;
+          text-align: center;
+          color: var(--ion-color-black);
+        }
+        .card7-Rectangle-612{
+        width: 1155px;
+        height: 72px;
+        margin: 0 0 24px;
+        padding: 24px 54px;
+        border-radius: 32px;
+        color: var(--ion-color-black);
+        }
+        .Ellipse-1 {
+          position: absolute;
+          top:45%;
+          right: -50px;
+          width: 42px;
+          height: 42px;
+          flex-grow: 0;
+          margin: 24px 44px 112px 12px;
+          padding: 10px 9px 8px;
+          background-color: var(--ion-color-goldd);
+          display: flex!important;
+          align-content: center!important;
+          align-items: center!important;
+          border-radius: 50%;
+          cursor: pointer;
+        }
+        .Ellipse-2 {
+          position: absolute;
+          top:40%;
+          right: -50px;
+          width: 42px;
+          height: 42px;
+          flex-grow: 0;
+          margin: 14px 44px 24px 12px;
+          padding: 11px 11px 11px 11px;
+          background-color: var(--ion-color-goldd);
+          display: flex!important;
+          align-content: center!important;
+          align-items: center!important;
+          border-radius: 50%;
+          cursor: pointer;
+        }  
+        .Vector {
+          width: 20px;
+          height: 20px;
+          flex-grow: 0;
+          object-fit: contain;  
+        }
+        .akar-iconscircle-chevron-up {
+          width: 24px;
+          height: 24px;
+          flex-grow: 0;
+          object-fit: contain;
+        }
+        .navbar {
+          //width: 1440px;
+          height: 97px;
+          //margin: 0 0 136px;
+          //padding: 28px 98px 29px;
+          background-color: var(--ion-color-white);
+        }
+
+        .footer-Rectangle-622 {
+          width: 1435px;
+          height: 414px;
+          margin: 36px 3px 0 2px;
+          padding: 66px 316px 33px 317px;
+          background-color: var(--ion-color-black);
+        }
+        .footer-Vector {
+          width: 17.3px;
+          height: 35.4px;
+          flex-grow: 0;
+          margin: 0 9.8px 0 9.3px;
+          background-color: var(--ion-color-white);
+        }
+        .card6-Program-Kemitraan{
+             width: 279px;
+            height: 42px;
+            flex-grow: 0;
+            margin: 0 873px 19px 0;
+            font-family: Poppins;
+            font-size: 28px;
+            font-weight: 600;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: -0.3px;
+            text-align: left;
+            color: var(--ion-color-black);
+        }
+        .card6-content{
+          width: 1152px;
+          height: 103px;
+          flex-grow: 0;
+          margin: 19px 0 0;
+          font-family: Poppins;
+          font-size: 18px;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: -0.3px;
+          text-align: left;
+          color: var(--ion-color-black);
+        }
+        .card6-button-lanjut{
+            width: 260px;
+            height: 52px;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 10px;
+            margin: 32px 932px 0 0;
+            padding: 16px 20px;
+            object-fit: contain;
+            border-radius: 14px;
+            box-shadow: 2px 4px 4px 0 rgba(0, 0, 0, 0.15);
+            background-color: var(--ion-color-black);
+        }
+        .card6-sign-up{
+          //width: 154px;
+          height: 20px;
+          flex-grow: 0;
+          font-family: Poppins;
+          font-size: 16px;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.25;
+          letter-spacing: normal;
+          text-align: center;
+          color: var(--ion-color-goldd);
+        }
+     
+
 }
 
 @media screen and (max-width: 600px) {
@@ -100,8 +895,6 @@
       background-position: center;
       background-image: url('../assets/images/banner.webp');
     }   
-
-
   }
 }
 
@@ -176,9 +969,404 @@
     --ion-color-light-contrast: #ffffff;
     --ion-color-light-contrast-rgb: 255,255,255;
     --ion-color-light-shade: #1e2023;
-    --ion-color-light-tint: #383a3e;
+    --ion-color-light-tint: #383a3e;      
+    .logo {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      background-image: url('../assets/images/logo_dark.svg');
+    }
+    .button_masuk {
+      width: 88px;
+      height: 40px;
+      flex-grow: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 10px;
+      margin:28px 16px 26px 26px;
+      padding: 10px 20px;
+      border-radius: 14px;
+      border: solid 1px var(--ion-color-goldd);
+    }
+    .text-masuk {
+      //width: 48px;
+      height: 20px;
+      flex-grow: 0;
+      font-family: Poppins;
+      font-size: 14px;
+      font-weight: 600;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.43;
+      letter-spacing: normal;
+      text-align: center;
+      color: var(--ion-color-goldd);
+    }
+    .card2-Program-Santri-title{
+      width: 213px;
+      height: 42px;
+      flex-grow: 0;
+      margin: 0 393px 18px 0;
+      font-family: Poppins;
+      font-size: 28px;
+      font-weight: 600;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: -0.3px;
+      text-align: left;
+      color: var(--ion-color-goldd);
+    }
+    .card2-program-santri{
+      width: 606px;
+      height: 103px;
+      flex-grow: 0;
+      margin: 18px 0 0;
+      font-family: Poppins;
+      font-size: 18px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: -0.3px;
+      text-align: left;
+      color: var(--bluey-grey);
+    }
+    .card2-button_lanjut{
+      width: 260px;
+      height: 52px;
+      flex-grow: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 10px;
+      margin: 32px 386px 0 0;
+      padding: 16px 20px;
+      object-fit: contain;
+      border-radius: 14px;
+      border: solid 1px var(--ion-color-goldd);
+      background-color: var(--ion-color-dark);
+    }
+    .card2-Sign-up{
+      width: 154px;
+      height: 20px;
+      flex-grow: 0;
+      font-family: Poppins;
+      font-size: 16px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.25;
+      letter-spacing: normal;
+      text-align: center;
+      color: var(--ion-color-goldd);
+    }
+      .card2_Rectangle {
+        width: 1244px;
+        height: 660px;
+        margin: 36px 46px 36px 46px;
+        padding: 36px 43px 36px 46px;
+        border-radius: 32px;
+        box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
+        background-color: var(--ion-color-dark);
+      }
+      .card2-title{
+          width: 358px;
+          height: 48px;
+          margin: 0 401px 24px 396px;
+          font-family: Poppins;
+          font-size: 32px;
+          font-weight: 600;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: -0.3px;
+          text-align: center;
+          color: var(--ion-color-goldd);
+      }
+      .card2-content{
+        width: 1152px;
+        height: 122px;
+        margin: 24px 3px 36px 0;
+        font-family: Poppins;
+        font-size: 18px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: -0.3px;
+        text-align: left;
+        color: var(--bluey-grey);
+      }
+      .card3_Rectangle{
+        width: 1244px;
+        height: 530px;
+        flex-grow: 0;
+        margin: 36px 46px 36px 46px;
+        border-radius: 32px;
+        box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
+        background-color: var(--ion-color-dark);
+      }
+      .card3-Paket-Pembelajaran{
+        position: absolute;
+        width: 347px;
+        top: 36px;   
+        height: 38px;
+        flex-grow: 0;
+        margin: 0px 46px 16px 520px;
+        font-family: Poppins;
+        font-size: 34px;
+        font-weight: 600;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.12;
+        letter-spacing: -0.3px;
+        text-align: left;
+        color: var(--ion-color-goldd);
+        }
+        .card3-content-1{
+          position: absolute;
+          top: 52px; 
+          width: 678px;
+          height: 50px;
+          flex-grow: 0;
+          margin: 16px 0 16px 520px;
+          font-family: Poppins;
+          font-size: 18px;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: -0.3px;
+          text-align: left;
+          color: var(--bluey-grey);
+          }  
+          .card3-content-2{
+          position: absolute;
+          top: 118px; 
+          width: 678px;
+          height: 84px;
+          flex-grow: 0;
+          margin: 16px 0 16px 520px;
+          font-family: Poppins;
+          font-size: 18px;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.63;
+          letter-spacing: -0.3px;
+          text-align: left;
+          color: var(--bluey-grey);
+          }  
+          .card3-content-21{
+            position: absolute;
+            top: 118px; 
+            width: 678px;
+            height: 84px;
+            flex-grow: 0;
+            margin: 16px 0 16px 546px;
+            font-family: Poppins;
+            font-size: 18px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.63;
+            letter-spacing: -0.3px;
+            text-align: left;
+            color: var(--bluey-grey);
+          }                        
+          .card3-button_detail{
+            position: absolute;
+            width: 326px;
+            height: 52px;
+            flex-grow: 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 10px;
+            margin: 42px 16px 45px 10px;
+            padding: 16px 20px;
+            object-fit: contain;
+            border-radius: 14px;
+            box-shadow: 2px 4px 12px 0 rgba(252, 198, 4, 0.2);
+            background-color: var(--ion-color-goldd);
+            }
+            .card3-Sign-up{
+              width: 280px;
+              height: 20px;
+              flex-grow: 0;
+              font-family: Poppins;
+              font-size: 16px;
+              font-weight: 600;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: 1.25;
+              letter-spacing: normal;
+              text-align: center;
+              color: var(--ion-color-black);
+            }
+            .card3-button_lanjut{
+              position: absolute;
+              width: 336px;
+              height: 52px;
+              flex-grow: 0;
+              display: flex;
+              flex-direction: row;
+              justify-content: center;
+              align-items: center;
+              gap: 10px;
+              margin: 42px 0 45px 350px;
+              padding: 16px 20px;
+              object-fit: contain;
+              border-radius: 14px;
+              border: solid 1px var(--ion-color-goldd);
+              background-color: var(--ion-color-dark);
+            }
+            .card3-lebih-lanjut{
+              width: 150px;
+              height: 20px;
+              flex-grow: 0;
+              font-family: Poppins;
+              font-size: 16px;
+              font-weight: 500;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: 1.25;
+              letter-spacing: normal;
+              text-align: center;
+              color: var(--ion-color-goldd);
+            }
+            .card5-Rectangle-611{
+              width: 1245.3px;
+              height: 722px;
+              margin: 36px 46px 36px 46px;
+              padding: 36px 43px 36px 46px;
+              border-radius: 32px;
+              box-shadow: 0 3px 5px 0 rgba(27, 28, 32, 0.32), 0 8px 24px 0 rgba(27, 28, 32, 0.32);
+              background-color: var(--ion-color-dark);
+            }
+            .card5-content{
+              width: 1051px;
+              height: 82px;
+              margin: 24px 54px 0 50px;
+              padding: 10px 54px 100px 50px;
+              font-family: Poppins;
+              font-size: 18px;
+              font-weight: 500;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: normal;
+              letter-spacing: -0.3px;
+              text-align: left;
+              color: var(--bluey-grey);
+              }
+              .card7-Rectangle-621  {
+                width: 1245px;
+                height: 381px;
+                margin: 36px 46px 36px 46px;
+                padding: 36px 43px 36px 46px;
+                border-radius: 32px;
+                box-shadow: 0 3px 5px 0 rgba(27, 28, 32, 0.32), 0 8px 24px 0 rgba(27, 28, 32, 0.32);
+                background-color: var(--ion-color-dark);
+                } 
+                .card7-Kontak {
+                  width: 115px;
+                  height: 48px;
+                  margin: 36px 462px 26px 0;
+                  font-family: Poppins;
+                  font-size: 32px;
+                  font-weight: 600;
+                  font-stretch: normal;
+                  font-style: normal;
+                  line-height: normal;
+                  letter-spacing: -0.3px;
+                  text-align: center;
+                  color: var(--ion-color-goldd);
+                }
+                .footer-Rectangle-622 {
+                  width: 1435px;
+                  height: 414px;
+                  margin: 36px 3px 0 2px;
+                  padding: 66px 316px 33px 317px;
+                  background-color: var(--ion-color-dark)
+                }
+                .card6-Rectangle-625 {
+                  width: 1244px;
+                  height: 322px;
+                  margin: 36px 0 36px 66px;
+                  padding: 36px 46px 38px;
+                  object-fit: contain;
+                  border-radius: 32px;
+                  box-shadow: 0 3px 5px 0 rgba(27, 28, 32, 0.32), 0 8px 24px 0 rgba(27, 28, 32, 0.32);
+                  background-color: var(--ion-color-dark);
+                }
+                .card6-Program-Kemitraan{
+                  width: 279px;
+                 height: 42px;
+                 flex-grow: 0;
+                 margin: 0 873px 19px 0;
+                 font-family: Poppins;
+                 font-size: 28px;
+                 font-weight: 600;
+                 font-stretch: normal;
+                 font-style: normal;
+                 line-height: normal;
+                 letter-spacing: -0.3px;
+                 text-align: left;
+                 color: var(--ion-color-goldd);
+             }
+             .card6-content{
+               width: 1152px;
+               height: 103px;
+               flex-grow: 0;
+               margin: 19px 0 0;
+               font-family: Poppins;
+               font-size: 18px;
+               font-weight: 500;
+               font-stretch: normal;
+               font-style: normal;
+               line-height: normal;
+               letter-spacing: -0.3px;
+               text-align: left;
+         color: var(--bluey-grey);
+             }
+             .card6-button-lanjut{
+                 width: 260px;
+                 height: 52px;
+                 display: flex;
+                 flex-direction: row;
+                 justify-content: flex-start;
+                 align-items: center;
+                 gap: 10px;
+                 margin: 32px 932px 0 0;
+                 padding: 16px 20px;
+                 object-fit: contain;
+                 border-radius: 14px;
+               box-shadow: 2px 4px 4px 0 rgba(0, 0, 0, 0.15);
+                 background-color: var(--ion-color-goldd);
+             }
+             .card6-sign-up{
+               //width: 154px;
+               height: 20px;
+               flex-grow: 0;
+               font-family: Poppins;
+               font-size: 16px;
+               font-weight: 500;
+               font-stretch: normal;
+               font-style: normal;
+               line-height: 1.25;
+               letter-spacing: normal;
+               text-align: center;
+               color: var(--ion-color-black);
+             }
+                
+    
   }
-
+  
   /*
    * iOS Dark Theme
    * -------------------------------------------
@@ -214,6 +1402,400 @@
     --ion-item-background: #000000;
 
     --ion-card-background: #1c1c1d;
+    .logo {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      background-image: url('../assets/images/logo_dark.svg');
+    }
+    .button_masuk {
+      width: 88px;
+      height: 40px;
+      flex-grow: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 10px;
+      margin:28px 16px 26px 26px;
+      padding: 10px 20px;
+      border-radius: 14px;
+      border: solid 1px var(--ion-color-goldd);
+    }
+    .text-masuk {
+      //width: 48px;
+      height: 20px;
+      flex-grow: 0;
+      font-family: Poppins;
+      font-size: 14px;
+      font-weight: 600;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.43;
+      letter-spacing: normal;
+      text-align: center;
+      color: var(--ion-color-goldd);
+    }
+    .card2-Program-Santri-title{
+      width: 213px;
+      height: 42px;
+      flex-grow: 0;
+      margin: 0 393px 18px 0;
+      font-family: Poppins;
+      font-size: 28px;
+      font-weight: 600;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: -0.3px;
+      text-align: left;
+      color: var(--ion-color-goldd);
+    }
+    .card2-program-santri{
+      width: 606px;
+      height: 103px;
+      flex-grow: 0;
+      margin: 18px 0 0;
+      font-family: Poppins;
+      font-size: 18px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: -0.3px;
+      text-align: left;
+      color: var(--bluey-grey);
+    }
+    .card2-button_lanjut{
+      width: 260px;
+      height: 52px;
+      flex-grow: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 10px;
+      margin: 32px 386px 0 0;
+      padding: 16px 20px;
+      object-fit: contain;
+      border-radius: 14px;
+      border: solid 1px var(--ion-color-goldd);
+      background-color: var(--ion-color-dark);
+    }
+    .card2-Sign-up{
+      width: 154px;
+      height: 20px;
+      flex-grow: 0;
+      font-family: Poppins;
+      font-size: 16px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.25;
+      letter-spacing: normal;
+      text-align: center;
+      color: var(--ion-color-goldd);
+    }
+    .card2_Rectangle {
+      width: 1244px;
+      height: 660px;
+      margin: 36px 46px 36px 46px;
+      padding: 36px 43px 36px 46px;
+      border-radius: 32px;
+      box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
+      background-color: var(--ion-color-dark);
+    }
+      .card2-title{
+        width: 358px;
+        height: 48px;
+        margin: 0 401px 24px 396px;
+        font-family: Poppins;
+        font-size: 32px;
+        font-weight: 600;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: -0.3px;
+        text-align: center;
+        color: var(--ion-color-goldd);
+      } 
+      .card2-content{
+        width: 1152px;
+        height: 122px;
+        margin: 24px 3px 36px 0;
+        font-family: Poppins;
+        font-size: 18px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: -0.3px;
+        text-align: left;
+        color: var(--bluey-grey);
+      }
+      .card3_Rectangle{
+        width: 1244px;
+        height: 530px;
+        flex-grow: 0;
+        margin: 36px 46px 36px 46px;
+        border-radius: 32px;
+        box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
+        background-color: var(--ion-color-dark);
+      }
+      .card3-Paket-Pembelajaran{
+        position: absolute;
+        width: 347px;
+        top: 36px;   
+        height: 38px;
+        flex-grow: 0;
+        margin: 0px 46px 16px 520px;
+        font-family: Poppins;
+        font-size: 34px;
+        font-weight: 600;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.12;
+        letter-spacing: -0.3px;
+        text-align: left;
+        color: var(--ion-color-goldd);
+        }
+        .card3-content-1{
+          position: absolute;
+          top: 52px; 
+          width: 678px;
+          height: 50px;
+          flex-grow: 0;
+          margin: 16px 0 16px 520px;
+          font-family: Poppins;
+          font-size: 18px;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: -0.3px;
+          text-align: left;
+          color: var(--bluey-grey);
+          }  
+          .card3-content-2{
+          position: absolute;
+          top: 118px; 
+          width: 678px;
+          height: 84px;
+          flex-grow: 0;
+          margin: 16px 0 16px 520px;
+          font-family: Poppins;
+          font-size: 18px;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.63;
+          letter-spacing: -0.3px;
+          text-align: left;
+          color: var(--bluey-grey);
+          }  
+          .card3-content-21{
+            position: absolute;
+            top: 118px; 
+            width: 678px;
+            height: 84px;
+            flex-grow: 0;
+            margin: 16px 0 16px 546px;
+            font-family: Poppins;
+            font-size: 18px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.63;
+            letter-spacing: -0.3px;
+            text-align: left;
+            color: var(--bluey-grey);
+          }  
+          .card3-button_detail{
+            position: absolute;
+            width: 326px;
+            height: 52px;
+            flex-grow: 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 10px;
+            margin: 42px 16px 45px 10px;
+            padding: 16px 20px;
+            object-fit: contain;
+            border-radius: 14px;
+            box-shadow: 2px 4px 12px 0 rgba(252, 198, 4, 0.2);
+            background-color: var(--ion-color-goldd);
+            }
+            .card3-Sign-up{
+              width: 280px;
+              height: 20px;
+              flex-grow: 0;
+              font-family: Poppins;
+              font-size: 16px;
+              font-weight: 600;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: 1.25;
+              letter-spacing: normal;
+              text-align: center;
+              color: var(--ion-color-black);
+            }
+            .card3-button_lanjut{
+              position: absolute;
+              width: 336px;
+              height: 52px;
+              flex-grow: 0;
+              display: flex;
+              flex-direction: row;
+              justify-content: center;
+              align-items: center;
+              gap: 10px;
+              margin: 42px 0 45px 350px;
+              padding: 16px 20px;
+              object-fit: contain;
+              border-radius: 14px;
+              border: solid 1px var(--ion-color-goldd);
+              background-color: var(--ion-color-dark);
+            }
+            .card3-lebih-lanjut{
+              width: 150px;
+              height: 20px;
+              flex-grow: 0;
+              font-family: Poppins;
+              font-size: 16px;
+              font-weight: 500;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: 1.25;
+              letter-spacing: normal;
+              text-align: center;
+              color: var(--ion-color-goldd);
+            }
+            .card5-Rectangle-611{
+              width: 1245.3px;
+              height: 722px;
+              margin: 36px 46px 36px 46px;
+              padding: 36px 43px 36px 46px;
+              border-radius: 32px;
+              box-shadow: 0 3px 5px 0 rgba(27, 28, 32, 0.32), 0 8px 24px 0 rgba(27, 28, 32, 0.32);
+              background-color: var(--ion-color-dark);
+            }
+            .card5-content{
+              width: 1051px;
+              height: 82px;
+              margin: 24px 54px 0 50px;
+              padding: 10px 54px 100px 50px;
+              font-family: Poppins;
+              font-size: 18px;
+              font-weight: 500;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: normal;
+              letter-spacing: -0.3px;
+              text-align: left;
+              color: var(--bluey-grey);
+              }
+              .card7-Rectangle-621  {
+                width: 1245px;
+                height: 381px;
+                margin: 36px 46px 36px 46px;
+                padding: 36px 43px 36px 46px;
+                border-radius: 32px;
+                box-shadow: 0 3px 5px 0 rgba(27, 28, 32, 0.32), 0 8px 24px 0 rgba(27, 28, 32, 0.32);
+                background-color: var(--ion-color-dark);
+                } 
+                .card7-Kontak {
+                  width: 115px;
+                  height: 48px;
+                  margin: 36px 462px 26px 0;
+                  font-family: Poppins;
+                  font-size: 32px;
+                  font-weight: 600;
+                  font-stretch: normal;
+                  font-style: normal;
+                  line-height: normal;
+                  letter-spacing: -0.3px;
+                  text-align: center;
+                  color: var(--ion-color-goldd);
+                }
+                .footer-Rectangle-622 {
+                  width: 1435px;
+                  height: 414px;
+                  margin: 36px 3px 0 2px;
+                  padding: 66px 316px 33px 317px;
+                  background-color: var(--ion-color-dark)
+                }
+                .card6-Rectangle-625 {
+                  width: 1244px;
+                  height: 322px;
+                  margin: 36px 0 36px 66px;
+                  padding: 36px 46px 38px;
+                  object-fit: contain;
+                  border-radius: 32px;
+                  box-shadow: 0 3px 5px 0 rgba(27, 28, 32, 0.32), 0 8px 24px 0 rgba(27, 28, 32, 0.32);
+                  background-color: var(--ion-color-dark);
+                }
+                .card6-Program-Kemitraan{
+                  width: 279px;
+                 height: 42px;
+                 flex-grow: 0;
+                 margin: 0 873px 19px 0;
+                 font-family: Poppins;
+                 font-size: 28px;
+                 font-weight: 600;
+                 font-stretch: normal;
+                 font-style: normal;
+                 line-height: normal;
+                 letter-spacing: -0.3px;
+                 text-align: left;
+                 color: var(--ion-color-goldd);
+             }
+             .card6-content{
+               width: 1152px;
+               height: 103px;
+               flex-grow: 0;
+               margin: 19px 0 0;
+               font-family: Poppins;
+               font-size: 18px;
+               font-weight: 500;
+               font-stretch: normal;
+               font-style: normal;
+               line-height: normal;
+               letter-spacing: -0.3px;
+               text-align: left;
+         color: var(--bluey-grey);
+             }
+             .card6-button-lanjut{
+                 width: 260px;
+                 height: 52px;
+                 display: flex;
+                 flex-direction: row;
+                 justify-content: flex-start;
+                 align-items: center;
+                 gap: 10px;
+                 margin: 32px 932px 0 0;
+                 padding: 16px 20px;
+                 object-fit: contain;
+                 border-radius: 14px;
+               box-shadow: 2px 4px 4px 0 rgba(0, 0, 0, 0.15);
+                 background-color: var(--ion-color-goldd);
+             }
+             .card6-sign-up{
+               //width: 154px;
+               height: 20px;
+               flex-grow: 0;
+               font-family: Poppins;
+               font-size: 16px;
+               font-weight: 500;
+               font-stretch: normal;
+               font-style: normal;
+               line-height: 1.25;
+               letter-spacing: normal;
+               text-align: center;
+               color: var(--ion-color-black);
+             }
+
   }
 
   .ios ion-modal {
@@ -221,7 +1803,7 @@
     --ion-toolbar-background: var(--ion-color-step-150);
     --ion-toolbar-border-color: var(--ion-color-step-250);
   }
-
+  
 
   /*
    * Material Design Dark Theme
@@ -263,13 +1845,404 @@
 
     --ion-tab-bar-background: #1f1f1f;
 
-    --ion-card-background: #1e1e1e;
+    --ion-card-background: #1e1e1e;    
+    .logo {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      background-image: url('../assets/images/logo_dark.svg');
+    }
+    .button_masuk {
+      width: 88px;
+      height: 40px;
+      flex-grow: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 10px;
+      margin:28px 16px 26px 26px;
+      padding: 10px 20px;
+      border-radius: 14px;
+      border: solid 1px var(--ion-color-goldd);
+    }
+    .text-masuk {
+      //width: 48px;
+      height: 20px;
+      flex-grow: 0;
+      font-family: Poppins;
+      font-size: 14px;
+      font-weight: 600;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.43;
+      letter-spacing: normal;
+      text-align: center;
+      color: var(--ion-color-goldd);
+    }
+    .card2-Program-Santri-title{
+      width: 213px;
+      height: 42px;
+      flex-grow: 0;
+      margin: 0 393px 18px 0;
+      font-family: Poppins;
+      font-size: 28px;
+      font-weight: 600;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: -0.3px;
+      text-align: left;
+      color: var(--ion-color-goldd);
+    }
+    .card2-program-santri{
+      width: 606px;
+      height: 103px;
+      flex-grow: 0;
+      margin: 18px 0 0;
+      font-family: Poppins;
+      font-size: 18px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: -0.3px;
+      text-align: left;
+      color: var(--bluey-grey);
+    }
+    .card2-button_lanjut{
+      width: 260px;
+      height: 52px;
+      flex-grow: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 10px;
+      margin: 32px 386px 0 0;
+      padding: 16px 20px;
+      object-fit: contain;
+      border-radius: 14px;
+      border: solid 1px var(--ion-color-goldd);
+      background-color: var(--ion-color-dark);
+    }
+    .card2-Sign-up{
+      width: 154px;
+      height: 20px;
+      flex-grow: 0;
+      font-family: Poppins;
+      font-size: 16px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.25;
+      letter-spacing: normal;
+      text-align: center;
+      color: var(--ion-color-goldd);
+    }
+    .card2_Rectangle {
+      width: 1244px;
+      height: 660px;
+      margin: 36px 46px 36px 46px;
+      padding: 36px 43px 36px 46px;
+      border-radius: 32px;
+      box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
+      background-color: var(--ion-color-dark);
+    }
+      .card2-title{
+        width: 358px;
+        height: 48px;
+        margin: 0 401px 24px 396px;
+        font-family: Poppins;
+        font-size: 32px;
+        font-weight: 600;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: -0.3px;
+        text-align: center;
+        color: var(--ion-color-goldd);
+      }
+      .card2-content{
+        width: 1152px;
+        height: 122px;
+        margin: 24px 3px 36px 0;
+        font-family: Poppins;
+        font-size: 18px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: -0.3px;
+        text-align: left;
+        color: var(--bluey-grey);
+      }
+      .card3_Rectangle{
+        width: 1244px;
+        height: 530px;
+        flex-grow: 0;
+        margin: 36px 46px 36px 46px;
+        border-radius: 32px;
+        box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
+        background-color: var(--ion-color-dark);
+      }
+      .card3-Paket-Pembelajaran{
+        position: absolute;
+        width: 347px;
+        top: 36px;   
+        height: 38px;
+        flex-grow: 0;
+        margin: 0px 46px 16px 520px;
+        font-family: Poppins;
+        font-size: 34px;
+        font-weight: 600;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.12;
+        letter-spacing: -0.3px;
+        text-align: left;
+        color: var(--ion-color-goldd);
+        }
+        .card3-content-1{
+          position: absolute;
+          top: 52px; 
+          width: 678px;
+          height: 50px;
+          flex-grow: 0;
+          margin: 16px 0 16px 520px;
+          font-family: Poppins;
+          font-size: 18px;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: -0.3px;
+          text-align: left;
+          color: var(--bluey-grey);
+          }  
+          .card3-content-2{
+          position: absolute;
+          top: 118px; 
+          width: 678px;
+          height: 84px;
+          flex-grow: 0;
+          margin: 16px 0 16px 520px;
+          font-family: Poppins;
+          font-size: 18px;
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.63;
+          letter-spacing: -0.3px;
+          text-align: left;
+          color: var(--bluey-grey);
+          }  
+          .card3-content-21{
+            position: absolute;
+            top: 118px; 
+            width: 678px;
+            height: 84px;
+            flex-grow: 0;
+            margin: 16px 0 16px 546px;
+            font-family: Poppins;
+            font-size: 18px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.63;
+            letter-spacing: -0.3px;
+            text-align: left;
+            color: var(--bluey-grey);
+          }  
+          .card3-button_detail{
+            position: absolute;
+            width: 326px;
+            height: 52px;
+            flex-grow: 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 10px;
+            margin: 42px 16px 45px 10px;
+            padding: 16px 20px;
+            object-fit: contain;
+            border-radius: 14px;
+            box-shadow: 2px 4px 12px 0 rgba(252, 198, 4, 0.2);
+            background-color: var(--ion-color-goldd);
+            }
+            .card3-Sign-up{
+              width: 280px;
+              height: 20px;
+              flex-grow: 0;
+              font-family: Poppins;
+              font-size: 16px;
+              font-weight: 600;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: 1.25;
+              letter-spacing: normal;
+              text-align: center;
+              color: var(--ion-color-black);
+            }
+            .card3-button_lanjut{
+              position: absolute;
+              width: 336px;
+              height: 52px;
+              flex-grow: 0;
+              display: flex;
+              flex-direction: row;
+              justify-content: center;
+              align-items: center;
+              gap: 10px;
+              margin: 42px 0 45px 350px;
+              padding: 16px 20px;
+              object-fit: contain;
+              border-radius: 14px;
+              border: solid 1px var(--ion-color-goldd);
+              background-color: var(--ion-color-dark);
+            }
+            .card3-lebih-lanjut{
+              width: 150px;
+              height: 20px;
+              flex-grow: 0;
+              font-family: Poppins;
+              font-size: 16px;
+              font-weight: 500;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: 1.25;
+              letter-spacing: normal;
+              text-align: center;
+              color: var(--ion-color-goldd);
+            }
+            .card5-Rectangle-611{
+              width: 1245.3px;
+              height: 722px;
+              margin: 36px 46px 36px 46px;
+              padding: 36px 43px 36px 46px;
+              border-radius: 32px;
+              box-shadow: 0 3px 5px 0 rgba(27, 28, 32, 0.32), 0 8px 24px 0 rgba(27, 28, 32, 0.32);
+              background-color: var(--ion-color-dark);
+            }
+            .card5-content{
+              width: 1051px;
+              height: 82px;
+              margin: 24px 54px 0 50px;
+              padding: 10px 54px 100px 50px;
+              font-family: Poppins;
+              font-size: 18px;
+              font-weight: 500;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: normal;
+              letter-spacing: -0.3px;
+              text-align: left;
+              color: var(--bluey-grey);
+              }
+              .card7-Rectangle-621  {
+                width: 1245px;
+                height: 381px;
+                margin: 36px 46px 36px 46px;
+                padding: 36px 43px 36px 46px;
+                border-radius: 32px;
+                box-shadow: 0 3px 5px 0 rgba(27, 28, 32, 0.32), 0 8px 24px 0 rgba(27, 28, 32, 0.32);
+                background-color: var(--ion-color-dark);
+                } 
+                .card7-Kontak {
+                  width: 115px;
+                  height: 48px;
+                  margin: 36px 462px 26px 0;
+                  font-family: Poppins;
+                  font-size: 32px;
+                  font-weight: 600;
+                  font-stretch: normal;
+                  font-style: normal;
+                  line-height: normal;
+                  letter-spacing: -0.3px;
+                  text-align: center;
+                  color: var(--ion-color-goldd);
+                }
+                .footer-Rectangle-622 {
+                  width: 1435px;
+                  height: 414px;
+                  margin: 36px 3px 0 2px;
+                  padding: 66px 316px 33px 317px;
+                  background-color: var(--ion-color-dark)
+                }
+                .card6-Rectangle-625 {
+                  width: 1244px;
+                  height: 322px;
+                  margin: 36px 0 36px 66px;
+                  padding: 36px 46px 38px;
+                  object-fit: contain;
+                  border-radius: 32px;
+                  box-shadow: 0 3px 5px 0 rgba(27, 28, 32, 0.32), 0 8px 24px 0 rgba(27, 28, 32, 0.32);
+                  background-color: var(--ion-color-dark);
+                }
+                .card6-Program-Kemitraan{
+                  width: 279px;
+                 height: 42px;
+                 flex-grow: 0;
+                 margin: 0 873px 19px 0;
+                 font-family: Poppins;
+                 font-size: 28px;
+                 font-weight: 600;
+                 font-stretch: normal;
+                 font-style: normal;
+                 line-height: normal;
+                 letter-spacing: -0.3px;
+                 text-align: left;
+                 color: var(--ion-color-goldd);
+             }
+             .card6-content{
+               width: 1152px;
+               height: 103px;
+               flex-grow: 0;
+               margin: 19px 0 0;
+               font-family: Poppins;
+               font-size: 18px;
+               font-weight: 500;
+               font-stretch: normal;
+               font-style: normal;
+               line-height: normal;
+               letter-spacing: -0.3px;
+               text-align: left;
+         color: var(--bluey-grey);
+             }
+             .card6-button-lanjut{
+                 width: 260px;
+                 height: 52px;
+                 display: flex;
+                 flex-direction: row;
+                 justify-content: flex-start;
+                 align-items: center;
+                 gap: 10px;
+                 margin: 32px 932px 0 0;
+                 padding: 16px 20px;
+                 object-fit: contain;
+                 border-radius: 14px;
+               box-shadow: 2px 4px 4px 0 rgba(0, 0, 0, 0.15);
+                 background-color: var(--ion-color-goldd);
+             }
+             .card6-sign-up{
+               //width: 154px;
+               height: 20px;
+               flex-grow: 0;
+               font-family: Poppins;
+               font-size: 16px;
+               font-weight: 500;
+               font-stretch: normal;
+               font-style: normal;
+               line-height: 1.25;
+               letter-spacing: normal;
+               text-align: center;
+               color: var(--ion-color-black);
+             }
+
   }
-  .logo {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
+  
+ 
   @media(max-width :375px){
     
     .hide-xs{
@@ -299,734 +2272,8 @@ ion-content{
   margin: 1px 39px 1px 0;
   object-fit: contain;
 }
-// .toolbar-title {
-//   width: 1440px;
-//   height: 97px;
-//   margin: 0 0 136px;
-//   padding: 28px 98px 29px;
-//   background-color: var(--white);
-// }
-div.toolbar-container{
-  padding-right: 46px;  
-}
 
-/*====for web=======*/
-.button_masuk {
-  //width: 88px;
-  width: 88px;
-  height: 40px;
-  flex-grow: 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 10px;
-  //  margin-right: 16px;
-  margin:28px 16px 26px 26px;
-  padding: 10px 20px;
-  border-radius: 14px;
-  border: solid 1px var(--ion-color-black);
-}
-.text-masuk {
-  //width: 48px;
-  height: 20px;
-  flex-grow: 0;
-  font-family: Poppins;
-  font-size: 14px;
-  font-weight: 600;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.43;
-  letter-spacing: normal;
-  text-align: center;
-  color: var(--ion-color-black);
-}
 
-.button_registrasi {
-  width: 111px;
-  height: 40px;
-  flex-grow: 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 10px;
-  margin:28px 66px 26px 1px;
-  //padding: 36px 43px 36px 46px;
-  object-fit: contain;
-  border-radius: 14px;
-  background-color: var(--ion-color-black);  
-}
-.card1_banner {
-  width: 1244px;
-  height: 660px;
-  margin: 36px 46px 36px 46px;
-  padding: 36px 43px 36px 46px;
-  object-fit: contain;
-  //transform: rotate(180deg);
-  border-radius: 32px;
-  box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), linear-gradient(to top, rgba(185, 185, 185, 0.68), #212121), linear-gradient(to bottom, #c4c4c4, #c4c4c4);
-  background-size: auto;
-  background-position: center;
-  background-image: url('../assets/images/banner.webp');
-}   
-.card2_Rectangle {
-  //width: 1244px;
-  height: 660px;
-  margin: 36px 46px 36px 46px;
-  padding: 36px 43px 36px 46px;
-  border-radius: 32px;
-  box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
-  background-color: var(--ion-color-white);
-}
-
-.Sign-up {
-  width: 71px;
-  height: 20px;
-  flex-grow: 0;
-  font-family: Poppins;
-  font-size: 14px;
-  font-weight: 600;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.43;
-  letter-spacing: normal;
-  text-align: center;
-  color: var(--ion-color-goldd);
-}
-
-.banner-title{    
-  width: 681px;
-  height: 138px;
-  margin: 118px 501px 19px 128px;
-  font-family: Poppins;
-  font-size: 62px;
-  font-weight: 600;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.12;
-  letter-spacing: -0.3px;
-  text-align: left;
-  color: var(--goldd);
-}
-ion-card {
-  position: relative;
-  text-align: center;
-}
-
-.card1-title {
-  position: absolute;
-  top: 0%;    
-  width: 681px;
-  height: 138px;
-  margin: 118px 501px 19px 128px;
-  font-family: Poppins;
-  font-size: 62px;
-  font-stretch: normal;
-  font-style: normal;
-  font-weight: 600;
-  letter-spacing: -0.3px;
-  text-align: left;
-  color: var(--ion-color-goldd);
-}
-.card1-content{
-  position: absolute;
-  top: 275px;    
-  width: 716px;
-  height: 99px;
-  margin: 19px 466px 116px 128px;
-  font-family: Poppins;
-  font-size: 20px;
-  font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.63;
-  letter-spacing: -0.3px;
-  text-align: left;
-  color: var(--ion-color-goldd);
-}
-.card1-button_lanjut{
-  position: absolute;
-  top: 50%;  
-  width: 260px;
-  height: 52px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 10px;
-  margin: 116px 954px 34px 128px;
-  padding: 16px 20px;
-  object-fit: contain;
-  border-radius: 14px;
-  box-shadow: 2px 4px 12px 0 rgba(252, 198, 4, 0.2);
-  background-color: var(--ion-color-goldd);
-}
-.card2-title{
-  width: 358px;
-  height: 48px;
-  margin: 0 401px 24px 396px;
-  font-family: Poppins;
-  font-size: 32px;
-  font-weight: 600;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: -0.3px;
-  text-align: center;
-  color: var(--ion-color-black);
-}
-.card-subtitle {
-  font-size: 1.0em;
-  position: absolute;
-  top: 52%;
-  width: 100%;
-  color: #fff;
-}
-.card2-content{
-  width: 1152px;
-  height: 122px;
-  margin: 24px 3px 36px 0;
-  font-family: Poppins;
-  font-size: 18px;
-  font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: -0.3px;
-  text-align: left;
-  color: var(--ion-color-black);
-}
-.card2-image-santri{
-  width: 500px;
-  height: 321px;
-  flex-grow: 0;
-  margin: 0 46px 0 0;
-  object-fit: contain;
-  border-radius: 32px;
-  background-color: var(--ion-color-goldd);
-}
-.card2-Program-Santri-title{
-  width: 213px;
-  height: 42px;
-  flex-grow: 0;
-  margin: 0 393px 18px 0;
-  font-family: Poppins;
-  font-size: 28px;
-  font-weight: 600;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: -0.3px;
-  text-align: left;
-  color: var(--ion-color-black);
-}
-.card2-program-santri{
-  width: 606px;
-  height: 103px;
-  flex-grow: 0;
-  margin: 18px 0 0;
-  font-family: Poppins;
-  font-size: 18px;
-  font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: -0.3px;
-  text-align: left;
-  color: var(--ion-color-black);
-}
-.card2-button_lanjut{
-  width: 260px;
-  height: 52px;
-  flex-grow: 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 10px;
-  margin: 32px 386px 0 0;
-  padding: 16px 20px;
-  object-fit: contain;
-  border-radius: 14px;
-  border: solid 1px #000000;
-  --background-color: #ffffff;
-}
-.card2-Sign-up{
-  width: 154px;
-  height: 20px;
-  flex-grow: 0;
-  font-family: Poppins;
-  font-size: 16px;
-  font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.25;
-  letter-spacing: normal;
-  text-align: center;
-  color: var(--ion-color-black);
-}
-
-ion-slide{
-  overflow-y: scroll;
-}
-.swiper-slide{
-    display: block;
-}
-.column_2 {
-  float: left;
-  width: 50%;
-}
-.row_card2:after {
-  content: "";
-  display: table;
-  clear: both;
-}    
-.card3_Rectangle{
-  width: 1244px;
-  height: 530px;
-  flex-grow: 0;
-  margin: 36px 46px 36px 46px;
-  border-radius: 32px;
-  box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
-  background-color: var(--ion-color-white);
-}
-.card3-image-paket {
-  width: 474px;
-  height: 529px;
-  flex-grow: 0;
-  margin: 0 46px 0 0;
-  padding: 36px 43px 36px 46px;
-  object-fit: contain;
-  background-color: --ion-color-black;
-  background-size: auto;
-  background-position: left;
-  background-image: url('../assets/images/image-paket.webp');
-}
-.card3-Paket-Pembelajaran{
-position: absolute;
-width: 347px;
-top: 36px;   
-height: 38px;
-flex-grow: 0;
-margin: 0px 46px 16px 520px;
-font-family: Poppins;
-font-size: 34px;
-font-weight: 600;
-font-stretch: normal;
-font-style: normal;
-line-height: 1.12;
-letter-spacing: -0.3px;
-text-align: left;
-color: var(--ion-color-black);
-}
-.column_31 {
-float: left;
-width: 474px;
-}
-.column_32 {
-float: left;
-width: 770px;
-}
-.card3-Rectangle-599 {
-  width: 1244px;
-  height: 530px;
-  flex-grow: 0;
-  margin: 36px 0 36px 66px;
-  padding: 0 46px 1px 0;
-  border-radius: 32px;
-  box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
-  background-color: var(--ion-color-white);
-  
-}
-SCS
-.card3-content-1{
-position: absolute;
-top: 52px; 
-width: 678px;
-height: 50px;
-flex-grow: 0;
-margin: 16px 0 16px 520px;
-font-family: Poppins;
-font-size: 18px;
-font-weight: 500;
-font-stretch: normal;
-font-style: normal;
-line-height: normal;
-letter-spacing: -0.3px;
-text-align: left;
-color: var(--ion-color-black);
-}  
-.card3-content-2{
-position: absolute;
-top: 118px; 
-width: 678px;
-height: 84px;
-flex-grow: 0;
-margin: 16px 0 16px 520px;
-font-family: Poppins;
-font-size: 18px;
-font-weight: 500;
-font-stretch: normal;
-font-style: normal;
-line-height: 1.63;
-letter-spacing: -0.3px;
-text-align: left;
-color: var(--ion-color-black);
-}  
-.card3-content-21{
-  position: absolute;
-  top: 118px; 
-  width: 678px;
-  height: 84px;
-  flex-grow: 0;
-  margin: 16px 0 16px 546px;
-  font-family: Poppins;
-  font-size: 18px;
-  font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.63;
-  letter-spacing: -0.3px;
-  text-align: left;
-  color: var(--ion-color-black);
-}  
-.card3-button_detail{
-position: absolute;
-//top: 294px; 
-width: 326px;
-height: 52px;
-flex-grow: 0;
-display: flex;
-flex-direction: row;
-justify-content: flex-start;
-align-items: center;
-gap: 10px;
-margin: 42px 16px 45px 10px;
-padding: 16px 20px;
-object-fit: contain;
-border-radius: 14px;
-box-shadow: 2px 4px 12px 0 rgba(252, 198, 4, 0.2);
-background-color: var(--ion-color-goldd);
-}
-.card3-Sign-up{
-  width: 280px;
-  height: 20px;
-  flex-grow: 0;
-  font-family: Poppins;
-  font-size: 16px;
-  font-weight: 600;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.25;
-  letter-spacing: normal;
-  text-align: center;
-  color: var(--ion-color-black);
-}
-.card3-button_lanjut{
-  position: absolute;
-//top: 294px; 
-  width: 336px;
-  height: 52px;
-  flex-grow: 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin: 42px 0 45px 350px;
-  padding: 16px 20px;
-  object-fit: contain;
-  border-radius: 14px;
-  border: solid 1px #000000;
-  background-color: #ffffff;
-}
-.card3-lebih-lanjut{
-  width: 150px;
-  height: 20px;
-  flex-grow: 0;
-  font-family: Poppins;
-  font-size: 16px;
-  font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.25;
-  letter-spacing: normal;
-  text-align: center;
-  color: var(--ion-color-black);
-}
-.card4-Rectangle-608 {
-  width: 1244px;
-  height: 322px;
-  margin: 36px 0 36px 66px;
-  padding: 36px 400px 38px 46px;
-  object-fit: contain;
-  border-radius: 32px;
-  box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
-  background-image: linear-gradient(to top, var(--goldd), rgba(255, 255, 255, 0)), linear-gradient(to bottom, rgba(252, 198, 4, 0.6), rgba(252, 198, 4, 0.6)), linear-gradient(to bottom, var(--ion-color-goldd), var(--ion-color-goldd));
-}
-
-.card4-Program-Donatur{
-  position: absolute;
-  top: 0%;   
-//width: 244px;
-  height: 42px;
-  flex-grow: 0;
-  margin: 0 554px 19px 0;
-  padding: 36px 63px 36px 66px;
-  font-family: Poppins;
-  font-size: 28px;
-  font-weight: 600;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: -0.3px;
-  text-align: left;
-  color: var(--ion-color-black);
-}
-.card4-Program-content{
-  position: absolute;
-  top: 0%;   
-  width: 798px;
-  height: 103px;
-  flex-grow: 0;
-  margin: 19px 0 0;
-  padding: 78px 63px 36px 66px;
-  font-family: Poppins;
-  font-size: 18px;
-  font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: -0.3px;
-  text-align: left;
-  color: var(--on-color-black);
-}
-.card4-button-lanjut{
-  position: absolute;
-  top: 190px;   
-  width: 250px;
-  height: 52px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 10px;
-  margin: 32px 16px 0 0;
-  padding: 10px 63px 36px 5px;
-  object-fit: contain;
-  border-radius: 14px;
-  box-shadow: 2px 4px 4px 0 rgba(0, 0, 0, 0.15);
-  background-color: var(--ion-color-black);
-}
-.card4-sign-up{
-//width: 184px;
-  height: 20px;
-  flex-grow: 0;
-  font-family: Poppins;
-  font-size: 16px;
-  font-weight: 500;
-  padding: 30px 63px 30px 20px;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.25;
-  letter-spacing: normal;
-  text-align: center;
-  color: var(--ion-color-goldd);
-}
-.card4-sign-up-bagikan-informasi{
-  //width: 170px;
-  top: 215px;   
-  height: 20px;
-  flex-grow: 0;
-  font-family: Poppins;
-  font-size: 16px;
-  font-weight: 500;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.25;
-  letter-spacing: normal;
-  text-align: center;
-  color: var(--ion-color-black);
-}
-.card5-Rectangle-611{
-  width: 1245.3px;
-  height: 722px;
-  margin: 36px 46px 36px 46px;
-  padding: 36px 43px 36px 46px;
-  border-radius: 32px;
-  box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
-  background-color: var(--ion-color-white);
-}
-.card4-button-bagikan-informasi{
-position: absolute;
-top: 190px; 
-//width: 210px;
-height: 52px;
-display: flex;
-flex-direction: row;
-justify-content: flex-start;
-align-items: center;
-gap: 10px;
-margin: 32px 352px 0 270px;
-padding: 16px 20px;
-object-fit: contain;
-border-radius: 14px;
-border: solid 1px #000000;
-color: var(--ion-color-black);
-}
-.card5-Frequently-Ask-Question {
-width: 389px;
-height: 48px;
-margin: 0 382px 36px 384px;
-font-family: Poppins;
-font-size: 32px;
-font-weight: 600;
-font-stretch: normal;
-font-style: normal;
-line-height: normal;
-letter-spacing: -0.3px;
-text-align: center;
-color: var(--ion-color-black);
-}
-.card5-Rectangle-614 {
-//width: 1155px;
-height: 72px;
-margin: 0 0 24px;
-padding: 24px 54px;
-border-radius: 32px;
-background-color:var(--ion-color-black);
-cursor: pointer;
-}
-
-.card5-title{
-position: absolute; 
-width: 191px;
-height: 24px;
-margin: 0 832px 0 0;
-font-family: Poppins;
-font-size: 16px;
-font-weight: 600;
-font-stretch: normal;
-font-style: normal;
-line-height: normal;
-letter-spacing: -0.3px;
-text-align: center;
-color: var(--ion-color-goldd);
-}
-.card5-content{
-width: 1051px;
-height: 82px;
-margin: 24px 54px 0 50px;
-padding: 10px 54px 100px 50px;
-font-family: Poppins;
-font-size: 18px;
-font-weight: 500;
-font-stretch: normal;
-font-style: normal;
-line-height: normal;
-letter-spacing: -0.3px;
-text-align: left;
-color: var(--ion-color-black);
-}
-.card6-Rectangle-621  {
-width: 1245px;
-height: 381px;
-margin: 36px 46px 36px 46px;
-padding: 36px 43px 36px 46px;
-border-radius: 32px;
-box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
-background-color: var(--ion-color-white);
-} 
-.card6-Kontak {
-  width: 115px;
-  height: 48px;
-  margin: 36px 462px 26px 0;
-  font-family: Poppins;
-  font-size: 32px;
-  font-weight: 600;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: -0.3px;
-  text-align: center;
-  color: var(--ion-color-black);
-}
-.card6-Rectangle-612{
-width: 1155px;
-height: 72px;
-margin: 0 0 24px;
-padding: 24px 54px;
-border-radius: 32px;
-color: var(--ion-color-black);
-}
-.Ellipse-1 {
-  position: absolute;
-  top:45%;
-  right: -50px;
-  width: 42px;
-  height: 42px;
-  flex-grow: 0;
-  margin: 24px 44px 112px 12px;
-  padding: 10px 9px 8px;
-  background-color: var(--ion-color-goldd);
-  display: flex!important;
-  align-content: center!important;
-  align-items: center!important;
-  border-radius: 50%;
-  cursor: pointer;
-}
-.Ellipse-2 {
-  position: absolute;
-  top:40%;
-  right: -50px;
-  width: 42px;
-  height: 42px;
-  flex-grow: 0;
-  margin: 14px 44px 24px 12px;
-  padding: 11px 11px 11px 11px;
-  background-color: var(--ion-color-goldd);
-  display: flex!important;
-  align-content: center!important;
-  align-items: center!important;
-  border-radius: 50%;
-  cursor: pointer;
-}  
-.Vector {
-  width: 20px;
-  height: 20px;
-  flex-grow: 0;
-  object-fit: contain;  
-}
-.akar-iconscircle-chevron-up {
-  width: 24px;
-  height: 24px;
-  flex-grow: 0;
-  object-fit: contain;
-}
-.navbar {
-  //width: 1440px;
-  height: 97px;
-  //margin: 0 0 136px;
-  //padding: 28px 98px 29px;
-  background-color: var(--ion-color-white);
-}
-
-.footer-Rectangle-622 {
-  width: 1435px;
-  height: 414px;
-  margin: 36px 3px 0 2px;
-  padding: 66px 316px 33px 317px;
-  background-color: var(--ion-color-black);
-}
-.footer-Vector {
-  width: 17.3px;
-  height: 35.4px;
-  flex-grow: 0;
-  margin: 0 9.8px 0 9.3px;
-  background-color: var(--ion-color-white);
-}
 .masuk-santri-donatur {
   width: 375px;
   height: 812px;
