@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { AhmadproviderService } from '../ahmadprovider.service';
 import {  NavController, NavParams, AlertController, ToastController  } from '@ionic/angular';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { LoadingController, Platform } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/auth';
 import  firebase from 'firebase';
 import { Router } from '@angular/router';
+import { AhmadproviderService } from '../ahmadprovider.service';
 
 
 @Component({
@@ -14,11 +14,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./donaturreg.page.scss'],
 })
 export class DonaturregPage implements OnInit {
-  user_email : string;
-  user_name :string;
+  public user_email : string;
+  public nama_lengkap :string;
   public loading: any;
   public isGoogleLogin = false;
   public user = null;
+  public error_msg:string=""
+  public response:any;
 
   constructor(
     public asp: AhmadproviderService,
@@ -33,21 +35,7 @@ export class DonaturregPage implements OnInit {
 
   ngOnInit() {
   }
-  saveregstrasi(){
-    this.asp.regiaster_donatur (this.user_email,
-      this.user_name).then(
-    data=> {        
-          console.log(data);
-          this.presentToast();
-    });
-  }
-  async presentToast() {
-    const toast = await this.toastCtrl.create({
-      message: 'Silahkan cek email anda.',
-      duration: 2000
-    });
-    toast.present();
-  }
+
   doLogin(){
     let params: any;
     if (this.platform.is('cordova')) {
@@ -100,9 +88,48 @@ export class DonaturregPage implements OnInit {
       this.isGoogleLogin = false;
     });
   }
-  donaturloginclick()
-  {
+  gotologinpage(){
     this.route.navigateByUrl('/donaturlogin', { replaceUrl:true });
   }
+  goBack(){
+    this.asp.go_previous_page();
+  }
+  goRegister(){
+    if(this.user_email.trim().length==0)
+    {
+      this.error_msg="* email required!";
+      return;
+    }
+    if(this.nama_lengkap.trim().length==0){
+      this.error_msg="* nama lengkap required!";
+      return;
+    }
+    
+    this.asp.presentLoading("register processing");
+    this.asp.register_donatur(this.user_email,
+      this.nama_lengkap).then(
+        data => {
+          this.response = data;
+          if (this.response.status == 'error') {
+            this.error_msg = this.response.message;
+          }
+          else {
+            this.error_msg = "Silahkan cek inbox anda di " + this.user_email + " untuk melanjutkan proses berikutnya";
+            this.route.navigate(['confirm-page', { msg: this.error_msg }]);
+          }
+          this.asp.dismissLoading();
+        });
+  }
+    blurEvent1(event: string ){
+      if(event.trim().length>0){
+        this.error_msg="";
+      }    
+    }
+    blurEvent2(event: string ){
+      if(event.trim().length>0){
+        this.error_msg="";
+      }
+    }
+
 
 }

@@ -11,6 +11,7 @@ import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent implements OnInit  {
+  public devWidth = this.platform.width();
   constructor(
     private platform: Platform, private router: Router, public navCtrl: NavController,private ga: GoogleAnalytics,
     private splashScreen: SplashScreen,
@@ -36,6 +37,7 @@ export class AppComponent implements OnInit  {
         error => console.log('Google Analytics Error: ' + error)
       );      
       console.log('Google Analytics Error: ' + this.platform.platforms());
+      /*
       if (this.platform.is('desktop')) 
         {
           this.router.navigateByUrl('/webdashboard');                        
@@ -46,6 +48,7 @@ export class AppComponent implements OnInit  {
             this.router.navigateByUrl('/mobiledashboard', { replaceUrl:true });
           }
         }
+        */
     })
   }
   trackEvent(val) {

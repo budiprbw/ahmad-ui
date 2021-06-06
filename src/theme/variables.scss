@@ -82,14 +82,26 @@
   --mobile-breakpoint: 600px;
   --fill-placeholder:#fafafa;
   --bluey-grey:#92949b;
+  --placeholder : #bdbdbd;
+  --greyish-brown:#4f4f4f;
         /*====for web =======*/
         /*=== dashboard =====*/
+        .modal-wrapper {
+            width: 339px;
+            height: 236px;
+        }
         .logo {
           display: flex;
           flex-direction: row;
           align-items: center;
           background-image: url('../assets/images/logo.svg');
         }
+        .logo_putih {
+          //width: 210.9px;
+          height: 48px;
+          margin: 0 50.1px 32px 50px;
+          object-fit: contain;              
+        }      
         .button_masuk {
           //width: 88px;
           width: 88px;
@@ -120,6 +132,20 @@
           text-align: center;
           color: var(--ion-color-black);
         }
+        .Sign-up-registrasi{
+          width: 71px;
+          height: 20px;
+          flex-grow: 0;
+          font-family: Poppins;
+          font-size: 14px;
+          font-weight: 600;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.43;
+          letter-spacing: normal;
+          text-align: center;
+          color: var(--ion-color-goldd);
+        }
 
         .button_registrasi {
           width: 111px;
@@ -135,9 +161,10 @@
           object-fit: contain;
           border-radius: 14px;
           background-color: var(--ion-color-black);  
-        }
+        }    
+       
         .card1_banner {
-          width: 1244px;
+          //width: 1244px;
           height: 660px;
           margin: 36px 46px 36px 46px;
           padding: 36px 43px 36px 46px;
@@ -161,7 +188,7 @@
         }
 
         .Sign-up {
-          width: 71px;
+          //width: 71px;
           height: 20px;
           flex-grow: 0;
           font-family: Poppins;
@@ -172,7 +199,7 @@
           line-height: 1.43;
           letter-spacing: normal;
           text-align: center;
-          color: var(--ion-color-goldd);
+          color: var(--ion-color-black);
         }
 
         .banner-title{    
@@ -197,7 +224,7 @@
         .card1-title {
           position: absolute;
           top: 0%;    
-          width: 681px;
+          //width: 681px;
           height: 138px;
           margin: 118px 501px 19px 128px;
           font-family: Poppins;
@@ -212,7 +239,7 @@
         .card1-content{
           position: absolute;
           top: 275px;    
-          width: 716px;
+          //width: 716px;
           height: 99px;
           margin: 19px 466px 116px 128px;
           font-family: Poppins;
@@ -350,6 +377,7 @@
         ion-slide{
           overflow-y: scroll;
         }
+        
         .swiper-slide{
             display: block;
         }
@@ -764,6 +792,7 @@
           align-items: center!important;
           border-radius: 50%;
           cursor: pointer;
+          content:url('../assets/images/akar-icons_circle-chevron-up.svg');       
         }
         .Ellipse-2 {
           position: absolute;
@@ -779,7 +808,8 @@
           align-content: center!important;
           align-items: center!important;
           border-radius: 50%;
-          cursor: pointer;
+          cursor: pointer;             
+          content:url('../assets/images/Vector_dark.svg');       
         }  
         .Vector {
           width: 20px;
@@ -874,34 +904,19 @@
           text-align: center;
           color: var(--ion-color-goldd);
         }
-        .heroicons-solidoffice-building {
-          width: 24px;
-          height: 24px;
-          margin: 28px 16px 76px 0;
-          object-fit: contain;
-        }     
+          
         .Vector1 {
           width: 16.8px;
           height: 19.2px;
           flex-grow: 0;
         }
-        .heroicons-solidphone{
-          width: 24px;
-          height: 24px;
-          margin: 26px 16px 19px 0;
-          object-fit: contain;
-        }
+      
         .Vector2 {
           width: 19.2px;
           height: 19.2px;
           flex-grow: 0;
         }
-        .heroicons-solidmail {
-          width: 24px;
-          height: 24px;
-          margin: 28px 16px 47px 0;
-          object-fit: contain;
-        }
+      
         .Vector3 {
           width: 24px;
           height: 24px;
@@ -926,110 +941,81 @@
           color: var(--ion-color-black);
         }
         .card7-kontak21{
-          position: absolute;
-          top:52%;
-          width: 136px;
-          height: 27px;
-          margin: 32px 47px 26px 60px;
-          font-family: Poppins;
-          font-size: 18px;
-          font-weight: 500;
-          font-stretch: normal;
-          font-style: normal;
-          line-height: normal;
-          letter-spacing: -0.3px;
-          text-align: left;
-          color: var(--ion-color-black);
-        }
-        .card7-kontak22{
-          position: absolute;
-          top:62%;
-          width: 136px;
-          height: 27px;
-          margin: 32px 47px 26px 60px;
-          font-family: Poppins;
-          font-size: 18px;
-          font-weight: 500;
-          font-stretch: normal;
-          font-style: normal;
-          line-height: normal;
-          letter-spacing: -0.3px;
-          text-align: left;
-          color: var(--ion-color-black);
-        }
-        .card7-kontak3{
-          position: absolute;
-          top:76%;
-          //width: 269px; 
-          height: 27px;
-          margin: 26px 270px 46px 60px;
-          font-family: Poppins;
-          font-size: 18px;
-          font-weight: 500;
-          font-stretch: normal;
-          font-style: normal;
-          line-height: normal;
-          letter-spacing: -0.3px;
-          text-align: left;
-          color: var(--ion-color-black);
-        }
-        .card7-Rectangle-623{
-          width: 622px;
-          height: 381px;
-          margin: 0 0 0 57px;
-          padding: 0px 9px 8px 10px;
-          object-fit: contain;
-        }
-        .column_2_7 {
-          float: left;
-          width: 50%;
-        }
-        .footer-Frame-2 {
-          position: absolute;
-          //width: 186px;
-          height: 53px;
-          flex-grow: 0;
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-          align-items: center;
-          gap: 10px;
-          margin: 0 24px 0 0;
-          padding: 16px 24px;
-          border-radius: 14px;
-          border: solid 1px var(--ion-color-white);
-        }
-        .footer-Paket-Pembelajaran {
-          width: 138px;
-          height: 21px;
-          flex-grow: 0;
-          font-family: Poppins;
-          font-size: 14px;
-          font-weight: 500;
-          font-stretch: normal;
-          font-style: normal;
-          line-height: normal;
-          letter-spacing: -0.3px;
-          text-align: center;
-          color: var(--ion-color-white);
-        }
-        .footer-Frame-3 {
-          position: absolute;
-          //width: 186px;
-          height: 53px;
-          flex-grow: 0;
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-          align-items: center;
-          gap: 10px;
-          margin: 0 245px;
-          padding: 16px 24px;
-          border-radius: 14px;
-          border: solid 1px var(--ion-color-white);
-        }
-        .footer-Program-Santri{
-              //width: 103px;
+            position: absolute;
+            top:51%;
+            width: 136px;
+            height: 27px;
+            margin: 12px 47px 26px 60px;
+            font-family: Poppins;
+            font-size: 18px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: -0.3px;
+            text-align: left;
+            color: var(--ion-color-black);
+          }
+          .card7-kontak22{
+              position: absolute;
+              top:62%;
+              width: 136px;
+              height: 27px;
+              margin: 0px 47px 26px 60px;
+              font-family: Poppins;
+              font-size: 18px;
+              font-weight: 500;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: normal;
+              letter-spacing: -0.3px;
+              text-align: left;
+              color: var(--ion-color-black);
+          }
+          .card7-kontak3{
+              position: absolute;
+              top:65%;
+              //width: 269px; 
+              height: 27px;
+              margin: 26px 270px 46px 60px;
+              font-family: Poppins;
+              font-size: 18px;
+              font-weight: 500;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: normal;
+              letter-spacing: -0.3px;
+              text-align: left;
+              color: var(--ion-color-black);
+          }
+          .card7-Rectangle-623{
+              width: 622px;
+              height: 381px;
+              margin: 0 0 0 57px;
+              padding: 0px 9px 8px 10px;
+              object-fit: contain;
+          }
+          .column_2_7 {
+            float: left;
+            width: 50%;
+          }
+          .footer-Frame-2 {
+              position: absolute;
+              //width: 186px;
+              height: 53px;
+              flex-grow: 0;
+              display: flex;
+              flex-direction: row;
+              justify-content: center;
+              align-items: center;
+              gap: 10px;
+              margin: 0 24px 0 0;
+              padding: 16px 24px;
+              border-radius: 14px;
+              border: solid 1px var(--ion-color-white);
+          }
+          .footer-Paket-Pembelajaran {
+              width: 138px;
               height: 21px;
               flex-grow: 0;
               font-family: Poppins;
@@ -1041,91 +1027,707 @@
               letter-spacing: -0.3px;
               text-align: center;
               color: var(--ion-color-white);
-        }
-        .footer-Frame-4 {
-          position: absolute;
-          //width: 186px;
-            height: 53px;
-            flex-grow: 0;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            margin: 0 475px;
-            padding: 16px 24px;
-            border-radius: 14px;
-            border: solid 1px var(--ion-color-white);
-        }
-        .footer-Program-Donatur {
-          width: 119px;
-          height: 21px;
-          flex-grow: 0;
-          font-family: Poppins;
-          font-size: 14px;
-          font-weight: 500;
-          font-stretch: normal;
-          font-style: normal;
-          line-height: normal;
-          letter-spacing: -0.3px;
-          text-align: center;
-          color: var(--ion-color-white);
-        }
-        .footer-Frame-5{
-            width: 230px;
-            height: 53px;
-            flex-grow: 0;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            margin: 0 0 0 700px;
-            padding: 16px 24px;
-            border-radius: 14px;
-            border: solid 1px var(--ion-color-white);
-        }
-        .footer-Program-Pendamping{
-            //width: 152px;
-            height: 21px;
-            flex-grow: 0;
-            font-family: Poppins;
-            font-size: 14px;
-            font-weight: 500;
-            font-stretch: normal;
-            font-style: normal;
-            line-height: normal;
-            letter-spacing: -0.3px;
-            text-align: center;
-            color: var(--ion-color-white);
-        }
+          }
+          .footer-Frame-3 {
+              position: absolute;
+              //width: 186px;
+              height: 53px;
+              flex-grow: 0;
+              display: flex;
+              flex-direction: row;
+              justify-content: center;
+              align-items: center;
+              gap: 10px;
+              margin: 0 245px;
+              padding: 16px 24px;
+              border-radius: 14px;
+              border: solid 1px var(--ion-color-white);
+          }
+          .footer-Program-Santri{
+                //width: 103px;
+                height: 21px;
+                flex-grow: 0;
+                font-family: Poppins;
+                font-size: 14px;
+                font-weight: 500;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: normal;
+                letter-spacing: -0.3px;
+                text-align: center;
+                color: var(--ion-color-white);
+          }
+          .footer-Frame-4 {
+              position: absolute;
+              //width: 186px;
+                height: 53px;
+                flex-grow: 0;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                margin: 0 475px;
+                padding: 16px 24px;
+                border-radius: 14px;
+                border: solid 1px var(--ion-color-white);
+          }
+          .footer-Program-Donatur {
+              width: 119px;
+              height: 21px;
+              flex-grow: 0;
+              font-family: Poppins;
+              font-size: 14px;
+              font-weight: 500;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: normal;
+              letter-spacing: -0.3px;
+              text-align: center;
+              color: var(--ion-color-white);
+          }
+          .footer-Frame-5{
+              width: 230px;
+              height: 53px;
+              flex-grow: 0;
+              display: flex;
+              flex-direction: row;
+              justify-content: center;
+              align-items: center;
+              gap: 10px;
+              margin: 0 0 0 700px;
+              padding: 16px 24px;
+              border-radius: 14px;
+              border: solid 1px var(--ion-color-white);
+          }
+          .footer-Program-Pendamping{
+              //width: 152px;
+              height: 21px;
+              flex-grow: 0;
+              font-family: Poppins;
+              font-size: 14px;
+              font-weight: 500;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: normal;
+              letter-spacing: -0.3px;
+              text-align: center;
+              color: var(--ion-color-white);
+          }
         .space30
             {
                 margin-bottom: 46px !important;
                 margin-top :0px!important;
             }
-          
-          
+            .heroicons-solidoffice-building {
+                width: 24px;
+                height: 24px;
+                margin: 28px 16px 76px 0;
+                object-fit: contain;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                background-image: url('../assets/images/heroicons-solid_office-building.svg');
+            }  
+            .heroicons-solidphone{
+                width: 24px;
+                height: 24px;
+                margin: 26px 16px 19px 0;
+                object-fit: contain;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                background-image: url('../assets/images/heroicons-solid_phone.svg');
+            }
+            .heroicons-solidmail {
+                width: 24px;
+                height: 24px;
+                margin: 48px 16px 47px 0;
+                object-fit: contain;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                background-image: url('../assets/images/heroicons-solid_mail.svg');
+            }
+        /* end dashboard */
 
+       /* form masuk santri donatur */
+           .masuk-santri-donatur {
+            width: 375px;
+            height: 812px;
+            padding: 0 0 152px;
+            background-color: #efeffe;
+          }
+          .masuk-santri-donatur-Rectangle-597 {
+              width: 343px;
+              //height: 376px;
+              margin: 16px;
+              padding: 24px 16px;
+              border-radius: 14px;
+              box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
+              background-color: var(--ion-color-white);
+          }
+          .masuk-santri-card-title{
+              width: 307px;
+              height: 40px;
+              margin: 0 4px 32px 0;
+              font-family: Poppins;
+              font-size: 16px;
+              font-weight: 500;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: 1.25;
+              letter-spacing: normal;
+              text-align: left;
+              color: #000000;
+          }
+          ion-input{
+              width: 311px;
+              height: 52px;
+              margin: 32px 0 24px;
+              padding: 16px 188px 16px 16px;
+              border-radius: 14px;
+              text-align: left;
+              border: solid 1px var(--ion-color-goldd) ;
+              background-color:var(--fill-placeholder);
+          }
+          .clsinput{
+            width: 311px;
+            height: 52px;
+            margin: 32px 0 24px;
+            padding: 16px 188px 16px 16px;
+            border-radius: 14px;
+            border: solid 1px var(--ion-color-goldd) ;
+            background-color:var(--fill-placeholder);
+          }
+          .masuk-santri-donatur-button {
+              width: 311px;
+              height: 52px;
+              //display: flex;
+              flex-direction: row;
+              justify-content: center;
+              align-items: center;
+              gap: 10px;
+              margin: 32px 0 24px;
+              //padding: 16px 0px;
+              object-fit: contain;
+              border-radius: 14px;
+              box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.17), 0 0 3px 0 rgba(0, 0, 0, 0.08);
+              background-color: var(--ion-color-goldd);
+          }
+          .masuk-santri-donatur-ion{
+              position: absolute;
+              top : -7px;
+              padding: 1px 10px 10px 150px;
+              width: 16px;
+              height: 16px;
+              flex-grow: 0;
+              object-fit: contain;
+          }
+          .masuk-santri-donatur-text{
+              width: 141px;
+              height: 20px;
+              flex-grow: 0;
+              margin: 0 6px 0 0;
+              font-family: Poppins;
+              font-size: 14px;
+              font-weight: normal;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: 1.43;
+              letter-spacing: normal;
+              text-align: left;
+              color: var(--ion-color-black);
+          }
+          .masuk-santri-donatur-Registrasi {
+              width: 71px;
+              height: 20px;
+              flex-grow: 0;
+              margin: 0 0 0 6px;
+              font-family: Poppins;
+              font-size: 14px;
+              font-weight: 600;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: 1.43;
+              letter-spacing: normal;
+              text-align: left;
+              color: var(--ion-color-goldd);
+          }
+          /* form santri register */
+          .Registrasi-Santri-title {
+            width: 131px;
+            height: 20px;
+            margin: 2px 0 2px 82px;
+            font-family: Poppins;
+            font-size: 16px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.25;
+            letter-spacing: normal;
+            text-align: center;
+            color: #000000;
+          }
+          .Registrasi-Santri-grid{
+            width: 375px;
+            height: 812px;
+            flex-grow: 0;
+            padding: 0 0 104px;
+            background-color: #efeffe;
+          }
+          .Registrasi-Santri-Rectangle-597{
+              width: 343px;
+              //height: 376px;
+              margin: 16px;
+              padding: 24px 16px;
+              border-radius: 14px;
+              box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
+              background-color: var(--ion-color-white);
+          }
+          .Registrasi-Santri-card-title{
+              width: 307px;
+              height: 40px;
+              margin: 0 4px 32px 0;
+              font-family: Poppins;
+              font-size: 16px;
+              font-weight: 500;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: 1.25;
+              letter-spacing: normal;
+              text-align: left;
+              color: #000000;
+          }
+          .ion-grid{
+            width: 375px;
+            //height: 976px;
+            background-color: #efeffe;
+          }
+          .ion-card-rectangle{
+            width: 343px;
+            margin: 15px 16px 32px;
+            padding: 16px;
+            border-radius: 14px;
+            box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
+            background-color: var(--ion-color-white);
+          }
+          .ion-card-title{
+            //width: 116px;
+            height: 20px;
+            margin: 0 106px 6px 0;
+            font-family: Poppins;
+            font-size: 14px;
+            font-weight: 600;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.43;
+            letter-spacing: normal;
+            text-align: left;
+            color: var(--ion-color-black);          
+          }
+          .berita-title{
+            font-family: Poppins;
+            font-size: 10px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            text-align: left;
+            color: var(--ion-color-black);       
+          }
+          .Rectangle-637 {
+            width: 343px;
+            //height: 312px;
+            margin: 16px;
+            padding: 16px;
+            border-radius: 14px;
+            box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
+            background-color: var(--ion-color-white);
+          }
+          .catatan_donatur_profile{
+            width: 311px;
+            height: 60px;
+            margin: 16px 0 0;
+            font-family: Poppins;
+            font-size: 12px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.67;
+            letter-spacing: normal;
+            text-align: left;
+            color: #000000;
+          }
+          .Rectangle-639{
+            width: 343px;
+            height: 432px;
+            margin: 16px;
+            padding: 16px;
+            border-radius: 14px;
+            box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
+            background-color: var(--ion-color-white);
+          }
+          .Rectangle-645 {
+            width: 343px;
+            height: 160px;
+            margin: 16px;
+            padding: 16px;
+            border-radius: 14px;
+            box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
+            background-color: var(--ion-color-white);
+          }
+          .Rectangle-628{
+            width: 375px;
+            height: 152px;
+            flex-grow: 0;
+            margin: 16px 0 0;
+            padding: 16px;
+            box-shadow: 0 -4px 12px 0 rgba(0, 0, 0, 0.15);
+            background-color: var(--ion-color-white);
+          }
+          .Password-Santri {
+            width: 375px;
+            height: 812px;
+            flex-grow: 0;
+            padding: 0 0 400px;
+            background-color: #efeffe;
+          }          
+          .text-kuisioner{
+            width: 290px;
+            height: 60px;
+            flex-grow: 0;
+            margin: 0 9px 16px 8px;
+            font-family: Poppins;
+            font-size: 14px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.43;
+            letter-spacing: normal;
+            text-align: center;
+            color: var(--black);
+          }
+          .modal-Rectangle-632 {
+            width: 307px;
+            height: 52px;
+            flex-grow: 0;
+            margin: 16px 0;
+            //padding: 16px 47px;
+            border-radius: 14px;
+            background-color:var(--ion-color-goldd);
+          }
+          .Kembali-mengisi-kuisioner {
+            height: 20px;
+            flex-grow: 0;
+            font-family: Poppins;
+            font-size: 16px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.25;
+            letter-spacing: normal;
+            text-align: center;
+            color:var(--ion-color-black);
+          }
+          .modal-Rectangle-597{
+            width: 339px;
+            height: 336px;
+            flex-grow: 0;
+            padding: 5px 16px 24px 10px;
+            margin: -8px 0px 0px 0px;
+            border-radius: 14px;
+            background-color: var(--ion-color-white);
+          }
+          .modal-Rectangle-633 {
+            width: 307px;
+            height: 52px;
+            flex-grow: 0;
+            padding: 16px 75px;
+            border-radius: 14px;
+            background-color: var(--placeholder);
+          }
+          .Ke-Halaman-depan {
+            width: 157px;
+            height: 20px;
+            flex-grow: 0;
+            font-family: Poppins;
+            font-size: 16px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.25;
+            letter-spacing: normal;
+            text-align: center;
+            color: var(--ion-color-white);
+          }
+          .Kuisioner-Santri {
+            width: 375px;
+            height: 1028px;
+            flex-grow: 0;
+            padding: 0 0 400px;
+            background-color: #efeffe;
+          }
+          .kuesioner-Rectangle-633 {
+            width: 343px;
+            //height: 260px;
+            margin: 16px;
+            //padding: 16px;
+            border-radius: 14px;
+            box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
+            background-color: var(--ion-color-white);
+          }
+          .Kuisioner-Santri-header {
+            width: 126px;
+            height: 20px;
+            margin: 2px 0 2px 84px;
+            font-family: Poppins;
+            font-size: 16px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.25;
+            letter-spacing: normal;
+            text-align: center;
+            color: #000000;
+          }
+          .Kuisioner-Santri-Pertanyaan {
+            //width: 59px;
+            height: 20px;
+            flex-grow: 0;
+            margin: 0 4px 0 0;
+            font-family: Poppins;
+            font-size: 10px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 2;
+            letter-spacing: normal;
+            text-align: left;
+            color: var(--black);
+          }
+          .kuesioner-detil-peertanyaan {
+            width: 311px;
+            height: 48px;
+            margin: 16px 0 24px;
+            font-family: Poppins;
+            font-size: 14px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.86;
+            letter-spacing: normal;
+            text-align: left;
+            color: var(--ion-color-black);
+          }
+          .kuesioner-button-ya{
+            width: 311px;
+            height: 52px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin: 24px 0 16px;
+            padding: 16px 20px;
+            object-fit: contain;
+            border-radius: 14px;
+            background-color: var(--ion-color-goldd);
+          }
+          .kuesioner-button-ya-text{
+            width: 19px;
+            height: 20px;
+            flex-grow: 0;
+            font-family: Poppins;
+            font-size: 14px;
+            font-weight: 600;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.43;
+            letter-spacing: normal;
+            text-align: center;
+            color: var(--ion-color-black);
+          }
+          .kuesioner-button-tidak{
+            width: 311px;
+            height: 52px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin: 16px 0 0;
+            padding: 16px 20px;
+            object-fit: contain;
+            border-radius: 14px;
+            box-shadow: 2px 4px 12px 0 rgba(252, 198, 4, 0.2);
+            border: solid 1px var(--placeholder);
+            background-color: var(--ion-color-white);
+          }
+          .kuesioner-button-tidak-text{
+            width: 42px;
+            height: 20px;
+            flex-grow: 0;
+            font-family: Poppins;
+            font-size: 14px;
+            font-weight: 600;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.43;
+            letter-spacing: normal;
+            text-align: center;
+            color: var(--greyish-brown)
+          }
+          .kuesioner-button-kirim{
+            width: 343px;
+            height: 52px;
+            flex-grow: 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 20px;
+            object-fit: contain;
+            border-radius: 14px;
+            box-shadow: 2px 4px 12px 0 rgba(252, 198, 4, 0.2);
+            background-color: var(--ion-color-goldd);
+          }
+          .kuesioner-button-kirim-text{
+            width: 107px;
+            height: 20px;
+            flex-grow: 0;
+            font-family: Poppins;
+            font-size: 14px;
+            font-weight: 600;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.43;
+            letter-spacing: normal;
+            text-align: center;
+            color: var(--ion-color-black);
+          }
+          .santri-card2-Sign-up{
+            width: 154px;
+            height: 20px;
+            flex-grow: 0;
+            font-family: Poppins;
+            font-size: 16px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.25;
+            letter-spacing: normal;
+            text-align: center;
+            color: var(--ion-color-black);
+          }
+          .santrireg-card2-Sign-up{
+            width: 154px;
+            height: 20px;
+            flex-grow: 0;
+            font-family: Poppins;
+            font-size: 16px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.25;
+            letter-spacing: normal;
+            text-align: center;
+            color: var(--ion-color-black);
+          }
+          .donatur-profile-card2-Sign-up{
+            width: 154px;
+            height: 20px;
+            flex-grow: 0;
+            font-family: Poppins;
+            font-size: 16px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.25;
+            letter-spacing: normal;
+            text-align: center;
+            color: var(--ion-color-black);
+          }
+          .donatur-login-card2-Sign-up{
+            width: 154px;
+            height: 20px;
+            flex-grow: 0;
+            font-family: Poppins;
+            font-size: 16px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.25;
+            letter-spacing: normal;
+            text-align: center;
+            color: var(--ion-color-black);
+          }
+          .donatur-reg-card2-Sign-up{
+            width: 154px;
+            height: 20px;
+            flex-grow: 0;
+            font-family: Poppins;
+            font-size: 16px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.25;
+            letter-spacing: normal;
+            text-align: center;
+            color: var(--ion-color-black);
+          }
+          .buat-password-Rectangle{
+            width: 339px;
+            height: 296px;
+            margin: 16px 18px 0;
+            padding: 16px 14px 16px 18px;
+            border-radius: 14px;
+            box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
+            background-color: var(--ion-color-white);
+          }
+            
+                            
+    
 }
 
 @media screen and (max-width: 600px) {
   :root {
 
-    .card1_banner {
-      //width: 1244px;
-      height: 660px;
-      margin: 36px 46px 36px 46px;
-      padding: 36px 43px 36px 46px;
-      object-fit: contain;
-      //transform: rotate(180deg);
-      border-radius: 32px;
-      box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
-      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), linear-gradient(to top, rgba(185, 185, 185, 0.68), #212121), linear-gradient(to bottom, #c4c4c4, #c4c4c4);
-      background-size: auto;
-      background-position: center;
-      background-image: url('../assets/images/banner.webp');
-    }   
+    .card1-content{
+      position: absolute;
+      top: 275px;    
+      //width: 716px;
+      height: 99px;
+      margin: 19px 466px 116px 128px;
+      font-family: Poppins;
+      font-size: 20px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.63;
+      letter-spacing: -0.3px;
+      text-align: left;
+      color: var(--ion-color-goldd);
+    }
+    .card1-title {
+      position: absolute;
+      top: 0%;    
+      //width: 681px;
+      height: 138px;
+      margin: 118px 501px 19px 128px;
+      font-family: Poppins;
+      font-size: 24px;
+      font-stretch: normal;
+      font-style: normal;
+      font-weight: 500;
+      letter-spacing: -0.3px;
+      text-align: left;
+      color: var(--ion-color-goldd);
+    }
+    
+ 
   }
 }
 
@@ -1201,69 +1803,70 @@
     --ion-color-light-contrast-rgb: 255,255,255;
     --ion-color-light-shade: #1e2023;
     --ion-color-light-tint: #383a3e;      
+
     .logo {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      background-image: url('../assets/images/logo_dark.svg');
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        background-image: url('../assets/images/logo_dark.svg');
     }
     .button_masuk {
-      width: 88px;
-      height: 40px;
-      flex-grow: 0;
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
-      align-items: center;
-      gap: 10px;
-      margin:28px 16px 26px 26px;
-      padding: 10px 20px;
-      border-radius: 14px;
-      border: solid 1px var(--ion-color-goldd);
+        width: 88px;
+        height: 40px;
+        flex-grow: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10px;
+        margin:28px 16px 26px 26px;
+        padding: 10px 20px;
+        border-radius: 14px;
+        border: solid 1px var(--ion-color-goldd);
     }
     .text-masuk {
-      //width: 48px;
-      height: 20px;
-      flex-grow: 0;
-      font-family: Poppins;
-      font-size: 14px;
-      font-weight: 600;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: 1.43;
-      letter-spacing: normal;
-      text-align: center;
-      color: var(--ion-color-goldd);
+        //width: 48px;
+        height: 20px;
+        flex-grow: 0;
+        font-family: Poppins;
+        font-size: 14px;
+        font-weight: 600;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.43;
+        letter-spacing: normal;
+        text-align: center;
+        color: var(--ion-color-goldd);
     }
     .card2-Program-Santri-title{
-      width: 213px;
-      height: 42px;
-      flex-grow: 0;
-      margin: 0 393px 18px 0;
-      font-family: Poppins;
-      font-size: 28px;
-      font-weight: 600;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: normal;
-      letter-spacing: -0.3px;
-      text-align: left;
-      color: var(--ion-color-goldd);
+        width: 213px;
+        height: 42px;
+        flex-grow: 0;
+        margin: 0 393px 18px 0;
+        font-family: Poppins;
+        font-size: 28px;
+        font-weight: 600;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: -0.3px;
+        text-align: left;
+        color: var(--ion-color-goldd);
     }
     .card2-program-santri{
-      width: 606px;
-      height: 103px;
-      flex-grow: 0;
-      margin: 18px 0 0;
-      font-family: Poppins;
-      font-size: 18px;
-      font-weight: 500;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: normal;
-      letter-spacing: -0.3px;
-      text-align: left;
-      color: var(--bluey-grey);
+        width: 606px;
+        height: 103px;
+        flex-grow: 0;
+        margin: 18px 0 0;
+        font-family: Poppins;
+        font-size: 18px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: -0.3px;
+        text-align: left;
+        color: var(--bluey-grey);
     }
     .card2-button_lanjut{
       width: 260px;
@@ -1594,13 +2197,177 @@
                text-align: center;
                color: var(--ion-color-black);
              }
-             .logo_putih {
-              width: 210.9px;
-              height: 48px;
-              margin: 0 50.1px 32px 50px;
-              object-fit: contain;              
-            }           
             
+            .card7-kontak1{
+              position: absolute;
+              top:20%;
+              width: 492px;
+              height: 76px;
+              margin: 32px 47px 26px 35px;
+              padding: 16px 47px 26px 30px;
+              font-family: Poppins;
+              font-size: 18px;
+              font-weight: 500;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: normal;
+              letter-spacing: -0.3px;
+              text-align: left;
+              color: var(--bluey-grey);
+            }
+            .card7-kontak21{
+              position: absolute;
+              top:51%;
+              width: 136px;
+              height: 27px;
+              margin: 32px 47px 26px 60px;
+              font-family: Poppins;
+              font-size: 18px;
+              font-weight: 500;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: normal;
+              letter-spacing: -0.3px;
+              text-align: left;
+              color: var(--bluey-grey);
+            }
+            .card7-kontak22{
+              position: absolute;
+              top:62%;
+              width: 136px;
+              height: 27px;
+              margin: 0px 47px 26px 60px;
+              font-family: Poppins;
+              font-size: 18px;
+              font-weight: 500;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: normal;
+              letter-spacing: -0.3px;
+              text-align: left;
+              color: var(---bluey-grey);
+            }
+            .card7-kontak3{
+              position: absolute;
+              top:65%;
+              //width: 269px; 
+              height: 27px;
+              margin: 26px 270px 46px 60px;
+              font-family: Poppins;
+              font-size: 18px;
+              font-weight: 500;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: normal;
+              letter-spacing: -0.3px;
+              text-align: left;
+              color: var(---bluey-grey);
+            }
+             .heroicons-solidoffice-building {
+              width: 24px;
+              height: 24px;
+              margin: 28px 16px 76px 0;
+              object-fit: contain;
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              background-image: url('../assets/images/heroicons-solid_office-building-dark.svg');
+            }  
+            .heroicons-solidphone{
+              width: 24px;
+              height: 24px;
+              margin: 26px 16px 19px 0;
+              object-fit: contain;
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              background-image: url('../assets/images/heroicons-solid_phone-dark.svg');
+            }
+            .heroicons-solidmail {
+              width: 24px;
+              height: 24px;
+              margin: 48px 16px 47px 0;
+              object-fit: contain;
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              background-image: url('../assets/images/heroicons-solid_mail-dark.svg');
+            }
+            .Ellipse-2 {
+              position: absolute;
+              top:40%;
+              right: -50px;
+              width: 42px;
+              height: 42px;
+              flex-grow: 0;
+              margin: 14px 44px 24px 12px;
+              padding: 11px 11px 11px 11px;
+              background-color: var(--ion-color-goldd);
+              display: flex!important;
+              align-content: center!important;
+              align-items: center!important;
+              border-radius: 50%;
+              cursor: pointer;             
+              content:url('../assets/images/Vector.svg');       
+            }  
+            .Sign-up-registrasi{
+              width: 71px;
+              height: 20px;
+              flex-grow: 0;
+              font-family: Poppins;
+              font-size: 14px;
+              font-weight: 600;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: 1.43;
+              letter-spacing: normal;
+              text-align: center;
+              color: var(--ion-color-black);
+            }
+            .button_registrasi {
+              width: 111px;
+              height: 40px;
+              flex-grow: 0;
+              display: flex;
+              flex-direction: row;
+              justify-content: flex-start;
+              align-items: center;
+              gap: 10px;
+              margin:28px 66px 26px 1px;
+              //padding: 36px 43px 36px 46px;
+              object-fit: contain;
+              border-radius: 14px;
+              background-color: var(--ion-color-goldd);  
+            }
+            
+            .Sign-up {
+              //width: 71px;
+              height: 20px;
+              flex-grow: 0;
+              font-family: Poppins;
+              font-size: 14px;
+              font-weight: 600;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: 1.43;
+              letter-spacing: normal;
+              text-align: center;
+              color: var(--ion-color-black);
+            }
+            .card5-Frequently-Ask-Question {
+              width: 389px;
+              height: 48px;
+              margin: 0 382px 36px 384px;
+              font-family: Poppins;
+              font-size: 32px;
+              font-weight: 600;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: normal;
+              letter-spacing: -0.3px;
+              text-align: center;
+              color: var(--ion-color-goldd);
+              }
     
   }
   
@@ -2032,6 +2799,176 @@
                text-align: center;
                color: var(--ion-color-black);
              }
+             .card7-kontak1{
+              position: absolute;
+              top:20%;
+              width: 492px;
+              height: 76px;
+              margin: 32px 47px 26px 35px;
+              padding: 16px 47px 26px 30px;
+              font-family: Poppins;
+              font-size: 18px;
+              font-weight: 500;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: normal;
+              letter-spacing: -0.3px;
+              text-align: left;
+              color: var(--bluey-grey);
+            }
+            .card7-kontak21{
+              position: absolute;
+              top:51%;
+              width: 136px;
+              height: 27px;
+              margin: 12px 47px 26px 60px;
+              font-family: Poppins;
+              font-size: 18px;
+              font-weight: 500;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: normal;
+              letter-spacing: -0.3px;
+              text-align: left;
+              color: var(--bluey-grey);
+            }
+            .card7-kontak22{
+              position: absolute;
+              top:62%;
+              width: 136px;
+              height: 27px;
+              margin: 0px 47px 26px 60px;
+              font-family: Poppins;
+              font-size: 18px;
+              font-weight: 500;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: normal;
+              letter-spacing: -0.3px;
+              text-align: left;
+              color: var(---bluey-grey);
+            }
+            .card7-kontak3{
+              position: absolute;
+              top:65%;
+              //width: 269px; 
+              height: 27px;
+              margin: 26px 270px 46px 60px;
+              font-family: Poppins;
+              font-size: 18px;
+              font-weight: 500;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: normal;
+              letter-spacing: -0.3px;
+              text-align: left;
+              color: var(---bluey-grey);
+            }
+            .heroicons-solidoffice-building {
+              width: 24px;
+              height: 24px;
+              margin: 28px 16px 76px 0;
+              object-fit: contain;
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              background-image: url('../assets/images/heroicons-solid_office-building-dark.svg');
+            }  
+            .heroicons-solidphone{
+              width: 24px;
+              height: 24px;
+              margin: 26px 16px 19px 0;
+              object-fit: contain;
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              background-image: url('../assets/images/heroicons-solid_phone-dark.svg');
+            }
+            .heroicons-solidmail {
+              width: 24px;
+              height: 24px;
+              margin: 48px 16px 47px 0;
+              object-fit: contain;
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              background-image: url('../assets/images/heroicons-solid_mail-dark.svg');
+            }
+            .Ellipse-2 {
+              position: absolute;
+              top:40%;
+              right: -50px;
+              width: 42px;
+              height: 42px;
+              flex-grow: 0;
+              margin: 14px 44px 24px 12px;
+              padding: 11px 11px 11px 11px;
+              background-color: var(--ion-color-goldd);
+              display: flex!important;
+              align-content: center!important;
+              align-items: center!important;
+              border-radius: 50%;
+              cursor: pointer;             
+              content:url('../assets/images/Vector.svg');       
+            }
+            .Sign-up-registrasi{
+              width: 71px;
+              height: 20px;
+              flex-grow: 0;
+              font-family: Poppins;
+              font-size: 14px;
+              font-weight: 600;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: 1.43;
+              letter-spacing: normal;
+              text-align: center;
+              color: var(--ion-color-black);
+            }
+            .button_registrasi {
+              width: 111px;
+              height: 40px;
+              flex-grow: 0;
+              display: flex;
+              flex-direction: row;
+              justify-content: flex-start;
+              align-items: center;
+              gap: 10px;
+              margin:28px 66px 26px 1px;
+              //padding: 36px 43px 36px 46px;
+              object-fit: contain;
+              border-radius: 14px;
+              background-color: var(--ion-color-goldd);  
+            }
+              .Sign-up {
+              //width: 71px;
+              height: 20px;
+              flex-grow: 0;
+              font-family: Poppins;
+              font-size: 14px;
+              font-weight: 600;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: 1.43;
+              letter-spacing: normal;
+              text-align: center;
+              color: var(--ion-color-black);
+            }  
+            .card5-Frequently-Ask-Question {
+              width: 389px;
+              height: 48px;
+              margin: 0 382px 36px 384px;
+              font-family: Poppins;
+              font-size: 32px;
+              font-weight: 600;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: normal;
+              letter-spacing: -0.3px;
+              text-align: center;
+              color: var(--ion-color-goldd);
+              }
+            
 
   }
 
@@ -2476,6 +3413,175 @@
                text-align: center;
                color: var(--ion-color-black);
              }
+             .card7-kontak1{
+              position: absolute;
+              top:20%;
+              width: 492px;
+              height: 76px;
+              margin: 32px 47px 26px 35px;
+              padding: 16px 47px 26px 30px;
+              font-family: Poppins;
+              font-size: 18px;
+              font-weight: 500;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: normal;
+              letter-spacing: -0.3px;
+              text-align: left;
+              color: var(--bluey-grey);
+            }
+            .card7-kontak21{
+              position: absolute;
+              top:51%;
+              width: 136px;
+              height: 27px;
+              margin: 12px 47px 26px 60px;
+              font-family: Poppins;
+              font-size: 18px;
+              font-weight: 500;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: normal;
+              letter-spacing: -0.3px;
+              text-align: left;
+              color: var(--bluey-grey);
+            }
+            .card7-kontak22{
+              position: absolute;
+              top:62%;
+              width: 136px;
+              height: 27px;
+              margin: 0px 47px 26px 60px;
+              font-family: Poppins;
+              font-size: 18px;
+              font-weight: 500;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: normal;
+              letter-spacing: -0.3px;
+              text-align: left;
+              color: var(---bluey-grey);
+            }
+            .card7-kontak3{
+              position: absolute;
+              top:65%;
+              //width: 269px; 
+              height: 27px;
+              margin: 26px 270px 46px 60px;
+              font-family: Poppins;
+              font-size: 18px;
+              font-weight: 500;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: normal;
+              letter-spacing: -0.3px;
+              text-align: left;
+              color: var(---bluey-grey);
+            }
+            .heroicons-solidoffice-building {
+              width: 24px;
+              height: 24px;
+              margin: 28px 16px 76px 0;
+              object-fit: contain;
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              background-image: url('../assets/images/heroicons-solid_office-building-dark.svg');
+            }  
+            .heroicons-solidphone{
+              width: 24px;
+              height: 24px;
+              margin: 26px 16px 19px 0;
+              object-fit: contain;
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              background-image: url('../assets/images/heroicons-solid_phone-dark.svg');
+            }
+            .heroicons-solidmail {
+              width: 24px;
+              height: 24px;
+              margin: 48px 16px 47px 0;
+              object-fit: contain;
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              background-image: url('../assets/images/heroicons-solid_mail-dark.svg');
+            }
+            .Ellipse-2 {
+              position: absolute;
+              top:40%;
+              right: -50px;
+              width: 42px;
+              height: 42px;
+              flex-grow: 0;
+              margin: 14px 44px 24px 12px;
+              padding: 11px 11px 11px 11px;
+              background-color: var(--ion-color-goldd);
+              display: flex!important;
+              align-content: center!important;
+              align-items: center!important;
+              border-radius: 50%;
+              cursor: pointer;             
+              content:url('../assets/images/Vector.svg');       
+            }  
+            .Sign-up-registrasi{
+              width: 71px;
+              height: 20px;
+              flex-grow: 0;
+              font-family: Poppins;
+              font-size: 14px;
+              font-weight: 600;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: 1.43;
+              letter-spacing: normal;
+              text-align: center;
+              color: var(--ion-color-black);
+            }
+            .button_registrasi {
+              width: 111px;
+              height: 40px;
+              flex-grow: 0;
+              display: flex;
+              flex-direction: row;
+              justify-content: flex-start;
+              align-items: center;
+              gap: 10px;
+              margin:28px 66px 26px 1px;
+              //padding: 36px 43px 36px 46px;
+              object-fit: contain;
+              border-radius: 14px;
+              background-color: var(--ion-color-goldd);  
+            }
+            .Sign-up {
+              //width: 71px;
+              height: 20px;
+              flex-grow: 0;
+              font-family: Poppins;
+              font-size: 14px;
+              font-weight: 600;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: 1.43;
+              letter-spacing: normal;
+              text-align: center;
+              color: var(--ion-color-black);
+            }
+            .card5-Frequently-Ask-Question {
+              width: 389px;
+              height: 48px;
+              margin: 0 382px 36px 384px;
+              font-family: Poppins;
+              font-size: 32px;
+              font-weight: 600;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: normal;
+              letter-spacing: -0.3px;
+              text-align: center;
+              color: var(--ion-color-goldd);
+              }
 
   }
   
@@ -2510,96 +3616,3 @@ ion-content{
   object-fit: contain;
 }
 
-
-.masuk-santri-donatur {
-  width: 375px;
-  height: 812px;
-  padding: 0 0 152px;
-  background-color: #efeffe;
-}
-.masuk-santri-donatur-Rectangle-597 {
-  width: 343px;
-  height: 376px;
-  margin: 16px;
-  padding: 24px 16px;
-  border-radius: 14px;
-  box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
-  background-color: var(--ion-color-white);
-}
-.masuk-santri-card-title{
-    width: 307px;
-    height: 40px;
-    margin: 0 4px 32px 0;
-    font-family: Poppins;
-    font-size: 16px;
-    font-weight: 500;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.25;
-    letter-spacing: normal;
-    text-align: left;
-    color: #000000;
-}
-ion-input{
-  width: 311px;
-  height: 52px;
-  margin: 32px 0 24px;
-  padding: 16px 188px 16px 16px;
-  border-radius: 14px;
-  border: solid 1px var(--ion-color-goldd) ;
-  background-color:var(--fill-placeholder);
-}
-.masuk-santri-donatur-button {
-  width: 311px;
-  height: 52px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin: 32px 0 24px;
-  //padding: 16px 0px;
-  object-fit: contain;
-  border-radius: 14px;
-  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.17), 0 0 3px 0 rgba(0, 0, 0, 0.08);
-  background-color: var(--ion-color-goldd);
-}
-.masuk-santri-donatur-ion{
-  position: absolute;
-  top : -7px;
-  padding: 1px 10px 10px 150px;
-  width: 16px;
-  height: 16px;
-  flex-grow: 0;
-  object-fit: contain;
-}
-.masuk-santri-donatur-text{
-  width: 141px;
-  height: 20px;
-  flex-grow: 0;
-  margin: 0 6px 0 0;
-  font-family: Poppins;
-  font-size: 14px;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.43;
-  letter-spacing: normal;
-  text-align: left;
-  color: var(--ion-color-black);
-}
-.masuk-santri-donatur-Registrasi {
-  width: 71px;
-  height: 20px;
-  flex-grow: 0;
-  margin: 0 0 0 6px;
-  font-family: Poppins;
-  font-size: 14px;
-  font-weight: 600;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.43;
-  letter-spacing: normal;
-  text-align: left;
-  color: var(--ion-color-goldd);
-}

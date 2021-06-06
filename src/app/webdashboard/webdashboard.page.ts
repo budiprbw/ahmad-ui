@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild  } from '@angular/core';
+import { IonContent} from '@ionic/angular';
 
 @Component({
   selector: 'app-webdashboard',
@@ -6,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./webdashboard.page.scss'],
 })
 export class WebdashboardPage implements OnInit {
+  @ViewChild(IonContent) content: IonContent;
+
   public ask_question: any = [];
   public shownGroup:null;
-  constructor() { }
+  public is_dark_mode:any =false;
+  constructor( ) { }
 
 
   ngOnInit() {
@@ -56,10 +60,19 @@ export class WebdashboardPage implements OnInit {
  
   darkmode()
   {       
+    if (!this.is_dark_mode)
+    {
       document.body.setAttribute('color-theme','dark');    
+      this.is_dark_mode=true;
+    }
+    else{
+      document.body.setAttribute('color-theme','light');   
+      this.is_dark_mode=false;
+    }
+      
   }
-  lightmode()
+  gotToTop()
   {       
-      document.body.setAttribute('color-theme','light');
+    this.content.scrollToTop(1000);
   }
 }

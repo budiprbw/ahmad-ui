@@ -3,8 +3,8 @@ import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { LoadingController, Platform } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/auth';
 import  firebase from 'firebase';
-import { AhmadproviderService } from '../ahmadprovider.service';
 import { Router } from '@angular/router';
+import { AhmadproviderService } from '../ahmadprovider.service';
 
 @Component({
   selector: 'app-santrilogin',
@@ -16,6 +16,11 @@ export class SantriloginPage implements OnInit {
   public loading: any;
   public isGoogleLogin = false;
   public user = null;
+  public user_email: string="";
+  public user_password :string="";
+  public error_msg:string="";
+  public response: any;
+  public user_tipe:string="2";
   
 
   constructor(
@@ -24,7 +29,8 @@ export class SantriloginPage implements OnInit {
     private fireAuth: AngularFireAuth,
     private platform: Platform,
     public asp: AhmadproviderService,
-    public router : Router
+    public route : Router,
+    
   ) { }
 
   async ngOnInit() {
@@ -57,7 +63,9 @@ export class SantriloginPage implements OnInit {
           console.log('success in google login', success);
           this.isGoogleLogin = true;
           this.user =  success.user;
-          
+          localStorage.setItem("usrinfo",JSON.stringify(this.user));
+          this.route.navigate(['dashboard-santri']);
+          this.loading.dismiss();
         }).catch(err => {
           console.log(err.message, 'error in google login');
         });
@@ -72,7 +80,7 @@ export class SantriloginPage implements OnInit {
           alert('successfully');
           this.isGoogleLogin = true;
           this.user =  success.user;
-          this.loading.dismiss();
+          
         });
 
     }
@@ -84,11 +92,46 @@ export class SantriloginPage implements OnInit {
         this.isGoogleLogin = false;
       });
     }
-    goblBack(){
+    goBack(){
       this.asp.go_previous_page();
     } 
     gotoregistrasi(){
-      this.router.navigateByUrl('/santrireg', { replaceUrl:true });
+      this.route.navigateByUrl('/santrireg', { replaceUrl:true });      
+    }
+    async goLogin(){
+      this.asp.presentLoading("login processing");
+      this.asp.user_login(this.user_email,this.user_password, this.user_tipe).then(
+        data=> {        
+           this.response = data;
+           
+              if (this.response.status=='error')              
+              {                
+                this.error_msg=this.response.message;
+                // this.route.navigate(['confirm-page',{msg:this.error_msg}]);                
+              }          
+              else
+              {
+                let userinfo = {
+                  "user_email": this.response.user.user_email,
+                  "user_displayName": this.response.user.user_name,
+                  "user_photoURL": ""
+                };
+                this.user=userinfo;
+                localStorage.setItem("usrinfo",JSON.stringify(userinfo));                
+                this.route.navigateByUrl('/dashboard-santri', { replaceUrl:true });
+              }
+              this.asp.dismissLoading();
+        });
+    }
+    blurEvent1(event: string ){
+      if(event.trim().length>0){
+        this.error_msg="";
+      }    
+    }
+    blurEvent2(event: string ){
+      if(event.trim().length>0){
+        this.error_msg="";
+      }
     }
       
 }

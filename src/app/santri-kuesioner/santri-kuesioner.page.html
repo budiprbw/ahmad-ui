@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-button color="primary"  (click)="kuesioner_cek()">
+            <ion-icon slot="icon-only"  name="close-circle-outline"></ion-icon>
+          </ion-button>
+    </ion-buttons>
+    <ion-title  class="ion-text-center"><span class=" Kuisioner-Santri-header">kuesioner santri</span> </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-grid class="Kuisioner-Santri">
+  <ion-row class="space_row">
+    <ion-col>
+        <div *ngFor="let item of initialKuesioner; let i=index" text-wrap   >
+        <ion-card class="kuesioner-Rectangle-633">
+            <ion-card-content padding>
+                <ion-icon name="checkmark-circle-outline" size="large" color="primary"   *ngIf="cekJawab(item)" ></ion-icon>
+                  <div class="Kuisioner-Santri-Pertanyaan"  >Pertanyaan {{i+1}}</div>
+                  <ion-list>
+                      <div class="kuesioner-detil-peertanyaan">{{item.kuesioner_tanya}}</div>                                    
+                  </ion-list>
+                  <ion-button fill="clear" class="kuesioner-button-ya" (click)="onJawab(i+1,'YA',item)">
+                    <ion-text class="kuesioner-button-ya-text">
+                      YA
+                    </ion-text>
+                  </ion-button>
+                  <ion-button fill="clear" class="kuesioner-button-tidak" (click)="onJawab(i+1,'TIDAK',item)">
+                      <ion-text class="kuesioner-button-tidak-text">
+                        TIDAK
+                      </ion-text>
+                    </ion-button>
+            </ion-card-content>
+          </ion-card> 
+        </div>                               
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+        <ion-button fill="clear" class="kuesioner-button-kirim" (click)="kirimKuesioner()">
+            <ion-text class="kuesioner-button-kirim-text">
+              Kirim kuesioner
+            </ion-text>
+          </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>

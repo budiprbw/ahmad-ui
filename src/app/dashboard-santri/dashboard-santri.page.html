@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>dashboardSantri</ion-title>    
+  </ion-toolbar>
+  <ion-toolbar slots="end">
+      <ion-icon name="notifications-circle-outline"> </ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-grid class="ion-grid">
+  <ion-row>
+    <ion-col>
+      <ion-card class="ion-card-rectangle">
+        <div class="ion-card-title">
+          <ion-label>Progress Belajar</ion-label>
+          <ion-progress-bar value="0.92"></ion-progress-bar>
+        </div>
+        <div class="ion-card-title">
+          <ion-label>Bulan Pendampingan</ion-label>
+          <ion-progress-bar value="0.70"></ion-progress-bar>
+        </div>
+      </ion-card>
+      <ion-card class="ion-card-rectangle">
+        <div class="ion-card-title">
+          <ion-label>Berita/Event</ion-label>
+        </div>
+        <ion-list >
+          <ion-item *ngFor="let item of line_berita" >
+              <ion-label class="berita-title ion-text-wrap" (click)="beritadetail(item)" style="cursor:pointer" >{{item.berita_isi}}</ion-label>            
+          </ion-item>
+        </ion-list>
+      </ion-card>
+      <ion-card class="ion-card-rectangle">
+        <div class="ion-card-title">Hadist/Doa Hari ini</div>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>

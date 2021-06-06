@@ -83,7 +83,7 @@ export class SigninPage implements OnInit {
       this.isGoogleLogin = false;
     });
   }
-  goblBack(){
+  goBack(){
      this.asp.go_previous_page();
   }
 

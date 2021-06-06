@@ -16,6 +16,9 @@ import { AhmadproviderService } from './ahmadprovider.service';
 import { HttpClientModule } from '@angular/common/http';
 import {  RouterModule } from '@angular/router';
 import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
+import { FileTransfer,  FileTransferObject } from '@ionic-native/file-transfer/ngx';
+import { Storage } from '@ionic/storage';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,8 +32,11 @@ import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
     SplashScreen,
     GooglePlus,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    AhmadproviderService,
-    GoogleAnalytics
+    AhmadproviderService,   
+    GoogleAnalytics,
+    FileTransfer,
+    FileTransferObject,
+    Storage
   ],
   bootstrap: [AppComponent]
 })
