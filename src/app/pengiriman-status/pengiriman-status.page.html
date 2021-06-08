@@ -1,0 +1,31 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button color="primary" (click)="goBack()">
+          <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title class="ion-text-center">Status Pengiriman</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-grid class="pengiriman-status">
+      <ion-row>
+        <ion-col>          
+            <ion-card class="pengiriman-status-Rectangle-597" >
+            <div class="timeline">
+                <div  *ngFor="let item of deliverylist;">
+                    <div class="timeline-container right">
+                        <div class="timeline-content">
+                          <div class="pengiriman-status-tanggal">{{item.delivery_date}}</div>
+                          <div class="pengiriman-status-text">{{item.delivery_desc}}</div>
+                        </div>
+                      </div>
+                </div>
+              </div>  
+            </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>         
+
+    

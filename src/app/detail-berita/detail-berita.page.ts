@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute,Router  } from '@angular/router';
+import { AhmadproviderService } from '../ahmadprovider.service';
 
 @Component({
   selector: 'app-detail-berita',
@@ -11,7 +12,8 @@ export class DetailBeritaPage implements OnInit {
   berita :any;
   constructor(
     public route : ActivatedRoute,
-    public router: Router
+    public router: Router,
+    public asp: AhmadproviderService
   ) { }
 
   ngOnInit() {
@@ -21,7 +23,9 @@ export class DetailBeritaPage implements OnInit {
         console.log(this.berita);
       }
     });
-
+  }
+  goBack() {
+    this.asp.go_previous_page();
   }
 
 }

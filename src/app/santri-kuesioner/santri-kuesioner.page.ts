@@ -96,7 +96,7 @@ export class SantriKuesionerPage implements OnInit {
         }
         else {
           this.asp.presentToast("kuesioner berhasil di submit");
-          this.route.navigateByUrl('/dashboard-santri', { replaceUrl: true });
+          this.route.navigateByUrl('/santri-profile', { replaceUrl: true });
         }
       }).catch(err => {
         this.asp.dismissLoading();

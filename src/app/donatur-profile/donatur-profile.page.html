@@ -14,7 +14,7 @@
     <ion-grid class="ion-grid">
         <ion-row>
             <ion-col>
-                <ion-card class="Rectangle-637">
+                <ion-card class="donatur-Rectangle-637">
                     <ion-input type="file" (change)="changeListener($event)" accept="image/*" placeholder="upload foto" ></ion-input>
                     <ion-input placeholder="Nomor Hp/whatsapp"  [(ngModel)]="donatur_telepon" name="donatur_telepon"></ion-input>
                     <ion-input placeholder="Tempat Lahir"   [(ngModel)]="donatur_tmp_lahir" name="donatur_tmp_lahir"></ion-input>
@@ -35,7 +35,7 @@
                         </ion-select>
                     </ion-item>
                 </ion-card>
-                <ion-card class="Rectangle-639">
+                <ion-card class="donatur-Rectangle-639">
                     <ion-input placeholder="Alamat Lengkap" [(ngModel)]="donatur_alamat" name="donatur_alamat"></ion-input>
                     <ion-item>
                         <ion-label>Pilih Propinsi</ion-label>
@@ -71,11 +71,11 @@
                             <ion-select-option value="{{ item.kode_pos }}" *ngFor="let item of kodeposInitial">{{ item.kode_pos}}</ion-select-option>
                         </ion-select>
                     </ion-item>
-                    <div class="catatan_donatur_profile">
+                    <div class="catatan_santri_profile">
                         Catatan: Alamat ini digunakan sebagai tujuan alamat pengiriman materi paket pembelajaran AHMaD Project
                     </div>
                 </ion-card>
-                <ion-card class="Rectangle-645">
+                <ion-card class="donatur-Rectangle-645">
                     <ion-select [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="Status Pekerjaan" [(ngModel)]="donatur_kerja" name="donatur_kerja">
                         <ion-select-option value="tidak_bekerja">Belum/ Tidak Bekerja</ion-select-option>
                         <ion-select-option value="Mengurus_Rumah_Tangga">Mengurus Rumah Tangga</ion-select-option>
@@ -90,7 +90,7 @@
                     </ion-select>
                     <ion-input placeholder="No KTP" [(ngModel)]="no_ktp" name="no_ktp" placeholder="Status Pekerjaan" [(ngModel)]="donatur_no_ktp" name="donatur_no_ktp"></ion-input>
                 </ion-card>
-                <ion-card class="Rectangle-628">
+                <ion-card class="donatur-Rectangle-628">
                         <ion-button fill="clear" class="masuk-santri-donatur-button" (click)="goSaveProfile()">
                             <ion-text class="donatur-profile-card2-Sign-up">
                                 Simpan
@@ -99,7 +99,7 @@
                                 <ion-icon name="arrow-forward-circle-outline" style="color: black" size="large"></ion-icon>
                             </div>                        
                         </ion-button>
-                        <ion-button class="card1-button_lanjut" fill="clear" (click)="goDashboard()">
+                        <ion-button class="lewati-donatur-profile-button" fill="clear" (click)="goDashboard()">
                             <ion-text class="donatur-profile-card2-Sign-up">
                                 Lewati Dahulu
                             </ion-text>

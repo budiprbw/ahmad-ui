@@ -1,16 +1,30 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>dashboardSantri</ion-title>    
-  </ion-toolbar>
-  <ion-toolbar slots="end">
-      <ion-icon name="notifications-circle-outline"> </ion-icon>
+    <ion-buttons slot="start">
+      <ion-button color="primary" (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="goInfoMasuk()">
+        <ion-icon slot="icon-only" name="notifications-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Dashboard Santri</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-grid class="ion-grid">
   <ion-row>
     <ion-col>
-      <ion-card class="ion-card-rectangle">
+      <ion-card class="dashboard-santri-ion-card-rectangle"  *ngIf="!noProgram">
+          <div class="dashboard-santri-Rectangle-671">
+              <div class="dashboard-santri-ionbook-outline"></div>
+              Mohon bersabar, Anda belum mendapat paket pembelajaran
+              Program AHMaD Project
+          </div>
+      </ion-card>
+      <ion-card class="dashboard-santri-ion-card-rectangle"  *ngIf="noProgram">
         <div class="ion-card-title">
           <ion-label>Progress Belajar</ion-label>
           <ion-progress-bar value="0.92"></ion-progress-bar>
@@ -19,8 +33,19 @@
           <ion-label>Bulan Pendampingan</ion-label>
           <ion-progress-bar value="0.70"></ion-progress-bar>
         </div>
+        
+        <div class="dashboard-santri-Lihat-Detail" (click)="goLihatDetail()">
+            <ion-label >Lihat Detail</ion-label>            
+            <ion-icon name="arrow-forward-circle-outline" style="color: black" ></ion-icon>
+        </div>
       </ion-card>
-      <ion-card class="ion-card-rectangle">
+      <ion-card class="dashboard-santri-ion-card-rectangle"  *ngIf="!noBerita">
+          <div class="dashboard-santri-Rectangle-672">
+              <div class="dashboard-santri-ionchatbox-ellipses-outline"></div>
+              Belum ada berita atau event
+          </div>
+      </ion-card>
+      <ion-card class="dashboard-santri-ion-card-rectangle"  *ngIf="noBerita">
         <div class="ion-card-title">
           <ion-label>Berita/Event</ion-label>
         </div>
@@ -30,7 +55,7 @@
           </ion-item>
         </ion-list>
       </ion-card>
-      <ion-card class="ion-card-rectangle">
+      <ion-card class="dashboard-santri-ion-card-rectangle">
         <div class="ion-card-title">Hadist/Doa Hari ini</div>
       </ion-card>
     </ion-col>

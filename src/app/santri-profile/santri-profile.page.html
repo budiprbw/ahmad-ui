@@ -1,0 +1,112 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-title class="ion-text-center">Lengkapi Profile Anda</ion-title>
+  </ion-toolbar>
+  <div style="float:right">
+      <ion-avatar>
+          <ion-icon name="person-circle-outline" size="large"  *ngIf="!isPhoto"></ion-icon>
+          <img src="{{user_photoURL}}" style="height: 30px;width:30px;" *ngIf="isPhoto" ><br>                            
+          <ion-label style="font-size: 10px">{{user_displayName}}</ion-label>
+      </ion-avatar>                
+      
+  </div>
+</ion-header>
+<ion-content>
+  <ion-grid class="ion-grid">
+      <ion-row>
+          <ion-col>
+              <ion-card class="santri-Rectangle-637">
+                  <ion-input type="file" (change)="changeListener($event)" accept="image/*" placeholder="upload foto" ></ion-input>
+                  <ion-input placeholder="Nomor Hp/whatsapp"  [(ngModel)]="santri_telepon" name="santri_telepon"></ion-input>
+                  <ion-input placeholder="Tempat Lahir"   [(ngModel)]="santri_tmp_lahir" name="santri_tmp_lahir"></ion-input>
+                  <ion-item>
+                      <ion-datetime displayFormat="DD-MM-YYYY" placeholder="Tanggal Lahir"  [(ngModel)]="santri_tgl_lahir" name="santri_tgl_lahir"></ion-datetime>
+                    </ion-item>
+                  <ion-item>
+                      <ion-label>Jenis Kelamin</ion-label>
+                      <ion-select placeholder="Jenis Kelamin"  [(ngModel)]="santri_gender" name="santri_gender">
+                          <ion-select-option value="Laki">Laki-laki</ion-select-option>
+                          <ion-select-option value="Perempuan">Perempuan</ion-select-option>
+                      </ion-select>
+                  </ion-item>
+                  <ion-item>
+                      <ion-label>Agama</ion-label>
+                      <ion-select placeholder="Agama"  [(ngModel)]="santri_agama" name="santri_agama">
+                          <ion-select-option value="Islam">Islam</ion-select-option>
+                      </ion-select>
+                  </ion-item>
+              </ion-card>
+              <ion-card class="santri-Rectangle-639">
+                  <ion-input placeholder="Alamat Lengkap" [(ngModel)]="santri_alamat" name="santri_alamat"></ion-input>
+                  <ion-item>
+                      <ion-label>Pilih Propinsi</ion-label>
+                      <ion-select [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="Pilih Propinsi" (ionChange)="getkota($event)"  [(ngModel)]="santri_provinsi" name="santri_provinsi">
+                          <ion-select-option value="{{ item.provinsi }}" *ngFor="let item of propinsiInitial">{{ item.provinsi}}
+                          </ion-select-option>
+                      </ion-select>
+                  </ion-item>
+                  <ion-item>
+                      <ion-label>Pilih Kota/Kabupaten</ion-label>
+                      <ion-select [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="Pilih Kota/Kab" (ionChange)="getkec($event)"  [(ngModel)]="santri_kota" name="santri_kota">
+                          <ion-select-option value="{{ item.kota }}" *ngFor="let item of kotaInitial">{{ item.kota }}</ion-select-option>
+
+                      </ion-select>
+                  </ion-item>
+                  <ion-item>
+                      <ion-label>Pilih Kecamatan</ion-label>
+                      <ion-select [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="Pilih Kecamatan" (ionChange)="getkel($event)" [(ngModel)]="santri_kecamatan" name="santri_kecamatan">
+                          <ion-select-option value="{{ item.kecamatan }}" *ngFor="let item of kecamatansInitial">{{ item.kecamatan}}
+                          </ion-select-option>
+                      </ion-select>
+                  </ion-item>
+                  <ion-item>
+                      <ion-label>Pilih Kelurahan</ion-label>
+                      <ion-select [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="Pilih Kelurahan" (ionChange)="getkodepos($event)" [(ngModel)]="santri_kelurahan" name="santri_kelurahan"> 
+                          <ion-select-option value="{{ item.kelurahan }}" *ngFor="let item of kelurahansInitial">{{ item.kelurahan}}
+                          </ion-select-option>
+                      </ion-select>
+                  </ion-item>
+                  <ion-item>
+                      <ion-label>Pilih Kode Pos</ion-label>
+                      <ion-select [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="Pilih Kode Pos"  [(ngModel)]="santri_kode_pos" name="santri_kode_pos">
+                          <ion-select-option value="{{ item.kode_pos }}" *ngFor="let item of kodeposInitial">{{ item.kode_pos}}</ion-select-option>
+                      </ion-select>
+                  </ion-item>
+                  <div class="catatan_santri_profile">
+                      Catatan: Alamat ini digunakan sebagai tujuan alamat pengiriman materi paket pembelajaran AHMaD Project
+                  </div>
+              </ion-card>
+              <ion-card class="santri-Rectangle-645">
+                  <ion-select [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="Status Pekerjaan" [(ngModel)]="santri_kerja" name="santri_kerja">
+                      <ion-select-option value="tidak_bekerja">Belum/ Tidak Bekerja</ion-select-option>
+                      <ion-select-option value="Mengurus_Rumah_Tangga">Mengurus Rumah Tangga</ion-select-option>
+                      <ion-select-option value="Pelajar_Mahasiswa.">Pelajar/ Mahasiswa</ion-select-option>
+                      <ion-select-option value="Pensiunan">Pensiunan</ion-select-option>
+                      <ion-select-option value="PNS">Pewagai Negeri Sipil</ion-select-option>
+                      <ion-select-option value="TNI">Tentara Nasional Indonesia</ion-select-option>
+                      <ion-select-option value="POLRI">Kepolisisan RI</ion-select-option>
+                      <ion-select-option value="Perdagangan">Perdagangan</ion-select-option>
+                      <ion-select-option value="Pegawai_Swasta">Pegawai Swasta</ion-select-option>
+                      <ion-select-option value="Wiraswasta">Wiraswasta</ion-select-option>
+                  </ion-select>
+                  <ion-input placeholder="No KTP" [(ngModel)]="no_ktp" name="no_ktp" placeholder="Status Pekerjaan" [(ngModel)]="santri_no_ktp" name="santri_no_ktp"></ion-input>
+              </ion-card>
+              <ion-card class="santri-Rectangle-628">
+                      <ion-button fill="clear" class="simpan-santri-profile-button" (click)="goSaveProfile()">
+                          <ion-text class="santri-profile-card2-Sign-up">
+                              Simpan
+                          </ion-text>
+                          <div class="">
+                              <ion-icon name="arrow-forward-circle-outline" style="color: black" size="large"></ion-icon>
+                          </div>                        
+                      </ion-button>
+                      <ion-button class="lewati-santri-profile-button" fill="clear" (click)="goDashboard()">
+                          <ion-text class="santri-profile-card2-Sign-up">
+                              Lewati Dahulu
+                          </ion-text>
+                      </ion-button>      
+              </ion-card>
+          </ion-col>
+      </ion-row>
+  </ion-grid>
+</ion-content>

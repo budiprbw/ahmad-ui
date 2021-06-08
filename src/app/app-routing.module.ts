@@ -81,6 +81,30 @@ const routes: Routes = [
   {
     path: 'modalpopup',
     loadChildren: () => import('./modalpopup/modalpopup.module').then( m => m.ModalpopupPageModule)
+  },
+  {
+    path: 'santri-akun',
+    loadChildren: () => import('./santri-akun/santri-akun.module').then( m => m.SantriAkunPageModule)
+  },
+  {
+    path: 'santri-profile',
+    loadChildren: () => import('./santri-profile/santri-profile.module').then( m => m.SantriProfilePageModule)
+  },
+  {
+    path: 'santri-reg-info',
+    loadChildren: () => import('./santri-reg-info/santri-reg-info.module').then( m => m.SantriRegInfoPageModule)
+  },
+  {
+    path: 'santri-notifikasi',
+    loadChildren: () => import('./santri-notifikasi/santri-notifikasi.module').then( m => m.SantriNotifikasiPageModule)
+  },
+  {
+    path: 'santri-program',
+    loadChildren: () => import('./santri-program/santri-program.module').then( m => m.SantriProgramPageModule)
+  },
+  {
+    path: 'pengiriman-status',
+    loadChildren: () => import('./pengiriman-status/pengiriman-status.module').then( m => m.PengirimanStatusPageModule)
   }
 ];
 @NgModule({

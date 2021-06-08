@@ -9,11 +9,14 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./dashboard-santri.page.scss'],
 })
 export class DashboardSantriPage implements OnInit {
+public noProgram:any=true;
+public noBerita:any=false;
  public usrinfo: any;
  public user_email: string="";
  public user_displayName:string=""
  public user_photoURL:any;
  public line_berita:any;
+ public santri_id:string="";
 
   constructor(
     public route : Router,
@@ -39,6 +42,10 @@ export class DashboardSantriPage implements OnInit {
     this.asp.getlist_berita().then(
       data=> {        
             this.line_berita=data;
+            if (this.line_berita.length>0)
+            {
+              this.noBerita  =true;
+            }
             
       });
   }
@@ -52,6 +59,16 @@ export class DashboardSantriPage implements OnInit {
     };
     this.route.navigate(['detail-berita'], navigationExtras);
   }
+  goInfoMasuk(){
+    this.santri_id="1";
+    this.route.navigate(['santri-notifikasi', { santri_id: this.santri_id }]);
+  }
+  goLihatDetail(){
+    this.santri_id="1";
+    this.route.navigate(['santri-program', { santri_id: this.santri_id }]);
+  }
+
+  
 }
     
   
