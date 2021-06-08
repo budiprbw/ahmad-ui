@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Akun Santri</ion-title>
+    <ion-title class="ion-text-center">Akun Santri</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -43,6 +43,47 @@
                    
                 </div>
           </ion-card>
+          <ion-card class="santri-akun-Rectangle-608">
+            <img src="../../assets/images/santri-aku-program-donatur.webp" style="width: 330px;;object-fit: cover">
+                <div class="santri-akun-Program-Donatur">Program Donatur</div>
+              <div class="santri-akun-program-donatur-content">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id ullamcorper egestas imperdiet diam augue. Erat egestas amet, sit felis nisl tristique.   
+                </div>
+                <div class="santri-akun-button">
+                        <ion-button fill="clear" slot="end" routerLink="/donaturlogin">
+                            <ion-text class="santri-akunSign-up">
+                                Menjadi Donatur
+                            </ion-text>
+                        </ion-button>               
+                        <ion-icon name="arrow-forward-circle-outline" style="color: var(--ion-color-goldd);" size="large"></ion-icon>
+                </div>
+              
+        </ion-card>
+          <ion-card class="santri-akun-ajak-keluarga">
+              <div class="santri-akun-ajak-keluarga-text1">
+                    Ajak <span style="color:white">keluarga, teman</span> dan kerabat
+                    bergabung dengan program ini <span style="color:white">baik menjadi</span> donatur <span style="color:white">atau</span> santri
+              </div>
+              <div class="santri-akun-ajak-keluarga-text2">
+                    Asmaul Husna Makna dan Doa (AHMaD) project adalah sebuah program khusus untuk siapa saja yang ingin belajar memahami makna  dibalik nama-nama ALLAH SWT yang terdapat didalam Ayat Alquran
+              </div>
+              <div class="santri-akun-ajak-lainnya-button">
+                    <ion-button fill="clear" slot="end" routerLink="/santrilogin">
+                        <ion-text class="santri-akun-ajak-lainnya-button-text">
+                            Ajak yang lainnya
+                        </ion-text>
+                    </ion-button>  
+                    <ion-icon name="arrow-forward-circle-outline" style="color: black" size="large"></ion-icon>             
+              </div>
+          </ion-card>
+          <div class="santri-akun-button-keluar">
+                <ion-button fill="clear" slot="end" (click)="goKeluar()">
+                        <ion-text class="santri-akun-button-keluar-text">
+                           Keluar
+                        </ion-text>
+                    </ion-button>  
+                    <ion-icon name="arrow-forward-circle-outline" style="color: white" size="large"></ion-icon>
+          </div>
       </ion-col>
     </ion-row>
 </ion-grid>       

@@ -27,10 +27,6 @@ const routes: Routes = [
     loadChildren: () => import('./donaturlogin/donaturlogin.module').then( m => m.DonaturloginPageModule)
   },
   {
-    path: 'isiprofile',
-    loadChildren: () => import('./isiprofile/isiprofile.module').then( m => m.IsiprofilePageModule)
-  },
-  {
     path: 'donaturreg',
     loadChildren: () => import('./donaturreg/donaturreg.module').then( m => m.DonaturregPageModule)
   },

@@ -12,5 +12,8 @@ export class SantriAkunPage implements OnInit {
   ngOnInit() {
     this.user_photoURL="../assets/images/no-image.png";
   }
+  goKeluar(){
+    
+  }
 
 }

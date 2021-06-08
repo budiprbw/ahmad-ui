@@ -1,11 +1,11 @@
 .santri-akun{
-    //width: 375px;
+      width: 375px;
     //height: 1290px;
     //flex-grow: 0;
     background-color: #efeffe;
 }
 .santri-akun-Rectangle-637 {
-    //width: 343px;
+    width: 330px;    
     height: 80px;
     margin: 16px;
     padding: 16px 133px 16px 16px;
@@ -51,16 +51,16 @@
     margin: 0 16px 0 0;
   }
   .santri-akun-Rectangle-638 {
-    width: 343px;
-    height: 288px;
-    margin: 16px 16px 283px;
+    width: 330px;
+    //height: 288px;
+    margin: 16px 16px 30px;
     padding: 16px;
     border-radius: 14px;
     box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
     background-color: var(--ion-color-white);
   }
   .santri-akun-Rectangle-648 {
-    width: 311px;
+    //width: 330px;
     height: 52px;
     margin: 0 0 16px;
     //padding: 16px;
@@ -91,3 +91,193 @@
     // object-fit: contain;
         margin-left: 250px;
   }
+  
+  .santri-akun-Rectangle-608{
+    width: 330px;
+    height: 230px;
+    flex-grow: 0;
+    //padding: 24px 16px 17px;
+    object-fit: contain;
+    border-radius: 14px;
+    box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
+    background-image: linear-gradient(to top, var(--ion-color-goldd), rgba(255, 255, 255, 0)), linear-gradient(to bottom, rgba(252, 198, 4, 0.6), rgba(252, 198, 4, 0.6)), linear-gradient(to bottom, var(--ion-color-goldd), var(--ion-color-goldd));
+    //background-image: url('../../assets/images/santri-aku-program-donatur.webp');
+  }  
+  
+  .santri-akun-Program-Donatur {
+    position: absolute;
+    top:10%;
+    //width: 155px;
+    height: 27px;
+    flex-grow: 0;
+    //margin: 0 78px 16px;
+    padding: 0px 0px 0px 16px;    
+    font-family: Poppins;
+    font-size: 18px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.3px;
+    text-align: left;
+    color: var(--ion-color-black);    
+  }
+  .santri-akun-program-donatur-content{
+    position: absolute;
+    top: 15%;
+    width: 311px;
+    height: 82px;
+    flex-grow: 0;
+    margin: 16px 0 12px 15px;
+    font-family: Poppins;
+    font-size: 13px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.3px;
+    text-align: left;
+    word-wrap: break-word;
+    color: var(--ion-color-black);    
+  }
+.santri-akun-button{
+    position: absolute;
+    top:65%;
+    width: 311px;
+    height: 52px;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 2px 0px 0px 10px;
+    padding: 16px 20px;
+    object-fit: contain;
+    border-radius: 14px;
+    box-shadow: 2px 4px 4px 0 rgba(0, 0, 0, 0.15);
+    background-color: var(--ion-color-black);
+  }
+  .santri-akunSign-up{
+      width: 118px;
+      height: 20px;
+      flex-grow: 0;
+      font-family: Poppins;
+      font-size: 14px;
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.43;
+      letter-spacing: normal;
+      text-align: center;
+      color: var(--ion-color-goldd);
+  } 
+  .santri-akun-ajak-keluarga{
+    height: 460px;
+    width: 330px;
+    //margin: 36px 46px 36px 46px;
+    padding: 26px 43px 36px 26px;
+    object-fit: contain;
+    //transform: rotate(180deg);
+    border-radius: 32px;
+    box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), linear-gradient(to top, rgba(185, 185, 185, 0.68), #212121), linear-gradient(to bottom, #c4c4c4, #c4c4c4);
+    background-size: auto;
+    background-position: center;
+    background-image: url('../../assets/images/banner.webp');
+  }
+  .santri-akun-ajak-keluarga-text1{
+    //width: 311px;
+    height: 54px;
+    flex-grow: 0;
+    margin: 10px 0px 30px 0px;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.12;
+    letter-spacing: -0.3px;
+    text-align: left;
+    color: var(--ion-color-goldd);
+  }
+  .santri-akun-button-keluar{
+    position: absolute;    
+    width: 325px;
+    height: 52px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    //margin: 40px 16px 32px;
+    padding: 16px 20px;
+    margin: 16px 20px 0px 10px;
+    object-fit: contain;
+    border-radius: 14px;
+    box-shadow: 2px 4px 12px 0 rgba(252, 198, 4, 0.2);
+    background-color: #ff3333;
+  }
+  .santri-akun-ajak-keluarga-text2{
+    width: 280px;
+    height: 100px;
+    flex-grow: 0;
+    margin: 20px 12px 0 0;
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.63;  
+    letter-spacing: -0.3px;
+    text-align: left;
+    color: var(--ion-color-goldd);
+  }
+  .santri-akun-button-keluar-text{
+      //width: 47px;
+      height: 20px;
+      flex-grow: 0;
+      font-family: Poppins;
+      font-size: 14px;
+      font-weight: 600;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.43;
+      letter-spacing: normal;
+      text-align: center;
+      color: var(--ion-color-white);
+  }
+  .santri-akun-ajak-lainnya-button{
+    position: absolute;
+    top :75%;
+    width: 288px;
+    height: 52px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    //margin: 16px 32px;
+   // padding: 16px 20px;
+    object-fit: contain;
+    border-radius: 14px;
+    box-shadow: 2px 4px 12px 0 rgba(252, 198, 4, 0.2);
+    background-color: var(--ion-color-goldd);
+  }
+  .santri-akun-ajak-lainnya-button-text{
+    //width: 129px;
+      height: 20px;
+      flex-grow: 0;
+      font-family: Poppins;
+      font-size: 14px;
+      font-weight: 600;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.43;
+      letter-spacing: normal;
+      text-align: center;
+      color: var(--ion-color-black);
+  }
+    
+    
+
