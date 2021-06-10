@@ -137,3 +137,194 @@ ion-toolbar {
         text-align: left;
         color:var(--ion-color-black);
       }
+      .dashboard-donatur-sudah-donasi{
+        width: 330px;
+        height: 273px;
+        margin: 24px 16px 16px 10px;        
+        padding: 16px 43px 36px 10px;
+        border-radius: 32px;
+        box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
+        background-color: var(--ion-color-white);
+      }
+      .dashboard-donatur-sudah-donasi-text{
+        width: 270px;
+        height: 20px;
+        margin: 0 41px 13px 0;
+        font-family: Poppins;
+        font-size: 14px;
+        font-weight: 600;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.43;
+        letter-spacing: normal;
+        text-align: left;
+        color: v var(--ion-color-black);
+      }
+      .dashboard-donatur-box-paket-tersalurkan{
+        position: absolute;
+        top :12%;
+        width: 149px;
+        height: 80px;
+        margin: 13px 13px 12px 0;   
+        padding: 6px 20px;
+        border-radius: 14px;
+        background-color: var(--ion-color-goldd);
+      }
+      .dashboard-donatur-box-santri-belajar{
+        position: absolute;
+        top: 12%;
+        width: 149px;
+        height: 80px;
+        margin: 13px 0 12px 155px;
+        padding: 6px 10px 6px 12px;
+        border-radius: 14px;
+        background-color: var(--ion-color-black);
+      }
+      .dashboard-donatur-box-progress{
+        position: absolute;
+        top: 50%;
+        width: 311px;
+        height: 80px;
+        margin: 12px 0 16px;
+        padding: 6px 50px 6px 51px;
+        border-radius: 14px;
+        border: solid 1px var(--ion-color-goldd);
+      }
+      .dashboard-donatur-pengingat{
+        width: 330px;
+        height: 98px;
+        margin: 24px 16px 16px 10px;        
+        padding: 16px 43px 36px 10px;
+        border-radius: 14px;
+        box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
+        background-color: var(--ion-color-white);
+      }
+      .dashboard-donatur-lihat-detail{
+        position: absolute;
+        top: 88%;
+        padding: 0px 0px 0px 210px;
+        cursor: pointer;
+
+      }
+      .dashboard-donatur-box-progress-title{
+        width: 260px;
+        height: 20px;
+        font-family: Poppins;
+        font-size: 12px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.67;
+        letter-spacing: normal;
+        text-align: left;
+        color: var(--ion-color-black);
+      }
+      .dashboard-donatur-box-progress-value{
+        width: 68px;
+        height: 48px;
+        margin: 5px 71px 0;
+        font-family: Poppins;
+        font-size: 32px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: center;
+        color:  var(--ion-color-black);
+      }
+      .dashboard-donatur-box-paket-tersalurkan-text{
+        width: 112px;
+        height: 20px;
+        font-family: Poppins;
+        font-size: 12px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.67;
+        letter-spacing: normal;
+        text-align: left;
+        color:  var(--ion-color-black);
+      }
+      .dashboard-donatur-box-paket-tersalurkan-value{
+        width: 33px;
+        height: 48px;
+        margin: 5px 37px 0 39px;
+        font-family: Poppins;
+        font-size: 32px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: center;
+        color: var(--ion-color-black);
+      }
+      .dashboard-donatur-box-santri-belajar-text{
+        width: 137px;
+        height: 20px;
+        font-family: Poppins;
+        font-size: 12px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.67;
+        letter-spacing: normal;
+        text-align: left;
+        color: var(--ion-color-goldd);
+      }
+      .dashboard-donatur-box-santri-belajar-value{
+        width: 21px;
+        height: 48px;
+        margin: 5px 54px 0 52px;
+        font-family: Poppins;
+        font-size: 32px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: center;
+        color:var(--ion-color-goldd);
+      }
+      .dashboard-donatur-pengingat-text{
+        width: 223px;
+        height: 20px;
+        margin: 0 72px 6px 0;
+        font-family: Poppins;
+        font-size: 14px;
+        font-weight: 600;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.43;
+        letter-spacing: normal;
+        text-align: left;
+        color: var(--ion-color-black);
+        cursor: pointer;
+      }
+      .dashboard-donatur-pengingat-content{
+        width: 269px;
+        height: 20px;
+        font-family: Poppins;
+        font-size: 12px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.67;
+        letter-spacing: normal;
+        text-align: left;
+        color: var(--ion-color-black);      
+      }
+      .vector{
+          position: absolute;
+          top:12%;
+        flex-grow: 0;
+        padding: 0 0px 0px 60px;
+        //background-color: var(--ion-color-black);      
+      }
+      .vector0{
+        position: absolute;
+        top:-36%;
+         flex-grow: 0;
+         padding: 0 0px 0px 2px;
+    }

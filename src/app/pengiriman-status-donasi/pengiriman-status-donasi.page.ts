@@ -18,7 +18,7 @@ export class PengirimanStatusDonasiPage implements OnInit {
     this.initialDeliveryStatus();
   }
   goBack() {
-    this.route.navigateByUrl('/donasi-program', { replaceUrl: true });
+    this.route.navigateByUrl('/dashboard-donatur/tabprogram', { replaceUrl: true });
     
   }
   initialDeliveryStatus() {

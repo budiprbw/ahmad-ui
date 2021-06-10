@@ -63,7 +63,7 @@ export class DonasiSantriListPage implements OnInit {
     this.total_santri =this.santrilist.length;
   }
   goBack(){
-    this.route.navigateByUrl('/donasi-program', { replaceUrl: true });
+    this.route.navigateByUrl('/dashboard-donatur/tabhome', { replaceUrl: true });
   }
   goDetailPenerima(item){
     this.route.navigate(['detail-penerima-donasi', { santri_id: item.santri_id,nama_santri:item.nama_santri }]);

@@ -5,17 +5,46 @@
         <ion-icon slot="icon-only" name="notifications-circle-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title class="ion-text-center">Dashboard Santri</ion-title>
+    <ion-title class="ion-text-center">Dashboard Donatur</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-grid class="ion-grid" >
   <ion-row>
     <ion-col>
-      <ion-card class="dashboard-donatur-card1">
+      <ion-card class="dashboard-donatur-card1"  *ngIf="belum_donasi">
         <div class="dashboard-donatur-card1-title">
           Belajar Alquran <span style="color:white">Lebih</span>,
           <span style="color:white">Bersedekah</span> Lebih
         </div>
+      </ion-card>
+
+      <ion-card class="dashboard-donatur-sudah-donasi"  *ngIf="!belum_donasi">
+          <div class="dashboard-donatur-sudah-donasi-text">Statistik Santri Penerima Donasi Anda</div>
+          <div class="dashboard-donatur-box-paket-tersalurkan">
+              <div class="dashboard-donatur-box-paket-tersalurkan-text">Paket Tersalurkan</div>
+              <div class="dashboard-donatur-box-paket-tersalurkan-value">10</div>
+          </div>
+          <div class="dashboard-donatur-box-santri-belajar">
+              <div class="dashboard-donatur-box-santri-belajar-text">Santri Selesai Belajar</div>
+              <div class="dashboard-donatur-box-santri-belajar-value">0</div>
+          </div>
+          <div class="dashboard-donatur-box-progress">
+            <div class="dashboard-donatur-box-progress-title" >
+                Progress Pembelajaran Santri Aktif
+            </div>
+            <div class="dashboard-donatur-box-progress-value" >42%</div>
+          </div>
+          <div class="dashboard-donatur-lihat-detail" (click)="goLihatdetail()">
+          <ion-label >Lihat Detail</ion-label>            
+            <ion-icon name="arrow-forward-circle-outline" class="vector0"  size="large" ></ion-icon>
+          </div>
+      </ion-card>
+      <ion-card class="dashboard-donatur-pengingat"  *ngIf="!belum_donasi"  (click)="goPengingat()">
+          <div class="dashboard-donatur-pengingat-text">
+            Pengingat Pembayaran Donasi
+            <ion-icon name="arrow-forward-circle-outline" class="vector" size="large"></ion-icon>
+          </div>
+          <div class="dashboard-donatur-pengingat-content">Cicilan 2 - Tanggal 25 Juni 2021 - Rp000.000</div>
       </ion-card>
       <ion-card class="dashboard-donatur-card2">
         <div class="dashboard-donatur-card2-text1">Donasi Paket Pembelajaran</div>
@@ -31,7 +60,7 @@
           </ion-button>
           <ion-icon name="arrow-forward-circle-outline" style="color: var(--ion-color-goldd);" size="large"></ion-icon>
         </div>
-      </ion-card>
+      </ion-card>  
       <ion-card class="dashboard-donatur-card3">  
         <div class="dashboard-donatur-card3-title">Hadis /Doa Hari Ini</div>
         <div class="dashboard-donatur-card3-text1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et magna nec enim feugiat nulla. Hendrerit elit nisi consectetur aliquam lacus morbi diam sit. Lectus aenean sed at vel vulputate nisl. Odio sit leo lobortis eu. Varius sollicitudin quam feugiat pellentesque imperdiet volutpat elementum amet. Velit porta fringilla malesuada sit vitae vitae ut ullamcorper ac. A phasellus condimentum suspendisse curabitur ipsum imperdiet mauris volutpat.</div>
