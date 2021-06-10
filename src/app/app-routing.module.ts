@@ -3,10 +3,6 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'tabs',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
-  },
-  {
     path: '',
     loadChildren: () => import('./webdashboard/webdashboard.module').then( m => m.WebdashboardPageModule)
   },
@@ -63,7 +59,7 @@ const routes: Routes = [
     loadChildren: () => import('./donatur-profile/donatur-profile.module').then( m => m.DonaturProfilePageModule)
   },
   {
-    path: 'dashboard-donatur',
+    path: 'dashboard-donatur',    
     loadChildren: () => import('./dashboard-donatur/dashboard-donatur.module').then( m => m.DashboardDonaturPageModule)
   },
   {
@@ -101,6 +97,62 @@ const routes: Routes = [
   {
     path: 'pengiriman-status',
     loadChildren: () => import('./pengiriman-status/pengiriman-status.module').then( m => m.PengirimanStatusPageModule)
+  },
+  {
+    path: 'donatur-notifikasi',
+    loadChildren: () => import('./donatur-notifikasi/donatur-notifikasi.module').then( m => m.DonaturNotifikasiPageModule)
+  },
+  {
+    path: 'donasi-list',
+    loadChildren: () => import('./donasi-list/donasi-list.module').then( m => m.DonasiListPageModule)
+  },
+  {
+    path: 'donasi-detail',
+    loadChildren: () => import('./donasi-detail/donasi-detail.module').then( m => m.DonasiDetailPageModule)
+  },
+  {
+    path: 'donasi-riwayat',
+    loadChildren: () => import('./donasi-riwayat/donasi-riwayat.module').then( m => m.DonasiRiwayatPageModule)
+  },
+  {
+    path: 'donasi-program',
+    loadChildren: () => import('./donasi-program/donasi-program.module').then( m => m.DonasiProgramPageModule)
+  },
+  {
+    path: 'donasi-santri-list',
+    loadChildren: () => import('./donasi-santri-list/donasi-santri-list.module').then( m => m.DonasiSantriListPageModule)
+  },
+  {
+    path: 'pengiriman-status-donasi',
+    loadChildren: () => import('./pengiriman-status-donasi/pengiriman-status-donasi.module').then( m => m.PengirimanStatusDonasiPageModule)
+  },
+  {
+    path: 'penyaluran-donasi',
+    loadChildren: () => import('./penyaluran-donasi/penyaluran-donasi.module').then( m => m.PenyaluranDonasiPageModule)
+  },
+  {
+    path: 'pembayaran-donasi',
+    loadChildren: () => import('./pembayaran-donasi/pembayaran-donasi.module').then( m => m.PembayaranDonasiPageModule)
+  },
+  {
+    path: 'jadual-pembayaran-donasi',
+    loadChildren: () => import('./jadual-pembayaran-donasi/jadual-pembayaran-donasi.module').then( m => m.JadualPembayaranDonasiPageModule)
+  },
+  {
+    path: 'pengingat-donasi',
+    loadChildren: () => import('./pengingat-donasi/pengingat-donasi.module').then( m => m.PengingatDonasiPageModule)
+  },
+  {
+    path: 'pengiriman-status-detail',
+    loadChildren: () => import('./pengiriman-status-detail/pengiriman-status-detail.module').then( m => m.PengirimanStatusDetailPageModule)
+  },
+  {
+    path: 'detail-penerima-donasi',
+    loadChildren: () => import('./detail-penerima-donasi/detail-penerima-donasi.module').then( m => m.DetailPenerimaDonasiPageModule)
+  },
+  {
+    path: 'tabs',
+    loadChildren: () => import('./tabs/tabs.module').then( m => m.TabsPageModule)
   }
 ];
 @NgModule({

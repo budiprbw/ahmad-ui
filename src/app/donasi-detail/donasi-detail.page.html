@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button (click)="goBack()">
+          <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+        </ion-button>
+      </ion-buttons>    
+      <ion-title class="ion-text-center">Detail Donasi</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-grid class="donasi-detail">
+      <ion-row>
+        <ion-col>          
+            <ion-card class="donasi-detail-Rectangle-597" >
+            <div class="timeline">
+                <div  *ngFor="let item of riwayatdetaillist;">
+                    <div  [ngClass]="item.riwayat_status=='cicil'?'timeline-container-orange right':'timeline-container-green right'">
+                        <div class="timeline-content">
+                          <div class="donasi-detail-tanggal">{{item.riwayat_detail_date}}</div>
+                          <div class="donasi-detail-text">{{item.riwayat_detail_desc}}</div>
+                        </div>
+                      </div>
+                </div>
+              </div>  
+            </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>    

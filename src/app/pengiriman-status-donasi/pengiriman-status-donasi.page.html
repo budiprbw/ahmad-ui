@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Status Pengiriman Donasi</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-grid class="donasi-pengiriman-status">
+  <ion-row>
+    <ion-col>
+      <div *ngFor="let item of deliverylist;">        
+        <ion-card class="donasi-pengiriman-status-Rectangle-597">
+            <ion-avatar>
+                <img src="{{item.photo_url}}" style="height: 30px;width:30px;" ><br>                            
+            </ion-avatar>      
+          <div class="donasi-pengiriman-nama-santri">
+            {{item.nama_santri}}
+          </div>
+          <div class="donasi-pengiriman-status-text" (click)="goDetailDOnasi(item)" style="cursor:pointer">
+            {{item.status}} 
+            <ion-icon name="arrow-forward-circle-outline" style="color: black;float:right;cursor: pointer"></ion-icon>
+          </div>
+        </ion-card>
+      </div>
+    </ion-col>
+  </ion-row>

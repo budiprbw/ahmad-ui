@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute,Router } from '@angular/router';
+import { AhmadproviderService } from '../ahmadprovider.service';
 
 @Component({
   selector: 'app-santri-akun',
@@ -7,13 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SantriAkunPage implements OnInit {
   public user_photoURL:any;
-  constructor() { }
+  constructor(
+    private router: ActivatedRoute,
+    private route : Router,
+    public asp: AhmadproviderService
+  ) { }
 
   ngOnInit() {
     this.user_photoURL="../assets/images/no-image.png";
   }
-  goKeluar(){
-    
+  goAjak(){
+
+  }
+  goProfile(){
+    this.route.navigateByUrl('/santri-profile', { replaceUrl:true });
   }
 
 }

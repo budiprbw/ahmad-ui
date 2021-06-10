@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title class="ion-text-center">Akun Santri</ion-title>
-  </ion-toolbar>
+  </ion-toolbar>    
 </ion-header>
 
 <ion-grid class="santri-akun">
@@ -17,30 +17,29 @@
             </div>
           </ion-card> 
           <ion-card class="santri-akun-Rectangle-638">
-                <div class="santri-akun-Rectangle-648">
-                    <div class="santri-akun-Rectangle-648-text">Ubah Profil
-                        <ion-icon name="arrow-forward-circle-outline" style="padding-left:150px;padding-top:10px;"   size="large"></ion-icon>
+                <div class="santri-akun-Rectangle-648" (click)="goProfile()">
+                    <div class="santri-akun-Rectangle-648-text">Ubah Profil                        
                     </div>
+                    <ion-icon name="arrow-forward-circle-outline" class="vector1"   size="large"></ion-icon>
                     
                 </div>
-                <div class="santri-akun-Rectangle-648">
+                <div class="santri-akun-Rectangle-648"  (click)="goUbahPassword()">
                     <div class="santri-akun-Rectangle-648-text">Ubah Password 
-                      <ion-icon name="arrow-forward-circle-outline" style="padding-left:115px;padding-top:10px;"  size="large"></ion-icon>
+                      <ion-icon name="arrow-forward-circle-outline" class="vector2"  size="large"></ion-icon>
                     </div>
                     
                 </div>
                 <div class="santri-akun-Rectangle-648">
                     <div class="santri-akun-Rectangle-648-text">Tentang Kami
-                        <ion-icon name="arrow-forward-circle-outline"  style="padding-left:130px;padding-top:10px;"  size="large"></ion-icon>
+                        <ion-icon name="arrow-forward-circle-outline"  class="vector3"  size="large"></ion-icon>
                     </div>
                     
               
                 </div>
                 <div class="santri-akun-Rectangle-648">
-                    <span class="santri-akun-Rectangle-648-text">FAQ
-                        <ion-icon name="arrow-forward-circle-outline"  style="padding-left:150px;padding-top:10px;"  size="large"></ion-icon>                    
-                    </span>
-                   
+                    <div class="santri-akun-Rectangle-648-text">FAQ
+                        <ion-icon name="arrow-forward-circle-outline" class="vector4"  size="large"></ion-icon>                    
+                    </div>
                 </div>
           </ion-card>
           <ion-card class="santri-akun-Rectangle-608">
@@ -67,8 +66,8 @@
               <div class="santri-akun-ajak-keluarga-text2">
                     Asmaul Husna Makna dan Doa (AHMaD) project adalah sebuah program khusus untuk siapa saja yang ingin belajar memahami makna  dibalik nama-nama ALLAH SWT yang terdapat didalam Ayat Alquran
               </div>
-              <div class="santri-akun-ajak-lainnya-button">
-                    <ion-button fill="clear" slot="end" routerLink="/santrilogin">
+              <div class="santri-akun-ajak-lainnya-button" (click)="goAjak()">
+                    <ion-button fill="clear" slot="end">
                         <ion-text class="santri-akun-ajak-lainnya-button-text">
                             Ajak yang lainnya
                         </ion-text>
@@ -77,7 +76,7 @@
               </div>
           </ion-card>
           <div class="santri-akun-button-keluar">
-                <ion-button fill="clear" slot="end" (click)="goKeluar()">
+                <ion-button fill="clear" slot="end"  routerLink="/santrilogin">
                         <ion-text class="santri-akun-button-keluar-text">
                            Keluar
                         </ion-text>

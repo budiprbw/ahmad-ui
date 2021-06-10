@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-button color="primary" (click)="goBack()">
+      <ion-button (click)="goBack()">
         <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -21,12 +21,12 @@
       </ion-card>
       <ion-card class="program-santri-ion-card-rectangle" *ngIf="noProgram">
         <div class="program-santri-ion-card-title">
-          <ion-label>Progress Belajar</ion-label>
-          <ion-progress-bar value="0.92"></ion-progress-bar>
+          <ion-label>Progress Belajar</ion-label><span style="color:black;float:right">{{progress_belajar*100}}%</span>
+          <ion-progress-bar value="{{progress_belajar}}"></ion-progress-bar>
         </div>
         <div class="program-santri-ion-card-title">
-          <ion-label>Bulan Pendampingan</ion-label>
-          <ion-progress-bar value="0.70"></ion-progress-bar>
+          <ion-label>Bulan Pendampingan</ion-label><span style="color:black;float:right">{{bulan_pendampingan*100}}%</span>
+          <ion-progress-bar value="{{bulan_pendampingan}}"></ion-progress-bar>
         </div>
       </ion-card>
       <ion-card class="program-santri-Rectangle-656">

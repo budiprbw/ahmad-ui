@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button  (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>    
+    <ion-title class="ion-text-center">Notifikasi</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-grid class="Notifikasi-donatur">
+  <ion-row>
+    <ion-col>
+      
+        <ion-card class="notif-donatur-Rectangle-656" *ngFor="let item of notiflist;">
+          <div class="notif-donatur-title">
+              {{item.notif_date}}
+          </div>
+          <div class="notif-donatur-text">
+              {{item.notif_desc}}
+          </div>
+        </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>       

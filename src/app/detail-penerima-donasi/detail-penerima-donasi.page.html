@@ -1,0 +1,49 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button (click)="goBack()">
+          <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title class="ion-text-center">{{nama_santri}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-grid class="ion-grid">
+    <ion-row>
+      <ion-col>
+        <ion-card class="program-santri-ion-card-rectangle" *ngIf="noProgram">
+          <div class="program-santri-ion-card-title">
+            <ion-label>Progress Belajar</ion-label><span style="color:black;float:right">{{progress_belajar*100}}%</span>
+            <ion-progress-bar value="{{progress_belajar}}"></ion-progress-bar>
+          </div>
+          <div class="program-santri-ion-card-title">
+            <ion-label>Bulan Pendampingan</ion-label><span style="color:black;float:right">{{bulan_pendampingan*100}}%</span>
+            <ion-progress-bar value="{{bulan_pendampingan}}"></ion-progress-bar>
+          </div>
+        </ion-card>
+        <ion-card class="program-santri-Rectangle-656">
+          <div class="program-santri-Materi-Pembelajaran">Materi Pembelajaran</div>
+          <div *ngFor="let item of programlist" class="program-santri-Rectangle-657">
+            <div class="  program-santri-ion-card-title">
+              <ion-label>{{item.progam_name}}<span style="color:black;margin-left:170px ">{{item.program_nilai*100}}%</span><ion-icon
+                  name="arrow-forward-circle-outline" style="color: black;margin-left:5px "></ion-icon>
+              </ion-label>
+  
+            </div>
+            <ion-progress-bar value="{{item.program_nilai}}"></ion-progress-bar>
+  
+          </div>
+        </ion-card>
+        <ion-card class="program-santri-Rectangle-675">
+          <div class="program-santri-nama-donatur">Nama Donatur</div>
+          <div class="program-santri-BapakIbu-Nama">{{nama_donatur}}</div>
+  
+        </ion-card>
+        <ion-card class="program-santri-Rectangle-675">
+          <div class="program-santri-nama-pendamping">Nama Pendamping</div>
+          <div class="program-santri-BapakIbu-Nama">{{nama_pendamping}}</div>
+        </ion-card>
+      </ion-col>
+  
+    </ion-row>
+  </ion-grid>

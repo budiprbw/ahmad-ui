@@ -11,6 +11,8 @@ export class SantriProgramPage implements OnInit {
  public programlist:any=[];
  public nama_donatur:string="";
  public nama_pendamping:string="";
+ private bulan_pendampingan:any="";
+private progress_belajar:any="";
 
   constructor(
     public asp: AhmadproviderService,
@@ -21,6 +23,8 @@ export class SantriProgramPage implements OnInit {
     this.getNamaDonatur();
     this.getNamaPendamping();
     this.initialsantriprogram();
+    this.bulan_pendampingan="0.70";
+    this.progress_belajar="0.92";
   }
   getNamaDonatur(){
       this.nama_donatur="H.Dermawan";
