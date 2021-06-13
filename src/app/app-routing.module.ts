@@ -153,6 +153,22 @@ const routes: Routes = [
   {
     path: 'tabs',
     loadChildren: () => import('./tabs/tabs.module').then( m => m.TabsPageModule)
+  },
+  {
+    path: 'modal-jenis-donasi',
+    loadChildren: () => import('./modal-jenis-donasi/modal-jenis-donasi.module').then( m => m.ModalJenisDonasiPageModule)
+  },
+  {
+    path: 'modal-nominal-donasi',
+    loadChildren: () => import('./modal-nominal-donasi/modal-nominal-donasi.module').then( m => m.ModalNominalDonasiPageModule)
+  },
+  {
+    path: 'modal-ubah-bank',
+    loadChildren: () => import('./modal-ubah-bank/modal-ubah-bank.module').then( m => m.ModalUbahBankPageModule)
+  },
+  {
+    path: 'selesai-donasi',
+    loadChildren: () => import('./selesai-donasi/selesai-donasi.module').then( m => m.SelesaiDonasiPageModule)
   }
 ];
 @NgModule({

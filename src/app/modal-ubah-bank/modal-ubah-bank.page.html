@@ -1,0 +1,25 @@
+  <ion-grid class="ion-grid">
+      <ion-row>
+      <ion-col text-center>
+        <div class="penyaluran-donasi-pilih-rekening-text">
+          Pilih Rekening Pembayaran Donasi
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-card class="penyaluran-donasi-Rectangle-663">
+          <ion-radio-group value="default" (ionChange)="radioGroupChange($event)">
+            <div *ngFor="let item of banklist;" [ngClass]="item.is_selected=='1'?'penyaluran-donasi-pilih-rekening-bank':'penyaluran-donasi-pilih-rekening-bank-white'">
+              <div class="nama-bank">{{item.nama_bank}}</div>
+              <div class="radio_1">
+                <ion-radio checked="true" slot="start" name="{item.no_rekening}}" value="{{item.no_rekening}}"></ion-radio>
+              </div>
+              <div class="no-rekening">{{item.no_rekening}}</div>
+              <div class="atas-nama">{{item.atas_nama}}</div>
+            </div>
+          </ion-radio-group>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>

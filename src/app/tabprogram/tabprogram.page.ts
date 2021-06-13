@@ -26,4 +26,7 @@ export class TabprogramPage implements OnInit {
   goStatusPengiriman(){
     this.route.navigateByUrl('/pengiriman-status-donasi', { replaceUrl:true });
   }
+  goSalurkanDonasi(){
+    this.route.navigateByUrl('/penyaluran-donasi', { replaceUrl:true });
+  }
 }

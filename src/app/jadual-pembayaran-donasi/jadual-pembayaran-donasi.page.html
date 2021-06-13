@@ -1,9 +1,31 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>jadual-pembayaran-donasi</ion-title>
-  </ion-toolbar>
-</ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button  (click)="goBack()">
+          <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title class="ion-text-center">Jadwal Pembayaran Donasi</ion-title>
+    </ion-toolbar>
+  </ion-header>
 
-<ion-content>
+  <ion-grid class="jadwal-pembayaran">
+      <ion-row>
+        <ion-col>          
+            <ion-card class="jadwal-pembayaran-Rectangle-597" >
+            <div class="timeline">
+                <div  *ngFor="let item of jadwallist;">
+                    <div class="timeline-container right">
+                        <div class="timeline-content">
+                          <div class="jadwal-date">{{item.jadwal_date}}</div>
+                          <div class="jadwal-text">{{item.jadwal_desc}}</div>
+                        </div>
+                      </div>
+                </div>
+              </div>  
+            </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>         
 
-</ion-content>
+    

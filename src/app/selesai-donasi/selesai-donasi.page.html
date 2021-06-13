@@ -1,0 +1,36 @@
+<ion-header>
+    <ion-toolbar> 
+        <ion-buttons slot="start">
+            <ion-button color="primary"  (click)="goBack()">
+              <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+            </ion-button>
+      </ion-buttons>
+      <ion-title  class="ion-text-center">Menunggu Pembayaran</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-grid class="selesai-donasi">
+    <ion-row>
+      <ion-col>
+          <ion-card class="selesai-donasi-Rectangle-633">
+            <div class="selesai-donasi-text">
+                Thank You Page<br><br>
+
+                Selesaikan pembayaran donasi Anda paling lambat 1 jam kedepan<br><br>                
+                Kami Sudah mengirimkan detail donasi anda ke alamat email<br>
+                emailname@emaial.com
+            </div>            
+          </ion-card> 
+          <ion-card class="selesai-donasi-Rectangle-628">
+              <ion-button color="warning" fill="clear" class="selesai-donasi-button" (click)="goLanjutkan()">                        
+                  <ion-text class="selesai-donasi-Sign-up">
+                      Lanjutkan                            
+                  </ion-text>                        
+                  <div class="">
+                      <ion-icon name="arrow-forward-circle-outline"  size="large"  ></ion-icon>
+                  </div>                      
+              </ion-button> 
+          </ion-card>
+      </ion-col>  
+    </ion-row>
+ </ion-grid>      

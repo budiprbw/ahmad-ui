@@ -1,0 +1,514 @@
+.pembayaran-donasi-Rectangle-636{
+    width: 343px;
+    height: 354px;
+    margin: 16px;
+    padding: 10px 16px 16px;
+    border-radius: 14px;
+    background-color: var(--ion-color-goldd);
+}
+.pembayaran-donasi-Ringkasan-Transaksi {
+    //width: 146px;
+    height: 20px;
+    margin: 6px 75px 16px 0;
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000000;
+  }
+  .pembayaran-donasi-Nama-Donatur{
+    //width: 132px;
+    height: 20px;
+   // margin: 15px 5px 6px 10px;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000000;
+  }
+  .pembayaran-donasi-emailemailcom{
+    //width: 132px;
+    height: 20px;
+    //margin: 15px 5px 6px 10px;
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000000;
+  }
+  .pembayaran-donasi-button{
+    //width: 90px;
+    height: 32px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 0 0 10px;
+    padding: 6px;
+    border-radius: 8px;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.17), 0 0 3px 0 rgba(0, 0, 0, 0.08);
+    border: solid 1px #000000;
+    background-color: var(--ion-color-goldd);
+  }
+  .pembayaran-donasi-button-Sign-up{
+    width: 240px;
+    height: 20px;
+    flex-grow: 0;
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    text-align: center;
+    color: var(--ion-color-black);
+  }
+  .pembayaran-ubah-donasi-button{
+    position: absolute;
+    top:3%;
+    width: 120px;    
+    height: 32px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 0 0 10px 190px;
+    padding: 6px;
+    border-radius: 8px;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.17), 0 0 3px 0 rgba(0, 0, 0, 0.08);
+    border: solid 1px #000000;
+    background-color: var(--ion-color-goldd);
+  }
+  .pembayaran-donasi-ubah-text{
+    //width: 78px;
+    height: 20px;
+    flex-grow: 0;
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.67;
+    letter-spacing: normal;
+    text-align: right;
+    color: #000000;
+  }
+  .Line-10 {
+    width: 311px;
+    height: 1px;
+    margin: 16px 0 15px;
+    transform: rotate(180deg);
+    opacity: 0.4;
+    background-color: var(--black);
+  }
+  .pembayaran-donasi-text1{
+    //width: 112px;
+    height: 20px;
+    margin: 15px 109px 8px 0;
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.67;
+    letter-spacing: normal;
+    text-align: left;
+    color: var(--ion-color-black);
+  }
+  .pembayaran-donasi-value1{
+    position: absolute;
+    top:31%;
+    width:180px;
+    height: 20px;
+    margin: 15px 0 8px 120px;
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.67;
+    letter-spacing: normal;
+    text-align: right;
+    float: right;
+    color: var(--ion-color-black);
+  }
+  .pembayaran-donasi-value2{
+    position: absolute;
+    top:40%;
+    width:180px;
+    height: 20px;
+    margin: 15px 0 8px 120px;
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.67;
+    letter-spacing: normal;
+    text-align: right;
+    float: right;
+    color: var(--ion-color-black);
+  }
+  .pembayaran-donasi-value3{
+    position: absolute;
+    top:50%;
+    width:180px;
+    height: 20px;
+    margin: 15px 0 8px 120px;
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.67;
+    letter-spacing: normal;
+    text-align: right;
+    float: right;
+    color: var(--ion-color-black);
+  }
+  .pembayaran-donasi-value4{
+    position: absolute;
+    top:60%;
+    width:180px;
+    height: 20px;
+    margin: 15px 0 8px 120px;
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.67;
+    letter-spacing: normal;
+    text-align: right;
+    float: right;
+    color: var(--ion-color-black);
+  }
+  .pembayaran-donasi-value5{
+    position: absolute;
+    top:71%;
+    width:180px;
+    height: 20px;
+    margin: 15px 0 8px 120px;
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.67;
+    letter-spacing: normal;
+    text-align: right;
+    float: right;
+    color: var(--ion-color-black);
+  }
+  .pembayaran-donasi-value6{
+    position: absolute;
+    top:30%;
+    width:180px;
+    height: 20px;
+    margin: 15px 0 8px 120px;
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.67;
+    letter-spacing: normal;
+    text-align: right;
+    float: right;
+    color: var(--ion-color-black);
+  }
+  .pembayaran-donasi-value7{
+    position: absolute;
+    top:91%;
+    width:180px;
+    height: 20px;
+    margin: 15px 0 8px 120px;
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.67;
+    letter-spacing: normal;
+    text-align: right;
+    float: right;
+    color: var(--ion-color-black);
+  }
+  .pembayaran-donasi-value8{
+    position: absolute;
+    top:52%;
+    width:180px;
+    height: 20px;
+    margin: 15px 0 8px 120px;
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.67;
+    letter-spacing: normal;
+    text-align: right;
+    float: right;
+    color: var(--ion-color-black);
+  }
+  .pembayaran-donasi-value9{
+    position: absolute;
+    top:70%;
+    width:180px;
+    height: 20px;
+    margin: 15px 0 8px 120px;
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.67;
+    letter-spacing: normal;
+    text-align: right;
+    float: right;
+    color: var(--ion-color-black);
+  }
+  
+  
+  .pembayaran-donasi-Rectangle-635{
+    width: 343px;
+    height: 168px;
+    margin: 16px;
+    padding: 16px;
+    border-radius: 14px;
+    box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
+    background-color: var(--ion-color-white);
+  }
+  .pembayaran-Rectangle-635 {
+    width: 343px;
+    height: 168px;
+    margin: 16px;
+    padding: 16px;
+    border-radius: 14px;
+    box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
+    background-color: var(--white);
+  }
+  .pembayaran-donasi-pilih-rekening-title{
+    width: 218px;
+    height: 20px;
+    margin: 6px 48px 16px 4px;
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000000;
+  }
+  .pembayaran-ubah-donasi-button-bank{
+    position: absolute;
+    top:10%;
+    width: 65px;
+    height: 32px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 0 0 10px 238px;
+    padding-left: 6px;
+    border-radius: 8px;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.17), 0 0 3px 0 rgba(0, 0, 0, 0.08);
+    border: solid 1px #000000;
+    background-color: var(--ion-color-white);
+  }
+  .pembayaran-donasi-ubah-text{
+    //width: 33px;
+    height: 20px;
+    flex-grow: 0;
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.67;
+    letter-spacing: normal;
+    text-align: right;
+    color: #000000;
+  }
+  .pembayaran-donasi-pilih-rekening-bank{
+    width: 311px;
+    height: 72px;
+    flex-grow: 0;
+    margin: 10px 0 0;
+    padding: 6px 139px 6px 16px;
+    border-radius: 14px;
+    background-color: var(--ion-color-goldd);
+  }
+  .nama-bank{
+    width: 200px;
+    height: 20px;
+    flex-grow: 0;
+    margin: 0 94px 0 12px;
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    text-align: left;
+    color: var(--ion-color-black);
+}
+.no-rekening{
+    width: 200px;
+    height: 20px;
+    flex-grow: 0;
+    margin: 0px 23px 0 12px;
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    text-align: left;
+    color: var(--ion-color-black);
+}
+.atas-nama{
+    //width: 156px;
+  height: 20px;
+  flex-grow: 0;
+  margin: 0px 0 0 12px;
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.67;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--ion-color-black);
+}
+.vector_2{
+  width: 16px;
+  height: 16px;
+  flex-grow: 0;
+  object-fit: contain;
+  padding-left: 20px;
+  color: var(--ion-color-black);
+}
+.pembayaran-footer{
+  //width: 375px;
+  height: 140px;
+  flex-grow: 0;
+  margin: 16px 0 0;
+  padding: 16px;
+  box-shadow: 0 -4px 12px 0 rgba(0, 0, 0, 0.15);
+  background-color: var(--white);
+}
+.footex-text{
+  //width: 307px;
+  height: 40px;
+  flex-grow: 0;
+  margin: 0 0 0 30px;
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.67;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--ion-color-black);
+}
+.vector_setuju{
+  position: absolute;
+  top:10%;
+  width: 18px;
+  height: 18px;
+  background-color: var(--ion-color-goldd);
+
+}
+.bayar-donasi{
+  //width: 343px;
+  height: 52px;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 16px 0 0;
+  padding: 16px 20px;
+  object-fit: contain;
+  border-radius: 14px;
+  box-shadow: 2px 4px 12px 0 rgba(252, 198, 4, 0.2);
+  background-color: var(--placeholder);
+}
+.bayar-donasi-gold{
+  //width: 343px;
+  height: 52px;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 16px 0 0;
+  padding: 16px 20px;
+  object-fit: contain;
+  border-radius: 14px;
+  box-shadow: 2px 4px 12px 0 rgba(252, 198, 4, 0.2);
+  background-color: var(--ion-color-goldd);
+}
+.bayar-donasi-text{
+  width: 43px;
+  height: 20px;
+  flex-grow: 0;
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: normal;
+  text-align: center;
+  color: var(--greyish-brown);
+}
+.bayar-donasi-text-black{
+  width: 43px;
+  height: 20px;
+  flex-grow: 0;
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: normal;
+  text-align: center;
+  color: var(--ion-color-black);
+
+}
+.vector_footer{
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 46%;
+  flex-grow: 0;
+  margin-left: 47%;
+  object-fit: contain;
+}

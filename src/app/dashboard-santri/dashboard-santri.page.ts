@@ -51,13 +51,12 @@ public noBerita:any=false;
   }
 
   beritadetail(item){    
-    console.log(item);
-    let navigationExtras: NavigationExtras = {
-      state: {
-        berita: item
-      }
-    };
-    this.route.navigate(['detail-berita'], navigationExtras);
+      let navigationExtras: NavigationExtras = {
+        state: {
+          berita: item
+        }
+      };
+      this.route.navigate(['detail-berita'], navigationExtras);
   }
   goInfoMasuk(){
     this.santri_id="1";

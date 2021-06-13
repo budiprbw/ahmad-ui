@@ -32,4 +32,7 @@ export class TabhomePage implements OnInit {
     this.santri_id="1";
     this.route.navigate(['donatur-notifikasi', { santri_id: this.santri_id }]);
   }
+  goSalurkanDonasi(){
+    this.route.navigateByUrl('/penyaluran-donasi', { replaceUrl:true });
+  }
 }

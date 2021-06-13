@@ -56,7 +56,7 @@ export class AhmadproviderService {
       "tipe": user_tipe,
     };
     return new Promise(resolve => {
-      this.httpclient.post(this.api_user_login, data, this.httpOptions).subscribe(data => {
+      this.httpclient.post(this.api_user_login, data).subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
@@ -72,7 +72,7 @@ export class AhmadproviderService {
     };
     console.log(data);
     return new Promise(resolve => {
-      this.httpclient.post(this.api_register_donatur, data, this.httpOptions).subscribe(data => {
+      this.httpclient.post(this.api_register_donatur, data).subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
@@ -85,7 +85,7 @@ export class AhmadproviderService {
       "user_name": nama_lengkap
     };
     return new Promise(resolve => {
-      this.httpclient.post(this.api_register_santri, data, this.httpOptions).subscribe(data => {
+      this.httpclient.post(this.api_register_santri, data).subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
@@ -94,7 +94,7 @@ export class AhmadproviderService {
   }
   login_santri(user_email) {
     return new Promise(resolve => {
-      this.httpclient.get(this.api_santri_byemail + '/' + user_email, this.httpOptions).subscribe(data => {
+      this.httpclient.get(this.api_santri_byemail + '/' + user_email).subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
@@ -103,7 +103,7 @@ export class AhmadproviderService {
   }
   getlist_berita() {
     return new Promise(resolve => {
-      this.httpclient.get(this.api_list_berita, this.httpOptions).subscribe(data => {
+      this.httpclient.get(this.api_list_berita).subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
@@ -112,7 +112,7 @@ export class AhmadproviderService {
   }
   getAll_propinsi() {
     return new Promise(resolve => {
-      this.httpclient.get(this.api_all_propinsi, this.httpOptions).subscribe(data => {
+      this.httpclient.get(this.api_all_propinsi).subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
@@ -121,7 +121,7 @@ export class AhmadproviderService {
   }
   getkota_bypropinsi(propinsi) {
     return new Promise(resolve => {
-      this.httpclient.get(this.api_kota_bypropinsi + propinsi, this.httpOptions).subscribe(data => {
+      this.httpclient.get(this.api_kota_bypropinsi + propinsi).subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
@@ -131,7 +131,7 @@ export class AhmadproviderService {
 
   getkec_bykota(kota) {
     return new Promise(resolve => {
-      this.httpclient.get(this.api_kec_bykota + kota, this.httpOptions).subscribe(data => {
+      this.httpclient.get(this.api_kec_bykota + kota).subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
@@ -140,7 +140,7 @@ export class AhmadproviderService {
   }
   getkel_bykec(kec) {
     return new Promise(resolve => {
-      this.httpclient.get(this.api_kel_bykec + kec, this.httpOptions).subscribe(data => {
+      this.httpclient.get(this.api_kel_bykec + kec).subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
@@ -149,7 +149,7 @@ export class AhmadproviderService {
   }
   getkodepos_bykel(kel) {
     return new Promise(resolve => {
-      this.httpclient.get(this.api_kodepos_bykel + kel, this.httpOptions).subscribe(data => {
+      this.httpclient.get(this.api_kodepos_bykel + kel).subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
@@ -220,7 +220,7 @@ export class AhmadproviderService {
     };
     return new Promise(resolve => {
 
-      this.httpclient.post(this.api_donatur_profile_save + donatur_id, data, this.httpOptions).subscribe(data => {
+      this.httpclient.post(this.api_donatur_profile_save + donatur_id, data).subscribe(data => {
         /** upload foto donatur */
         let options: FileUploadOptions = {
           fileKey: 'file',
@@ -246,7 +246,7 @@ export class AhmadproviderService {
   }
   kuesioner_getList() {
     return new Promise(resolve => {
-      this.httpclient.get(this.api_santri_kuesioner, this.httpOptions).subscribe(data => {
+      this.httpclient.get(this.api_santri_kuesioner).subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
@@ -259,7 +259,7 @@ export class AhmadproviderService {
       "kuesioner": kuesioner_list
     };
     return new Promise(resolve => {
-      this.httpclient.post(this.api_santri_kuesioner_simpan, data, this.httpOptions).subscribe(data => {
+      this.httpclient.post(this.api_santri_kuesioner_simpan, data).subscribe(data => {
         let result = {
           "message": '',
           "status": 'OK',
@@ -309,7 +309,7 @@ export class AhmadproviderService {
     };
     return new Promise(resolve => {
 
-      this.httpclient.post(this.api_santri_profile_save + santri_id, data, this.httpOptions).subscribe(data => {
+      this.httpclient.post(this.api_santri_profile_save + santri_id, data).subscribe(data => {
 
         /** upload foto santri */
         let options: FileUploadOptions = {
