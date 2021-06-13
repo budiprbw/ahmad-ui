@@ -21,6 +21,6 @@ export class SelesaiDonasiPage implements OnInit {
     this.route.navigateByUrl('/penyaluran-donasi', { replaceUrl:true });
   }
   goLanjutkan(){
-    
+    this.route.navigateByUrl('/pengingat-donasi', { replaceUrl:true });
   }
 }

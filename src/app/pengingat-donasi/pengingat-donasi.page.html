@@ -1,9 +1,37 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>pengingat-donasi</ion-title>
+    <ion-title>Fitur Pengingat</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-grid class="pengingat-donasi">
+    <ion-row>
+      <ion-col>
+          <ion-card class="pengingat-donasi-Rectangle-633">
+            <div class="pengingat-donasi-text">
+                <p>Pengingat Pembayaran Diaktifkan!<br><br>
 
-</ion-content>
+                Untuk mempermudah mengingat waktu pembayaran donasi maka fitur pengingat pembayaran diaktifkan sesuai dengan jenis donasi yang sudah anda tentukan yaitu:<br><br>
+                
+                [Donasi Harian - Rp10.000]<br><br>
+                
+                Pembayaran cicilan donasi akan dilakukan mulai dari H-2 hingga hari H</p>
+                <p>
+                    Pengingat ini sekaligus mengirimkan materi-materi terkait hadis, doa-doa dan pengingat ibadah lainnya
+                </p>
+
+            </div>            
+          </ion-card> 
+          <ion-card class="pengingat-donasi-Rectangle-628">
+              <ion-button color="warning" fill="clear" class="pengingat-donasi-button" (click)="goRiwayatDonasi()">                        
+                  <ion-text class="pengingat-donasi-Sign-up">
+                      Riwayat Donasi                            
+                  </ion-text>                        
+                  <div class="vector">
+                      <ion-icon name="arrow-forward-circle-outline"   size="large"  ></ion-icon>
+                  </div>                      
+              </ion-button> 
+          </ion-card>
+      </ion-col>  
+    </ion-row>
+ </ion-grid>      
