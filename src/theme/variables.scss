@@ -1,3 +1,8 @@
+@import 'tailwindcss/base';
+
+@import 'tailwindcss/components';
+
+@import 'tailwindcss/utilities';
 // Ionic Variables and Theming. For more info, please see:
 // http://ionicframework.com/docs/theming/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
@@ -100,6 +105,8 @@
           //width: 210.9px;
           height: 48px;
           margin: 0 50.1px 32px 50px;
+          justify-content: center;
+          display: flex;
           object-fit: contain;              
         }      
         .button_masuk {
@@ -151,7 +158,7 @@
           width: 111px;
           height: 40px;
           flex-grow: 0;
-          display: flex;
+          //display: flex;
           flex-direction: row;
           justify-content: flex-start;
           align-items: center;
@@ -178,7 +185,6 @@
           background-image: url('../assets/images/banner.webp');
         }   
         .card2_Rectangle {
-          width: 1244px;
           height: 660px;
           margin: 36px 46px 36px 46px;
           padding: 36px 43px 36px 46px;
@@ -257,13 +263,13 @@
           top: 50%;  
           width: 260px;
           height: 52px;
-          display: flex;
+          //display: flex;
           flex-direction: row;
           justify-content: flex-start;
           align-items: center;
           gap: 10px;
           margin: 116px 954px 34px 128px;
-          padding: 16px 20px;
+          padding: 16px 23px;
           object-fit: contain;
           border-radius: 14px;
           box-shadow: 2px 4px 12px 0 rgba(252, 198, 4, 0.2);
@@ -272,7 +278,6 @@
         .card2-title{
           width: 358px;
           height: 48px;
-          margin: 0 401px 24px 396px;
           font-family: Poppins;
           font-size: 32px;
           font-weight: 600;
@@ -291,7 +296,6 @@
           color: #fff;
         }
         .card2-content{
-          width: 1152px;
           height: 122px;
           margin: 24px 3px 36px 0;
           font-family: Poppins;
@@ -329,6 +333,7 @@
           color: var(--ion-color-black);
         }
         .card2-program-santri{
+          display: block;
           width: 606px;
           height: 103px;
           flex-grow: 0;
@@ -353,7 +358,7 @@
           align-items: center;
           gap: 10px;
           margin: 32px 386px 0 0;
-          padding: 16px 20px;
+          //padding: 16px 20px;
           object-fit: contain;
           border-radius: 14px;
           border: solid 1px #000000;
@@ -518,7 +523,7 @@
         align-items: center;
         gap: 10px;
         margin: 42px 16px 45px 10px;
-        padding: 16px 20px;
+        //padding: 16px 20px;
         object-fit: contain;
         border-radius: 14px;
         box-shadow: 2px 4px 12px 0 rgba(252, 198, 4, 0.2);
@@ -529,7 +534,7 @@
           height: 20px;
           flex-grow: 0;
           font-family: Poppins;
-          font-size: 16px;
+          font-size: 14px;
           font-weight: 600;
           font-stretch: normal;
           font-style: normal;
@@ -549,7 +554,7 @@
           align-items: center;
           gap: 10px;
           margin: 42px 0 45px 350px;
-          padding: 16px 20px;
+          //padding: 16px 20px;
           object-fit: contain;
           border-radius: 14px;
           border: solid 1px #000000;
@@ -560,7 +565,7 @@
           height: 20px;
           flex-grow: 0;
           font-family: Poppins;
-          font-size: 16px;
+          font-size: 14px;
           font-weight: 500;
           font-stretch: normal;
           font-style: normal;
@@ -570,14 +575,14 @@
           color: var(--ion-color-black);
         }
         .card4-Rectangle-608 {
-          width: 1244px;
-          height: 322px;
-          margin: 36px 0 36px 66px;
-          padding: 36px 400px 38px 46px;
+          width: 343px;
+          height: 389px;          
+          // margin: 24px 16px;
+          // padding: 24px 16px;
           object-fit: contain;
-          border-radius: 32px;
+          border-radius: 14px;
           box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
-          background-image: linear-gradient(to top, var(--goldd), rgba(255, 255, 255, 0)), linear-gradient(to bottom, rgba(252, 198, 4, 0.6), rgba(252, 198, 4, 0.6)), linear-gradient(to bottom, var(--ion-color-goldd), var(--ion-color-goldd));
+          background-image: linear-gradient(to top, var(--ion-color-goldd), rgba(255, 255, 255, 0)), linear-gradient(to bottom, rgba(252, 198, 4, 0.6), rgba(252, 198, 4, 0.6)), linear-gradient(to bottom, var(--ion-color-goldd), var(--ion-color-goldd));          
         }
 
         .card4-Program-Donatur{
@@ -618,16 +623,16 @@
         }
         .card4-button-lanjut{
           position: absolute;
-          top: 190px;   
+          //top: 190px;   
           width: 250px;
-          height: 52px;
+          //height: 52px;
           display: flex;
           flex-direction: row;
           justify-content: flex-start;
           align-items: center;
           gap: 10px;
-          margin: 32px 16px 0 0;
-          padding: 10px 63px 36px 5px;
+          // margin: 32px 16px 0 0;
+          // padding: 10px 63px 36px 5px;
           object-fit: contain;
           border-radius: 14px;
           box-shadow: 2px 4px 4px 0 rgba(0, 0, 0, 0.15);
@@ -640,7 +645,7 @@
           font-family: Poppins;
           font-size: 16px;
           font-weight: 500;
-          padding: 30px 63px 30px 20px;
+          //padding: 30px 63px 30px 20px;
           font-stretch: normal;
           font-style: normal;
           line-height: 1.25;
@@ -674,50 +679,50 @@
         }
         .card4-button-bagikan-informasi{
         position: absolute;
-        top: 190px; 
+        //top: 190px; 
         //width: 210px;
-        height: 52px;
+        //height: 52px;
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
         align-items: center;
         gap: 10px;
-        margin: 32px 352px 0 270px;
-        padding: 16px 20px;
+        // margin: 32px 352px 0 270px;
+        // padding: 16px 20px;
         object-fit: contain;
         border-radius: 14px;
         border: solid 1px #000000;
         color: var(--ion-color-black);
         }
         .card5-Frequently-Ask-Question {
-        width: 389px;
+        //width: 389px;
         height: 48px;
-        margin: 0 382px 36px 384px;
+        //margin: 0 382px 36px 384px;
         font-family: Poppins;
-        font-size: 32px;
-        font-weight: 600;
+        //font-size: 32px;
+        //font-weight: 600;
         font-stretch: normal;
         font-style: normal;
         line-height: normal;
         letter-spacing: -0.3px;
         text-align: center;
-        color: var(--ion-color-black);
+        //color: var(--ion-color-black);
         }
         .card5-Rectangle-614 {
         //width: 1155px;
-        height: 72px;
-        margin: 0 0 24px;
-        padding: 24px 54px;
+        //height: 72px;
+        // margin: 0 0 24px;
+        // padding: 24px 54px;
         border-radius: 32px;
         background-color:var(--ion-color-black);
         cursor: pointer;
         }
 
-        .card5-title{
-        position: absolute; 
-        width: 191px;
+        .card5-title{ 
+        //position: absolute; 
+        //width: 191px;
         height: 24px;
-        margin: 0 832px 0 0;
+        //margin: 0 832px 0 0;
         font-family: Poppins;
         font-size: 16px;
         font-weight: 600;
@@ -729,12 +734,12 @@
         color: var(--ion-color-goldd);
         }
         .card5-content{
-        width: 1051px;
-        height: 82px;
-        margin: 24px 54px 0 50px;
-        padding: 10px 54px 100px 50px;
+        //width: 1051px;
+        //height: 82px;
+        // margin: 24px 54px 0 50px;
+        // padding: 10px 54px 100px 50px;
         font-family: Poppins;
-        font-size: 18px;
+        //font-size: 18px;
         font-weight: 500;
         font-stretch: normal;
         font-style: normal;
@@ -786,7 +791,7 @@
         }
         .Ellipse-1 {
           position: absolute;
-          top:45%;
+          top:55%;
           right: -50px;
           width: 42px;
           height: 42px;
@@ -801,10 +806,44 @@
           cursor: pointer;
           content:url('../assets/images/akar-icons_circle-chevron-up.svg');       
         }
-        .Ellipse-2 {
+        .button-dark-mode-true {
           position: absolute;
           top:40%;
           right: -50px;
+          width: 42px;
+          height: 42px;
+          flex-grow: 0;
+          margin: 14px 44px 24px 12px;
+          padding: 11px 11px 11px 11px;
+          background-color: var(--ion-color-goldd);
+          display: flex!important;
+          align-content: center!important;
+          align-items: center!important;
+          border-radius: 50%;
+          cursor: pointer;             
+          content:url('../assets/images/Vector_dark.svg');        
+        }  
+        .button-dark-mode-false {
+          position: absolute;
+          top:40%;
+          right: -50px;
+          width: 42px;
+          height: 42px;
+          flex-grow: 0;
+          margin: 14px 44px 24px 12px;
+          padding: 11px 11px 11px 11px;
+          background-color: var(--ion-color-goldd);
+          display: flex!important;
+          align-content: center!important;
+          align-items: center!important;
+          border-radius: 50%;
+          cursor: pointer;             
+          content:url('../assets/images/Vector.svg');       
+        }  
+        .Ellipse-2 {
+          position: absolute;
+          top:40%;
+          right: -55px;
           width: 42px;
           height: 42px;
           flex-grow: 0;
@@ -1129,33 +1168,63 @@
             .heroicons-solidoffice-building {
                 width: 24px;
                 height: 24px;
-                margin: 28px 16px 76px 0;
+                margin: 28px 16px 76px 10px;
                 object-fit: contain;
                 display: flex;
                 flex-direction: row;
                 align-items: center;
                 background-image: url('../assets/images/heroicons-solid_office-building.svg');
             }  
+            .heroicons-solidoffice-building-dark {
+              width: 24px;
+              height: 24px;
+              margin: 28px 16px 76px 10px;
+              object-fit: contain;
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              background-image: url('../assets/images/heroicons-solid_office-building-dark.svg');
+            }  
             .heroicons-solidphone{
                 width: 24px;
                 height: 24px;
-                margin: 26px 16px 19px 0;
+                margin: 26px 16px 19px 10px;
                 object-fit: contain;
                 display: flex;
                 flex-direction: row;
                 align-items: center;
                 background-image: url('../assets/images/heroicons-solid_phone.svg');
             }
+            .heroicons-solidphone-dark{
+              width: 24px;
+              height: 24px;
+              margin: 26px 16px 19px 10px;
+              object-fit: contain;
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              background-image: url('../assets/images/heroicons-solid_phone-dark.svg');
+          }
             .heroicons-solidmail {
                 width: 24px;
                 height: 24px;
-                margin: 48px 16px 47px 0;
+                margin: 48px 16px 47px 10px;
                 object-fit: contain;
                 display: flex;
                 flex-direction: row;
                 align-items: center;
                 background-image: url('../assets/images/heroicons-solid_mail.svg');
             }
+            .heroicons-solidmail-dark {
+              width: 24px;
+              height: 24px;
+              margin: 48px 16px 47px 10px;
+              object-fit: contain;
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              background-image: url('../assets/images/heroicons-solid_mail-dark.svg');
+          }
         /* end dashboard */
 
        /* form masuk santri donatur */
@@ -1886,17 +1955,13 @@
             object-fit: contain;
             content:url('../assets/images/ion_chatbox-ellipses-outline.svg');   
           }
-        
-        
-            
-                            
-    
+                                                            
 }
 
 @media screen and (max-width: 600px) {
   :root {
 
-    .card1-content{
+    .card1-content{      
       position: absolute;
       top: 275px;    
       //width: 716px;
@@ -2057,6 +2122,7 @@
     .card2-program-santri{
         width: 606px;
         height: 103px;
+        display: block;
         flex-grow: 0;
         margin: 18px 0 0;
         font-family: Poppins;
@@ -2079,7 +2145,7 @@
       align-items: center;
       gap: 10px;
       margin: 32px 386px 0 0;
-      padding: 16px 20px;
+      padding: 16px 23px;
       object-fit: contain;
       border-radius: 14px;
       border: solid 1px var(--ion-color-goldd);
@@ -2100,7 +2166,6 @@
       color: var(--ion-color-goldd);
     }
       .card2_Rectangle {
-        width: 1244px;
         height: 660px;
         margin: 36px 46px 36px 46px;
         padding: 36px 43px 36px 46px;
@@ -2111,7 +2176,6 @@
       .card2-title{
           width: 358px;
           height: 48px;
-          margin: 0 401px 24px 396px;
           font-family: Poppins;
           font-size: 32px;
           font-weight: 600;
@@ -2123,7 +2187,6 @@
           color: var(--ion-color-goldd);
       }
       .card2-content{
-        width: 1152px;
         height: 122px;
         margin: 24px 3px 36px 0;
         font-family: Poppins;
@@ -2467,7 +2530,7 @@
              .heroicons-solidoffice-building {
               width: 24px;
               height: 24px;
-              margin: 28px 16px 76px 0;
+              margin: 28px 16px 76px 10px;
               object-fit: contain;
               display: flex;
               flex-direction: row;
@@ -2477,7 +2540,7 @@
             .heroicons-solidphone{
               width: 24px;
               height: 24px;
-              margin: 26px 16px 19px 0;
+              margin: 26px 16px 19px 10px;
               object-fit: contain;
               display: flex;
               flex-direction: row;
@@ -2487,7 +2550,7 @@
             .heroicons-solidmail {
               width: 24px;
               height: 24px;
-              margin: 48px 16px 47px 0;
+              margin: 48px 16px 47px 10px;
               object-fit: contain;
               display: flex;
               flex-direction: row;
@@ -2558,16 +2621,16 @@
             .card5-Frequently-Ask-Question {
               width: 389px;
               height: 48px;
-              margin: 0 382px 36px 384px;
+              //margin: 0 382px 36px 384px;
               font-family: Poppins;
-              font-size: 32px;
-              font-weight: 600;
+              //font-size: 32px;
+              //font-weight: 600;
               font-stretch: normal;
               font-style: normal;
               line-height: normal;
               letter-spacing: -0.3px;
               text-align: center;
-              color: var(--ion-color-goldd);
+              //color: var(--ion-color-goldd);
               }
     
   }
@@ -2657,6 +2720,7 @@
       color: var(--ion-color-goldd);
     }
     .card2-program-santri{
+      display: block;
       width: 606px;
       height: 103px;
       flex-grow: 0;
@@ -2702,7 +2766,6 @@
       color: var(--ion-color-goldd);
     }
     .card2_Rectangle {
-      width: 1244px;
       height: 660px;
       margin: 36px 46px 36px 46px;
       padding: 36px 43px 36px 46px;
@@ -2713,7 +2776,6 @@
       .card2-title{
         width: 358px;
         height: 48px;
-        margin: 0 401px 24px 396px;
         font-family: Poppins;
         font-size: 32px;
         font-weight: 600;
@@ -2725,7 +2787,6 @@
         color: var(--ion-color-goldd);
       } 
       .card2-content{
-        width: 1152px;
         height: 122px;
         margin: 24px 3px 36px 0;
         font-family: Poppins;
@@ -3068,7 +3129,7 @@
             .heroicons-solidoffice-building {
               width: 24px;
               height: 24px;
-              margin: 28px 16px 76px 0;
+              margin: 28px 16px 76px 10px;
               object-fit: contain;
               display: flex;
               flex-direction: row;
@@ -3078,7 +3139,7 @@
             .heroicons-solidphone{
               width: 24px;
               height: 24px;
-              margin: 26px 16px 19px 0;
+              margin: 26px 16px 19px 10px;
               object-fit: contain;
               display: flex;
               flex-direction: row;
@@ -3088,7 +3149,7 @@
             .heroicons-solidmail {
               width: 24px;
               height: 24px;
-              margin: 48px 16px 47px 0;
+              margin: 48px 16px 47px 10px;
               object-fit: contain;
               display: flex;
               flex-direction: row;
@@ -3158,16 +3219,16 @@
             .card5-Frequently-Ask-Question {
               width: 389px;
               height: 48px;
-              margin: 0 382px 36px 384px;
+              //margin: 0 382px 36px 384px;
               font-family: Poppins;
-              font-size: 32px;
-              font-weight: 600;
+              //font-size: 32px;
+              //font-weight: 600;
               font-stretch: normal;
               font-style: normal;
               line-height: normal;
               letter-spacing: -0.3px;
               text-align: center;
-              color: var(--ion-color-goldd);
+              // color: var(--ion-color-goldd);
               }
             
 
@@ -3271,6 +3332,7 @@
       color: var(--ion-color-goldd);
     }
     .card2-program-santri{
+      display: block;
       width: 606px;
       height: 103px;
       flex-grow: 0;
@@ -3316,7 +3378,6 @@
       color: var(--ion-color-goldd);
     }
     .card2_Rectangle {
-      width: 1244px;
       height: 660px;
       margin: 36px 46px 36px 46px;
       padding: 36px 43px 36px 46px;
@@ -3327,7 +3388,6 @@
       .card2-title{
         width: 358px;
         height: 48px;
-        margin: 0 401px 24px 396px;
         font-family: Poppins;
         font-size: 32px;
         font-weight: 600;
@@ -3339,7 +3399,6 @@
         color: var(--ion-color-goldd);
       }
       .card2-content{
-        width: 1152px;
         height: 122px;
         margin: 24px 3px 36px 0;
         font-family: Poppins;
@@ -3682,7 +3741,7 @@
             .heroicons-solidoffice-building {
               width: 24px;
               height: 24px;
-              margin: 28px 16px 76px 0;
+              margin: 28px 16px 76px 10px;
               object-fit: contain;
               display: flex;
               flex-direction: row;
@@ -3692,7 +3751,7 @@
             .heroicons-solidphone{
               width: 24px;
               height: 24px;
-              margin: 26px 16px 19px 0;
+              margin: 26px 16px 19px 10px;
               object-fit: contain;
               display: flex;
               flex-direction: row;
@@ -3702,7 +3761,7 @@
             .heroicons-solidmail {
               width: 24px;
               height: 24px;
-              margin: 48px 16px 47px 0;
+              margin: 48px 16px 47px 10px;
               object-fit: contain;
               display: flex;
               flex-direction: row;
@@ -3772,16 +3831,16 @@
             .card5-Frequently-Ask-Question {
               width: 389px;
               height: 48px;
-              margin: 0 382px 36px 384px;
+              //margin: 0 382px 36px 384px;
               font-family: Poppins;
-              font-size: 32px;
-              font-weight: 600;
+              //font-size: 32px;
+              //font-weight: 600;
               font-stretch: normal;
               font-style: normal;
               line-height: normal;
               letter-spacing: -0.3px;
               text-align: center;
-              color: var(--ion-color-goldd);
+              //color: var(--ion-color-goldd);
               }
 
   }

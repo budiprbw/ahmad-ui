@@ -23,35 +23,35 @@ export class PengirimanStatusDonasiPage implements OnInit {
   }
   initialDeliveryStatus() {
     let row1 = {
-      "photo_url": "../assets/images/no-image.png",
+      "photo_url": "assets/images/no-image.png",
       "nama_santri": "Abdullah Nasir",
       "status": "Dalam Pengiriman",
     };
     this.deliverylist.push(row1);
     let row2 = {
       "santri_id": 1,
-      "photo_url": "../assets/images/no-image.png",
+      "photo_url": "assets/images/no-image.png",
       "nama_santri": "Amin",
       "status": "Terkirim ",
     };
     this.deliverylist.push(row2);
     let row3 = {
       "santri_id": 2,
-      "photo_url": "../assets/images/no-image.png",
+      "photo_url": "assets/images/no-image.png",
       "nama_santri": "Darso",
       "status": "Dalam Pengiriman ",
     };
     this.deliverylist.push(row3);
     let row4 = {
       "santri_id": 3,
-      "photo_url": "../assets/images/no-image.png",
+      "photo_url": "assets/images/no-image.png",
       "nama_santri": "Asep",
       "status": "Dalam Pengiriman ",
     };
     this.deliverylist.push(row4);
     let row5 = {
       "santri_id": 3,
-      "photo_url": "../assets/images/no-image.png",
+      "photo_url": "assets/images/no-image.png",
       "nama_santri": "Sholeh",
       "status": "Dalam Pengiriman ",
     };

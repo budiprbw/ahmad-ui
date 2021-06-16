@@ -10,16 +10,16 @@ import { ModalUbahBankPage } from '../modal-ubah-bank/modal-ubah-bank.page';
   styleUrls: ['./pembayaran-donasi.page.scss'],
 })
 export class PembayaranDonasiPage implements OnInit {
-  private item_bayar:any;
-  private jenis_donasi:string="";
-  private nominal_donasi:string="";
-  private total_donasi:string="";
-  private durasi_donasi:string="";
-  private qty_donasi:string="";  
-  private kode_unik:number=212;  
-  private nomimanl_donasi_text:string="";  
-  private gran_total:number=0;  
-  private gran_total_text:string="";  
+  public item_bayar:any;
+  public jenis_donasi:string="";
+  public nominal_donasi:string="";
+  public total_donasi:string="";
+  public durasi_donasi:string="";
+  public qty_donasi:string="";  
+  public kode_unik:number=212;  
+  public nominal_donasi_text:string="";  
+  public gran_total:number=0;  
+  public gran_total_text:string="";  
   public bank_selected:any;
   public setuju_bayar:string="0";
 

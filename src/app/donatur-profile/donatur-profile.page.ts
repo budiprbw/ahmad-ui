@@ -24,31 +24,36 @@ export class DonaturProfilePage implements OnInit {
   public user_email: string="";
   public user_displayName:string="";
   public login_by:string="";
-  private result:any;
-  private donatur_id:string;
-  private donatur_no_hp:string;
-  private donatur_nama:string;
-  private donatur_tmp_lahir:string;
-  private donatur_tgl_lahir:string;
-  private donatur_gender:string;
-  private donatur_agama:string;
-  private donatur_telepon:string;
-  private donatur_lokasi_photo:any;
-  private donatur_kerja:string;
-  private donatur_alamat:string;
-  private donatur_kode_pos:string;
-  private donatur_kelurahan:string;
-  private donatur_kecamatan:string;
-  private donatur_kota:string;
-  private donatur_provinsi:string;
-  private donatur_no_ktp:string;
+  public result:any;
+  public donatur_id:string;
+  public donatur_no_hp:string;
+  public donatur_nama:string;
+  public donatur_tmp_lahir:string;
+  public donatur_tgl_lahir:string;
+  public donatur_gender:string;
+  public donatur_agama:string;
+  public donatur_telepon:string;
+  public donatur_lokasi_photo:any;
+  public donatur_kerja:string;
+  public donatur_alamat:string;
+  public donatur_kode_pos:string;
+  public donatur_kelurahan:string;
+  public donatur_kecamatan:string;
+  public donatur_kota:string;
+  public donatur_provinsi:string;
+  public donatur_no_ktp:string;
+  customPopoverOptions: any = {
+    header: 'Lookup data master',
+    subHeader: 'Select your dats',
+    message: 'Only select your data'
+  };
   
 
   constructor(
-    private platform: Platform,
-    private asp: AhmadproviderService,
-    private route: Router,
-    private storage :Storage
+    public platform: Platform,
+    public asp: AhmadproviderService,
+    public route: Router,
+    public storage :Storage
   ) { }
 
   ngOnInit() {

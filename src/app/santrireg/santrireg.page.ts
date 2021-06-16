@@ -66,6 +66,8 @@ export class SantriregPage implements OnInit {
       this.error_msg="";
     }
   }
-
+  doLogin(){
+    
+  }
 
 }

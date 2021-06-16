@@ -23,7 +23,7 @@ export class DonasiSantriListPage implements OnInit {
   initialSantriList(){
     let row1 = {
       "santri_id": 1,
-      "photo_url": "../assets/images/no-image.png",
+      "photo_url": "assets/images/no-image.png",
       "nama_santri": "Abdullah Nasir",
       "nama_prgram": "Progress Pembelajaran",
       "pencapaian": "40%",
@@ -31,7 +31,7 @@ export class DonasiSantriListPage implements OnInit {
     this.santrilist.push(row1);
     let row2 = {
       "santri_id": 2,
-      "photo_url": "../assets/images/no-image.png",
+      "photo_url": "assets/images/no-image.png",
       "nama_santri": "Amin",
       "nama_prgram": "Progress Pembelajaran ",
       "pencapaian": "30%",
@@ -39,7 +39,7 @@ export class DonasiSantriListPage implements OnInit {
     this.santrilist.push(row2);
     let row3 = {
       "santri_id": 3,
-      "photo_url": "../assets/images/no-image.png",
+      "photo_url": "assets/images/no-image.png",
       "nama_santri": "Darso",
       "nama_prgram": "Progress Pembelajaran ",
       "pencapaian": "90%",
@@ -47,7 +47,7 @@ export class DonasiSantriListPage implements OnInit {
     this.santrilist.push(row3);
     let row4 = {
       "santri_id": 4,
-      "photo_url": "../assets/images/no-image.png",
+      "photo_url": "assets/images/no-image.png",
       "nama_santri": "Asep",
       "nama_prgram": "Progress Pembelajaran ",
       "pencapaian": "78%",
@@ -55,7 +55,7 @@ export class DonasiSantriListPage implements OnInit {
     this.santrilist.push(row4);
     let row5 = {
       "santri_id": 5,
-      "photo_url": "../assets/images/no-image.png",
+      "photo_url": "assets/images/no-image.png",
       "nama_santri": "Sholeh",
       "nama_prgram": "Dalam Pengiriman ",
     };

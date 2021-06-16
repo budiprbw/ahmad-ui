@@ -10,11 +10,14 @@ import { AhmadproviderService } from '../ahmadprovider.service';
 })
 export class DetailPenerimaDonasiPage implements OnInit {
 public noProgram:any=true;
-private santri_id:any="";
-private nama_santri:any="";
-private bulan_pendampingan:any="";
-private progress_belajar:any="";
+public santri_id:any="";
+public nama_santri:any="";
+public bulan_pendampingan:any="";
+public progress_belajar:any="";
 public programlist:any=[];
+public nama_pendamping:any="";
+public nama_donatur:string="";
+
 
   constructor(
     private route: Router,

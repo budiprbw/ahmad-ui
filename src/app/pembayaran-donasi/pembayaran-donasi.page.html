@@ -46,7 +46,7 @@
         <div class="pembayaran-donasi-text1">Rincian Transaksi</div>
         <div class="pembayaran-donasi-value6">{{nominal_donasi}}</div>
         <div class="pembayaran-donasi-text1">Total Bayar (Donasi 1)</div>
-        <div class="pembayaran-donasi-value7">{{nomimanl_donasi}}</div>
+        <div class="pembayaran-donasi-value7">{{nominal_donasi}}</div>
         <div class="pembayaran-donasi-text1">Kode Unik</div>
         <div class="pembayaran-donasi-value8">{{kode_unik}}</div>
         <div class="pembayaran-donasi-text1">Grand Total</div>
@@ -74,7 +74,7 @@
     </div>
     <div class="footex-text">Dengan ini Saya menyetujui syarat & ketentuan yang berlaku</div>
     <ion-toolbar>
-      <div class="vector_footer"><img src="../../assets/images/ion_shield-checkmark-outline.svg"></div>        
+      <div class="vector_footer"><img src="assets/images/ion_shield-checkmark-outline.svg"></div>        
         <ion-button fill="clear"  [ngClass]="setuju_bayar=='0'?'bayar-donasi':'bayar-donasi-gold'" (click)="goBayar()">
             <ion-text  [ngClass]="setuju_bayar=='0'?'bayar-donasi-text':'bayar-donasi-text-black'">
               Bayar

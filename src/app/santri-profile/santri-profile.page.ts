@@ -25,31 +25,37 @@ export class SantriProfilePage implements OnInit {
   public user_displayName: string = "";
   public login_by: string = "";
   private result: any;
-  private santri_id: string;
-  private santri_no_hp: string;
-  private santri_nama: string;
-  private santri_tmp_lahir: string;
-  private santri_tgl_lahir: string;
-  private santri_gender: string;
-  private santri_agama: string;
-  private santri_telepon: string;
-  private santri_lokasi_photo: any;
-  private santri_kerja: string;
-  private santri_alamat: string;
-  private santri_kode_pos: string;
-  private santri_kelurahan: string;
-  private santri_kecamatan: string;
-  private santri_kota: string;
-  private santri_provinsi: string;
-  private santri_no_ktp: string;
+  public santri_id: string;
+  public santri_no_hp: string;
+  public santri_nama: string;
+  public santri_tmp_lahir: string;
+  public santri_tgl_lahir: string;
+  public santri_gender: string;
+  public santri_agama: string;
+  public santri_telepon: string;
+  public santri_lokasi_photo: any;
+  public santri_kerja: string;
+  public santri_alamat: string;
+  public santri_kode_pos: string;
+  public santri_kelurahan: string;
+  public santri_kecamatan: string;
+  public santri_kota: string;
+  public santri_provinsi: string;
+  public santri_no_ktp: string;
+
+  customPopoverOptions: any = {
+    header: 'Lookup Data',
+    subHeader: 'Select your Data',
+    message: 'Only select your data master'
+  };
 
 
 
   constructor(
-    private platform: Platform,
-    private asp: AhmadproviderService,
-    private route: Router,
-    private storage: Storage
+    public platform: Platform,
+    public asp: AhmadproviderService,
+    public route: Router,
+    public storage: Storage
 
   ) { }
 

@@ -9,8 +9,8 @@ import { Router } from '@angular/router';
 export class SantriBuatpasswordPage implements OnInit {
   public isActiveToggleTextPassword_1:boolean=true;
   public isActiveToggleTextPassword_2:boolean=true;
-  private newpassword:string;
-  private confirmassword:string;
+  public newpassword:string;
+  public confirmassword:string;
   constructor(private route: Router) { }
 
   ngOnInit() {
@@ -29,5 +29,8 @@ export class SantriBuatpasswordPage implements OnInit {
   }
   goBuatpassword(){
     this.route.navigate(['santri-kuesioner']);
+  }
+  goBack(){
+
   }
 }

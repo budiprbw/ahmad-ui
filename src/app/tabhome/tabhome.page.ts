@@ -28,11 +28,12 @@ export class TabhomePage implements OnInit {
   goPengingat(){
     this.route.navigateByUrl('/donasi-riwayat', { replaceUrl:true });
   }
-  goInfoMasuk(){
+  public goInfoMasuk(){
     this.santri_id="1";
     this.route.navigate(['donatur-notifikasi', { santri_id: this.santri_id }]);
   }
   goSalurkanDonasi(){
     this.route.navigateByUrl('/penyaluran-donasi', { replaceUrl:true });
   }
+
 }

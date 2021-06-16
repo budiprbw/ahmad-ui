@@ -29,4 +29,5 @@ export class TabprogramPage implements OnInit {
   goSalurkanDonasi(){
     this.route.navigateByUrl('/penyaluran-donasi', { replaceUrl:true });
   }
+ 
 }

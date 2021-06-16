@@ -16,13 +16,16 @@ export class SantriAkunPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.user_photoURL="../assets/images/no-image.png";
+    this.user_photoURL="assets/images/no-image.png";
   }
   goAjak(){
 
   }
   goProfile(){
     this.route.navigateByUrl('/santri-profile', { replaceUrl:true });
+  }
+  goUbahPassword(){
+
   }
 
 }

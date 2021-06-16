@@ -16,7 +16,7 @@ export class TabakunPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.user_photoURL="../assets/images/no-image.png";  
+    this.user_photoURL="assets/images/no-image.png";  
   }
 
   goAjak(){
@@ -27,6 +27,9 @@ export class TabakunPage implements OnInit {
   }
   goUbahPassword(){
     
+  }
+  goInfoMasuk(){
+
   }
 
 }

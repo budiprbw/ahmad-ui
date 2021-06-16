@@ -9,8 +9,8 @@ import { AhmadproviderService } from '../ahmadprovider.service';
   styleUrls: ['./pengiriman-status-detail.page.scss'],
 })
 export class PengirimanStatusDetailPage implements OnInit {
-  private santri_id:string="";
-  private nama_santri:string="";
+  public santri_id:string="";
+  public nama_santri:string="";
   public deliverydetaillist:any=[];
   constructor(
     private route: Router,

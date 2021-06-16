@@ -11,8 +11,8 @@ export class SantriProgramPage implements OnInit {
  public programlist:any=[];
  public nama_donatur:string="";
  public nama_pendamping:string="";
- private bulan_pendampingan:any="";
-private progress_belajar:any="";
+ public bulan_pendampingan:any="";
+ public progress_belajar:any="";
 
   constructor(
     public asp: AhmadproviderService,
