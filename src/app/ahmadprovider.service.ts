@@ -15,6 +15,7 @@ export class AhmadproviderService {
   private api_register_donatur = this.baseAPIUrl + 'donatur/register';
   private api_register_santri = this.baseAPIUrl + 'santri/register';
   private api_santri_byemail = this.baseAPIUrl + 'santri/byemail';
+  private api_donatur_byemail = this.baseAPIUrl+"donatur/byemail/";
   private api_list_berita = this.baseAPIUrl + 'berita/list';
   private api_user_login = this.baseAPIUrl + 'user/login';
   private api_all_propinsi = this.baseAPIUrl + 'kodepos/list/provinsi/all';
@@ -23,11 +24,16 @@ export class AhmadproviderService {
   private api_kel_bykec = this.baseAPIUrl + 'kodepos/kelurahanbykecamatan/';
   private api_kodepos_bykel = this.baseAPIUrl + 'kodepos/kodeposbykelurahan/';
   private api_donatur_profile_save = this.baseAPIUrl + 'donatur/update/profile/';
-  private api_photo_profile_donatur = this.baseAPIUrl + 'donatur/update/profile/';
   private api_santri_kuesioner = this.baseAPIUrl + 'kuesioner/list';
   private api_santri_kuesioner_simpan = this.baseAPIUrl + 'kuesioner/santri/simpan'
   private api_santri_profile_save = this.baseAPIUrl + 'kuesioner/santri/update/profile';
-  private api_photo_profile_santri = this.baseAPIUrl + 'donatur/update/profile/';
+  private api_photo_profile_santri = this.baseAPIUrl + 'santru/upload/photo/';
+  private api_photo_profile_donatur = this.baseAPIUrl + 'donatur/upload/photo/';
+  private api_donatur_register_sosmed =this.baseAPIUrl +  'donatur/register/sosmed';
+  private api_santri_register_sosmed =this.baseAPIUrl +  'santri/register/sosmed';
+  
+
+
 
 
 
@@ -46,9 +52,13 @@ export class AhmadproviderService {
     public loadingController: LoadingController,
     public router: Router,
     private transfer: FileTransfer,
-    private storage: Storage
+    private storage: Storage,
+    public route: Router,
 
   ) { }
+
+  
+  //#region  Data Master
   user_login(user_name, user_password, user_tipe) {
     let data = {
       "email": user_name,
@@ -62,45 +72,7 @@ export class AhmadproviderService {
         console.log(err);
       });
     });
-  }
-  register_donatur(user_email, nama_lengkap) {
-    this.base_url = window.location.origin;
-    let data = {
-      "user_email": user_email,
-      "user_name": nama_lengkap,
-      "url": this.base_url
-    };
-    console.log(data);
-    return new Promise(resolve => {
-      this.httpclient.post(this.api_register_donatur, data).subscribe(data => {
-        resolve(data);
-      }, err => {
-        console.log(err);
-      });
-    });
-  }
-  register_santri(user_email, nama_lengkap) {
-    let data = {
-      "user_email": user_email,
-      "user_name": nama_lengkap
-    };
-    return new Promise(resolve => {
-      this.httpclient.post(this.api_register_santri, data).subscribe(data => {
-        resolve(data);
-      }, err => {
-        console.log(err);
-      });
-    });
-  }
-  login_santri(user_email) {
-    return new Promise(resolve => {
-      this.httpclient.get(this.api_santri_byemail + '/' + user_email).subscribe(data => {
-        resolve(data);
-      }, err => {
-        console.log(err);
-      });
-    });
-  }
+  }  
   getlist_berita() {
     return new Promise(resolve => {
       this.httpclient.get(this.api_list_berita).subscribe(data => {
@@ -156,88 +128,18 @@ export class AhmadproviderService {
       });
     });
   }
-
-  go_previous_page() {
-    this.location.back();
-  }
-
-  async presentToast(msg) {
-    const toast = await this.toastCtrl.create({
-      message: msg,
-      duration: 2000
-    });
-    toast.present();
-  }
-
-  async presentLoading(wait_message) {
-    this.isLoading = true;
-    return await this.loadingController.create({
-      message: wait_message
-    }).then(a => {
-      a.present().then(() => {
-        console.log('presented');
-        if (!this.isLoading) {
-          a.dismiss();
-        }
+  login_santri(user_email) {
+    return new Promise(resolve => {
+      this.httpclient.get(this.api_santri_byemail + '/' + user_email).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
       });
     });
   }
-
-  donaturUpdateProfile(donatur_id,
-    donatur_nama,
-    donatur_tmp_lahir,
-    donatur_tgl_lahir,
-    donatur_gender,
-    donatur_agama,
-    donatur_telepon,
-    donatur_lokasi_photo: any,
-    donatur_kerja,
-    donatur_no_ktp,
-    donatur_alamat,
-    donatur_kode_pos,
-    donatur_kelurahan,
-    donatur_kecamatan,
-    donatur_kota,
-    donatur_provinsi,
-
-  ) {
-    let data = {
-      "donatur_id": donatur_id,
-      "donatur_namad": donatur_nama,
-      "donatur_tmp_lahir": donatur_tmp_lahir,
-      "donatur_tgl_lahir": donatur_tgl_lahir,
-      "donatur_genderd": donatur_gender,
-      "donatur_agama": donatur_agama,
-      "donatur_telepon": donatur_telepon,
-      "donatur_lokasi_photo": donatur_lokasi_photo,
-      "donatur_kerja": donatur_kerja,
-      "donatur_alamat": donatur_alamat,
-      "donatur_kode_pos": donatur_kode_pos,
-      "donatur_kelurahan": donatur_kelurahan,
-      "donatur_kecamatan": donatur_kecamatan,
-      "donatur_kota": donatur_kota,
-      "donatur_provinsi": donatur_provinsi
-    };
+  login_donatur(user_email) {
     return new Promise(resolve => {
-
-      this.httpclient.post(this.api_donatur_profile_save + donatur_id, data).subscribe(data => {
-        /** upload foto donatur */
-        let options: FileUploadOptions = {
-          fileKey: 'file',
-          fileName: donatur_lokasi_photo.fileNameFromPath + donatur_lokasi_photo.type,
-          chunkedMode: false,
-          mimeType: "image/jpeg",
-          headers: {}
-        }
-        const fileTransfer: FileTransferObject = this.transfer.create();
-
-        fileTransfer.upload(donatur_lokasi_photo, this.api_photo_profile_donatur, options)
-          .then((data) => {
-            console.log('success upload donatur poto');
-          }, (err) => {
-            console.log(err);
-          });
-
+      this.httpclient.get(this.api_donatur_byemail + '/' + user_email).subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
@@ -253,6 +155,47 @@ export class AhmadproviderService {
       });
     });
   }
+  //#endregion
+
+  //#region Proses Santri
+  santriRegSosmed(user_email,user_name,user_password)
+  {
+    let data = {
+      "email":user_email,
+      "name": user_name,
+      "password":user_password
+    };
+    return new Promise(resolve => {
+      this.httpclient.post(this.api_santri_register_sosmed, data).subscribe(data => {
+        let result = {
+          "message": '',
+          "status": 'OK',
+          "data": data
+        };
+        resolve(result);
+      }, err => {
+        let result = {
+          "message": err.message,
+          "status": 'error'
+        };
+        resolve(result);
+      });
+    });    
+  }
+  register_santri(user_email, nama_lengkap) {
+    let data = {
+      "user_email": user_email,
+      "user_name": nama_lengkap
+    };
+    return new Promise(resolve => {
+      this.httpclient.post(this.api_register_santri, data).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+  
   kuesioner_santri_simpan(santri_id, kuesioner_list: any) {
     let data = {
       "santri_id": santri_id,
@@ -275,6 +218,7 @@ export class AhmadproviderService {
       });
     });
   }
+    
   santriUpdateProfile(santri_id,
     santri_nama,
     santri_tmp_lahir,
@@ -334,10 +278,155 @@ export class AhmadproviderService {
       resolve(data);
     });
   }
+//#endregion
 
+  //#region Proses Donatur 
+  register_donatur(user_email, nama_lengkap) {
+    this.base_url = window.location.origin +'/buatpassword/';
+    let data = {
+      "email": user_email,
+      "name": nama_lengkap,
+      "url": this.base_url
+    };
+    console.log(data);
+    return new Promise(resolve => {
+      this.httpclient.post(this.api_register_donatur, data).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+  
+  donaturUpdateProfile(donatur_id,
+    donatur_nama,
+    donatur_tmp_lahir,
+    donatur_tgl_lahir,
+    donatur_gender,
+    donatur_agama,
+    donatur_telepon,
+    donatur_lokasi_photo: any,
+    donatur_kerja,
+    donatur_no_ktp,
+    donatur_alamat,
+    donatur_kode_pos,
+    donatur_kelurahan,
+    donatur_kecamatan,
+    donatur_kota,
+    donatur_provinsi,
+
+  ) {
+    let data = {
+      "donatur_id": donatur_id,
+      "donatur_namad": donatur_nama,
+      "donatur_tmp_lahir": donatur_tmp_lahir,
+      "donatur_tgl_lahir": donatur_tgl_lahir,
+      "donatur_genderd": donatur_gender,
+      "donatur_agama": donatur_agama,
+      "donatur_telepon": donatur_telepon,
+      "donatur_lokasi_photo": donatur_lokasi_photo,
+      "donatur_kerja": donatur_kerja,
+      "donatur_alamat": donatur_alamat,
+      "donatur_kode_pos": donatur_kode_pos,
+      "donatur_kelurahan": donatur_kelurahan,
+      "donatur_kecamatan": donatur_kecamatan,
+      "donatur_kota": donatur_kota,
+      "donatur_provinsi": donatur_provinsi
+    };
+    return new Promise(resolve => {
+
+      this.httpclient.put(this.api_donatur_profile_save + donatur_id, data).subscribe(data => {
+        /** upload foto donatur */
+        let options: FileUploadOptions = {
+          fileKey: 'file',
+          fileName: donatur_lokasi_photo.fileNameFromPath + donatur_lokasi_photo.type,
+          chunkedMode: false,
+          mimeType: "image/jpeg",
+          headers: {}
+        }
+        const fileTransfer: FileTransferObject = this.transfer.create();
+
+        fileTransfer.upload(donatur_lokasi_photo, this.api_photo_profile_donatur, options)
+          .then((data) => {
+            console.log('success upload donatur poto');
+          }, (err) => {
+            console.log(err);
+          });
+
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+  donaturRegSosmed(user_email,user_name,user_password)
+  {
+    let data = {
+      "user_email":user_email,
+      "user_name": user_name,
+      "user_password":user_password
+    };
+    return new Promise(resolve => {
+      this.httpclient.post(this.api_donatur_register_sosmed, data).subscribe(data => {
+        let result = {
+          "message": '',
+          "status": 'OK',
+          "data": data
+        };
+        resolve(result);
+      }, err => {
+        let result = {
+          "message": err.message,
+          "status": 'error'
+        };
+        resolve(result);
+      });
+    });    
+  }  
+  //#endregion
+
+  //#region  Method helper
   async dismissLoading() {
     this.isLoading = false;
     return await this.loadingController.dismiss();
   }
+  
+  getUserInfo():any{
+    let usrinfo: any;
+    usrinfo =  JSON.parse(localStorage.getItem("usrinfo"));
+    if (!(usrinfo))
+    {
+      this.route.navigateByUrl('/login', { replaceUrl: true });
+    }
+    return usrinfo;
+  }
+  go_previous_page() {
+    this.location.back();
+  }
+
+  async presentToast(msg) {
+    const toast = await this.toastCtrl.create({
+      message: msg,
+      duration: 2000
+    });
+    toast.present();
+  }
+
+  async presentLoading(wait_message) {
+    this.isLoading = true;
+    return await this.loadingController.create({
+      message: wait_message
+    }).then(a => {
+      a.present().then(() => {
+        console.log('presented');
+        if (!this.isLoading) {
+          a.dismiss();
+        }
+      });
+    });
+  }
+
+  //#endregion
+
 
 }

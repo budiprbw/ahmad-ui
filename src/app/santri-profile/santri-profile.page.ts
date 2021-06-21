@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./santri-profile.page.scss'],
 })
 export class SantriProfilePage implements OnInit {
-  public isPhoto: any = false;
   public usrinfo: any;
 
   public propinsiInitial: any = [];
@@ -49,8 +48,6 @@ export class SantriProfilePage implements OnInit {
     message: 'Only select your data master'
   };
 
-
-
   constructor(
     public platform: Platform,
     public asp: AhmadproviderService,
@@ -65,24 +62,18 @@ export class SantriProfilePage implements OnInit {
     })
   }
   initdata() {
-    //this.userInfo();
+    this.userInfo();
     this.getpropinsi();
   }
   async userInfo() {
-      this.storage.get('usrinfo').then((val) => {
-        console.log(val);
-        if (val) {
-          this.usrinfo = JSON.parse(val);
-          this.user_photoURL = this.usrinfo.user_photoURL;
-          this.user_email = this.usrinfo.user_email;
-          this.user_displayName = this.usrinfo.user_displayName;
-          this.santri_nama = this.usrinfo.user_displayName;
-          this.login_by = this.usrinfo.login_by;
-          if (this.usrinfo.user_photoURL.trim() != "") {
-            this.isPhoto = true;
-          }
-        }
-      })
+    
+    this.usrinfo= this.asp.getUserInfo();
+    this.user_photoURL = this.usrinfo.user_photoURL;
+    this.user_email = this.usrinfo.user_email;
+    this.user_displayName = this.usrinfo.user_displayName;
+    this.santri_nama = this.usrinfo.user_displayName;
+    this.login_by = this.usrinfo.login_by;
+    
   }
   getpropinsi() {
     this.asp.getAll_propinsi().then(
@@ -142,7 +133,6 @@ export class SantriProfilePage implements OnInit {
       this.response = data;      
       this.route.navigateByUrl('santri-reg-info', { replaceUrl: true });
     })
-
   }
 
 

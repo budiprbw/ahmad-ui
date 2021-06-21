@@ -2,12 +2,13 @@
     <ion-toolbar>
         <ion-title class="ion-text-center">Lengkapi Profile Anda</ion-title>
     </ion-toolbar>
-    <div style="float:right">
-        <ion-avatar>
-            <img src="{{user_photoURL}}" style="height: 30px;width:30px;"><br>
-            <ion-label style="font-size: 10px">{{user_displayName}}</ion-label>
-        </ion-avatar>
-
+    <div class="grid justify-items-end">
+        <div>
+            <ion-avatar>
+                <img src="{{user_photoURL}}" style="height: 40px;width:40px;" class="ml-5">
+            </ion-avatar>
+            <ion-label style="font-size: 14px">{{user_displayName}}</ion-label>
+        </div>
     </div>
 </ion-header>
 <ion-grid class="ion-grid">
@@ -38,40 +39,38 @@
                 <ion-input placeholder="Alamat Lengkap" [(ngModel)]="donatur_alamat" name="donatur_alamat"></ion-input>
                 <ion-item>
                     <ion-label>Pilih Propinsi</ion-label>
-                    <ion-select [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="Pilih Propinsi" (ionChange)="getkota($event)"
-                        [(ngModel)]="donatur_provinsi" name="donatur_provinsi">
+                    <ion-select interface="popover" placeholder="Pilih Propinsi" (ionChange)="getkota($event)" [(ngModel)]="donatur_provinsi"
+                        name="donatur_provinsi">
                         <ion-select-option value="{{ item.provinsi }}" *ngFor="let item of propinsiInitial">{{ item.provinsi}}
                         </ion-select-option>
                     </ion-select>
                 </ion-item>
                 <ion-item>
                     <ion-label>Pilih Kota/Kabupaten</ion-label>
-                    <ion-select [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="Pilih Kota/Kab" (ionChange)="getkec($event)"
-                        [(ngModel)]="donatur_kota" name="donatur_kota">
+                    <ion-select interface="popover" placeholder="Pilih Kota/Kab" (ionChange)="getkec($event)" [(ngModel)]="donatur_kota" name="donatur_kota">
                         <ion-select-option value="{{ item.kota }}" *ngFor="let item of kotaInitial">{{ item.kota }}</ion-select-option>
 
                     </ion-select>
                 </ion-item>
                 <ion-item>
                     <ion-label>Pilih Kecamatan</ion-label>
-                    <ion-select [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="Pilih Kecamatan" (ionChange)="getkel($event)"
-                        [(ngModel)]="donatur_kecamatan" name="donatur_kecamatan">
+                    <ion-select interface="popover" placeholder="Pilih Kecamatan" (ionChange)="getkel($event)" [(ngModel)]="donatur_kecamatan"
+                        name="donatur_kecamatan">
                         <ion-select-option value="{{ item.kecamatan }}" *ngFor="let item of kecamatansInitial">{{ item.kecamatan}}
                         </ion-select-option>
                     </ion-select>
                 </ion-item>
                 <ion-item>
                     <ion-label>Pilih Kelurahan</ion-label>
-                    <ion-select [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="Pilih Kelurahan" (ionChange)="getkodepos($event)"
-                        [(ngModel)]="donatur_kelurahan" name="donatur_kelurahan">
+                    <ion-select interface="popover" placeholder="Pilih Kelurahan" (ionChange)="getkodepos($event)" [(ngModel)]="donatur_kelurahan"
+                        name="donatur_kelurahan">
                         <ion-select-option value="{{ item.kelurahan }}" *ngFor="let item of kelurahansInitial">{{ item.kelurahan}}
                         </ion-select-option>
                     </ion-select>
                 </ion-item>
                 <ion-item>
                     <ion-label>Pilih Kode Pos</ion-label>
-                    <ion-select [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="Pilih Kode Pos" [(ngModel)]="donatur_kode_pos"
-                        name="donatur_kode_pos">
+                    <ion-select interface="popover" placeholder="Pilih Kode Pos" [(ngModel)]="donatur_kode_pos" name="donatur_kode_pos">
                         <ion-select-option value="{{ item.kode_pos }}" *ngFor="let item of kodeposInitial">{{ item.kode_pos}}</ion-select-option>
                     </ion-select>
                 </ion-item>
@@ -80,21 +79,20 @@
                 </div>
             </ion-card>
             <ion-card class="donatur-Rectangle-645">
-                <ion-select [interfaceOptions]="customPopoverOptions" interface="popover" placeholder="Status Pekerjaan" [(ngModel)]="donatur_kerja"
-                    name="donatur_kerja">
-                    <ion-select-option value="tidak_bekerja">Belum/ Tidak Bekerja</ion-select-option>
-                    <ion-select-option value="Mengurus_Rumah_Tangga">Mengurus Rumah Tangga</ion-select-option>
-                    <ion-select-option value="Pelajar_Mahasiswa.">Pelajar/ Mahasiswa</ion-select-option>
-                    <ion-select-option value="Pensiunan">Pensiunan</ion-select-option>
-                    <ion-select-option value="PNS">Pewagai Negeri Sipil</ion-select-option>
-                    <ion-select-option value="TNI">Tentara Nasional Indonesia</ion-select-option>
-                    <ion-select-option value="POLRI">Kepolisisan RI</ion-select-option>
-                    <ion-select-option value="Perdagangan">Perdagangan</ion-select-option>
-                    <ion-select-option value="Pegawai_Swasta">Pegawai Swasta</ion-select-option>
-                    <ion-select-option value="Wiraswasta">Wiraswasta</ion-select-option>
+                <ion-select interface="popover" placeholder="Status Pekerjaan" [(ngModel)]="donatur_kerja" name="donatur_kerja">
+                    <ion-select-option value="PEGAWAI NEGERI">"PEGAWAI NEGERI</ion-select-option>
+                    <ion-select-option value="KARYAWAN SWASTA">KARYAWAN SWASTA</ion-select-option>
+                    <ion-select-option value="TNI/POLRI">TNI/POLRI</ion-select-option>
+                    <ion-select-option value="PENGUSAHA">PENGUSAHA</ion-select-option>
+                    <ion-select-option value="GURU/DOSEN">GURU/DOSEN</ion-select-option>
+                    <ion-select-option value="TENAGA KESEHATAN">TENAGA KESEHATAN</ion-select-option>
+                    <ion-select-option value="BIDANG HUKUM">BIDANG HUKUM</ion-select-option>
+                    <ion-select-option value="PEDAGANG">PEDAGANG</ion-select-option>
+                    <ion-select-option value="BIDANG JASA">BIDANG JASA</ion-select-option>
+                    <ion-select-option value="IBU RUMAH TANGGA">IBU RUMAH TANGGA</ion-select-option>
+                    <ion-select-option value="LAINNYA">LAINNYA</ion-select-option>
                 </ion-select>
-                <ion-input placeholder="No KTP"  name="donatur_no_ktp" placeholder="Status Pekerjaan" [(ngModel)]="donatur_no_ktp"
-                    name="donatur_no_ktp"></ion-input>
+                <ion-input placeholder="No KTP" name="donatur_no_ktp" placeholder="Status Pekerjaan" [(ngModel)]="donatur_no_ktp" name="donatur_no_ktp"></ion-input>
             </ion-card>
             <ion-card class="donatur-Rectangle-628">
                 <ion-button fill="clear" class="masuk-santri-donatur-button" (click)="goSaveProfile()">

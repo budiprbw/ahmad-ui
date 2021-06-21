@@ -14,13 +14,13 @@
       <ion-card class="Rectangle-597">
         <ion-card-content>
           <div class="Pilih-salah-satu">Pilih salah satu</div>
-          <ion-button fill="clear" class="s-button" routerLink="/santrilogin">
+          <ion-button fill="clear" class="s-button"  [routerLink]=" ['/login']" [queryParams]="{login_mode: 'santri'}">
             <ion-text class="s-sign-up">Santri</ion-text>
           </ion-button>
-          <ion-button fill="clear" class="s-button" routerLink="/donaturlogin">
+          <ion-button fill="clear" class="s-button" [routerLink]="['/login']" [queryParams]="{login_mode: 'donatur'}">
             <ion-text class="s-sign-up">Donatur</ion-text>
           </ion-button>
-          <ion-button fill="clear" class="s-button" routerLink="/donaturlogin">
+          <ion-button fill="clear" class="s-button" routerLink="/donaturlogin??login_mode='pendamping'">
             <ion-text class="s-sign-up">Pendamping</ion-text>
           </ion-button>
         </ion-card-content>

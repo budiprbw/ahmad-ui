@@ -35,15 +35,13 @@
                 <ion-text style="text-align: center">
                   <h3>Atau lebih cepat</h3>
                 </ion-text>
-                <div style="text-align: center">
-                  <ion-button color="danger" (click)="doLogin()">
-                    Sign in With Google
-                    <ion-icon name="logo-google"></ion-icon>
-                  </ion-button>
-                </div>
-                
-                
-
+                <ion-button fill="clear" class="h-12 w-72 bg-white rounded-lg  border-placeholder border-2 lg:bg-white  lg:rounded-2xl lg:border-placeholder lg:border-2"
+                  (click)="doLogin()">
+                    <img src="../../assets/images/Google_Logo.svg" class="mr-10">
+                    <ion-text class=" text-black font-semibold text-xs-9 lg:text-black lg:text-md-12 lg:font-semibold items-center">
+                      Masuk dengan Google
+                    </ion-text>                    
+                </ion-button>                                
         </ion-card>
       </ion-col>
    </ion-row>   

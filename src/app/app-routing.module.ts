@@ -169,6 +169,10 @@ const routes: Routes = [
   {
     path: 'selesai-donasi',
     loadChildren: () => import('./selesai-donasi/selesai-donasi.module').then( m => m.SelesaiDonasiPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   }
 ];
 @NgModule({

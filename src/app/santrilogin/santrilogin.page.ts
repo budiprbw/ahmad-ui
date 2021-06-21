@@ -14,7 +14,6 @@ import { AhmadproviderService } from '../ahmadprovider.service';
 export class SantriloginPage implements OnInit {
 
   public loading: any;
-  public isGoogleLogin = false;
   public user = null;
   public user_email: string="";
   public user_password :string="";
@@ -43,7 +42,7 @@ export class SantriloginPage implements OnInit {
       if (this.platform.is('cordova')) {
         if (this.platform.is('android')) {
           params = {
-            webClientId: '<WEB_CLIENT_ID>', //  webclientID 'string'
+            webClientId: '169518870541-b2fuohq1lkso25u1mkkafrvk2kpccrm8.apps.googleusercontent.com', //  webclientID 'string'
             offline: true
           };
         } else {
@@ -61,7 +60,6 @@ export class SantriloginPage implements OnInit {
         console.log('else...');
         this.fireAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(success => {
           console.log('success in google login', success);
-          this.isGoogleLogin = true;
           this.user =  success.user;
           localStorage.setItem("usrinfo",JSON.stringify(this.user));
           this.route.navigate(['dashboard-santri']);
@@ -78,7 +76,6 @@ export class SantriloginPage implements OnInit {
       this.fireAuth.signInWithCredential(credential)
         .then((success) => {
           alert('successfully');
-          this.isGoogleLogin = true;
           this.user =  success.user;
           
         });
@@ -89,7 +86,6 @@ export class SantriloginPage implements OnInit {
     }
     logout() {
       this.fireAuth.signOut().then(() => {
-        this.isGoogleLogin = false;
       });
     }
     goBack(){

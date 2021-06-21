@@ -24,15 +24,17 @@ module.exports = {
         'md-13': '12px',
         'md-14': '14px',
         'md-16': '16px',
-        'md-18': '18px',
-        
+        'md-18': '18px',        
       },
       backgroundColor: theme=> ({
         'gold':'#fcc604',
         'terang': '#efeffe',
         'gelap': '#000000',
         'gelapbaru':'#1b1c20'
-      } )     
+      }),
+      borderColor : theme=> ({
+        'placeholder':'#bdbdbd'
+      })
     }
   },
   variants: {

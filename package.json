@@ -1,5 +1,5 @@
 {
-  "name": "project-ahmad.firebaseapp.com",
+  "name": "com.ahmadproject",
   "version": "0.0.1",
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
@@ -97,7 +97,7 @@
   "cordova": {
     "plugins": {
       "cordova-plugin-googleplus": {
-        "REVERSED_CLIENT_ID": "44428660278-g24disaeuimrvscac0gc72aiagu1d95f.apps.googleusercontent.com",
+        "REVERSED_CLIENT_ID": "622466272928-7sppv2sol13pkhojcn119048obvdvonv.apps.googleusercontent.com",
         "WEB_APPLICATION_CLIENT_ID": ""
       },
       "cordova-plugin-whitelist": {},

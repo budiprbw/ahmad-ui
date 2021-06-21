@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>622466272928-cbcbdm2of3ak8g9jl1dit8a2pn7hu6iu.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.622466272928-cbcbdm2of3ak8g9jl1dit8a2pn7hu6iu</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>622466272928-2rv41dnjrkll139bk76c6dbdp22e20lj.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB9KHLiAWhV-8N6rtcXT_WEkFlhwCabwyc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>622466272928</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.ahmadproject</string>
+	<key>PROJECT_ID</key>
+	<string>pelagic-radio-317206</string>
+	<key>STORAGE_BUCKET</key>
+	<string>pelagic-radio-317206.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:622466272928:ios:8cfb6f97b3974c1977c3c5</string>
+</dict>
+</plist>

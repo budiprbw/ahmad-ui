@@ -2,74 +2,47 @@ import { Component, OnInit } from '@angular/core';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { LoadingController, Platform } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/auth';
-import  firebase from 'firebase';
-import { AhmadproviderService } from '../ahmadprovider.service';
+import firebase from 'firebase';
 import { Router,ActivatedRoute } from '@angular/router';
+import { AhmadproviderService } from '../ahmadprovider.service';
+import { isGeneratedFile } from '@angular/compiler/src/aot/util';
 
 @Component({
-  selector: 'app-santrireg',
-  templateUrl: './santrireg.page.html',
-  styleUrls: ['./santrireg.page.scss'],
+  selector: 'app-login',
+  templateUrl: './login.page.html',
+  styleUrls: ['./login.page.scss'],
 })
-export class SantriregPage implements OnInit {
-  public nama_lengkap :string="";
-  public error_msg=""; 
-  response: any;
+export class LoginPage implements OnInit {
   public loading: any;
   public user = null;
   public user_email: string;
   public user_password: string;
+  public error_msg: string = "";
+  public response: any;
   public user_tipe: string = "1";
   public login_mode:string="";
+  public isActiveToggleTextPassword:boolean=true;
 
-  
   constructor(
     private google: GooglePlus,
     public loadingController: LoadingController,
     private fireAuth: AngularFireAuth,
     private platform: Platform,
+    private route: Router,
     public asp: AhmadproviderService,
-    public route : Router,
     public router:ActivatedRoute
   ) { }
 
   async ngOnInit() {
     this.loading = await this.loadingController.create({
       message: 'Connecting ...'
-    });  
+    });
     this.router.queryParams.subscribe((params: any) => {
       if (params['login_mode']){
         this.login_mode=params['login_mode'];
       }       
     });
-  }
-  gotologinpage(){
-    this.route.navigateByUrl('/login', { replaceUrl:true });
-  }
-  goBack(){
-    this.asp.go_previous_page();
-  }
-  goRegister(){
-    if(this.user_email.trim().length==0)
-    {
-      this.error_msg="* email required!";
-      return;
-    }
-    if(this.nama_lengkap.trim().length==0){
-      this.error_msg="* nama lengkap required!";
-      return;
-    }     
-    this.route.navigate(['buatpassword']);
-  }
-  blurEvent1(event: string ){
-    if(event.trim().length>0){
-      this.error_msg="";
-    }    
-  }
-  blurEvent2(event: string ){
-    if(event.trim().length>0){
-      this.error_msg="";
-    }
+
   }
   doLogin() {
     let params: any;
@@ -103,7 +76,7 @@ export class SantriregPage implements OnInit {
           "login_mode":this.login_mode
         };
         localStorage.setItem("usrinfo",JSON.stringify(userinfo));
-        this.route.navigateByUrl('/buatpassword', { replaceUrl: true });
+        this.redirectMe();
         this.loading.dismiss();
 
       }).catch(err => {
@@ -126,7 +99,7 @@ export class SantriregPage implements OnInit {
           "login_mode":this.login_mode
         };
         localStorage.setItem("usrinfo",JSON.stringify(userinfo));
-        this.route.navigateByUrl('/buatpassword', { replaceUrl: true });
+        this.redirectMe();
       });
 
   }
@@ -136,5 +109,82 @@ export class SantriregPage implements OnInit {
   logout() {
     this.fireAuth.signOut().then(() => {
     });
-  }  
+  }
+  goBack() {
+    this.asp.go_previous_page();
+  }
+  gotoregistrasi() {
+    if (this.login_mode=='donatur'){
+      this.route.navigateByUrl('/donaturreg?login_mode='+ this.login_mode, { replaceUrl: true });
+    }
+    if (this.login_mode=='santri'){
+      this.route.navigateByUrl('/santrireg?login_mode='+ this.login_mode, { replaceUrl: true });
+    }
+  }
+  async goLogin() {
+    this.asp.presentLoading("login processing");
+    this.getuserlogin("0");
+    this.asp.dismissLoading();
+  }
+  getuserlogin(dummy) {
+    if (dummy == "0") {
+      let userinfo = {
+        "user_email": this.user_email,
+        "user_displayName": "Bejo",
+        "user_photoURL": "",
+        "login_by":"data",
+        "login_mode":this.login_mode
+      };
+      localStorage.setItem("usrinfo", JSON.stringify(userinfo));  
+      this.redirectMe();      
+    }
+    else {
+        this.asp.user_login(this.user_email, this.user_password, this.user_tipe).then(
+          data => {
+            this.response = data;
+
+            if (this.response.status == 'error') {
+              this.error_msg = this.response.message;              
+            }
+            else {
+              let userinfo = {
+                "user_email": this.response.user.user_email,
+                "user_displayName": this.response.user.user_name,
+                "user_photoURL": "",
+                "login_by":"data",
+                "login_mode":this.login_mode
+              };
+              this.user = userinfo;
+              localStorage.setItem("usrinfo", JSON.stringify(userinfo));
+              this.redirectMe();              
+            }
+          });
+      }
+  }
+  blurEvent1(event: string) {
+    if (event.trim().length > 0) {
+      this.error_msg = "";
+    }
+  }
+  blurEvent2(event: string) {
+    if (event.trim().length > 0) {
+      this.error_msg = "";
+    }
+  }
+  redirectMe(){
+    if (this.login_mode=='donatur'){
+      this.route.navigateByUrl('/donatur-profile', { replaceUrl: true });
+    }
+    if (this.login_mode=='santri'){
+      this.route.navigateByUrl('/santri-profile', { replaceUrl: true });
+    }
+  }
+  public toggleTextPassword(): void {
+    this.isActiveToggleTextPassword = (this.isActiveToggleTextPassword == true) ? false : true;
+  }
+  public getType() {
+    return this.isActiveToggleTextPassword ? 'password' : 'text';
+  }
+  
 }
+

@@ -54,13 +54,11 @@ export class SantriKuesionerPage implements OnInit {
   }
 
   userInfo() {
-    this.storage.get('usrinfo').then((val) => {
-      this.usrinfo = JSON.parse(val);
+    this.usrinfo =  this.usrinfo= this.asp.getUserInfo();      
       this.user_photoURL = this.usrinfo.user_photoURL;
       this.user_email = this.usrinfo.user_email;
       this.user_displayName = this.usrinfo.user_displayName;
       this.login_by = this.usrinfo.login_by;
-    });
   }
 
   getKuesionerList() {

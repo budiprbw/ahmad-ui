@@ -29,14 +29,13 @@ public noBerita:any=false;
     this.initpage();
   }
   initpage(){
-    if (localStorage.getItem("usrinfo")!=null)
-    {      
-      this.usrinfo =  JSON.parse(localStorage.getItem("usrinfo"));
-      this.user_photoURL=this.usrinfo.photoURL;
-      this.user_email= this.usrinfo.user_email;
-      this.user_displayName=this.usrinfo.displayName;
+    
+      this.usrinfo =  this.usrinfo= this.asp.getUserInfo();
+      this.user_photoURL = this.usrinfo.user_photoURL;
+      this.user_email = this.usrinfo.user_email;
+      this.user_displayName = this.usrinfo.user_displayName;
       this.getlistberita();
-    }
+    
   }
   getlistberita(){
     this.asp.getlist_berita().then(

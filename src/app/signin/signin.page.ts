@@ -14,7 +14,6 @@ import { AhmadproviderService } from '../ahmadprovider.service';
 export class SigninPage implements OnInit {
 
   public loading: any;
-  public isGoogleLogin = false;
   public user = null;
 
   constructor(
@@ -37,7 +36,7 @@ export class SigninPage implements OnInit {
     if (this.platform.is('cordova')) {
       if (this.platform.is('android')) {
         params = {
-          webClientId: '<WEB_CLIENT_ID>', //  webclientID 'string'
+          webClientId: '169518870541-b2fuohq1lkso25u1mkkafrvk2kpccrm8.apps.googleusercontent.com', //  webclientID 'string'
           offline: true
         };
       } else {
@@ -55,7 +54,6 @@ export class SigninPage implements OnInit {
       console.log('else...');
       this.fireAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(success => {
         console.log('success in google login', success);
-        this.isGoogleLogin = true;
         this.user =  success.user;
       }).catch(err => {
         console.log(err.message, 'error in google login');
@@ -69,7 +67,6 @@ export class SigninPage implements OnInit {
     this.fireAuth.signInWithCredential(credential)
       .then((success) => {
         alert('successfully');
-        this.isGoogleLogin = true;
         this.user =  success.user;
         this.loading.dismiss();
       });
@@ -80,7 +77,6 @@ export class SigninPage implements OnInit {
   }
   logout() {
     this.fireAuth.signOut().then(() => {
-      this.isGoogleLogin = false;
     });
   }
   goBack(){

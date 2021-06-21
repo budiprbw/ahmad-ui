@@ -4,7 +4,7 @@ import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { LoadingController, Platform } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/auth';
 import  firebase from 'firebase';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
 import { AhmadproviderService } from '../ahmadprovider.service';
 
 
@@ -17,10 +17,10 @@ export class DonaturregPage implements OnInit {
   public user_email : string;
   public nama_lengkap :string;
   public loading: any;
-  public isGoogleLogin = false;
   public user = null;
   public error_msg:string=""
   public response:any;
+  public login_mode:string="";
 
   constructor(
     public asp: AhmadproviderService,
@@ -30,10 +30,16 @@ export class DonaturregPage implements OnInit {
     public loadingController: LoadingController,
     private fireAuth: AngularFireAuth,
     private platform: Platform,
-    private route :Router
+    private route :Router,
+    public router:ActivatedRoute
   ) { }
 
   ngOnInit() {
+    this.router.queryParams.subscribe((params: any) => {
+      if (params['login_mode']){
+        this.login_mode=params['login_mode'];
+      }       
+    });
   }
 
   doLogin(){
@@ -41,7 +47,7 @@ export class DonaturregPage implements OnInit {
     if (this.platform.is('cordova')) {
       if (this.platform.is('android')) {
         params = {
-          webClientId: '<WEB_CLIENT_ID>', //  webclientID 'string'
+          webClientId: '169518870541-b2fuohq1lkso25u1mkkafrvk2kpccrm8.apps.googleusercontent.com', //  webclientID 'string'
           offline: true
         };
       } else {
@@ -58,9 +64,16 @@ export class DonaturregPage implements OnInit {
     } else{
       console.log('else...');
       this.fireAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(success => {
-        console.log('success in google login', success);
-        this.isGoogleLogin = true;
         this.user =  success.user;
+        let userinfo = {
+          "user_email": this.user.email,
+          "user_displayName": this.user.displayName,
+          "user_photoURL": this.user.photoURL,
+          "login_by":"google",
+          "login_mode":this.login_mode
+        };
+        localStorage.setItem("usrinfo",JSON.stringify(userinfo));
+        this.route.navigateByUrl('/buatpassword', { replaceUrl: true });
         
       }).catch(err => {
         console.log(err.message, 'error in google login');
@@ -73,9 +86,16 @@ export class DonaturregPage implements OnInit {
             .credential(accessToken);
     this.fireAuth.signInWithCredential(credential)
       .then((success) => {
-        alert('successfully');
-        this.isGoogleLogin = true;
         this.user =  success.user;
+        let userinfo = {
+          "user_email": this.user.email,
+          "user_displayName": this.user.displayName,
+          "user_photoURL": this.user.photoURL,
+          "login_by":"google",
+          "login_mode":this.login_mode
+        };
+        localStorage.setItem("usrinfo",JSON.stringify(userinfo));
+        this.route.navigateByUrl('/buatpassword', { replaceUrl: true });
         this.loading.dismiss();
       });
 
@@ -85,11 +105,10 @@ export class DonaturregPage implements OnInit {
   }
   logout() {
     this.fireAuth.signOut().then(() => {
-      this.isGoogleLogin = false;
     });
   }
   gotologinpage(){
-    this.route.navigateByUrl('/donaturlogin', { replaceUrl:true });
+    this.route.navigateByUrl('/login', { replaceUrl:true });
   }
   goBack(){
     this.asp.go_previous_page();

@@ -14,7 +14,6 @@ import { AhmadproviderService } from '../ahmadprovider.service';
 })
 export class DonaturloginPage implements OnInit {
   public loading: any;
-  public isGoogleLogin = false;
   public user = null;
   public user_email: string;
   public user_password: string;
@@ -42,7 +41,7 @@ export class DonaturloginPage implements OnInit {
     if (this.platform.is('cordova')) {
       if (this.platform.is('android')) {
         params = {
-          webClientId: '<WEB_CLIENT_ID>', //  webclientID 'string'
+          webClientId: '622466272928-7sppv2sol13pkhojcn119048obvdvonv.apps.googleusercontent.com', //  webclientID 'string'
           offline: true
         };
       } else {
@@ -60,7 +59,6 @@ export class DonaturloginPage implements OnInit {
       console.log('else...');
       this.fireAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(success => {
         console.log('success in google login', success);
-        this.isGoogleLogin = true;
         this.user = success.user;
         let userinfo = {
           "user_email": this.user.email,
@@ -68,8 +66,10 @@ export class DonaturloginPage implements OnInit {
           "user_photoURL": this.user.photoURL,
           "login_by":"google"
         };
-        this.storage.create();
-        this.storage.set("usrinfo", JSON.stringify(userinfo));
+        /*this.storage.create();
+         this.storage.set("usrinfo", JSON.stringify(userinfo));*/
+
+        localStorage.setItem("usrinfo",JSON.stringify(userinfo));
         this.route.navigateByUrl('/donatur-profile', { replaceUrl: true });
         this.loading.dismiss();
 
@@ -77,7 +77,8 @@ export class DonaturloginPage implements OnInit {
         console.log(err.message, 'error in google login');
       });
     }
-  }
+  } 
+
   onLoginSuccess(accessToken, accessSecret) {
     const credential = accessSecret ? firebase.auth.GoogleAuthProvider
       .credential(accessToken, accessSecret) : firebase.auth.GoogleAuthProvider
@@ -85,7 +86,6 @@ export class DonaturloginPage implements OnInit {
     this.fireAuth.signInWithCredential(credential)
       .then((success) => {
         alert('successfully');
-        this.isGoogleLogin = true;
         this.user = success.user;        
       });
 
@@ -95,7 +95,6 @@ export class DonaturloginPage implements OnInit {
   }
   logout() {
     this.fireAuth.signOut().then(() => {
-      this.isGoogleLogin = false;
     });
   }
   goBack() {
