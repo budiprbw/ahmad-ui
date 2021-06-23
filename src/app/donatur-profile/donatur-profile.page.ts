@@ -64,7 +64,7 @@ export class DonaturProfilePage implements OnInit {
   initdata() {
     this.userInfo();
     this.getpropinsi();
-
+    this.getDonatur();
   }
   userInfo() {
     this.usrinfo =  this.usrinfo= this.asp.getUserInfo();
@@ -79,13 +79,13 @@ export class DonaturProfilePage implements OnInit {
       data => {
         this.donaturData = data;
         this.donatur_id= this.donaturData.id;
+       
       });
   }
   getpropinsi() {
     this.asp.getAll_propinsi().then(
       data => {
         this.propinsiInitial = data;
-        console.log(data);
       });
   }
   getkota(v: any) {

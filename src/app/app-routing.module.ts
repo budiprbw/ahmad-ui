@@ -51,6 +51,10 @@ const routes: Routes = [
     loadChildren: () => import('./buatpassword/buatpassword.module').then( m => m.BuatpasswordPageModule)
   },
   {
+    path: 'buatpassword/:idreg',
+    loadChildren: () => import('./buatpassword/buatpassword.module').then( m => m.BuatpasswordPageModule)
+  },
+  {
     path: 'detail-berita',
     loadChildren: () => import('./detail-berita/detail-berita.module').then( m => m.DetailBeritaPageModule)
   },

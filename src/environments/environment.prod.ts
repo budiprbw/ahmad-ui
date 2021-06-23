@@ -9,5 +9,40 @@ export const environment = {
     messagingSenderId: "169518870541",
     appId: "1:169518870541:web:d3e7e2ad40ab35692e6544",
     measurementId: "G-7EZ2Q96LYF"
+  },  
+  ahmadApi:{    
+    baseAPIUrl: "http://kidswa.web.id/ahmad-core/public/api/",
+    donatur:{
+      register:  "donatur/register",
+      register_sosmed:"donatur/register/sosmed",
+      upload_poto:"donatur/upload/photo/",
+      find_by_email:"donatur/byemail/",
+      update_profile :"donatur/update/profile/",
+    },
+    santri:{
+      register:"santri/register",
+      register_sosmed:"santri/register/sosmed",
+      upload_poto:"santri/upload/photo/",
+      find_by_email:"santri/byemail",
+      kuesioner_simpan: "kuesioner/santri/simpan",
+      update_profile :"santri/update/profile",
+    },
+    lookup:{
+      kode_pos:{
+        all_propinsi: "kodepos/list/provinsi/all",
+        kotabyprovinsi :"kodepos/kotabyprovinsi/",
+        kecamatanbykota :"kodepos/kecamatanbykota/",
+        kelurahanbykecamatan :"kodepos/kelurahanbykecamatan/",
+        kodeposbykelurahan:"kodepos/kodeposbykelurahan/",
+      },
+      list_berita: "berita/list",      
+      list_kuesioner: "kuesioner/list",     
+    },
+    user:{
+      by_login:"user/login",
+      by_hashcode:"user/byhashcode/",
+      change_password:"user/change/password/"
+    },
+    send_wa_message:"message/send/wa"
   }
 };

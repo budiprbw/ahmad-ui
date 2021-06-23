@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
 import { AhmadproviderService } from '../ahmadprovider.service';
 
 @Component({
@@ -18,15 +18,61 @@ export class BuatpasswordPage implements OnInit {
   public usrinfo: any;
   public response:any;
   public error_msg:string="";
+  public hashcode:any;
+  public from_link:boolean=false;
+  public user_tipe:any;
+  public id_user:any;
+  public nama_user:any;
+  public email_user:any;
 
-  constructor(private route: Router,public asp: AhmadproviderService) { }
+
+  constructor(private route: Router,
+          public asp: AhmadproviderService,
+          public router:ActivatedRoute
+        ) { }
 
   ngOnInit() {
-    this.usrinfo =  this.usrinfo= this.asp.getUserInfo();
-    this.login_mode = this.usrinfo.login_mode;
-    this.user_email = this.usrinfo.user_email;
-    this.user_displayName = this.usrinfo.user_displayName;
+    this.is_from_link();
+    if (!this.from_link){
+        this.usrinfo =  this.usrinfo= this.asp.getUserInfo();
+        this.login_mode = this.usrinfo.login_mode;
+        this.user_email = this.usrinfo.user_email;
+        this.user_displayName = this.usrinfo.user_displayName;
+    }  
   }
+  is_from_link(){
+    this.router.params.subscribe((params: any) => {
+      if (params['idreg']){
+        this.hashcode=params['idreg'];
+        console.log(this.hashcode);
+        this.from_link=true;        
+        this.asp.user_by_hashcode(this.hashcode).then(
+          data => {
+            this.response = data;
+            if (this.response.status == 'error') {
+              this.route.navigate(['confirm-page', { msg: this.response.message }]);        
+            }
+            this.id_user= this.response.data.id;  
+            this.user_displayName= this.response.data.name;
+            this.user_email= this.response.data.email;
+            this.user_tipe= this.response.data.tipe; //1 :donatur, 2:santri            
+            if (this.user_tipe=="1") this.login_mode="donatur";
+            if (this.user_tipe=="2") this.login_mode="santri";
+
+            this.asp.removeUserInfo();
+            let userinfo = {
+              "user_email": this.user_email,
+              "user_displayName": this.user_displayName,
+              "user_photoURL": "",
+              "login_by":"data",
+              "login_mode":this.login_mode
+            };
+            this.asp.setUserInfo(userinfo);
+          }); 
+      }       
+    });
+  }
+
   public toggleTextPassword_1(): void {
     this.isActiveToggleTextPassword_1 = (this.isActiveToggleTextPassword_1 == true) ? false : true;
   }
@@ -66,6 +112,27 @@ export class BuatpasswordPage implements OnInit {
 
   }
   savePassword(){
+    if (!this.from_link){
+        this.savepasswordSosmed();
+    }
+    if (this.from_link){
+        this.savepasswordfromLink();
+    }
+    
+  }
+  savepasswordfromLink(){
+    this.asp.userChangePassword(this.id_user, this.user_email, this.newpassword,this.user_tipe).then(
+      data => {
+        this.response = data;
+        if (this.response.status == 'error') {
+          this.error_msg = this.response.message;              
+        }
+        else {
+            this.redirectMe();
+        }
+      }); 
+  }
+  savepasswordSosmed(){
     if (this.login_mode=="santri"){
       this.asp.santriRegSosmed(this.user_email,this.user_displayName, this.newpassword).then(
         data => {

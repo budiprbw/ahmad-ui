@@ -1,5 +1,6 @@
 import { Component, OnInit,ViewChild  } from '@angular/core';
-import { IonContent} from '@ionic/angular';
+import { IonContent,Platform } from '@ionic/angular';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-webdashboard',
@@ -8,7 +9,8 @@ import { IonContent} from '@ionic/angular';
 })
 export class WebdashboardPage implements OnInit {
   @ViewChild(IonContent) content: IonContent;
-
+  
+  backToTop: boolean = false;
   public ask_question: any = [];
   public images_carousel:any=[];
   public shownGroup:null;
@@ -21,7 +23,7 @@ export class WebdashboardPage implements OnInit {
             loop :true,
           },
         };
-  constructor( ) { }
+  constructor(private platform:Platform  ) { }
 
 
   ngOnInit() {
@@ -100,8 +102,18 @@ export class WebdashboardPage implements OnInit {
     }
       
   }
+  getScrollPos(event:any) {
+    const pos = event.detail.scrollTop;
+    if (pos > this.platform.height()) {
+         this.backToTop = true;
+    } else {
+         this.backToTop = false;
+    }
+}
   gotToTop()
   {       
-    this.content.scrollToTop(1000);
+    this.content.scrollToTop(1500);
+    console.log(this.content.scrollX );
+
   }
 }

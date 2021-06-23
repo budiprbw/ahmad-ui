@@ -380,11 +380,11 @@
         }
 
         ion-slide{
-          overflow-y: scroll;
+          //overflow-y: scroll;
         }
         ion-grid{
-        overflow-y: scroll;
-      }
+          overflow-y: scroll;
+        }
         
         .swiper-slide{
             display: block;
@@ -790,9 +790,9 @@
         color: var(--ion-color-black);
         }
         .Ellipse-1 {
-          position: absolute;
+          position: fixed;
           top:55%;
-          right: -50px;
+          right: -44px;
           width: 42px;
           height: 42px;
           flex-grow: 0;
@@ -805,11 +805,12 @@
           border-radius: 50%;
           cursor: pointer;
           content:url('../assets/images/akar-icons_circle-chevron-up.svg');       
+          z-index: 100;
         }
         .button-dark-mode-true {
-          position: absolute;
+          position: fixed;
           top:40%;
-          right: -50px;
+          right: -43px;
           width: 42px;
           height: 42px;
           flex-grow: 0;
@@ -822,11 +823,12 @@
           border-radius: 50%;
           cursor: pointer;             
           content:url('../assets/images/Vector_dark.svg');        
+          z-index: 100;
         }  
         .button-dark-mode-false {
-          position: absolute;
-          top:40%;
-          right: -50px;
+          position: fixed;
+          top:42%;
+          right: -43px;
           width: 42px;
           height: 42px;
           flex-grow: 0;
@@ -839,10 +841,11 @@
           border-radius: 50%;
           cursor: pointer;             
           content:url('../assets/images/Vector.svg');       
+          z-index: 100;
         }  
         .Ellipse-2 {
           position: absolute;
-          top:40%;
+          top:42%;
           right: -55px;
           width: 42px;
           height: 42px;

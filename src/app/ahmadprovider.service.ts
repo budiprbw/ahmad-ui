@@ -6,38 +6,41 @@ import { Router } from '@angular/router';
 import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer/ngx';
 import { FileUploadOptions } from '@ionic-native/file-transfer';
 import { Storage } from '@ionic/storage';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AhmadproviderService {
-  readonly baseAPIUrl: string = 'http://127.0.0.1:8000/api/';//'http://kidswa.web.id/ahmad/core-devel/public/api/'; //';http://127.0.0.1:8000/api/'
-  private api_register_donatur = this.baseAPIUrl + 'donatur/register';
-  private api_register_santri = this.baseAPIUrl + 'santri/register';
-  private api_santri_byemail = this.baseAPIUrl + 'santri/byemail';
-  private api_donatur_byemail = this.baseAPIUrl+"donatur/byemail/";
-  private api_list_berita = this.baseAPIUrl + 'berita/list';
-  private api_user_login = this.baseAPIUrl + 'user/login';
-  private api_all_propinsi = this.baseAPIUrl + 'kodepos/list/provinsi/all';
-  private api_kota_bypropinsi = this.baseAPIUrl + 'kodepos/kotabyprovinsi/';
-  private api_kec_bykota = this.baseAPIUrl + 'kodepos/kecamatanbykota/';
-  private api_kel_bykec = this.baseAPIUrl + 'kodepos/kelurahanbykecamatan/';
-  private api_kodepos_bykel = this.baseAPIUrl + 'kodepos/kodeposbykelurahan/';
-  private api_donatur_profile_save = this.baseAPIUrl + 'donatur/update/profile/';
-  private api_santri_kuesioner = this.baseAPIUrl + 'kuesioner/list';
-  private api_santri_kuesioner_simpan = this.baseAPIUrl + 'kuesioner/santri/simpan'
-  private api_santri_profile_save = this.baseAPIUrl + 'kuesioner/santri/update/profile';
-  private api_photo_profile_santri = this.baseAPIUrl + 'santru/upload/photo/';
-  private api_photo_profile_donatur = this.baseAPIUrl + 'donatur/upload/photo/';
-  private api_donatur_register_sosmed =this.baseAPIUrl +  'donatur/register/sosmed';
-  private api_santri_register_sosmed =this.baseAPIUrl +  'santri/register/sosmed';
+  readonly api_url:string= environment.ahmadApi.baseAPIUrl;
+
+  private api_register_donatur        = this.api_url + environment.ahmadApi.donatur.register;
+  private api_donatur_register_sosmed = this.api_url + environment.ahmadApi.donatur.register_sosmed;
+  private api_photo_profile_donatur   = this.api_url + environment.ahmadApi.donatur.upload_poto;  
+  private api_donatur_profile_save    = this.api_url + environment.ahmadApi.donatur.update_profile;
+  private api_donatur_byemail         = this.api_url + environment.ahmadApi.donatur.find_by_email;
+
+  private api_register_santri         = this.api_url + environment.ahmadApi.santri.register;
+  private api_santri_register_sosmed  = this.api_url + environment.ahmadApi.santri.register_sosmed;
+  private api_santri_byemail          = this.api_url + environment.ahmadApi.santri.find_by_email;
+  private api_santri_kuesioner_simpan = this.api_url + environment.ahmadApi.santri.kuesioner_simpan;
+  private api_santri_profile_save     = this.api_url + environment.ahmadApi.santri.update_profile;
+  private api_photo_profile_santri    = this.api_url + environment.ahmadApi.santri.upload_poto;
   
-
-
-
-
+  private api_list_berita             = this.api_url + environment.ahmadApi.lookup.list_berita;
+  private api_all_propinsi            = this.api_url + environment.ahmadApi.lookup.kode_pos.all_propinsi;
+  private api_kota_bypropinsi         = this.api_url + environment.ahmadApi.lookup.kode_pos.kotabyprovinsi;
+  private api_kec_bykota              = this.api_url + environment.ahmadApi.lookup.kode_pos.kecamatanbykota;
+  private api_kel_bykec               = this.api_url + environment.ahmadApi.lookup.kode_pos.kelurahanbykecamatan;
+  private api_kodepos_bykel           = this.api_url + environment.ahmadApi.lookup.kode_pos.kodeposbykelurahan;
+  private api_kuesioner_list          = this.api_url + environment.ahmadApi.lookup.list_kuesioner;
+  private api_message_send_wa         = this.api_url + environment.ahmadApi.send_wa_message;
+  private api_user_login              = this.api_url + environment.ahmadApi.user.by_login;
+  private api_user_by_hashcode        = this.api_url + environment.ahmadApi.user.by_hashcode;
+  private api_user_change_password    = this.api_url + environment.ahmadApi.user.change_password;
 
   isLoading = false;
+
   public base_url: string = "";
 
   private httpOptions = {
@@ -59,6 +62,29 @@ export class AhmadproviderService {
 
   
   //#region  Data Master
+  userChangePassword(id_user,email,password,tipe) {
+    let data = {
+      "email": email,
+      "password": password,
+      "tipe": tipe
+    };    
+    return new Promise(resolve => {
+        this.httpclient.put(this.api_user_change_password + id_user, data).subscribe(data => {
+          let result = {
+            "message": '',
+            "status": 'OK',
+            "data": data
+          };
+          resolve(result);
+        }, err => {
+          let result = {
+            "message": err.message,
+            "status": 'error'
+          };
+          resolve(result);
+        });
+      });
+  }
   user_login(user_name, user_password, user_tipe) {
     let data = {
       "email": user_name,
@@ -73,6 +99,25 @@ export class AhmadproviderService {
       });
     });
   }  
+  user_by_hashcode(hashcode:any) {
+    return new Promise(resolve => {
+      this.httpclient.get(this.api_user_by_hashcode + hashcode).subscribe(data => {
+        let result = {
+          "message": '',
+          "status": 'OK',
+          "data": data
+        };
+        resolve(result);
+      }, err => {
+        let result = {
+          "message": err.message,
+          "status": 'error'
+        };
+        resolve(result);
+      });
+    });
+  }  
+
   getlist_berita() {
     return new Promise(resolve => {
       this.httpclient.get(this.api_list_berita).subscribe(data => {
@@ -139,7 +184,7 @@ export class AhmadproviderService {
   }
   login_donatur(user_email) {
     return new Promise(resolve => {
-      this.httpclient.get(this.api_donatur_byemail + '/' + user_email).subscribe(data => {
+      this.httpclient.get(this.api_donatur_byemail + user_email).subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
@@ -148,7 +193,7 @@ export class AhmadproviderService {
   }
   kuesioner_getList() {
     return new Promise(resolve => {
-      this.httpclient.get(this.api_santri_kuesioner).subscribe(data => {
+      this.httpclient.get(this.api_kuesioner_list).subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
@@ -318,13 +363,13 @@ export class AhmadproviderService {
   ) {
     let data = {
       "donatur_id": donatur_id,
-      "donatur_namad": donatur_nama,
+      "donatur_nid": donatur_no_ktp,
+      "donatur_nama": donatur_nama,
       "donatur_tmp_lahir": donatur_tmp_lahir,
       "donatur_tgl_lahir": donatur_tgl_lahir,
-      "donatur_genderd": donatur_gender,
+      "donatur_gender": donatur_gender,
       "donatur_agama": donatur_agama,
-      "donatur_telepon": donatur_telepon,
-      "donatur_lokasi_photo": donatur_lokasi_photo,
+      "donatur_telepon": donatur_telepon,      
       "donatur_kerja": donatur_kerja,
       "donatur_alamat": donatur_alamat,
       "donatur_kode_pos": donatur_kode_pos,
@@ -335,25 +380,18 @@ export class AhmadproviderService {
     };
     return new Promise(resolve => {
 
-      this.httpclient.put(this.api_donatur_profile_save + donatur_id, data).subscribe(data => {
-        /** upload foto donatur */
-        let options: FileUploadOptions = {
-          fileKey: 'file',
-          fileName: donatur_lokasi_photo.fileNameFromPath + donatur_lokasi_photo.type,
-          chunkedMode: false,
-          mimeType: "image/jpeg",
-          headers: {}
-        }
-        const fileTransfer: FileTransferObject = this.transfer.create();
-
-        fileTransfer.upload(donatur_lokasi_photo, this.api_photo_profile_donatur, options)
-          .then((data) => {
-            console.log('success upload donatur poto');
-          }, (err) => {
-            console.log(err);
-          });
-
+      this.httpclient.put(this.api_donatur_profile_save + donatur_id, data).subscribe(data => {        
         resolve(data);
+        /** upload foto donatur */
+        let response:any;
+        let formData = new FormData();
+        formData.append('id', donatur_id);
+        formData.append("donatur_photo",donatur_lokasi_photo,donatur_lokasi_photo.name);
+        this.httpclient.post( this.api_photo_profile_donatur, formData).subscribe(data_Poto => {
+          resolve(data_Poto);
+        }, err => {
+          console.log(err);
+        });          
       }, err => {
         console.log(err);
       });
@@ -391,15 +429,25 @@ export class AhmadproviderService {
     return await this.loadingController.dismiss();
   }
   
-  getUserInfo():any{
-    let usrinfo: any;
-    usrinfo =  JSON.parse(localStorage.getItem("usrinfo"));
-    if (!(usrinfo))
-    {
-      this.route.navigateByUrl('/login', { replaceUrl: true });
-    }
-    return usrinfo;
+  getUserInfo():any
+  {
+      let usrinfo: any;
+      usrinfo =  JSON.parse(localStorage.getItem("usrinfo"));
+      if (!(usrinfo))
+      {
+        this.route.navigateByUrl('/login', { replaceUrl: true });
+      }
+      return usrinfo;
   }
+  setUserInfo(userinfo:any){
+    if (userinfo.user_photoURL=="") userinfo.user_photoURL="assets/images/no-image.png";      
+    localStorage.setItem("usrinfo",JSON.stringify(userinfo));
+  }
+  removeUserInfo(){
+    localStorage.removeItem("usrinfo");
+  }
+
+
   go_previous_page() {
     this.location.back();
   }

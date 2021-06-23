@@ -123,7 +123,7 @@ export class LoginPage implements OnInit {
   }
   async goLogin() {
     this.asp.presentLoading("login processing");
-    this.getuserlogin("0");
+    this.getuserlogin("1");
     this.asp.dismissLoading();
   }
   getuserlogin(dummy) {
