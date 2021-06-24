@@ -24,19 +24,22 @@
 <ion-slide>
     <ion-grid class="font-poppins lg:bg-terang dark:bg-gelap">
         <ion-row>
-            <ion-col>
-                <div class="bg-auto bg-no-repeat bg-cover w-auto h-auto rounded-md text-gold font-poppins text-left  ">
+            <ion-col>                    
+                <div  *ngIf="!no_data_lembaga">
+                        <ion-text color="danger"><h3>Tidak ada data lembaga</h3></ion-text>
+                </div>                
+                <div class="bg-auto bg-no-repeat bg-cover w-auto h-auto rounded-md text-gold font-poppins text-left pr-4" *ngIf="no_data_lembaga">
                     <div class="grid grid-rows-3 grid-cols-1 absolute pl-8 lg:pl-16 lg:pt-10">
-                        <div class="text-xl   pt-2 lg:text-5xl ">
+                        <div class="text-xl   pt-2 lg:text-5xl lg:pl-10">
                             <div>Belajar Alquran <span class="text-white">lebih</span>,</div>
                             <div><span class="text-white">Bersedekah</span> Lebih</div>
                         </div>
-                        <div class=" text-xs-9 font-medium pt-2 text-left lg:text-xl lg:pt-5  ">
+                        <div class=" text-xs-9 font-medium pt-2 text-left lg:text-3xl lg:pt-10  lg:pl-10">
                             <div>Asmaul Husna Makna dan Doa (AHMaD) project adalah sebuah</div>
                             <div>program khusus untuk siapa saja yang ingin belajar memahami makna</div>
                             <div>dibalik nama-nama ALLAH SWT yang terdapat didalam Ayat Alquran</div>
                         </div>
-                        <div class="hidden lg:block ">
+                        <div class="hidden lg:block lg:pt-32 lg:pl-10">
                             <ion-button fill="clear" class="card1-button_lanjut " routerLink="/signin">
                                 <ion-text class="Sign-up">
                                     Pelajari lebih lanjut
@@ -45,7 +48,8 @@
                             </ion-button>                            
                         </div>
                     </div>
-                    <img src="assets/images/banner.webp">
+
+                    <img src="assets/images/banner.webp" style="no-repeat;min-width: 100%; min-height: 100%;">
 
                     <div [ngClass]="is_dark_mode=='0'?'button-dark-mode-false':'button-dark-mode-true'" (click)="darkmode()"></div>
 
@@ -56,16 +60,15 @@
         </ion-row>
         <ion-row class="mb-10">
             <ion-col>
-                <ion-card class="bg-white  dark:bg-gelapbaru  rounded-2xl shadow-md mt-5 h-auto lg:ml-6 lg:mr-10">
+                    <div  *ngIf="!no_data_lembaga">
+                            <ion-text color="danger"><h3>Tidak ada data lembaga</h3></ion-text>
+                    </div>                
+                <ion-card class="bg-white  dark:bg-gelapbaru  rounded-2xl shadow-md mt-5 h-auto lg:ml-6 lg:mr-10" *ngIf="no_data_lembaga">
                     <div class="text-xl dark:text-gold text-center lg:text-5xl sm:text-xl text-black font-bold font-poppins mt-5">
-                        Apa itu AHMaD Project
+                        {{line_data_lembaga.lembaga_tentang_ahmad_judul}}
                     </div>
-                    <div class="text-xs-9 dark:text-bluey_grey font-medium text-left lg:text-xl text-left pr-5 pl-5">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Arcu vel ut ut eget eu neque, risus. Dolor integer aliquet commodo
-                        purus. In aliquam enim lobortis pharetra praesent aliquet arcu. Feugiat mattis fermentum sit at in
-                        praesent pulvinar tortor imperdiet. Viverra volutpat duis ultrices neque, in arcu, massa. Id quam
-                        pulvinar ornare pellentesque. Cursus vel magnis ut sem id integer. Eget quisque facilisis morbi nullam
-                        eu risus.
+                    <div class="dark:text-bluey_grey text-left pr-5 pl-5">
+                            <span [innerHTML]="html_entity(line_data_lembaga.lembaga_tentang_ahmad_isi)"></span>
                     </div>
                     
                         <ion-slides [options]="slideOptsOne">
@@ -76,8 +79,8 @@
                                                 <div class="mt-5 font-poppins font-bold text-black dark:text-gold text-xl lg:text-2xl lg:font-bold text-left">
                                                     {{data.carousel_title}}
                                                 </div>
-                                                <div class="font-poppins font-bold text-black text-xs-9 dark:text-bluey_grey lg:text-md-14 text-left">
-                                                    {{data.carousel_content}}
+                                                <div class="font-poppins font-bold text-black dark:text-bluey_grey  text-left">
+                                                    <span [innerHTML]="html_entity(data.carousel_content)"></span>
                                                 </div>
                                                 <div class="lg:h-4 lg:w-10 lg:mt-5 mt-10">
                                                     <ion-button fill="clear" class="h-12 w-72 bg-white rounded-lg  border-black border-2 lg:bg-white  lg:rounded-2xl lg:border-black lg:border-2"
@@ -101,18 +104,17 @@
                 <ion-card class="bg-white  dark:bg-gelapbaru  rounded-2xl shadow-md mt-5 lg:ml-6 lg:mr-10">
                     <div class="grid grid-rows-2 grid-cols-1 lg:grid-rows-1 lg:grid-cols-2 lg:gap-1">
                         <div class="rounded-lg bg-cover">
-                            <img src="assets/images/image-paket.webp" />
+                            <img src="assets/images/image-paket.webp"  style="no-repeat;min-width: 100%; min-height: 100%;" />
                         </div>
                         <div>
                             <div class="font-poppins font-bold text-black text-md-18 dark:text-gold lg:text-3xl lg:font-bold text-left mt-3">
-                                Paket Pembelajaran
+                                {{line_data_lembaga.lembaga_landing_produk_judul}}
                             </div>
-                            <div class="font-poppins font-bold text-black text-xs-9 dark:text-bluey_grey lg:text-xl text-left mt-5">
-                                Setiap Santri yang berkesempatan memperoleh Program AHMaD Project ini akan mendapatkan satu (1) paket pembelajaran dibawah
-                                ini:
+                            <div class="font-poppins font-bold text-black dark:text-bluey_grey text-left mt-5 pl-5 pr-5">
+                                <span [innerHTML]="html_entity(line_data_lembaga.lembaga_landing_produk_isi)"></span>                                
                             </div>
                             <div class="font-poppins font-bold text-black text-xs-9 dark:text-bluey_grey lg:text-xl text-left mt-3">
-                                <table class="table-auto">
+                                <!-- <table class="table-auto">
                                     <tr class="pb-1 pl-2">
                                         <td style="vertical-align: top">
                                             <ion-icon name="checkmark-circle-outline"></ion-icon>
@@ -138,7 +140,7 @@
                                             Mendapatkan program pendampingan belajar selama 10 bulan, diharapkan agar materi dapat meresap kedalam kalbu.
                                         </td>
                                     </tr>
-                                </table>
+                                </table> -->
                                 <div class="lg:flex">
                                     <div class="lg:flex-auto lg:h-4 lg:w-10 lg:mt-8 mt-5">
                                         <ion-button fill="clear" class=" h-12 w-72  bg-gold rounded-2xl  border-black border-2 lg:bg-gold  lg:rounded-2xl lg:border-black lg:border-2"
@@ -169,14 +171,11 @@
         </ion-row>
         <ion-row class="mb-10">
             <ion-col>
-                <div class="font-poppins font-bold text-black text-xs lg:text-3xl text-left lg:pl-20 lg:pt-10 absolute pl-8 pt-6 ">
-                    Program Donatur
+                <div class="font-poppins font-bold text-black text-xs lg:text-3xl text-left lg:pl-20 lg:pt-10 absolute pl-8 pt-6 ">                    
+                    {{line_data_lembaga.lembaga_landing_donatur_judul}}
                 </div>
-                <div class="font-poppins font-bold text-black  text-xs-9 lg:text-xl text-left lg:pl-20 lg:pt-20 lg:pr-10 absolute pl-8 mt-12 pr-10">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id ullamcorper egestas imperdiet diam augue. Erat egestas amet,
-                    sit felis nisl tristique. Vitae a ultricies risus quam enim vel metus rhoncus, sagittis. In tristique
-                    sodales id convallis ac. Rhoncus viverra hendrerit magna bibendum.
-
+                <div class="font-poppins font-bold text-black text-left lg:pl-20 lg:pt-20 lg:pr-10 absolute pl-8 mt-12 pr-10">
+                        <span [innerHTML]="html_entity(line_data_lembaga.lembaga_landing_donatur_isi)"></span>
                     <div class="lg:flex ">
                         <div class="lg:flex-initial lg:mt-16 mt-1 lg:pr-5 mt-14">
                             <ion-button fill="clear" class="h-12 w-64 bg-black rounded-2xl  border-black border-2 lg:bg-black   lg:border-black lg:border-2 "
@@ -193,7 +192,7 @@
                                 <ion-text class=" text-black font-semibold text-xs-9 lg:text-black lg:text-md-12 lg:font-medium text-left font-poppins">
                                     Bagikan Halaman ini
                                 </ion-text>
-                                <ion-icon name="arrow-forward-circle-outline" class="text-black" size="large"></ion-icon>
+                                <ion-icon name="share-social-outline" class="text-black" size="large"></ion-icon>
                             </ion-button>
                         </div>
                     </div>
@@ -202,7 +201,7 @@
                     <img src="assets/images/Rectangle-608-vertical.webp" />
                 </div>
                 <div class="lg:block hidden">
-                    <img src="assets/images/Rectangle-608-horizontal.webp" />
+                    <img src="assets/images/Rectangle-608-horizontal.webp" style="no-repeat;min-width: 100%; min-height: 100%;" />
                 </div>
    
             </ion-col>
@@ -217,12 +216,12 @@
                         <ion-list class="dark:bg-gelapbaru ">
                             <div *ngFor="let d of ask_question; let i=index" text-wrap (click)="toggleGroup(i)" [ngClass]="{active: isGroupShown(i)}">
                                 <div class="flex justify-between card5-Rectangle-614 mt-2 mr-2 mb-2 ">
-                                    <div class="card5-title pt-3 pl-6">{{d.question_title}}</div>
+                                    <div class="card5-title pt-3 pl-6">{{d.faq_tanya}}</div>
                                     <div class="pt-3 pr-5">
                                         <ion-icon color="warning" item-right [name]="isGroupShown(i) ? 'arrow-down-circle-outline' : 'arrow-up-circle-outline'" size="large"></ion-icon>
                                     </div>
                                 </div>
-                                <div *ngIf="isGroupShown(i)" class="text-black text-left text-xs-9 dark:text-bluey_grey lg:text-xl">{{d.question_desc}}</div>
+                                <div *ngIf="isGroupShown(i)" class="text-black text-left text-xs-9 dark:text-bluey_grey lg:text-xl lg:pl-6">{{d.faq_jawab}}</div>
                             </div>
                         </ion-list>
                     </ion-card-content>
@@ -235,18 +234,17 @@
                     <ion-card-content>
                         <div class="">
                                 <div class="font-poppins font-bold text-black text-xl lg:text-2xl lg:font-bold text-left lg:mb-5 dark:text-gold">
-                                Program Kemitraan
+                                {{line_data_lembaga.lembaga_landing_mitra_judul}}
                             </div>
                             <div class="font-poppins font-bold text-black text-xs-9 lg:text-xl text-left dark:text-bluey_grey">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id ullamcorper egestas imperdiet diam augue. Erat egestas amet,
-                                sit felis nisl tristique. Vitae a ultricies risus quam enim vel metus rhoncus, sagittis. In tristique
-                                sodales id convallis ac. Rhoncus viverra hendrerit magna bibendum.
+                                <span [innerHTML]="html_entity(line_data_lembaga.lembaga_landing_mitra_isi)"></span>    
                             </div>
                             <div class="card6-button-lanjut">
                                 <ion-button fill="clear" routerLink="/signin">
                                     <ion-text class="card6-sign-up">
                                         Pelajari Lebih Lanjut
                                     </ion-text>
+                                    <ion-icon name="arrow-forward-circle-outline" class="text-gold items-center" size="large"></ion-icon>
                                 </ion-button>
                             </div>
                         </div>
@@ -259,26 +257,26 @@
                     <ion-card class="bg-white dark:bg-gelapbaru rounded-2xl shadow-md mt-10   lg:ml-6 lg:mr-10">
                         <div class="grid grid-rows-2 grid-cols-1 lg:grid-rows-1 lg:grid-cols-2 lg:gap-1">
                                 <div>
-                                    <div class="font-poppins font-bold text-black text-xl lg:text-2xl lg:font-bold text-left lg:mb-5 dark:text-gold">
-                                        Kontak
+                                    <div class="font-poppins font-bold text-black text-xl lg:text-2xl lg:font-bold text-left lg:mb-5 dark:text-gold lg:pl-4 lg:pt-5">
+                                        Kontak 
                                     </div>
                                     <div [ngClass]="is_dark_mode=='0'?'heroicons-solidoffice-building':'heroicons-solidoffice-building-dark'">
                                             <div class="text-black dark:text-bluey_grey pl-10 absolute text-left pt-8 lg:pt-1 lg:w-96 ">
-                                                Jl. Lorem Ipsum sit dolor met No.100, Kecamatan Bogor, Kelurahan Bogor, Kota Bogor - Indonesia 16122
+                                                {{line_data_lembaga.lembaga_alamat}}
                                             </div>
                                     </div>
                     
                                     <div [ngClass]="is_dark_mode=='0'?'heroicons-solidphone':'heroicons-solidphone-dark'">
                                         <div class="text-black dark:text-bluey_grey pl-10 absolute text-left">
-                                            0812 3456 7890
+                                            {{line_data_lembaga.lembaga_telepon}}
                                         </div>
                                         <div class="text-black dark:text-bluey_grey pl-10 absolute text-left pt-8">
-                                            0812 3456 7890
+                                                {{line_data_lembaga.lembaga_telepon}}
                                         </div>
                                     </div>                                
                                     <div [ngClass]="is_dark_mode=='0'?'heroicons-solidmail':'heroicons-solidmail-dark'">
                                         <div class="text-black dark:text-bluey_grey pl-10">
-                                            youremail@ahmadproject.org
+                                                {{line_data_lembaga.lembaga_email}}
                                         </div>
                                     </div>
                     
@@ -301,7 +299,7 @@
                     <div >
                         <ion-button fill="clear"  class="rounded-md border-2 w-64" routerLink="/signin">
                             <ion-text class="footer-Paket-Pembelajaran">
-                                Bagikan Halaman ini
+                                Paket Pembelajaran
                             </ion-text>
                         </ion-button>
                     </div>

@@ -36,7 +36,10 @@ export const environment = {
         kodeposbykelurahan:"kodepos/kodeposbykelurahan/",
       },
       list_berita: "berita/list",      
+      list_berita_kampanye:"berita/kampanye",
       list_kuesioner: "kuesioner/list",     
+      lembaga:"lembaga",
+      list_rekening_lembaga:"lembaga/rekening/bank"
     },
     user:{
       by_login:"user/login",

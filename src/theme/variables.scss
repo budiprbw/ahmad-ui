@@ -172,17 +172,14 @@
        
         .card1_banner {
           //width: 1244px;
-          height: 660px;
-          margin: 36px 46px 36px 46px;
-          padding: 36px 43px 36px 46px;
-          object-fit: contain;
+          //height: 660px;
+          // margin: 36px 46px 36px 46px;
+          // padding: 36px 43px 36px 46px;          
           //transform: rotate(180deg);
           border-radius: 32px;
           box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
           background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), linear-gradient(to top, rgba(185, 185, 185, 0.68), #212121), linear-gradient(to bottom, #c4c4c4, #c4c4c4);
-          background-size: auto;
-          background-position: center;
-          background-image: url('../assets/images/banner.webp');
+          //background-size: auto;                    
         }   
         .card2_Rectangle {
           height: 660px;
@@ -256,11 +253,11 @@
           line-height: 1.63;
           letter-spacing: -0.3px;
           text-align: left;
-          color: var(--ion-color-goldd);
+          color: var(--ion-color-goldd);  
         }
-        .card1-button_lanjut{
+        .card1-button_lanjut{ 
           position: absolute;
-          top: 50%;  
+          //top: 50%;  
           width: 260px;
           height: 52px;
           //display: flex;
@@ -268,8 +265,8 @@
           justify-content: flex-start;
           align-items: center;
           gap: 10px;
-          margin: 116px 954px 34px 128px;
-          padding: 16px 23px;
+          // margin: 116px 954px 34px 128px;
+          // padding: 16px 23px;
           object-fit: contain;
           border-radius: 14px;
           box-shadow: 2px 4px 12px 0 rgba(252, 198, 4, 0.2);
@@ -384,7 +381,12 @@
         }
         ion-grid{
           overflow-y: scroll;
+          // -ms-overflow-style:none; /* Internet Explorer 11 */
+          // &::-webkit-scrollbar { /** WebKit */
+          //   display: none;
+          // }
         }
+          
         
         .swiper-slide{
             display: block;

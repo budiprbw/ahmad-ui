@@ -13,32 +13,45 @@ import { environment } from 'src/environments/environment';
 })
 export class AhmadproviderService {
   readonly api_url:string= environment.ahmadApi.baseAPIUrl;
-
+  //#region Donatur 
   private api_register_donatur        = this.api_url + environment.ahmadApi.donatur.register;
   private api_donatur_register_sosmed = this.api_url + environment.ahmadApi.donatur.register_sosmed;
   private api_photo_profile_donatur   = this.api_url + environment.ahmadApi.donatur.upload_poto;  
   private api_donatur_profile_save    = this.api_url + environment.ahmadApi.donatur.update_profile;
   private api_donatur_byemail         = this.api_url + environment.ahmadApi.donatur.find_by_email;
-
+  //#endregion
+  
+  //#region Santri  
   private api_register_santri         = this.api_url + environment.ahmadApi.santri.register;
   private api_santri_register_sosmed  = this.api_url + environment.ahmadApi.santri.register_sosmed;
   private api_santri_byemail          = this.api_url + environment.ahmadApi.santri.find_by_email;
   private api_santri_kuesioner_simpan = this.api_url + environment.ahmadApi.santri.kuesioner_simpan;
   private api_santri_profile_save     = this.api_url + environment.ahmadApi.santri.update_profile;
   private api_photo_profile_santri    = this.api_url + environment.ahmadApi.santri.upload_poto;
-  
+  //#endregion
+
+  //#region Data Master
   private api_list_berita             = this.api_url + environment.ahmadApi.lookup.list_berita;
+  private api_list_berita_kampanye    = this.api_url + environment.ahmadApi.lookup.list_berita_kampanye;
+  private api_list_berita_entitas     = this.api_url + environment.ahmadApi.lookup.list_berita_entitas;
   private api_all_propinsi            = this.api_url + environment.ahmadApi.lookup.kode_pos.all_propinsi;
   private api_kota_bypropinsi         = this.api_url + environment.ahmadApi.lookup.kode_pos.kotabyprovinsi;
   private api_kec_bykota              = this.api_url + environment.ahmadApi.lookup.kode_pos.kecamatanbykota;
   private api_kel_bykec               = this.api_url + environment.ahmadApi.lookup.kode_pos.kelurahanbykecamatan;
   private api_kodepos_bykel           = this.api_url + environment.ahmadApi.lookup.kode_pos.kodeposbykelurahan;
   private api_kuesioner_list          = this.api_url + environment.ahmadApi.lookup.list_kuesioner;
+  private api_lembaga                 = this.api_url + environment.ahmadApi.lookup.lembaga;
+  private api_list_rekening_lembaga   = this.api_url + environment.ahmadApi.lookup.list_rekening_lembaga;
+  //#endregion
+  
+  //#region tools
   private api_message_send_wa         = this.api_url + environment.ahmadApi.send_wa_message;
+  //#endregion
+  //#region User
   private api_user_login              = this.api_url + environment.ahmadApi.user.by_login;
   private api_user_by_hashcode        = this.api_url + environment.ahmadApi.user.by_hashcode;
   private api_user_change_password    = this.api_url + environment.ahmadApi.user.change_password;
-
+  //#endregion
   isLoading = false;
 
   public base_url: string = "";
@@ -121,6 +134,42 @@ export class AhmadproviderService {
   getlist_berita() {
     return new Promise(resolve => {
       this.httpclient.get(this.api_list_berita).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+  getlist_berita_kampanye() {
+    return new Promise(resolve => {
+      this.httpclient.get(this.api_list_berita_kampanye).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+  getlist_berita_entitas(jenis:string) {
+    return new Promise(resolve => {
+      this.httpclient.get(this.api_list_berita_kampanye+jenis).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+  get_lembaga() {
+    return new Promise(resolve => {
+      this.httpclient.get(this.api_lembaga).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+  getlist_rekening_lembaga() {
+    return new Promise(resolve => {
+      this.httpclient.get(this.api_list_rekening_lembaga).subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);

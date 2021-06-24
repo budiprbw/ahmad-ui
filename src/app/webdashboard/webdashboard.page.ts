@@ -1,7 +1,7 @@
 import { Component, OnInit,ViewChild  } from '@angular/core';
 import { IonContent,Platform } from '@ionic/angular';
-import { environment } from 'src/environments/environment';
-
+import { AhmadproviderService } from '../ahmadprovider.service';
+import { DomSanitizer } from '@angular/platform-browser'
 @Component({
   selector: 'app-webdashboard',
   templateUrl: './webdashboard.page.html',
@@ -11,10 +11,12 @@ export class WebdashboardPage implements OnInit {
   @ViewChild(IonContent) content: IonContent;
   
   backToTop: boolean = false;
+  public line_data_lembaga:any=[];
   public ask_question: any = [];
   public images_carousel:any=[];
   public shownGroup:null;
   public is_dark_mode:string ='0';
+  public no_data_lembaga:boolean=false;
   public slideOptsOne = {
           initialSlide: 0,
           slidesPerView: 1,
@@ -23,54 +25,45 @@ export class WebdashboardPage implements OnInit {
             loop :true,
           },
         };
-  constructor(private platform:Platform  ) { }
+  constructor(
+    private platform:Platform,
+    public asp: AhmadproviderService ,
+    private sanitized: DomSanitizer
+  ) { }
 
 
   ngOnInit() {
-    this.initialdataQuestion();
-    this.initialdataCarousel();
+    this.initDataLembaga();
     this.toggleGroup(0);
   }
+  initDataLembaga(){
+    this.asp.get_lembaga().then(
+      data=> {        
+            this.line_data_lembaga=data;
+            if (this.line_data_lembaga) this.no_data_lembaga  =true;
+            this.initialdataCarousel();
+            this.initialdataQuestion();
+            console.log(this.line_data_lembaga);
+
+      });
+  }
+
   initialdataCarousel(){
     let row1 ={
       "image_santri": "assets/images/image-santri.webp",
-      "carousel_title":"Program Santri",
-      "carousel_content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nullam aliquam placerat mauris risus. Consequat consequat lacus   nulla ut sit. In enim at vel nulla ullamcorper. Tortor justo diam elementum mattis congue in in amet"
+      "carousel_title": this.line_data_lembaga.lembaga_landing_santri_judul,
+      "carousel_content":this.line_data_lembaga.lembaga_landing_santri_isi
     };
     this.images_carousel.push(row1);
     let row2 ={
       "image_santri": "assets/images/image-santri-2.webp",
-      "carousel_title":"Program Pendamping",
-      "carousel_content":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nullam aliquam placerat mauris risus. Consequat consequat lacus nulla ut sit. In enim at vel nulla ullamcorper. Tortor justo diam elementum mattis congue in in amet."
+      "carousel_title":this.line_data_lembaga.lembaga_landing_pendamping_judul,
+      "carousel_content":this.line_data_lembaga.lembaga_landing_pendamping_isi
     };
     this.images_carousel.push(row2);
   }
   initialdataQuestion(){
-    let row1 ={
-      "question_title": "Frequently Ask Question",
-      "question_desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id ullamcorper egestas imperdiet diam augue. Erat egestas amet, sit felis nisl tristique. Vitae a ultricies risus quam enim vel metus rhoncus, sagittis. In tristique sodales id convallis ac. Rhoncus viverra hendrerit magna bibendum.",    
-    };
-    this.ask_question.push(row1);
-    let row2 ={
-      "question_title": "Frequently Ask Question",
-      "question_desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id ullamcorper egestas imperdiet diam augue. Erat egestas amet, sit felis nisl tristique. Vitae a ultricies risus quam enim vel metus rhoncus, sagittis. In tristique sodales id convallis ac. Rhoncus viverra hendrerit magna bibendum.",    
-    };
-    this.ask_question.push(row2);
-    let row3 ={
-      "question_title": "Frequently Ask Question",
-      "question_desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id ullamcorper egestas imperdiet diam augue. Erat egestas amet, sit felis nisl tristique. Vitae a ultricies risus quam enim vel metus rhoncus, sagittis. In tristique sodales id convallis ac. Rhoncus viverra hendrerit magna bibendum.",    
-    };
-    this.ask_question.push(row3);
-    let row4 ={
-      "question_title": "Frequently Ask Question",
-      "question_desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id ullamcorper egestas imperdiet diam augue. Erat egestas amet, sit felis nisl tristique. Vitae a ultricies risus quam enim vel metus rhoncus, sagittis. In tristique sodales id convallis ac. Rhoncus viverra hendrerit magna bibendum.",    
-    };
-    this.ask_question.push(row4);
-    let row5 ={
-      "question_title": "Frequently Ask Question",
-      "question_desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id ullamcorper egestas imperdiet diam augue. Erat egestas amet, sit felis nisl tristique. Vitae a ultricies risus quam enim vel metus rhoncus, sagittis. In tristique sodales id convallis ac. Rhoncus viverra hendrerit magna bibendum.",    
-    };
-    this.ask_question.push(row5);
+    this.ask_question=this.line_data_lembaga.faq;
   }
   toggleGroup(group) {    
     if (this.isGroupShown(group)) {
@@ -116,4 +109,12 @@ export class WebdashboardPage implements OnInit {
     console.log(this.content.scrollX );
 
   }
+  html_entity(val){
+    // var txt = document.createElement('textarea');
+    // txt.innerHTML = val;
+    // return txt.value;
+    //console.log(val);
+     return this.sanitized.bypassSecurityTrustHtml(val);    
+    }
+   
 }
