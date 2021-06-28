@@ -30,8 +30,8 @@ public noBerita:any=false;
   }
   initpage(){
     
-      this.usrinfo =  this.usrinfo= this.asp.getUserInfo();
-      this.user_photoURL = this.usrinfo.user_photoURL;
+      this.usrinfo = this.asp.getUserInfo();
+      this.user_photoURL = this.usrinfo.ref_object.donatur_lokasi_photo;
       this.user_email = this.usrinfo.user_email;
       this.user_displayName = this.usrinfo.user_displayName;
       this.getlistberita();

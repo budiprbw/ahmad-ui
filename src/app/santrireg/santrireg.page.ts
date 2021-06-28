@@ -60,6 +60,7 @@ export class SantriregPage implements OnInit {
       return;
     }     
     this.route.navigate(['buatpassword']);
+    this.route.ngOnDestroy();
   }
   blurEvent1(event: string ){
     if(event.trim().length>0){
@@ -100,7 +101,8 @@ export class SantriregPage implements OnInit {
           "user_displayName": this.user.displayName,
           "user_photoURL": this.user.photoURL,
           "login_by":"google",
-          "login_mode":this.login_mode
+          "login_mode":this.login_mode,
+          "route_from":"santrireg"
         };
         localStorage.setItem("usrinfo",JSON.stringify(userinfo));
         this.route.navigateByUrl('/buatpassword', { replaceUrl: true });
@@ -123,7 +125,8 @@ export class SantriregPage implements OnInit {
           "user_displayName": this.user.displayName,
           "user_photoURL": this.user.photoURL,
           "login_by":"google",
-          "login_mode":this.login_mode
+          "login_mode":this.login_mode,
+          "route_from":"santrireg"
         };
         localStorage.setItem("usrinfo",JSON.stringify(userinfo));
         this.route.navigateByUrl('/buatpassword', { replaceUrl: true });

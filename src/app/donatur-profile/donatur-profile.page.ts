@@ -57,29 +57,27 @@ export class DonaturProfilePage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.platform.ready().then(() => {
       this.initdata();
-    })
   }
   initdata() {
     this.userInfo();
     this.getpropinsi();
-    this.getDonatur();
   }
   userInfo() {
-    this.usrinfo =  this.usrinfo= this.asp.getUserInfo();
-    this.user_photoURL = this.usrinfo.user_photoURL;
+    this.usrinfo =  this.asp.getUserInfo();
+    this.user_photoURL = this.usrinfo.ref_object.donatur_lokasi_photo;
     this.user_email = this.usrinfo.user_email;
     this.user_displayName = this.usrinfo.user_displayName;
     this.donatur_nama = this.usrinfo.user_displayName;
     this.login_by = this.usrinfo.login_by;
+    this.donaturData = this.usrinfo.ref_object;
+    this.donatur_id= this.usrinfo.ref_object.id;
   }
   getDonatur(){
     this.asp.login_donatur(this.user_email).then(
       data => {
         this.donaturData = data;
         this.donatur_id= this.donaturData.id;
-       
       });
   }
   getpropinsi() {

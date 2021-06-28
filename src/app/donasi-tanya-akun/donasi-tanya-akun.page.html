@@ -1,0 +1,39 @@
+<ion-header >
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button color="primary"  (click)="goBack()">
+          <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title  class="ion-text-center">Akun Ahmad Project</ion-title>
+    </ion-toolbar>            
+</ion-header>
+<ion-grid class="Login-Wall">
+<ion-row>
+  <ion-col>
+    <ion-card class="donasi-tanya-akun-Rectangle-597">
+      <div class="donasi-tanya-akun-text">Apakah anda sudah punya akun donatur?</div>
+        <div class="grid justify-items-center">
+            <div class="h-5 w-10 mt-5 mt-1 pr-64">
+                <ion-button fill="clear" class="bg-gold rounded-xl  border-black border-2   w-60 h-10 "
+                (click)="goRegistrasi()">
+                    <ion-text class="normal-case text-black font-semibold text-sm w-full text-left font-poppins text-center">
+                        Belum
+                    </ion-text>
+                    <ion-icon name="arrow-forward-circle-outline" class="text-black" size="large"></ion-icon>
+                </ion-button>
+            </div>
+            <div class="h-5 w-10 mt-10 pr-64">
+                <ion-button fill="clear" class=" rounded-xl  border-black border-2 bg-black   w-60  h-10 "
+                   (click)="goLogin()">
+                    <ion-text class="normal-case text-gold font-semibold text-sm w-full text-left font-poppins text-center">
+                        Ya sudah
+                    </ion-text>
+                    <ion-icon name="arrow-forward-circle-outline" class="text-gold" size="large"></ion-icon>
+                </ion-button>
+            </div>
+        </div>
+    </ion-card>
+  </ion-col>
+</ion-row>
+</ion-grid>

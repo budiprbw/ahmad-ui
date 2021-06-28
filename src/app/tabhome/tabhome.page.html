@@ -14,19 +14,19 @@
       <ion-card class="dashboard-donatur-card1"  *ngIf="belum_donasi">
         <div class="dashboard-donatur-card1-title">
           Belajar Alquran <span style="color:white">Lebih</span>,
-          <span style="color:white">Bersedekah</span> Lebih
-        </div>
+          <span style="color:white">Bersedekah</span> Lebih 
+        </div>  
       </ion-card>
 
-      <ion-card class="bg-white rounded-xl h-64"  *ngIf="!belum_donasi">
+      <ion-card class="dashboard-donatur-sudah-donasi"   *ngIf="!belum_donasi">
           <div class="text-black p-1 font-bold font-poppins">Statistik Santri Penerima Donasi Anda</div>
           <div class="grid grid-rows-1 grid-cols-2 gap-2">
             <div class="bg-gold text-black rounded-xl">
                 <div class="text-center font-bold font-poppins">Paket Tersalurkan</div>
-                <div class="text-center font-bold">10</div>
+                <div class="dashboard-donatur-box-paket-tersalurkan-value">10</div>
             </div>
             <div class="bg-black text-gold rounded-xl">
-                <div class="dashboard-donatur-box-santri-belajar-text">Santri Selesai Belajar</div>
+                <div class="dashboard-donatur-box-santri-belajar-text pl-3 ">Santri Selesai Belajar</div>
                 <div class="dashboard-donatur-box-santri-belajar-value">0</div>
             </div>
           </div>

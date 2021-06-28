@@ -57,9 +57,7 @@ export class SantriProfilePage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.platform.ready().then(() => {
       this.initdata();
-    })
   }
   initdata() {
     this.userInfo();
@@ -68,7 +66,7 @@ export class SantriProfilePage implements OnInit {
   async userInfo() {
     
     this.usrinfo= this.asp.getUserInfo();
-    this.user_photoURL = this.usrinfo.user_photoURL;
+    this.user_photoURL = this.usrinfo.ref_object.donatur_lokasi_photo;
     this.user_email = this.usrinfo.user_email;
     this.user_displayName = this.usrinfo.user_displayName;
     this.santri_nama = this.usrinfo.user_displayName;

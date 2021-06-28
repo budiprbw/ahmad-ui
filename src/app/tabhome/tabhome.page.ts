@@ -9,7 +9,10 @@ import { AhmadproviderService } from '../ahmadprovider.service';
 })
 export class TabhomePage implements OnInit {
   public belum_donasi:any=false;
-  public santri_id:any;
+  public donatur_id:any;
+  public usrinfo:any;
+  public berita:any;
+
   constructor(
     private router: ActivatedRoute,
     private route : Router,
@@ -17,10 +20,15 @@ export class TabhomePage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.usrinfo =this.asp.getUserInfo();
     this.initdatadonasi();    
   }
   initdatadonasi(){
     this.belum_donasi=false;
+    this.asp.getlist_berita_kampanye().then(
+      data=> {        
+        this.berita=data;
+      });   
   }
   goLihatdetail(){
     this.route.navigateByUrl('/donasi-santri-list', { replaceUrl:true });
@@ -29,8 +37,8 @@ export class TabhomePage implements OnInit {
     this.route.navigateByUrl('/donasi-riwayat', { replaceUrl:true });
   }
   public goInfoMasuk(){
-    this.santri_id="1";
-    this.route.navigate(['donatur-notifikasi', { santri_id: this.santri_id }]);
+    this.donatur_id=  this.usrinfo.ref_object.id;
+    this.route.navigate(['donatur-notifikasi', { donatur_id: this.donatur_id }]);
   }
   goSalurkanDonasi(){
     this.route.navigateByUrl('/penyaluran-donasi', { replaceUrl:true });

@@ -177,6 +177,26 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'daftar',
+    loadChildren: () => import('./daftar/daftar.module').then( m => m.DaftarPageModule)
+  },
+  {
+    path: 'daftar/:idreg',
+    loadChildren: () => import('./daftar/daftar.module').then( m => m.DaftarPageModule)
+  },
+  {
+    path: 'registrasi',
+    loadChildren: () => import('./registrasi/registrasi.module').then( m => m.RegistrasiPageModule)
+  },
+  {
+    path: 'donasi-tanya-akun',
+    loadChildren: () => import('./donasi-tanya-akun/donasi-tanya-akun.module').then( m => m.DonasiTanyaAkunPageModule)
+  },
+  {
+    path: 'modal-konfirmasi-donasi',
+    loadChildren: () => import('./modal-konfirmasi-donasi/modal-konfirmasi-donasi.module').then( m => m.ModalKonfirmasiDonasiPageModule)
   }
 ];
 @NgModule({

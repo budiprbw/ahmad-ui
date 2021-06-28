@@ -12,45 +12,59 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class AhmadproviderService {
-  readonly api_url:string= environment.ahmadApi.baseAPIUrl;
+  readonly api_url: string = environment.ahmadApi.baseAPIUrl;
   //#region Donatur 
-  private api_register_donatur        = this.api_url + environment.ahmadApi.donatur.register;
+  private api_register_donatur = this.api_url + environment.ahmadApi.donatur.register;
   private api_donatur_register_sosmed = this.api_url + environment.ahmadApi.donatur.register_sosmed;
-  private api_photo_profile_donatur   = this.api_url + environment.ahmadApi.donatur.upload_poto;  
-  private api_donatur_profile_save    = this.api_url + environment.ahmadApi.donatur.update_profile;
-  private api_donatur_byemail         = this.api_url + environment.ahmadApi.donatur.find_by_email;
+  private api_photo_profile_donatur = this.api_url + environment.ahmadApi.donatur.upload_poto;
+  private api_donatur_profile_save = this.api_url + environment.ahmadApi.donatur.update_profile;
+  private api_donatur_byemail = this.api_url + environment.ahmadApi.donatur.find_by_email;
   //#endregion
-  
+
   //#region Santri  
-  private api_register_santri         = this.api_url + environment.ahmadApi.santri.register;
-  private api_santri_register_sosmed  = this.api_url + environment.ahmadApi.santri.register_sosmed;
-  private api_santri_byemail          = this.api_url + environment.ahmadApi.santri.find_by_email;
+  private api_register_santri = this.api_url + environment.ahmadApi.santri.register;
+  private api_santri_register_sosmed = this.api_url + environment.ahmadApi.santri.register_sosmed;
+  private api_santri_byemail = this.api_url + environment.ahmadApi.santri.find_by_email;
   private api_santri_kuesioner_simpan = this.api_url + environment.ahmadApi.santri.kuesioner_simpan;
-  private api_santri_profile_save     = this.api_url + environment.ahmadApi.santri.update_profile;
-  private api_photo_profile_santri    = this.api_url + environment.ahmadApi.santri.upload_poto;
+  private api_santri_profile_save = this.api_url + environment.ahmadApi.santri.update_profile;
+  private api_photo_profile_santri = this.api_url + environment.ahmadApi.santri.upload_poto;
   //#endregion
 
   //#region Data Master
-  private api_list_berita             = this.api_url + environment.ahmadApi.lookup.list_berita;
-  private api_list_berita_kampanye    = this.api_url + environment.ahmadApi.lookup.list_berita_kampanye;
-  private api_list_berita_entitas     = this.api_url + environment.ahmadApi.lookup.list_berita_entitas;
-  private api_all_propinsi            = this.api_url + environment.ahmadApi.lookup.kode_pos.all_propinsi;
-  private api_kota_bypropinsi         = this.api_url + environment.ahmadApi.lookup.kode_pos.kotabyprovinsi;
-  private api_kec_bykota              = this.api_url + environment.ahmadApi.lookup.kode_pos.kecamatanbykota;
-  private api_kel_bykec               = this.api_url + environment.ahmadApi.lookup.kode_pos.kelurahanbykecamatan;
-  private api_kodepos_bykel           = this.api_url + environment.ahmadApi.lookup.kode_pos.kodeposbykelurahan;
-  private api_kuesioner_list          = this.api_url + environment.ahmadApi.lookup.list_kuesioner;
-  private api_lembaga                 = this.api_url + environment.ahmadApi.lookup.lembaga;
-  private api_list_rekening_lembaga   = this.api_url + environment.ahmadApi.lookup.list_rekening_lembaga;
+  private api_list_berita = this.api_url + environment.ahmadApi.lookup.list_berita;
+  private api_list_berita_kampanye = this.api_url + environment.ahmadApi.lookup.list_berita_kampanye;
+  private api_list_berita_entitas = this.api_url + environment.ahmadApi.lookup.list_berita_entitas;
+  private api_all_propinsi = this.api_url + environment.ahmadApi.lookup.kode_pos.all_propinsi;
+  private api_kota_bypropinsi = this.api_url + environment.ahmadApi.lookup.kode_pos.kotabyprovinsi;
+  private api_kec_bykota = this.api_url + environment.ahmadApi.lookup.kode_pos.kecamatanbykota;
+  private api_kel_bykec = this.api_url + environment.ahmadApi.lookup.kode_pos.kelurahanbykecamatan;
+  private api_kodepos_bykel = this.api_url + environment.ahmadApi.lookup.kode_pos.kodeposbykelurahan;
+  private api_kuesioner_list = this.api_url + environment.ahmadApi.lookup.list_kuesioner;
+  private api_lembaga = this.api_url + environment.ahmadApi.lookup.lembaga;
+  private api_list_rekening_lembaga = this.api_url + environment.ahmadApi.lookup.list_rekening_lembaga;
   //#endregion
-  
+
   //#region tools
-  private api_message_send_wa         = this.api_url + environment.ahmadApi.send_wa_message;
+  private api_message_send_wa = this.api_url + environment.ahmadApi.send_wa_message;
   //#endregion
   //#region User
-  private api_user_login              = this.api_url + environment.ahmadApi.user.by_login;
-  private api_user_by_hashcode        = this.api_url + environment.ahmadApi.user.by_hashcode;
-  private api_user_change_password    = this.api_url + environment.ahmadApi.user.change_password;
+  private api_user_login = this.api_url + environment.ahmadApi.user.by_login;
+  private api_user_login_gmail = this.api_url + environment.ahmadApi.user.by_login_gmail;
+  private api_user_by_hashcode = this.api_url + environment.ahmadApi.user.by_hashcode;
+  private api_user_change_password = this.api_url + environment.ahmadApi.user.change_password;
+  private api_user_pesan_aktif = this.api_url + environment.ahmadApi.user.pesan_aktif;  
+
+  //#endregion
+  //#region Product
+  private api_product_by_id = this.api_url + environment.ahmadApi.product.by_id;
+  //#endregion
+  //#region Donasi
+  private api_donasi_save_temp = this.api_url + environment.ahmadApi.donasi.save_temp;
+  private api_donasi_simpan = this.api_url + environment.ahmadApi.donasi.simpan;
+  private api_donatur_registrasi_donasi = this.api_url + environment.ahmadApi.donasi.registrasi_donatur;
+  private api_by_donasiid_donaturid = this.api_url + environment.ahmadApi.donasi.by_donasiid_donaturid;
+  private api_donasi_update_rekening= this.api_url + environment.ahmadApi.donasi.update_rekening;
+
   //#endregion
   isLoading = false;
 
@@ -73,30 +87,30 @@ export class AhmadproviderService {
 
   ) { }
 
-  
+
   //#region  Data Master
-  userChangePassword(id_user,email,password,tipe) {
+  userChangePassword(id_user, email, password, tipe) {
     let data = {
       "email": email,
       "password": password,
       "tipe": tipe
-    };    
+    };
     return new Promise(resolve => {
-        this.httpclient.put(this.api_user_change_password + id_user, data).subscribe(data => {
-          let result = {
-            "message": '',
-            "status": 'OK',
-            "data": data
-          };
-          resolve(result);
-        }, err => {
-          let result = {
-            "message": err.message,
-            "status": 'error'
-          };
-          resolve(result);
-        });
+      this.httpclient.put(this.api_user_change_password + id_user, data).subscribe(data => {
+        let result = {
+          "message": '',
+          "status": 'OK',
+          "data": data
+        };
+        resolve(result);
+      }, err => {
+        let result = {
+          "message": err.message,
+          "status": 'error'
+        };
+        resolve(result);
       });
+    });
   }
   user_login(user_name, user_password, user_tipe) {
     let data = {
@@ -111,8 +125,20 @@ export class AhmadproviderService {
         console.log(err);
       });
     });
+  }
+  user_login_gmail(user_name) {
+    let data = {
+      "email": user_name
+    };
+    return new Promise(resolve => {
+      this.httpclient.post(this.api_user_login_gmail, data).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
   }  
-  user_by_hashcode(hashcode:any) {
+  user_by_hashcode(hashcode: any) {
     return new Promise(resolve => {
       this.httpclient.get(this.api_user_by_hashcode + hashcode).subscribe(data => {
         let result = {
@@ -129,14 +155,40 @@ export class AhmadproviderService {
         resolve(result);
       });
     });
-  }  
-
+  }
+  user_pesan_aktif(user_id) {
+    return new Promise(resolve => {
+      this.httpclient.get(this.api_user_pesan_aktif+ user_id).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
   getlist_berita() {
     return new Promise(resolve => {
       this.httpclient.get(this.api_list_berita).subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
+      });
+    });
+  }
+  produk_by_id(id: any) {
+    return new Promise(resolve => {
+      this.httpclient.get(this.api_product_by_id + id).subscribe(data => {
+        let result = {
+          "message": '',
+          "status": 'OK',
+          "data": data
+        };
+        resolve(result);
+      }, err => {
+        let result = {
+          "message": err.message,
+          "status": 'error'
+        };
+        resolve(result);
       });
     });
   }
@@ -149,9 +201,9 @@ export class AhmadproviderService {
       });
     });
   }
-  getlist_berita_entitas(jenis:string) {
+  getlist_berita_entitas(jenis: string) {
     return new Promise(resolve => {
-      this.httpclient.get(this.api_list_berita_kampanye+jenis).subscribe(data => {
+      this.httpclient.get(this.api_list_berita_kampanye + jenis).subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
@@ -194,7 +246,6 @@ export class AhmadproviderService {
       });
     });
   }
-
   getkec_bykota(kota) {
     return new Promise(resolve => {
       this.httpclient.get(this.api_kec_bykota + kota).subscribe(data => {
@@ -252,12 +303,11 @@ export class AhmadproviderService {
   //#endregion
 
   //#region Proses Santri
-  santriRegSosmed(user_email,user_name,user_password)
-  {
+  santriRegSosmed(user_email, user_name, user_password) {
     let data = {
-      "email":user_email,
+      "email": user_email,
       "name": user_name,
-      "password":user_password
+      "password": user_password
     };
     return new Promise(resolve => {
       this.httpclient.post(this.api_santri_register_sosmed, data).subscribe(data => {
@@ -274,12 +324,12 @@ export class AhmadproviderService {
         };
         resolve(result);
       });
-    });    
+    });
   }
   register_santri(user_email, nama_lengkap) {
     let data = {
-      "user_email": user_email,
-      "user_name": nama_lengkap
+      "email": user_email,
+      "name": nama_lengkap
     };
     return new Promise(resolve => {
       this.httpclient.post(this.api_register_santri, data).subscribe(data => {
@@ -289,7 +339,7 @@ export class AhmadproviderService {
       });
     });
   }
-  
+
   kuesioner_santri_simpan(santri_id, kuesioner_list: any) {
     let data = {
       "santri_id": santri_id,
@@ -312,7 +362,7 @@ export class AhmadproviderService {
       });
     });
   }
-    
+
   santriUpdateProfile(santri_id,
     santri_nama,
     santri_tmp_lahir,
@@ -372,15 +422,135 @@ export class AhmadproviderService {
       resolve(data);
     });
   }
-//#endregion
+  //#endregion
+
+  //#region Proses Donatur 
+  save_donasi_temp(rekening_id,donasi_tanggal,jumlah_santri,donasi_tagih,donasi_total_harga,donasi_cara_bayar, donasiproduk) {
+    let data = {
+      "rekening_id": rekening_id,
+      "donasi_tanggal": donasi_tanggal,
+      "donasi_jumlah_santri": jumlah_santri,
+      "temp_donasi_tagih": donasi_tagih,
+      "donasi_total_harga":donasi_total_harga,
+      "donasi_cara_bayar":donasi_cara_bayar,
+      "donasiproduk": donasiproduk
+    };
+    return new Promise(resolve => {
+      this.httpclient.post(this.api_donasi_save_temp, data).subscribe(data => {
+        let result = {
+          "message": '',
+          "status": 'OK',
+          "data": data
+        };
+        resolve(result);
+      }, err => {
+        let result = {
+          "message": err.message,
+          "status": 'error'
+        };
+        resolve(result);
+      });
+    });
+  }
+  donasi_findby_id_donaturid(donasi_id, donatur_id) {
+    return new Promise(resolve => {
+      this.httpclient.get(this.api_by_donasiid_donaturid + donasi_id+"/"+ donatur_id).subscribe(data => {
+        let result = {
+          "message": '',
+          "status": 'OK',
+          "data": data
+        };
+        resolve(result);
+      }, err => {
+        let result = {
+          "message": err.message,
+          "status": 'error'
+        };
+        resolve(result);
+      });
+    });
+  }
+  donasi_update_rekening(donasi_id, rekening_id) {
+    let data = {
+      "rekening_id": rekening_id,
+    };
+    return new Promise(resolve => {
+      this.httpclient.put(this.api_donasi_update_rekening + donasi_id, data).subscribe(data => {
+        let result = {
+          "message": '',
+          "status": 'OK',
+          "data": data
+        };
+        resolve(result);
+      }, err => {
+        let result = {
+          "message": err.message,
+          "status": 'error'
+        };
+        resolve(result);
+      });
+    });
+  }
+
+  simpan_donasi(donatur_id,rekening_id,donasi_tanggal,jumlah_santri,donasi_tagih,donasi_total_harga,donasi_cara_bayar, donasiproduk) {
+    let data = {
+      "donatur_id": donatur_id,
+      "rekening_id": rekening_id,
+      "donasi_tanggal": donasi_tanggal,
+      "donasi_jumlah_santri": jumlah_santri,
+      "temp_donasi_tagih": donasi_tagih,
+      "donasi_total_harga":donasi_total_harga,
+      "donasi_cara_bayar":donasi_cara_bayar,
+      "donasiproduk": donasiproduk
+    };
+    console.log(data);
+    return new Promise(resolve => {
+      this.httpclient.post(this.api_donasi_simpan, data).subscribe(data => {
+        let result = {
+          "message": '',
+          "status": 'OK',
+          "data": data
+        };
+        resolve(result);
+      }, err => {
+        let result = {
+          "message": err.message,
+          "status": 'error'
+        };
+        resolve(result);
+      });
+    });
+  }
+  donaturRegisterDonasi(email,name,nomor_donasi) {
+    let data = {
+      "email": email,
+      "name": name,
+      "nomor_donasi": nomor_donasi
+    };
+    return new Promise(resolve => {
+      this.httpclient.post(this.api_donatur_registrasi_donasi, data).subscribe(data => {
+        let result = {
+          "message": '',
+          "status": 'OK',
+          "data": data
+        };
+        resolve(result);
+      }, err => {
+        let result = {
+          "message": err.message,
+          "status": 'error'
+        };
+        resolve(result);
+      });
+    });
+  }
+  //#endregion
 
   //#region Proses Donatur 
   register_donatur(user_email, nama_lengkap) {
-    this.base_url = window.location.origin +'/buatpassword/';
     let data = {
       "email": user_email,
-      "name": nama_lengkap,
-      "url": this.base_url
+      "name": nama_lengkap
     };
     console.log(data);
     return new Promise(resolve => {
@@ -391,7 +561,7 @@ export class AhmadproviderService {
       });
     });
   }
-  
+
   donaturUpdateProfile(donatur_id,
     donatur_nama,
     donatur_tmp_lahir,
@@ -418,7 +588,7 @@ export class AhmadproviderService {
       "donatur_tgl_lahir": donatur_tgl_lahir,
       "donatur_gender": donatur_gender,
       "donatur_agama": donatur_agama,
-      "donatur_telepon": donatur_telepon,      
+      "donatur_telepon": donatur_telepon,
       "donatur_kerja": donatur_kerja,
       "donatur_alamat": donatur_alamat,
       "donatur_kode_pos": donatur_kode_pos,
@@ -429,29 +599,28 @@ export class AhmadproviderService {
     };
     return new Promise(resolve => {
 
-      this.httpclient.put(this.api_donatur_profile_save + donatur_id, data).subscribe(data => {        
+      this.httpclient.put(this.api_donatur_profile_save + donatur_id, data).subscribe(data => {
         resolve(data);
         /** upload foto donatur */
-        let response:any;
+        let response: any;
         let formData = new FormData();
         formData.append('id', donatur_id);
-        formData.append("donatur_photo",donatur_lokasi_photo,donatur_lokasi_photo.name);
-        this.httpclient.post( this.api_photo_profile_donatur, formData).subscribe(data_Poto => {
+        formData.append("donatur_photo", donatur_lokasi_photo, donatur_lokasi_photo.name);
+        this.httpclient.post(this.api_photo_profile_donatur, formData).subscribe(data_Poto => {
           resolve(data_Poto);
         }, err => {
           console.log(err);
-        });          
+        });
       }, err => {
         console.log(err);
       });
     });
   }
-  donaturRegSosmed(user_email,user_name,user_password)
-  {
+  donaturRegSosmed(user_email, user_name, user_password) {
     let data = {
-      "user_email":user_email,
+      "user_email": user_email,
       "user_name": user_name,
-      "user_password":user_password
+      "user_password": user_password
     };
     return new Promise(resolve => {
       this.httpclient.post(this.api_donatur_register_sosmed, data).subscribe(data => {
@@ -468,8 +637,8 @@ export class AhmadproviderService {
         };
         resolve(result);
       });
-    });    
-  }  
+    });
+  }
   //#endregion
 
   //#region  Method helper
@@ -477,26 +646,22 @@ export class AhmadproviderService {
     this.isLoading = false;
     return await this.loadingController.dismiss();
   }
-  
-  getUserInfo():any
-  {
-      let usrinfo: any;
-      usrinfo =  JSON.parse(localStorage.getItem("usrinfo"));
-      if (!(usrinfo))
-      {
-        this.route.navigateByUrl('/login', { replaceUrl: true });
-      }
-      return usrinfo;
+
+  getUserInfo(): any {
+    let usrinfo: any;
+    usrinfo = JSON.parse(localStorage.getItem("usrinfo"));
+    if (!(usrinfo)) {
+      this.route.navigateByUrl('/login', { replaceUrl: true });
+    }
+    return usrinfo;
   }
-  setUserInfo(userinfo:any){
-    if (userinfo.user_photoURL=="") userinfo.user_photoURL="assets/images/no-image.png";      
-    localStorage.setItem("usrinfo",JSON.stringify(userinfo));
+  setUserInfo(userinfo: any) {
+    if (userinfo.ref_object.donatur_lokasi_photo == "") userinfo.ref_object.donatur_lokasi_photo = "assets/images/no-image.png";
+    localStorage.setItem("usrinfo", JSON.stringify(userinfo));
   }
-  removeUserInfo(){
+  removeUserInfo() {
     localStorage.removeItem("usrinfo");
   }
-
-
   go_previous_page() {
     this.location.back();
   }

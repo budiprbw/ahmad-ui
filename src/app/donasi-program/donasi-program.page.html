@@ -1,35 +1,28 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-button (click)="goBack()">
-        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-    <ion-title class="ion-text-center">Program Donatur</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button (click)="goBack()">
+                <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title class="ion-text-center">Program Donatur</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-grid class="ion-grid">
-  <ion-row>
-      <ion-col>
-          <ion-card class="donasi-program-Rectangle-631">
-            <ion-item class="mt-5">
-              <iframe width="100%" height="100%" [src]="urlSafe" frameborder="0" allowfullscreen></iframe>
-            </ion-item>
-          </ion-card>
-          <ion-card class="donasi-program-Rectangle-632">
-              Sample Ayat & penjelasan
-              Alquran Asmaul Husna
-          </ion-card>
-          <ion-card class="donasi-program-Rectangle-633">
-              Materi penjelsan tentang apa saja
-              yang donatur dapatkan dalam program 
-              tersebut
-          </ion-card>
-          <ion-card class="donasi-program-Rectangle-634">
-              Materi penjelasan metode
-              pembayaran yang disediakan
-          </ion-card>
+    <ion-row>
+        <ion-col>
+            <ion-card class="donasi-program-Rectangle-631">
+                <ion-item class="mt-5">
+                    <iframe width="100%" height="100%" [src]="urlSafe" frameborder="0" allowfullscreen></iframe>
+                </ion-item>
+            </ion-card>
+            
+            <ion-card class="donasi-program-Rectangle-632" >
+                <div class="donasi-program-berita-kampanye">
+                    {{this.line_berita.berita_isi}}
+                </div>
+            </ion-card>            
           <ion-card class="donasi-program-Rectangle-628">
               <div class="lg:flex-auto lg:h-4 lg:w-10 lg:mt-8 mt-5 lg:pl-8">
                   <ion-button fill="clear" class=" h-12 w-72  bg-gold rounded-2xl  border-black border-2 lg:bg-gold  lg:rounded-2xl lg:border-black lg:border-2"

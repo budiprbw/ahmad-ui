@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute,Router } from '@angular/router';
 import { AhmadproviderService } from '../ahmadprovider.service';
+import {  Platform,NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tabakun',
@@ -19,7 +20,8 @@ export class TabakunPage implements OnInit {
   constructor(
     private router: ActivatedRoute,
     private route : Router,
-    public asp: AhmadproviderService
+    public asp: AhmadproviderService,
+    public navCtrl: NavController
   ) { }
 
   ngOnInit() {
@@ -27,8 +29,8 @@ export class TabakunPage implements OnInit {
     this.getDonatur();
   }
   userInfo() {
-    this.usrinfo =  this.usrinfo= this.asp.getUserInfo();
-    this.user_photoURL = this.usrinfo.user_photoURL;
+    this.usrinfo = this.asp.getUserInfo();
+    this.user_photoURL = this.usrinfo.ref_object.donatur_lokasi_photo;
     this.user_email = this.usrinfo.user_email;
     this.user_displayName = this.usrinfo.user_displayName;
     this.login_by = this.usrinfo.login_by;
@@ -39,8 +41,6 @@ export class TabakunPage implements OnInit {
         this.donaturData = data;
         this.donatur_id= this.donaturData.id;
         this.user_photoURL= this.donaturData.donatur_lokasi_photo;
-        console.log( this.donaturData);
-       
       });
   }
   goAjak(){
@@ -48,9 +48,12 @@ export class TabakunPage implements OnInit {
   }
   goProfile(){
     this.route.navigateByUrl('/donatur-profile', { replaceUrl:true });
+    this.route.ngOnDestroy();
   }
-  goUbahPassword(){
-    
+  goUbahPassword(){        
+    this.usrinfo.route_from="tabakun";    
+    this.route.navigateByUrl('/buatpassword', { replaceUrl:true });
+    this.route.ngOnDestroy();
   }
   goInfoMasuk(){
 

@@ -6,6 +6,8 @@ import firebase from 'firebase';
 import { Router,ActivatedRoute } from '@angular/router';
 import { AhmadproviderService } from '../ahmadprovider.service';
 import { isGeneratedFile } from '@angular/compiler/src/aot/util';
+import { ModalController } from '@ionic/angular';
+import { ModalKonfirmasiDonasiPage } from '../modal-konfirmasi-donasi/modal-konfirmasi-donasi.page';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +16,7 @@ import { isGeneratedFile } from '@angular/compiler/src/aot/util';
 })
 export class LoginPage implements OnInit {
   public loading: any;
-  public user = null;
+  public user :any;
   public user_email: string;
   public user_password: string;
   public error_msg: string = "";
@@ -22,6 +24,7 @@ export class LoginPage implements OnInit {
   public user_tipe: string = "1";
   public login_mode:string="";
   public isActiveToggleTextPassword:boolean=true;
+  
 
   constructor(
     private google: GooglePlus,
@@ -30,7 +33,8 @@ export class LoginPage implements OnInit {
     private platform: Platform,
     private route: Router,
     public asp: AhmadproviderService,
-    public router:ActivatedRoute
+    public router:ActivatedRoute,
+    public modalController: ModalController,
   ) { }
 
   async ngOnInit() {
@@ -40,6 +44,12 @@ export class LoginPage implements OnInit {
     this.router.queryParams.subscribe((params: any) => {
       if (params['login_mode']){
         this.login_mode=params['login_mode'];
+        if (this.login_mode=='donatur'){
+            this.user_tipe="1";
+        }
+        if (this.login_mode=='santri'){
+          this.user_tipe="2";
+        }
       }       
     });
 
@@ -64,7 +74,6 @@ export class LoginPage implements OnInit {
           alert('error:' + JSON.stringify(error));
         });
     } else {
-      console.log('else...');
       this.fireAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(success => {
         console.log('success in google login', success);
         this.user = success.user;
@@ -73,7 +82,8 @@ export class LoginPage implements OnInit {
           "user_displayName": this.user.displayName,
           "user_photoURL": this.user.photoURL,
           "login_by":"google",
-          "login_mode":this.login_mode
+          "login_mode":this.login_mode,
+          "route_from":"login"
         };
         localStorage.setItem("usrinfo",JSON.stringify(userinfo));
         this.redirectMe();
@@ -91,15 +101,7 @@ export class LoginPage implements OnInit {
     this.fireAuth.signInWithCredential(credential)
       .then((success) => {
         this.user = success.user;
-        let userinfo = {
-          "user_email": this.user.email,
-          "user_displayName": this.user.displayName,
-          "user_photoURL": this.user.photoURL,
-          "login_by":"google",
-          "login_mode":this.login_mode
-        };
-        localStorage.setItem("usrinfo",JSON.stringify(userinfo));
-        this.redirectMe();
+        this.goLogin_gmail();
       });
 
   }
@@ -111,55 +113,95 @@ export class LoginPage implements OnInit {
     });
   }
   goBack() {
-    this.asp.go_previous_page();
+    var item_donasi:any= localStorage.getItem("item_donasi");
+    if (item_donasi)
+    {
+      this.KonfirmasiDonasi();
+    }
+    else
+    {
+      this.asp.go_previous_page();
+    }    
   }
+
+  async KonfirmasiDonasi(){
+      const modal = await this.modalController.create({
+        component: ModalKonfirmasiDonasiPage,
+        componentProps: {
+          'model_title': "konfirmasi donasi"
+        }
+      });
+      return await modal.present();
+  }
+
   gotoregistrasi() {
     if (this.login_mode=='donatur'){
-      this.route.navigateByUrl('/donaturreg?login_mode='+ this.login_mode, { replaceUrl: true });
+      this.route.navigateByUrl('registrasi?login_mode='+ this.login_mode, { replaceUrl: true });
     }
     if (this.login_mode=='santri'){
-      this.route.navigateByUrl('/santrireg?login_mode='+ this.login_mode, { replaceUrl: true });
+      this.route.navigateByUrl('/registrasi?login_mode='+ this.login_mode, { replaceUrl: true });
     }
+  }
+  goLogin_gmail(){
+    this.asp.user_login_gmail(this.user_email).then(
+      data => {
+        this.response = data;
+        if (this.response.status == 'error') {
+          this.error_msg = this.response.message + ', not register with google';              
+        }
+        else {
+          let object_ref:any ;
+          if (this.login_mode=="donatur")object_ref=this.response.donatur;
+          if (this.login_mode=="santri") object_ref=this.response.santri;
+          let userinfo = {
+            "user_id": this.response.id,
+            "user_email": this.response.email,              
+            "user_displayName": this.response.name,
+            "is_approve": this.response.approve,
+            "user_photoURL": "",
+            "login_by":"data",
+            "login_mode":this.login_mode,
+            "ref_object":object_ref,
+            "route_from":"login"
+          };
+          this.user = userinfo;
+          this.asp.setUserInfo(userinfo);
+          this.redirectMe();              
+        }
+      });
   }
   async goLogin() {
     this.asp.presentLoading("login processing");
-    this.getuserlogin("1");
+    this.getuserlogin();
     this.asp.dismissLoading();
   }
-  getuserlogin(dummy) {
-    if (dummy == "0") {
-      let userinfo = {
-        "user_email": this.user_email,
-        "user_displayName": "Bejo",
-        "user_photoURL": "",
-        "login_by":"data",
-        "login_mode":this.login_mode
-      };
-      localStorage.setItem("usrinfo", JSON.stringify(userinfo));  
-      this.redirectMe();      
-    }
-    else {
-        this.asp.user_login(this.user_email, this.user_password, this.user_tipe).then(
-          data => {
-            this.response = data;
-
-            if (this.response.status == 'error') {
-              this.error_msg = this.response.message;              
-            }
-            else {
-              let userinfo = {
-                "user_email": this.response.user.user_email,
-                "user_displayName": this.response.user.user_name,
-                "user_photoURL": "",
-                "login_by":"data",
-                "login_mode":this.login_mode
-              };
-              this.user = userinfo;
-              localStorage.setItem("usrinfo", JSON.stringify(userinfo));
-              this.redirectMe();              
-            }
-          });
-      }
+  getuserlogin() {
+      this.asp.user_login(this.user_email, this.user_password, this.user_tipe).then(
+        data => {
+          this.response = data;
+          if (this.response.status == 'error') {
+            this.error_msg = this.response.message;              
+          }
+          else {
+            let object_ref:any ;
+            if (this.login_mode=="donatur")object_ref=this.response.donatur;
+            if (this.login_mode=="santri") object_ref=this.response.santri;
+            let userinfo = {
+              "user_id": this.response.id,
+              "user_email": this.response.email,              
+              "user_displayName": this.response.name,
+              "is_approve": this.response.approve,
+              "user_photoURL": "",
+              "login_by":"data",
+              "login_mode":this.login_mode,
+              "ref_object":object_ref,
+              "route_from":"login"
+            };
+            this.user = userinfo;
+            this.asp.setUserInfo(userinfo);            
+            this.redirectMe();              
+          }
+        });
   }
   blurEvent1(event: string) {
     if (event.trim().length > 0) {
@@ -172,12 +214,61 @@ export class LoginPage implements OnInit {
     }
   }
   redirectMe(){
-    if (this.login_mode=='donatur'){
-      this.route.navigateByUrl('/donatur-profile', { replaceUrl: true });
-    }
-    if (this.login_mode=='santri'){
-      this.route.navigateByUrl('/santri-profile', { replaceUrl: true });
-    }
+    switch(this.login_mode){
+      case "donatur":
+            var is_donasi =false;
+            var item_donasi:any=JSON.parse(localStorage.getItem("item_donasi"));
+            let response:any;
+            if (item_donasi) {
+              is_donasi=true;
+            }
+            if (is_donasi)
+            {     
+                this.route.navigateByUrl('/pembayaran-donasi', { replaceUrl: true });
+            }
+            else
+            {
+                switch(this.user.ref_object.donatur_status)
+                {
+                  case "1":              
+                  this.route.navigateByUrl('/donatur-profile', { replaceUrl: true });
+                    break;
+                  case "2":
+                    this.route.navigateByUrl('/dashboard-donatur', { replaceUrl: true });
+                    break;
+                }        
+            }            
+            break;
+      case "santri": 
+            switch(this.user.ref_object.santri_status)
+            {
+              case "1":
+                this.route.navigateByUrl('/santri-kuesioner', { replaceUrl: true });
+                break;
+              case "2":
+                this.route.navigate(['confirm-page', { msg: "Mohon bersabar,saat ini sedang menunggu approval dari lembaga" }]);
+                break;  
+              case "3":
+                this.route.navigateByUrl('/santri-profile', { replaceUrl: true });
+                break;
+              case "4":
+                this.route.navigateByUrl('/dashboard-santri', { replaceUrl: true });
+                break;  
+              case "5":
+                this.route.navigate(['confirm-page', { msg: "Mohon bersabar,Produk anda belum sampai" }]);
+                break; 
+              case "6":
+                this.route.navigate(['confirm-page', { msg: "Produk anda telah sampai" }]);
+                break;  
+              case "7":
+                this.route.navigate(['confirm-page', { msg: "dalam bimbingan" }]);
+                break;    
+              case "8":
+                this.route.navigate(['confirm-page', { msg: "bimbingan telah selesai" }]);
+                break;      
+            }             
+            break;
+    }    
   }
   public toggleTextPassword(): void {
     this.isActiveToggleTextPassword = (this.isActiveToggleTextPassword == true) ? false : true;

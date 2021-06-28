@@ -1,0 +1,197 @@
+import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+import { AhmadproviderService } from '../ahmadprovider.service';
+
+@Component({
+  selector: 'app-daftar',
+  templateUrl: './daftar.page.html',
+  styleUrls: ['./daftar.page.scss'],
+})
+export class DaftarPage implements OnInit {
+  public isActiveToggleTextPassword_1: boolean = true;
+  public isActiveToggleTextPassword_2: boolean = true;
+  public newpassword: any;
+  public confirmassword: any;
+  public login_mode: any;
+  public user_email: any;
+  public user_displayName: any;
+  public usrinfo: any;
+  public response: any;
+  public error_msg: string = "";
+  public hashcode: any;
+  public user_tipe: any;
+  public id_user: any;
+  public nama_user: any;
+  public email_user: any;
+  public donasi:any;
+
+  constructor(
+    private route: Router,
+    public asp: AhmadproviderService,
+    public router: ActivatedRoute
+  ) { }
+
+  
+
+  ngOnInit() {
+    this.is_from_link();
+  }
+  is_from_link() {
+    this.router.params.subscribe((params: any) => {
+      if (params['idreg']) {
+        this.hashcode = params['idreg'];
+        console.log(this.hashcode);
+        this.asp.user_by_hashcode(this.hashcode).then(
+          data => {
+            this.response = data;
+            console.log(this.response);
+            if (this.response.status == 'error') {
+              this.route.navigate(['confirm-page', { msg: this.response.message }]);
+            }
+            if (JSON.stringify(this.response.data) === '{}') {
+              this.error_msg = "registrasi anda tidak terdaftar";
+            }
+            else {
+              this.id_user = this.response.data.id;              
+              this.user_displayName = this.response.data.name;
+              this.user_email = this.response.data.email;
+              this.user_tipe = this.response.data.tipe; //1 :donatur, 2:santri     
+              let object_ref: any;
+
+
+              if (this.user_tipe == "1") {
+                this.login_mode = "donatur";
+                object_ref = this.response.data.donatur;
+                this.donasi = this.response.data.donatur.donasi;
+              }
+              if (this.user_tipe == "2") {
+                this.login_mode = "santri";
+                let santri={
+                  "donatur_lokasi_photo":""
+                }
+                object_ref = santri;//this.response.data.santri;
+              }
+
+              this.asp.removeUserInfo();
+              let userinfo = {
+                "user_id": this.id_user,
+                "user_email": this.user_email,
+                "user_displayName": this.user_displayName,
+                "user_photoURL": "",
+                "login_by": "data",
+                "login_mode": this.login_mode,
+                "ref_object": object_ref,
+                "route_from": "daftar",
+              };
+              this.asp.setUserInfo(userinfo);
+            }
+          });
+      }
+    });
+  }
+  public toggleTextPassword_1(): void {
+    this.isActiveToggleTextPassword_1 = (this.isActiveToggleTextPassword_1 == true) ? false : true;
+  }
+  public toggleTextPassword_2(): void {
+    this.isActiveToggleTextPassword_2 = (this.isActiveToggleTextPassword_2 == true) ? false : true;
+  }
+  public getType_1() {
+    return this.isActiveToggleTextPassword_1 ? 'password' : 'text';
+  }
+  public getType_2() {
+    return this.isActiveToggleTextPassword_2 ? 'password' : 'text';
+  }
+  isValid(): boolean {
+    let retval = false;
+    if (this.newpassword.trim().length == 0) {
+      this.error_msg = "* password required!";
+    }
+    else if (this.confirmassword.trim().length == 0) {
+      this.error_msg = "* confirmation password required!";
+    }
+    else if (this.confirmassword.trim() != this.newpassword.trim()) {
+      this.error_msg = "* passowrd dan confirmation password tidak sama";
+    }
+    else {
+      retval = true;
+    }
+    return retval;
+  }
+  goBuatpassword() {
+    let is_valid: boolean = this.isValid();
+    if (is_valid) {
+      this.savePassword();
+      this.redirectMe();
+    }
+  }
+  savePassword() {
+    this.asp.userChangePassword(this.id_user, this.user_email, this.newpassword, this.user_tipe).then(
+      data => {
+        this.response = data;
+        if (this.response.status == 'error') {
+          this.error_msg = this.response.message;
+        }
+        else {
+          this.redirectMe();
+        }
+      });
+
+  }
+  redirectMe() {
+    if (this.login_mode == "santri") {
+      this.route.navigateByUrl('/santri-kuesioner', { replaceUrl: true });
+    }
+    if (this.login_mode == "donatur") {
+      // bila donatur  sudah donasi atau belum
+      // kalau sudah donasi redirect ke pembayaran-donasi
+      if (this.donasi == null) {
+        this.route.navigateByUrl('/donatur-profile', { replaceUrl: true });
+      }
+      else {
+        this.goPembayaran();
+      }
+    }
+  }
+  goPembayaran() {
+    let jenis_donasi_text = "";
+    var donasi:any;    
+    let cara_bayar = this.donasi.donasi_cara_bayar;
+    switch (cara_bayar) {
+      case "1":
+        jenis_donasi_text = "Donasi " + "harian";
+        break;
+      case "2":
+        jenis_donasi_text = "Donasi " + "pekanan";
+        break;
+      case "3":
+        jenis_donasi_text = "Donasi " + "bulanan";
+        break;
+      case "4":
+        jenis_donasi_text = "Donasi " + "penuh";
+        break;
+    }
+    let durasi_donasi = (this.donasi.donasi_total_harga / this.donasi.donasi_tagih);
+    let item_donasi = {
+      "donasi_tanggal": this.donasi.donasi_tanggal,
+      "donasi_cara_bayar": this.donasi.donasi_cara_bayar,
+      "jenis_donasi_text": jenis_donasi_text,
+      "donasi_tagih": this.donasi.donasi_tagih,
+      "donasi_total_harga": this.donasi.donasi_total_harga,
+      "donasi_jumlah_santri": this.donasi.donasi_jumlah_santri,
+      "durasi_donasi": durasi_donasi,
+      "bank_selected": this.donasi.rekeningbank,
+      "bank_rekening_id": this.donasi.rekeningbank.id,
+      "temp_donasi_no": this.donasi.donasi_no,
+      "donasiproduk": this.donasi.produk
+    };
+    localStorage.setItem("item_donasi", JSON.stringify(item_donasi));
+    this.route.navigateByUrl('/pembayaran-donasi', { replaceUrl: true });
+
+  }
+  goBack() {
+    this.route.navigate(['webdashboard']);
+  }
+
+
+
+}

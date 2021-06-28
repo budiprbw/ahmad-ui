@@ -43,8 +43,20 @@ export const environment = {
     },
     user:{
       by_login:"user/login",
+      by_login_gmail:"user/login/gmail",
       by_hashcode:"user/byhashcode/",
-      change_password:"user/change/password/"
+      change_password:"user/change/password/",
+      pesan_aktif: "pesan/aktif/byuser/",
+    },
+    product:{
+      by_id :"produk/byid/"
+    },
+    donasi:{
+      save_temp:"donasi/temp/save",
+      simpan:"donasi/save",
+      registrasi_donatur:"donatur/register/donasi",
+      update_rekening: "donasi/update/rekening/",
+      by_donasiid_donaturid: "donasi/donasiid/",
     },
     send_wa_message:"message/send/wa"
   }

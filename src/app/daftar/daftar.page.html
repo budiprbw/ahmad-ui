@@ -1,0 +1,37 @@
+<ion-header  >
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button color="primary"  (click)="goBack()">
+              <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+            </ion-button>
+      </ion-buttons>
+      <ion-title  class="ion-text-center">Buat Password Akun</ion-title>
+       <p  class="ion-text-center">Logged in  {{user_displayName}} ({{user_email}}) as {{login_mode}}</p>     
+    </ion-toolbar>
+  </ion-header>
+
+<ion-grid class="cdaftar">
+  
+  <ion-row>
+    <ion-col>
+        <ion-card class="daftar-card-rectangle">
+                <div class="daftar-Rectangle-630" >
+                  <ion-input [type]="getType_1()" class="flex items-center" placeholder="password anda" [(ngModel)]="newpassword" name="newpassword" >                      
+                  </ion-input>
+                  <ion-icon name="eye"  (click)="toggleTextPassword_1()" style="padding-left:15px;cursor:pointer" slot=“end”  ></ion-icon>                  
+                </div>  
+                <div class="daftar-Rectangle-630" >
+                  <ion-input [type]="getType_2()" placeholder="ulangi password anda" [(ngModel)]="confirmassword" name="confirmassword" >                      
+                  </ion-input>                  
+                  <ion-icon name="eye" (click)="toggleTextPassword_2()" style="padding-left:15px;cursor:pointer" slot=“end” ></ion-icon>
+                </div>
+                <ion-text color="danger"><h3>{{error_msg}}</h3></ion-text>
+                <ion-button fill="clear" class="masuk-santri-donatur-button" (click)="goBuatpassword()">
+                  <ion-text class="card2-Sign-up">
+                    Simpan dan lanjutkan
+                  </ion-text>
+                </ion-button>
+          </ion-card>    
+    </ion-col>
+  </ion-row>
+</ion-grid>

@@ -24,55 +24,26 @@ export class BuatpasswordPage implements OnInit {
   public id_user:any;
   public nama_user:any;
   public email_user:any;
+  public login_by:any;
 
-
-  constructor(private route: Router,
+  constructor(
+          private route: Router,
           public asp: AhmadproviderService,
           public router:ActivatedRoute
         ) { }
 
   ngOnInit() {
-    this.is_from_link();
-    if (!this.from_link){
-        this.usrinfo =  this.usrinfo= this.asp.getUserInfo();
-        this.login_mode = this.usrinfo.login_mode;
-        this.user_email = this.usrinfo.user_email;
-        this.user_displayName = this.usrinfo.user_displayName;
-    }  
-  }
-  is_from_link(){
-    this.router.params.subscribe((params: any) => {
-      if (params['idreg']){
-        this.hashcode=params['idreg'];
-        console.log(this.hashcode);
-        this.from_link=true;        
-        this.asp.user_by_hashcode(this.hashcode).then(
-          data => {
-            this.response = data;
-            if (this.response.status == 'error') {
-              this.route.navigate(['confirm-page', { msg: this.response.message }]);        
-            }
-            this.id_user= this.response.data.id;  
-            this.user_displayName= this.response.data.name;
-            this.user_email= this.response.data.email;
-            this.user_tipe= this.response.data.tipe; //1 :donatur, 2:santri            
-            if (this.user_tipe=="1") this.login_mode="donatur";
-            if (this.user_tipe=="2") this.login_mode="santri";
+      this.usrinfo =this.asp.getUserInfo();
+      this.id_user    = this.usrinfo.user_id;
+      this.login_mode = this.usrinfo.login_mode;
+      this.user_email = this.usrinfo.user_email;
+      this.login_by   = this.usrinfo.login_by;
+      this.user_displayName = this.usrinfo.user_displayName;
+      if (this.login_mode=="donatur")this.user_tipe="1";
+      if (this.login_mode=="santri")this.user_tipe="2";
 
-            this.asp.removeUserInfo();
-            let userinfo = {
-              "user_email": this.user_email,
-              "user_displayName": this.user_displayName,
-              "user_photoURL": "",
-              "login_by":"data",
-              "login_mode":this.login_mode
-            };
-            this.asp.setUserInfo(userinfo);
-          }); 
-      }       
-    });
   }
-
+ 
   public toggleTextPassword_1(): void {
     this.isActiveToggleTextPassword_1 = (this.isActiveToggleTextPassword_1 == true) ? false : true;
   }
@@ -112,15 +83,15 @@ export class BuatpasswordPage implements OnInit {
 
   }
   savePassword(){
-    if (!this.from_link){
+    if (this.login_by=="google"){
         this.savepasswordSosmed();
     }
-    if (this.from_link){
-        this.savepasswordfromLink();
+    if (this.login_by=="data"){
+        this.savepassword();
     }
     
   }
-  savepasswordfromLink(){
+  savepassword(){
     this.asp.userChangePassword(this.id_user, this.user_email, this.newpassword,this.user_tipe).then(
       data => {
         this.response = data;
@@ -161,14 +132,26 @@ export class BuatpasswordPage implements OnInit {
   redirectMe()
   {
     if (this.login_mode=="santri"){
-      this.route.navigate(['santri-kuesioner']);
+        this.route.navigate(['santri-kuesioner']);
     }
     if (this.login_mode=="donatur"){
-      this.route.navigate(['donatur-profile']);
+      var item_donasi:any=JSON.parse(localStorage.getItem("item_donasi"));
+      if (item_donasi) {
+        this.route.navigateByUrl('/pembayaran-donasi', { replaceUrl: true });
+      }
+      else{
+        this.route.navigate(['donatur-profile']);
+      }
+      if (this.usrinfo.route_from=="tabakun"){
+        this.route.navigate(['dashboard-donatur/tabakun']);
+      }
     }          
+    
   }
   goBack(){
     this.route.navigate(['webdashboard']);
+    this.route.ngOnDestroy();
   }
 
 }
+

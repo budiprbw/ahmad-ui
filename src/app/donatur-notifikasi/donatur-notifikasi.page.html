@@ -15,10 +15,11 @@
       
         <ion-card class="notif-donatur-Rectangle-656" *ngFor="let item of notiflist;">
           <div class="notif-donatur-title">
-              {{item.notif_date}}
+              
+              <ion-datetime displayFormat="DD-MM-YYYY HH:mm" value="{{item.pesan_waktu_kirim}}"></ion-datetime>
           </div>
           <div class="notif-donatur-text">
-              {{item.notif_desc}}
+              {{item.pesan_isi}}
           </div>
         </ion-card>
     </ion-col>

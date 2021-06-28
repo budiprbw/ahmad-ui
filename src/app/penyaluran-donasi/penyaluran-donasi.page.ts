@@ -14,12 +14,18 @@ export class PenyaluranDonasiPage implements OnInit {
   public currentNumber: number = 0;
   public total_donasi: number = 0;
   public harga_paket: number = 800000;
+  public produk_id:any;
+  public harga_paket_text: string = "";
   public jenis_donasi: string = "";
   public jenis_donasi_text: string = "Pilih Jenis Donasi";
   public nominal_donasi: string = "";
   public nominal_donasi_text: string = "Pilih Nominal Donasi";
   public banklist:any=[];
   public bankListSelected:any=[];
+  public produk :any;
+  public result_temp:any;
+  public error_msg:string="";
+  
 
   constructor(
     private router: ActivatedRoute,
@@ -29,8 +35,10 @@ export class PenyaluranDonasiPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.initialBankList();
+    this.getProduct();
+    this.getBank();    
   }
+
   goBack() {
     this.route.navigateByUrl('/dashboard-donatur/tabprogram', { replaceUrl: true });
   }
@@ -52,7 +60,6 @@ export class PenyaluranDonasiPage implements OnInit {
   goPopupNominalDonasi() {
     this.popupnominaldonasi();
   }
-
   async  popupjenisdonasi() {
     const modal = await this.modalController.create({
       component: ModalJenisDonasiPage,
@@ -95,66 +102,92 @@ export class PenyaluranDonasiPage implements OnInit {
   format_number(v){
     return v.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');    
   }
+  caraBayarCode(str){
+    var cara_bayar:string="";
+    switch (str) {
+      case "harian":
+        cara_bayar="1";
+        break;
+      case "pekanan":
+        cara_bayar="2";
+        break;
+      case "bulanan":
+        cara_bayar="3";
+        break;
+      case "penuh":
+        cara_bayar="4";
+        break;
+    }
+    return cara_bayar;
+  }
   goLanjutkan(){
     let nominal_donasi= parseFloat(this.nominal_donasi);
     let durasi_donasi=( this.total_donasi/nominal_donasi);
-    let item_bayar = {
-      "jenis_donasi": this.jenis_donasi_text,
-      "nominal_donasi": nominal_donasi,
-      "total_donasi": this.total_donasi,
-      "qty_donasi": this.currentNumber,
-      "durasi_donasi":durasi_donasi,
-      "bank_selected":this.bankListSelected
+    let d:Date =  new Date();
+    var today = d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate();    
+    var cara_bayar=this.caraBayarCode(this.jenis_donasi);    
+    let item_produk_list=[];
+    let donasiproduktemp:any=[];
+    let item_produk={
+      "id": this.produk.data.id,
+      "donasi_produk_jml": this.currentNumber,
+      "donasi_produk_harga": nominal_donasi,
+      "donasi_produk_total": this.total_donasi,
+    }
+    item_produk_list.push(item_produk);
+    let item_produk_temp = {
+      "produk_id": this.produk.data.id ,
+      "temp_donasi_produk_jml": this.currentNumber,
+      "temp_donasi_produk_harga": this.harga_paket,
+      "temp_donasi_produk_total": this.total_donasi
     };
+    donasiproduktemp.push(item_produk_temp);    
+
+    let item_donasi = {
+      "donasi_tanggal": today ,
+      "donasi_cara_bayar": cara_bayar,
+      "jenis_donasi_text": this.jenis_donasi_text,
+      "donasi_tagih": nominal_donasi,
+      "donasi_total_harga": this.total_donasi,
+      "donasi_jumlah_santri": this.currentNumber,
+      "durasi_donasi":durasi_donasi,
+      "bank_selected":this.bankListSelected,
+      "bank_rekening_id":this.bankListSelected[0].id,
+      "temp_donasi_no":"",
+      "donasiproduk":item_produk_list,
+      "donasiproduktemp":donasiproduktemp
+    };
+    localStorage.setItem("item_donasi", JSON.stringify(item_donasi));
+      
+    this.route.navigateByUrl('/donasi-tanya-akun?login_mode=donatur', { replaceUrl: true });
+    /*
     let navigationExtras: NavigationExtras = {
       state: {
-        item_bayar: item_bayar
+        item_bayar: item_donasi
       }
     };
     this.route.navigate(['pembayaran-donasi'], navigationExtras);
+    */
   }
-  initialBankList(){
-    let row1 ={      
-      "nama_bank":"BANK BSI",
-      "no_rekening": "00000-090000-00001",
-      "atas_nama": "Bagus Baskara",    
-      "is_selected":'0',
-    };
-    this.banklist.push(row1);
-    let row2 ={
-      "nama_bank":"BANK Mandiri",
-      "no_rekening": "00000-090000-00002",
-      "atas_nama": "Bagus Lesmana",    
-      "is_selected":'0',
-    };
-    this.banklist.push(row2);
-    let row3 ={
-      "nama_bank":"BANK BCA",
-      "no_rekening": "00000-090000-00003",
-      "atas_nama": "Bagus Prasetia",    
-      "is_selected":'0',
-    };
-    this.banklist.push(row3);
-    let row4 ={
-      "nama_bank":"BANK BNI",
-      "no_rekening": "00000-090000-00004",
-      "atas_nama": "Bagus Dramawan",    
-      "is_selected":'0',
-    };
-    this.banklist.push(row4);
-    let row5 ={
-      "nama_bank":"BANK BRI",
-      "no_rekening": "00000-090000-00005",
-      "atas_nama": "Bagus Prahara",    
-      "is_selected":'0',
-    };
-    this.banklist.push(row5);
+  getProduct(){
+    this.asp.produk_by_id(1).then(
+      data=> {        
+            this.produk=data;
+            this.harga_paket= this.produk.data.produk_harga;    
+            this.harga_paket_text= this.format_number(this.harga_paket);  
+      });
+  }
+  getBank(){
+    this.asp.getlist_rekening_lembaga().then(
+      data=> {        
+        this.banklist=data;
+      });    
   }
   public radioGroupChange(e){ 
     let no_rekening_selected=e.detail.value;
     this.bankListSelected=[];
     for(let i =0; i <= this.banklist.length-1; i++) {
-      if (this.banklist[i].no_rekening == no_rekening_selected)
+      if (this.banklist[i].rekening_no == no_rekening_selected)
       {
         this.banklist[i].is_selected='1';
         this.bankListSelected.push(this.banklist[i]);

@@ -19,9 +19,10 @@ export class SantriKuesionerPage implements OnInit {
   public user_email: string = "";
   public user_displayName: string = "";
   public login_by: string = "";
-  public santri_id: any = "1";
+  public santri_id: any = "";
   public kuesioner_list: any = [];
   private is_show: any = true;
+  public santriData:any;
 
   constructor(
     public modalController: ModalController,
@@ -31,7 +32,7 @@ export class SantriKuesionerPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    //this.userInfo();
+    this.userInfo();
     this.getKuesionerList();
   }
 
@@ -39,7 +40,7 @@ export class SantriKuesionerPage implements OnInit {
     const modal = await this.modalController.create({
       component: ModalpopupPage,
       componentProps: {
-        'model_title': "Nomadic model's reveberation"
+        'model_title': "kuesioner santri"
       }
     });
     return await modal.present();
@@ -54,11 +55,20 @@ export class SantriKuesionerPage implements OnInit {
   }
 
   userInfo() {
-    this.usrinfo =  this.usrinfo= this.asp.getUserInfo();      
-      this.user_photoURL = this.usrinfo.user_photoURL;
+      this.usrinfo =  this.asp.getUserInfo();      
+      this.getSantri();
+      this.santri_id  = this.usrinfo.user_id;
+      this.user_photoURL = this.usrinfo.ref_object.donatur_lokasi_photo;
       this.user_email = this.usrinfo.user_email;
       this.user_displayName = this.usrinfo.user_displayName;
       this.login_by = this.usrinfo.login_by;
+  }
+  getSantri(){
+    this.asp.login_santri(this.user_email).then(
+      data => {
+        this.santriData = data;
+        this.santri_id= this.santriData.id;
+      });
   }
 
   getKuesionerList() {

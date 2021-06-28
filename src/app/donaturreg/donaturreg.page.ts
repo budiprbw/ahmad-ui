@@ -70,7 +70,8 @@ export class DonaturregPage implements OnInit {
           "user_displayName": this.user.displayName,
           "user_photoURL": this.user.photoURL,
           "login_by":"google",
-          "login_mode":this.login_mode
+          "login_mode":this.login_mode,
+          "route_from":"donaturreg"
         };
         localStorage.setItem("usrinfo",JSON.stringify(userinfo));
         this.route.navigateByUrl('/buatpassword', { replaceUrl: true });
@@ -92,7 +93,8 @@ export class DonaturregPage implements OnInit {
           "user_displayName": this.user.displayName,
           "user_photoURL": this.user.photoURL,
           "login_by":"google",
-          "login_mode":this.login_mode
+          "login_mode":this.login_mode,
+          "route_from":"donaturreg"
         };
         localStorage.setItem("usrinfo",JSON.stringify(userinfo));
         this.route.navigateByUrl('/buatpassword', { replaceUrl: true });

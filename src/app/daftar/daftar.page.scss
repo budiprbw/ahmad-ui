@@ -1,0 +1,32 @@
+.daftar-Rectangle-630 {
+    width: 307px;
+    height: 52px;
+    margin: 10px 0 24px 10px;
+    padding: 14px 16px;
+    border-radius: 14px;
+    display:flex;
+    border: solid 1px var(--ion-color-goldd);
+    background-color: var(--fill-placeholder);
+  }
+  ion-input{
+    width: 311px;
+    height: 52px;
+    margin: -15px;
+    padding: 0px;
+    text-align: left;
+    border: none;
+    background-color:transparent;
+}
+.daftar-card-rectangle{
+    width: 343px;
+    padding: 16px;
+    border-radius: 14px;
+    box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
+    background-color: var(--ion-color-white);
+  }
+  .cdaftar {
+    width: 375px;
+    height: 812px;
+    padding: 0 0 400px;
+    background-color: #efeffe;
+  }    

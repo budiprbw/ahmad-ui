@@ -1,0 +1,27 @@
+<div class="modal-Konfirmasi">
+  <ion-grid>
+    <ion-row>
+      <ion-col text-center>
+        <div class="text-konfirmasi">
+          Donasi Akan dibatalkan?
+        </div>
+
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col text-center>
+        <ion-button fill="clear" class="modal-konfirmasi-tidak" (click)="closeModel()">
+          <ion-text class="text-tidak">
+            Tidak
+          </ion-text>
+        </ion-button>
+        <ion-button fill="clear" class="modal-konfirmasi-ya" (click)="goDonasiProgram()">
+          <ion-text class="text-ya">
+            Ya
+          </ion-text>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</div>

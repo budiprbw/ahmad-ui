@@ -16,7 +16,7 @@ export class SantriBuatpasswordPage implements OnInit {
   constructor(private route: Router, public asp: AhmadproviderService) { }
 
   ngOnInit() {
-    this.usrinfo =  this.usrinfo= this.asp.getUserInfo();    
+    this.usrinfo = this.asp.getUserInfo();    
 
   }
   public toggleTextPassword_1(): void {

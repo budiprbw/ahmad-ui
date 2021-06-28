@@ -110,7 +110,9 @@ export class SantriloginPage implements OnInit {
                 let userinfo = {
                   "user_email": this.response.user.user_email,
                   "user_displayName": this.response.user.user_name,
-                  "user_photoURL": ""
+                  "user_photoURL": "",
+                  "login_mode":"santri",
+                  "route_from":"santrilogin"
                 };
                 this.user=userinfo;
                 localStorage.setItem("usrinfo",JSON.stringify(userinfo));                

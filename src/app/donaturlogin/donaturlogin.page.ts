@@ -64,12 +64,12 @@ export class DonaturloginPage implements OnInit {
           "user_email": this.user.email,
           "user_displayName": this.user.displayName,
           "user_photoURL": this.user.photoURL,
-          "login_by":"google"
+          "login_by":"google",
+          "route_from": "donaturlogin"
         };
+        this.asp.setUserInfo(userinfo);
         /*this.storage.create();
          this.storage.set("usrinfo", JSON.stringify(userinfo));*/
-
-        localStorage.setItem("usrinfo",JSON.stringify(userinfo));
         this.route.navigateByUrl('/donatur-profile', { replaceUrl: true });
         this.loading.dismiss();
 
@@ -134,7 +134,8 @@ export class DonaturloginPage implements OnInit {
                 "user_email": this.response.user.user_email,
                 "user_displayName": this.response.user.user_name,
                 "user_photoURL": "",
-                "login_by":"data"
+                "login_by":"data",
+                "route_from":"donaturlogin"
               };
               this.user = userinfo;
               localStorage.setItem("usrinfo", JSON.stringify(userinfo));

@@ -14,10 +14,12 @@
     <ion-col>
       <ion-card class="penyaluran-donasi-Rectangle-631">
         <div class="penyaluran-donasi-card1-title">Jumlah Santri Penerima Manfaat</div>
-        <div class="penyaluran-donasi-card1-text1">Harga Per Paket Rp800.000</div>
+        <div class="penyaluran-donasi-card1-text1">Harga Per Paket Rp{{harga_paket_text}}</div>
         <div class="penyaluran-donasi-card1-counter">
           <ion-icon name="remove-circle" (click)="decrement()" size="large" class="vector-minus"></ion-icon>
-          <div class="penyaluran-donasi-card1-number"><ion-input [(ngModel)]="currentNumber"   type="number"  (ngModelChange)="getTotal($event);" ></ion-input></div>
+          <div class="penyaluran-donasi-card1-number">
+            <ion-input [(ngModel)]="currentNumber" type="number" (ngModelChange)="getTotal($event);"></ion-input>
+          </div>
           <ion-icon name="add-circle" (click)="increment()" size="large" class="vector-plus"></ion-icon>
         </div>
         <div class="penyaluran-donasi-total-donasi">Total Donasi</div>
@@ -26,44 +28,47 @@
         </div>
       </ion-card>
       <ion-card class="penyaluran-donasi-jenis-donasi">
-        <div class="penyaluran-donatur-button-pilih-donasi"  (click)="goPopupJenisDonasi()">
+        <div class="penyaluran-donatur-button-pilih-donasi" (click)="goPopupJenisDonasi()">
           <ion-button fill="clear" slot="end">
-            <ion-text class="sign-up-1">              
+            <ion-text class="sign-up-1">
               {{jenis_donasi_text}}
             </ion-text>
           </ion-button>
           <ion-icon name="arrow-forward-circle-outline" class="vector" size="large"></ion-icon>
         </div>
         <div class="penyaluran-donatur-button-nominal-donasi" (click)="goPopupNominalDonasi()">
-            <ion-button fill="clear" slot="end" >
-              <ion-text class="sign-up-2">                
-                {{nominal_donasi_text}}
-              </ion-text>
-            </ion-button>
-            <ion-icon name="arrow-forward-circle-outline" class="vector_1" size="large"></ion-icon>
-          </div>
-      </ion-card>
-      
-      <ion-card class="penyaluran-donasi-pilih-rekening">
-        <div class="penyaluran-donasi-pilih-rekening-title">Pilih Rekening Pembayaran Donasi</div>                                  
-          <ion-radio-group value="default" (ionChange)="radioGroupChange($event)" >
-              <div  *ngFor="let item of banklist;" [ngClass]="item.is_selected=='1'?'penyaluran-donasi-pilih-rekening-bank':'penyaluran-donasi-pilih-rekening-bank-white'">    
-                  <div class="nama-bank">{{item.nama_bank}}</div>
-                  <div class="radio_1"><ion-radio checked="true" slot="start" name="{item.no_rekening}}" value="{{item.no_rekening}}"></ion-radio></div>                  
-                  <div class="no-rekening">{{item.no_rekening}}</div>
-                  <div class="atas-nama">{{item.atas_nama}}</div>                      
-              </div>
-            </ion-radio-group>           
+          <ion-button fill="clear" slot="end">
+            <ion-text class="sign-up-2">
+              {{nominal_donasi_text}}
+            </ion-text>
+          </ion-button>
+          <ion-icon name="arrow-forward-circle-outline" class="vector_1" size="large"></ion-icon>
+        </div>
       </ion-card>
 
-      <ion-button  fill="clear" class="penyaluran-donasi-button" (click)="goLanjutkan()">                        
+      <ion-card class="penyaluran-donasi-pilih-rekening">
+        <div class="penyaluran-donasi-pilih-rekening-title">Pilih Rekening Pembayaran Donasi</div>
+        <ion-radio-group value="default" (ionChange)="radioGroupChange($event)">
+          <div *ngFor="let item of banklist;" [ngClass]="item.is_selected=='1'?'penyaluran-donasi-pilih-rekening-bank':'penyaluran-donasi-pilih-rekening-bank-white'">
+            <div class="nama-bank">{{item.rekening_nama_bank}}</div>
+            <div class="radio_1">
+              <ion-radio checked="true" slot="start" name="{item.rekening_no}}" value="{{item.rekening_no}}"></ion-radio>
+            </div>
+            <div class="no-rekening">{{item.rekening_no}}</div>
+            <div class="atas-nama">{{item.rekening_nama}}</div>
+          </div>
+        </ion-radio-group>
+      </ion-card>
+
+      <ion-button fill="clear" class="penyaluran-donasi-button" (click)="goLanjutkan()">
         <ion-text class="penyaluran-donasi-button-Sign-up">
-            Lanjutkan                            
-        </ion-text>                        
+          Lanjutkan
+        </ion-text>
         <div class="">
-            <ion-icon name="arrow-forward-circle-outline" class="vector_2" size="large"  ></ion-icon>
-        </div>                        
-    </ion-button> 
+          <ion-icon name="arrow-forward-circle-outline" class="vector_2" size="large"></ion-icon>
+        </div>
+      </ion-button>
+      <ion-text color="danger"><h3>{{error_msg}}</h3></ion-text>
     </ion-col>
   </ion-row>
 </ion-grid>
