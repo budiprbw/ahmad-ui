@@ -15,12 +15,16 @@
       
         <ion-card class="notif-donatur-Rectangle-656" *ngFor="let item of notiflist;">
           <div class="notif-donatur-title">
-              
-              <ion-datetime displayFormat="DD-MM-YYYY HH:mm" value="{{item.pesan_waktu_kirim}}"></ion-datetime>
+            {{item.pesan_waktu_kirim | date: 'dd-MM-yyyy H:mm' }}
           </div>
-          <div class="notif-donatur-text">
-              {{item.pesan_isi}}
-          </div>
+          <div class="notif-donatur-text" >
+              <ion-checkbox checked="true" (click)="markAsRead(item)"></ion-checkbox>
+              <ion-label  *ngIf="item.is_selected=='0'" color="primary">{{item.pesan_isi}}</ion-label>
+              <ion-label  *ngIf="item.is_selected=='1'" color="dark">{{item.pesan_isi}}</ion-label>
+          </div>          
+        </ion-card>
+        <ion-card class="notif-donatur-Rectangle-656"  *ngIf="noNotif">
+            <ion-text color="danger"><h3>{{error_msg}}</h3></ion-text>
         </ion-card>
     </ion-col>
   </ion-row>

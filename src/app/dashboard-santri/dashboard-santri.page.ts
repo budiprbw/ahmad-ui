@@ -33,6 +33,7 @@ public noBerita:any=false;
   initpage(){
     
       this.usrinfo = this.asp.getUserInfo();
+      this.santri_id  = this.usrinfo.user_id;
       this.user_photoURL = this.usrinfo.ref_object.donatur_lokasi_photo;
       this.user_email = this.usrinfo.user_email;
       this.user_displayName = this.usrinfo.user_displayName;
@@ -59,11 +60,9 @@ public noBerita:any=false;
       this.route.navigate(['detail-berita'], navigationExtras);
   }
   goInfoMasuk(){
-    this.santri_id="1";
     this.route.navigate(['santri-notifikasi', { santri_id: this.santri_id }]);
   }
   goLihatDetail(){
-    this.santri_id="1";
     this.route.navigate(['santri-program', { santri_id: this.santri_id }]);
   }
   goBack(){

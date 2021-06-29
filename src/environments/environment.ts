@@ -54,6 +54,7 @@ export const environment = {
       by_hashcode:"user/byhashcode/",
       change_password:"user/change/password/",
       pesan_aktif: "pesan/aktif/byuser/",
+      update_as_read :"pesan/update/read/",
     },
     product:{
       by_id :"produk/byid/"

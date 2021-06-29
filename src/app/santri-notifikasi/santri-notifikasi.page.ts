@@ -10,6 +10,8 @@ import { AhmadproviderService } from '../ahmadprovider.service';
 export class SantriNotifikasiPage implements OnInit {
   public notiflist:any=[];
   public santri_id:string="";
+  public error_msg:string="";
+  public noNotif:boolean=false;
   constructor(
     private router: ActivatedRoute,
     private route : Router,
@@ -21,21 +23,15 @@ export class SantriNotifikasiPage implements OnInit {
     this.initialdatNOtif();
   }
   initialdatNOtif(){
-    let row1 ={
-      "notif_date": "2021-06-01",
-      "notif_desc": "Akun anda sudah kami masukkan kedalam list penerima donasi program AHMaD Project",    
-    };
-    this.notiflist.push(row1);
-    let row2 ={
-      "notif_date": "2021-06-02",
-      "notif_desc": "Selamat anda terpilih menerima paket donasi pembelajaran AHMaD Project, ayo mulai belajar",    
-    };
-    this.notiflist.push(row2);
-    let row3 ={
-      "notif_date": "2021-06-03",
-      "notif_desc": "Pendamping anda mengirim form evaluasi, mohon segera lengkapi",    
-    };
-    this.notiflist.push(row3);
+    this.asp.user_pesan_aktif(this.santri_id).then(
+      data=> {        
+        this.notiflist=data;
+        if (this.notiflist.length==0)
+        {
+          this.error_msg="Tidak ada notifikasi !";
+          this.noNotif=true;
+        }
+      });     
   }
   goBack(){
     this.route.navigateByUrl('/dashboard-santri', { replaceUrl:true });
@@ -43,3 +39,4 @@ export class SantriNotifikasiPage implements OnInit {
   
   
 }
+

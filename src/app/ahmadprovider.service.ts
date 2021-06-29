@@ -60,6 +60,7 @@ export class AhmadproviderService {
   private api_user_by_hashcode = this.api_url + environment.ahmadApi.user.by_hashcode;
   private api_user_change_password = this.api_url + environment.ahmadApi.user.change_password;
   private api_user_pesan_aktif = this.api_url + environment.ahmadApi.user.pesan_aktif;  
+  private api_user_update_as_read = this.api_url + environment.ahmadApi.user.update_as_read;  
 
   //#endregion
   //#region Product
@@ -169,6 +170,27 @@ export class AhmadproviderService {
         resolve(data);
       }, err => {
         console.log(err);
+      });
+    });
+  }
+  update_pesan_as_read(id_pesan) {
+    let data = {
+      "id_pesan": id_pesan,
+    };
+    return new Promise(resolve => {
+      this.httpclient.put(this.api_user_change_password + id_pesan, data).subscribe(data => {
+        let result = {
+          "message": '',
+          "status": 'OK',
+          "data": data
+        };
+        resolve(result);
+      }, err => {
+        let result = {
+          "message": err.message,
+          "status": 'error'
+        };
+        resolve(result);
       });
     });
   }
