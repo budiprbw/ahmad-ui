@@ -14,7 +14,7 @@ export const environment = {
     measurementId: "G-7EZ2Q96LYF" 
   },
   ahmadApi:{
-    baseAPIUrl: "http://kidswa.web.id/ahmad-core/public/api/",
+    baseAPIUrl: "http://dev.ahmadproject.org/public/api/",
     donatur:{
       register:  "donatur/register",
       register_gmail:"donatur/register/gmail",
