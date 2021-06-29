@@ -142,7 +142,7 @@ export class DonaturProfilePage implements OnInit {
         })
   }
   redirectMe(){
-    this.route.navigateByUrl('/dashboard-donatur', { replaceUrl: true });
+    this.route.navigate(['dashboard-donatur']);
   }
 
 }

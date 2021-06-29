@@ -15,19 +15,24 @@ export class AhmadproviderService {
   readonly api_url: string = environment.ahmadApi.baseAPIUrl;
   //#region Donatur 
   private api_register_donatur = this.api_url + environment.ahmadApi.donatur.register;
-  private api_donatur_register_sosmed = this.api_url + environment.ahmadApi.donatur.register_sosmed;
+  private api_donatur_register_gmail = this.api_url + environment.ahmadApi.donatur.register_gmail;
   private api_photo_profile_donatur = this.api_url + environment.ahmadApi.donatur.upload_poto;
   private api_donatur_profile_save = this.api_url + environment.ahmadApi.donatur.update_profile;
   private api_donatur_byemail = this.api_url + environment.ahmadApi.donatur.find_by_email;
+  private api_donatur_register_referal = this.api_url + environment.ahmadApi.donatur.register_referal;
+  private api_donatur_register_donasi_referal = this.api_url + environment.ahmadApi.donatur.register_donasi_referal;
+
+
   //#endregion
 
   //#region Santri  
   private api_register_santri = this.api_url + environment.ahmadApi.santri.register;
-  private api_santri_register_sosmed = this.api_url + environment.ahmadApi.santri.register_sosmed;
+  private api_santri_register_gmail = this.api_url + environment.ahmadApi.santri.register_gmail;
   private api_santri_byemail = this.api_url + environment.ahmadApi.santri.find_by_email;
   private api_santri_kuesioner_simpan = this.api_url + environment.ahmadApi.santri.kuesioner_simpan;
   private api_santri_profile_save = this.api_url + environment.ahmadApi.santri.update_profile;
   private api_photo_profile_santri = this.api_url + environment.ahmadApi.santri.upload_poto;
+  private api_santri_register_referal = this.api_url + environment.ahmadApi.santri.register_referal;
   //#endregion
 
   //#region Data Master
@@ -46,6 +51,8 @@ export class AhmadproviderService {
 
   //#region tools
   private api_message_send_wa = this.api_url + environment.ahmadApi.send_wa_message;
+  private api_referal_send_link = this.api_url + environment.ahmadApi.referal_send_link;
+  
   //#endregion
   //#region User
   private api_user_login = this.api_url + environment.ahmadApi.user.by_login;
@@ -174,6 +181,15 @@ export class AhmadproviderService {
       });
     });
   }
+  getlist_berita_entitas(entitas) {
+    return new Promise(resolve => {
+      this.httpclient.get(this.api_list_berita_entitas+entitas).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
   produk_by_id(id: any) {
     return new Promise(resolve => {
       this.httpclient.get(this.api_product_by_id + id).subscribe(data => {
@@ -195,15 +211,6 @@ export class AhmadproviderService {
   getlist_berita_kampanye() {
     return new Promise(resolve => {
       this.httpclient.get(this.api_list_berita_kampanye).subscribe(data => {
-        resolve(data);
-      }, err => {
-        console.log(err);
-      });
-    });
-  }
-  getlist_berita_entitas(jenis: string) {
-    return new Promise(resolve => {
-      this.httpclient.get(this.api_list_berita_kampanye + jenis).subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
@@ -300,17 +307,30 @@ export class AhmadproviderService {
       });
     });
   }
+  referal_send_link(referral_entitas_kode, referral_telepon,berita_id) {
+    let data = {
+      "emareferral_entitas_kodeil": referral_entitas_kode,
+      "referral_telepon": referral_telepon,
+      "berita_id": berita_id
+    };
+    return new Promise(resolve => {
+      this.httpclient.post(this.api_referal_send_link, data).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
   //#endregion
 
   //#region Proses Santri
-  santriRegSosmed(user_email, user_name, user_password) {
+  santriRegGmail(user_email, user_name) {
     let data = {
       "email": user_email,
-      "name": user_name,
-      "password": user_password
+      "name": user_name
     };
     return new Promise(resolve => {
-      this.httpclient.post(this.api_santri_register_sosmed, data).subscribe(data => {
+      this.httpclient.post(this.api_santri_register_gmail, data).subscribe(data => {
         let result = {
           "message": '',
           "status": 'OK',
@@ -339,7 +359,20 @@ export class AhmadproviderService {
       });
     });
   }
-
+  santri_register_referal(user_email, nama_lengkap,referral_id) {
+    let data = {
+      "email": user_email,
+      "name": nama_lengkap,
+      "referral_id":referral_id
+    };
+    return new Promise(resolve => {
+      this.httpclient.post(this.api_santri_register_referal, data).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
   kuesioner_santri_simpan(santri_id, kuesioner_list: any) {
     let data = {
       "santri_id": santri_id,
@@ -552,7 +585,6 @@ export class AhmadproviderService {
       "email": user_email,
       "name": nama_lengkap
     };
-    console.log(data);
     return new Promise(resolve => {
       this.httpclient.post(this.api_register_donatur, data).subscribe(data => {
         resolve(data);
@@ -561,6 +593,36 @@ export class AhmadproviderService {
       });
     });
   }
+  donatur_register_referal(user_email, nama_lengkap,referral_id) {
+    let data = {
+      "email": user_email,
+      "name": nama_lengkap,
+      "referral_id":referral_id
+    };
+    return new Promise(resolve => {
+      this.httpclient.post(this.api_donatur_register_referal, data).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+  donatur_register_donasi_referal(user_email, nama_lengkap,nomor_donasi,referral_id) {
+    let data = {
+      "email": user_email,
+      "name": nama_lengkap,
+      "nomor_donasi":nomor_donasi,
+      "referral_id":referral_id
+    };
+    return new Promise(resolve => {
+      this.httpclient.post(this.api_donatur_register_donasi_referal, data).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+  
 
   donaturUpdateProfile(donatur_id,
     donatur_nama,
@@ -616,14 +678,13 @@ export class AhmadproviderService {
       });
     });
   }
-  donaturRegSosmed(user_email, user_name, user_password) {
+  donaturRegGmail(user_email, user_name) {
     let data = {
       "user_email": user_email,
-      "user_name": user_name,
-      "user_password": user_password
+      "user_name": user_name
     };
     return new Promise(resolve => {
-      this.httpclient.post(this.api_donatur_register_sosmed, data).subscribe(data => {
+      this.httpclient.post(this.api_donatur_register_gmail, data).subscribe(data => {
         let result = {
           "message": '',
           "status": 'OK',

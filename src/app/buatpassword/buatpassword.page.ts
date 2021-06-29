@@ -84,7 +84,7 @@ export class BuatpasswordPage implements OnInit {
   }
   savePassword(){
     if (this.login_by=="google"){
-        this.savepasswordSosmed();
+        this.savepasswordGmail();
     }
     if (this.login_by=="data"){
         this.savepassword();
@@ -103,9 +103,9 @@ export class BuatpasswordPage implements OnInit {
         }
       }); 
   }
-  savepasswordSosmed(){
+  savepasswordGmail(){
     if (this.login_mode=="santri"){
-      this.asp.santriRegSosmed(this.user_email,this.user_displayName, this.newpassword).then(
+      this.asp.santriRegGmail(this.user_email,this.user_displayName).then(
         data => {
           this.response = data;
           if (this.response.status == 'error') {
@@ -117,7 +117,7 @@ export class BuatpasswordPage implements OnInit {
         }); 
     }    
     if (this.login_mode=="donatur"){
-      this.asp.donaturRegSosmed(this.user_email,this.user_displayName, this.newpassword).then(
+      this.asp.donaturRegGmail(this.user_email,this.user_displayName).then(
         data => {
           this.response = data;
           if (this.response.status == 'error') {

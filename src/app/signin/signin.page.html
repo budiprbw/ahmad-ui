@@ -20,7 +20,7 @@
           <ion-button fill="clear" class="s-button" [routerLink]="['/login']" [queryParams]="{login_mode: 'donatur'}">
             <ion-text class="s-sign-up">Donatur</ion-text>
           </ion-button>
-          <ion-button fill="clear" class="s-button" routerLink="/donaturlogin?login_mode='pendamping'">
+          <ion-button fill="clear" class="s-button"  [routerLink]="['/login']" [queryParams]="{login_mode: 'pendamping'}">
             <ion-text class="s-sign-up">Pendamping</ion-text>
           </ion-button>
         </ion-card-content>

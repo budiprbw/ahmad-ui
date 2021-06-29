@@ -197,11 +197,15 @@ const routes: Routes = [
   {
     path: 'modal-konfirmasi-donasi',
     loadChildren: () => import('./modal-konfirmasi-donasi/modal-konfirmasi-donasi.module').then( m => m.ModalKonfirmasiDonasiPageModule)
+  },
+  {
+    path: 'ajak-gabung',
+    loadChildren: () => import('./ajak-gabung/ajak-gabung.module').then( m => m.AjakGabungPageModule)
   }
 ];
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules,onSameUrlNavigation: 'reload' })
   ],
   exports: [RouterModule]
 })

@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-button color="primary"  (click)="goBack()">
+            <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+          </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Ajak Lainnya </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-grid class="ajak-gabung">
+  <ion-row>
+    <ion-col>
+        <ion-card>
+                <div class="pl-4">
+                  <ion-input placeholder="Nomor Hp/whatsapp" [(ngModel)]="no_telepon" name="no_telepon"></ion-input>
+                </div>  
+                <ion-button fill="clear" class="ajak-gabung-button" (click)="goAjak()">
+                  <ion-text class="ajak-gabung-Sign-up">
+                    Simpan dan lanjutkan
+                  </ion-text>
+                </ion-button>
+          </ion-card>    
+    </ion-col>
+  </ion-row>
+</ion-grid>

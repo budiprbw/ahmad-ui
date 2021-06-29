@@ -13,7 +13,7 @@ export class SantriRegInfoPage implements OnInit {
   ngOnInit() {
   }
   goDashboard(){
-    this.route.navigateByUrl('/santrilogin', { replaceUrl: true });
+    this.route.navigateByUrl('/login?login_mode=santri', { replaceUrl:true });
   }
 
 }

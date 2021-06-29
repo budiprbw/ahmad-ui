@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router,NavigationExtras  } from '@angular/router';
 import { AhmadproviderService } from '../ahmadprovider.service';
 import { NavController } from '@ionic/angular';
+import { DomSanitizer } from '@angular/platform-browser'
 
 @Component({
   selector: 'app-dashboard-santri',
@@ -21,7 +22,8 @@ public noBerita:any=false;
   constructor(
     public route : Router,
     public asp: AhmadproviderService,
-    public navCtrl :NavController
+    public navCtrl :NavController,
+    private sanitized: DomSanitizer
 
   ) { }
 
@@ -38,14 +40,13 @@ public noBerita:any=false;
     
   }
   getlistberita(){
-    this.asp.getlist_berita().then(
+    this.asp.getlist_berita_entitas('2').then(
       data=> {        
             this.line_berita=data;
             if (this.line_berita.length>0)
             {
               this.noBerita  =true;
             }
-            
       });
   }
 
@@ -68,6 +69,9 @@ public noBerita:any=false;
   goBack(){
     
   }
+   html_entity(val){
+     return this.sanitized.bypassSecurityTrustHtml(val);    
+    }
 
   
 }

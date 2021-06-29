@@ -20,7 +20,7 @@ export class ModalpopupPage implements OnInit {
   async goSantriLogin(){
     const close: string = "Modal Removed";
     await this.modalController.dismiss(close);
-    this.route.navigateByUrl('/santrilogin', { replaceUrl:true });
+    this.route.navigateByUrl('/login?login_mode=santri', { replaceUrl:true });
 
   }
 }

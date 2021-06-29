@@ -49,7 +49,7 @@
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id ullamcorper egestas imperdiet diam augue. Erat egestas amet, sit felis nisl tristique.   
                 </div>
                 <div class="santri-akun-button">
-                        <ion-button fill="clear" slot="end" routerLink="/donaturlogin">
+                        <ion-button fill="clear" slot="end"routerLink="/login" [queryParams]="{login_mode: 'donatur'}">
                             <ion-text class="santri-akunSign-up">
                                 Menjadi Donatur
                             </ion-text>
@@ -76,7 +76,7 @@
               </div>
           </ion-card>
           <div class="santri-akun-button-keluar">
-                <ion-button fill="clear" slot="end"  routerLink="/santrilogin">
+                <ion-button fill="clear" slot="end"  routerLink="/login?login_mode=santri">
                         <ion-text class="santri-akun-button-keluar-text">
                            Keluar
                         </ion-text>

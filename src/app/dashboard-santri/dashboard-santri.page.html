@@ -51,7 +51,7 @@
         </div>
         <ion-list >
           <ion-item *ngFor="let item of line_berita" >
-              <ion-label class="berita-title ion-text-wrap" (click)="beritadetail(item)" style="cursor:pointer" >{{item.berita_isi}}</ion-label>            
+              <ion-label class="berita-title ion-text-wrap" (click)="beritadetail(item)" style="cursor:pointer" ><span [innerHTML]="html_entity(item.berita_isi)"></span></ion-label>            
           </ion-item>
         </ion-list>
       </ion-card>

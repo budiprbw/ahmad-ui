@@ -16,6 +16,7 @@ export class SelesaiDonasiPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    localStorage.removeItem("item_donasi");        
   }
   goBack(){
     this.route.navigateByUrl('/penyaluran-donasi', { replaceUrl:true });

@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -50,7 +51,9 @@ export class AppComponent implements OnInit  {
         }
         */
     })
+    
   }
+
   trackEvent(val) {
     // Label and Value are optional, Value is numeric
     this.ga.trackEvent('Category', 'Action', 'Label', val)

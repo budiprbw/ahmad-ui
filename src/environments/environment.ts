@@ -17,18 +17,21 @@ export const environment = {
     baseAPIUrl: "http://kidswa.web.id/ahmad-core/public/api/",
     donatur:{
       register:  "donatur/register",
-      register_sosmed:"donatur/register/sosmed",
+      register_gmail:"donatur/register/gmail",
       upload_poto:"donatur/upload/photo",
       find_by_email:"donatur/byemail/",
-      update_profile :"donatur/update/profile/",
+      update_profile :"donatur/update/profile/",      
+      register_referal:"donatur/register/referral",
+      register_donasi_referal:"onatur/register/donasi/referral",
     },
     santri:{
       register:"santri/register",
-      register_sosmed:"santri/register/sosmed",
+      register_gmail:"santri/register/gmail",
       upload_poto:"santri/upload/photo",
       find_by_email:"santri/byemail",
       kuesioner_simpan: "kuesioner/santri/simpan",
       update_profile :"santri/update/profile",
+      register_referal:"santri/register/referral"
     },
     lookup:{
       kode_pos:{
@@ -62,7 +65,8 @@ export const environment = {
       update_rekening: "donasi/update/rekening/",
       by_donasiid_donaturid: "donasi/donasiid/",
     },
-    send_wa_message:"message/send/wa"
+    send_wa_message:"message/send/wa",
+    referal_send_link : "referral/send/link"
   }
 };
 
