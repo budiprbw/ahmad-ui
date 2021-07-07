@@ -1,7 +1,7 @@
 <ion-header >
       <ion-toolbar>
         <ion-buttons slot="start">
-          <ion-button color="primary"  (click)="goBack()">
+          <ion-button color="dark"  (click)="goBack()">
             <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
           </ion-button>
         </ion-buttons>
@@ -20,7 +20,7 @@
           <ion-button fill="clear" class="s-button" [routerLink]="['/login']" [queryParams]="{login_mode: 'donatur'}">
             <ion-text class="s-sign-up">Donatur</ion-text>
           </ion-button>
-          <ion-button fill="clear" class="s-button"  [routerLink]="['/login']" [queryParams]="{login_mode: 'pendamping'}">
+          <ion-button fill="clear" class="hidden"  [routerLink]="['/login']" [queryParams]="{login_mode: 'pendamping'}">
             <ion-text class="s-sign-up">Pendamping</ion-text>
           </ion-button>
         </ion-card-content>

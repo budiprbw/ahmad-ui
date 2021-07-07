@@ -12,6 +12,7 @@ export class TabhomePage implements OnInit {
   public donatur_id:any;
   public usrinfo:any;
   public berita:any;
+  public hadistList:any=[];
 
   constructor(
     private router: ActivatedRoute,
@@ -19,17 +20,30 @@ export class TabhomePage implements OnInit {
     public asp: AhmadproviderService
   ) { }
 
-  ngOnInit() {
+  ngOnInit() {    
+    localStorage.setItem("login_mode","donatur");
     this.usrinfo =this.asp.getUserInfo();
-    this.initdatadonasi();    
+    this.donatur_id=  this.usrinfo.ref_object.id;
+    this.getHadistHariini();
+    this.getBeritaKampanye();    
+  
   }
-  initdatadonasi(){
+  getBeritaKampanye(){
     this.belum_donasi=false;
     this.asp.getlist_berita_kampanye().then(
       data=> {        
         this.berita=data;
       });   
   }
+  async getHadistHariini(){
+    await this.asp.hadist_by_donaturid(this.donatur_id).then(
+      data=> {        
+        let retval:any=data;
+        this.hadistList=retval.data;
+      });   
+  }
+
+  
   goLihatdetail(){
     this.route.navigateByUrl('/donasi-santri-list', { replaceUrl:true });
   }
@@ -37,11 +51,13 @@ export class TabhomePage implements OnInit {
     this.route.navigateByUrl('/donasi-riwayat', { replaceUrl:true });
   }
   public goInfoMasuk(){
-    this.donatur_id=  this.usrinfo.ref_object.id;
     this.route.navigate(['donatur-notifikasi', { donatur_id: this.donatur_id }]);
   }
   goSalurkanDonasi(){
     this.route.navigateByUrl('/penyaluran-donasi', { replaceUrl:true });
+  }
+  html_entity(val){
+    return this.asp.html_entity(val);
   }
 
 }

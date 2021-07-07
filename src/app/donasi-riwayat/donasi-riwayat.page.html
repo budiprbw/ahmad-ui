@@ -13,13 +13,13 @@
   <ion-row>
     <ion-col>
         <div  *ngFor="let item of riwayatlist;">
-           <div class="riwayat-date">{{item.riwayat_date}}</div> 
+           <div class="riwayat-date">{{item.donasi_tanggal | date: 'dd-MM-yyyy'  }} </div> 
         <ion-card class="riwayat-donasi-Rectangle-656">
-          <div class="riwayat-donasi-title">
-              {{item.riwayat_title}}
+          <div class="riwayat-donasi-title">              
+              {{this.total_paket}} Paket Donasi (Rp.{{total_harga}})
           </div>
           <div class="riwayat-donasi-text" (click)="goDetailRiwayat(item)" style="cursor:pointer">
-              {{item.riwayat_status}} - {{item.riwayat_desc}} <ion-icon name="arrow-forward-circle-outline"  style="color: black;float:right;:10px;cursor: pointer; "></ion-icon>
+              {{donasi_cara_bayar }} <ion-icon name="arrow-forward-circle-outline"  style="color: black;float:right;:10px;cursor: pointer; "></ion-icon>
           </div>
         </ion-card>
       </div>      

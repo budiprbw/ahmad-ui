@@ -1,7 +1,6 @@
 export const environment = {
   production: true,
   firebaseConfig : {
-    production: true,
     apiKey: "AIzaSyA2Iq4ldWdYiP5i2Ziof6DWbKLfrYzLzoc",
     authDomain: "ahmadproject-317309.firebaseapp.com",
     projectId: "ahmadproject-317309",
@@ -11,7 +10,7 @@ export const environment = {
     measurementId: "G-7EZ2Q96LYF"
   },  
   ahmadApi:{    
-    baseAPIUrl: "http://dev.ahmadproject.org/public/api/",
+    baseAPIUrl: "https://dev.ahmadproject.org/public/api/",
     donatur:{
       register:  "donatur/register",
       register_gmail:"donatur/register/gmail",
@@ -20,12 +19,14 @@ export const environment = {
       update_profile :"donatur/update/profile/",
       register_referal:"donatur/register/referral",
       register_donasi_referal:"onatur/register/donasi/referral",
+      hadist_by_donaturid:"hadist/entitas/donatur/"
     },
     santri:{
       register:"santri/register",
       register_gmail:"santri/register/gmail",
       upload_poto:"santri/upload/photo/",
       find_by_email:"santri/byemail",
+      find_by_id:"donatur/byid/",
       kuesioner_simpan: "kuesioner/santri/simpan",
       update_profile :"santri/update/profile",
       register_referal:"santri/register/referral"
@@ -62,6 +63,7 @@ export const environment = {
       registrasi_donatur:"donatur/register/donasi",
       update_rekening: "donasi/update/rekening/",
       by_donasiid_donaturid: "donasi/donasiid/",
+      cicilan_donaturid: "donasi/donasiid/",
     },
     send_wa_message:"message/send/wa",
     referal_send_link : "referral/send/link"

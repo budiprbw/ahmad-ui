@@ -25,6 +25,8 @@ module.exports = {
         'md-14': '14px',
         'md-16': '16px',
         'md-18': '18px',        
+        'md-20': '20px',  
+        'md-62': '62px',  
       },
       backgroundColor: theme=> ({
         'gold':'#fcc604',

@@ -69,7 +69,7 @@ public noBerita:any=false;
     
   }
    html_entity(val){
-     return this.sanitized.bypassSecurityTrustHtml(val);    
+     return this.asp.html_entity(val);    
     }
 
   

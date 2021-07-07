@@ -9,7 +9,8 @@ import { AhmadproviderService } from '../ahmadprovider.service';
   styleUrls: ['./pengingat-donasi.page.scss'],
 })
 export class PengingatDonasiPage implements OnInit {
-
+  public jenis_donasi:string="";
+  public nominal_donasi:string="";
   constructor(
     public route : ActivatedRoute,
     public router: Router,
@@ -17,9 +18,24 @@ export class PengingatDonasiPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.getItemDonasi();
   }
-  goRiwayatDonasi(){
-    this.router.navigateByUrl('/donasi-riwayat', { replaceUrl:true });
+  getItemDonasi(){
+    var item_donasi:any=JSON.parse(localStorage.getItem("item_donasi"));
+    if (item_donasi)
+    {
+      this.jenis_donasi= item_donasi.jenis_donasi_text;
+      this.nominal_donasi= this.format_number(item_donasi.donasi_tagih);
+    }
+  }
+  goRiwayatDonasi(){    
+    this.router.navigateByUrl('/donasi-riwayat');
+  }
+  goBack(){
+    this.asp.go_previous_page();
+  }
+  format_number(v){
+    return v.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');    
   }
 
 }

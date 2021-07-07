@@ -13,12 +13,13 @@
       <ion-row>
         <ion-col>          
             <ion-card class="jadwal-pembayaran-Rectangle-597" >
+                <ion-text color="danger"><h3>{{error_msg}}</h3></ion-text>
             <div class="timeline">
-                <div  *ngFor="let item of jadwallist;">
+                <div  *ngFor="let item of jadwallist.cicilan;">
                     <div class="timeline-container right">
                         <div class="timeline-content">
-                          <div class="jadwal-date">{{item.jadwal_date}}</div>
-                          <div class="jadwal-text">{{item.jadwal_desc}}</div>
+                          <div class="jadwal-date">{{item.cicilan_jatuh_tempo}} - {{item.cicilan_hijr}}</div>
+                          <div class="jadwal-text">Transaksi donasi {{item.cicilan_ke}} (Rp.{{item.cicilan_nominal}})</div>
                         </div>
                       </div>
                 </div>

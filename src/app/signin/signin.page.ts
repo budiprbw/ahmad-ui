@@ -27,6 +27,7 @@ export class SigninPage implements OnInit {
 
  
   async ngOnInit() {
+    this.asp.clearLocalstorage();
     this.loading = await this.loadingController.create({
       message: 'Connecting ...'
     });

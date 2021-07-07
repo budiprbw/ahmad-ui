@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute,Router } from '@angular/router';
+import { Component, OnInit,NgZone } from '@angular/core';
+import { Router,ActivatedRoute } from '@angular/router';
 import { AhmadproviderService } from '../ahmadprovider.service';
 import {  Platform,NavController } from '@ionic/angular';
 
@@ -8,7 +8,8 @@ import {  Platform,NavController } from '@ionic/angular';
   templateUrl: './tabakun.page.html',
   styleUrls: ['./tabakun.page.scss'],
 })
-export class TabakunPage implements OnInit {
+export class TabakunPage implements OnInit { 
+
   public user_photoURL:any;
   public usrinfo: any;
   public user_email: string = "";
@@ -18,10 +19,11 @@ export class TabakunPage implements OnInit {
   public donaturData:any;
 
   constructor(
-    private router: ActivatedRoute,
     private route : Router,
+    private router:ActivatedRoute,
     public asp: AhmadproviderService,
-    public navCtrl: NavController
+    public navCtrl: NavController,
+    public ngZone:NgZone
   ) { }
 
   ngOnInit() {
@@ -44,16 +46,28 @@ export class TabakunPage implements OnInit {
       });
   }
   goAjak(){
-    this.route.navigateByUrl('/ajak-gabung', { replaceUrl:true });
+    this.route.navigateByUrl('/ajak-gabung');
   }
   goProfile(){
-    this.route.navigateByUrl('/donatur-profile', { replaceUrl:true });
-    this.route.ngOnDestroy();
+    this.route.navigateByUrl('/donatur-profile');    
   }
   goUbahPassword(){        
-    this.usrinfo.route_from="tabakun";    
-    this.route.navigateByUrl('/buatpassword', { replaceUrl:true });
+    this.route.navigateByUrl('/buatpassword');
+    
+    /*
     this.route.ngOnDestroy();
+    let url = this.route.createUrlTree(['buatpassword']).toString();
+    location.href=url;
+    this.route.navigateByUrl('/buatpassword', { replaceUrl : true });
+    this.zone.run(() => this.route.navigateByUrl('buatpassword'));
+    this.navCtrl.pop['buatpassword'];
+    this.route.navigate(['buatpassword']);
+    this.route.ngOnDestroy();
+    this.route.navigate(['/buatpassword'], { relativeTo: this.route });
+    this.ngZone.run(() => {
+      this.route.navigate(['/buatpassword'], { relativeTo: this.router });
+    });
+    */
   }
   goInfoMasuk(){
 

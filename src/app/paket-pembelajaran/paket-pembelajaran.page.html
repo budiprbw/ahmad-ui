@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-button (click)="goBack()">
+              <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+          </ion-button>
+      </ion-buttons>
+      <ion-title class="ion-text-center">Paket Pembelajaran</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-grid class="ion-grid">
+  <ion-row>
+      <ion-col>
+          <ion-card class="paket-Rectangle-631">
+              <ion-item class="mt-5">
+                  <iframe width="100%" height="100%" [src]="urlSafe" frameborder="0" allowfullscreen></iframe>
+              </ion-item>
+          </ion-card>
+          
+          <ion-card class="paket-Rectangle-632" >
+              <div class="paket-berita-kampanye">
+                  {{this.line_berita.berita_isi}}
+              </div>
+          </ion-card>            
+        <ion-card class="paket-Rectangle-628">
+            <div class="lg:flex-auto lg:h-4 lg:w-10 lg:mt-8 mt-5 lg:pl-8 lg:mb-10">
+                <ion-button fill="clear" class=" h-12 w-72  bg-gold rounded-2xl  border-black border-2 lg:bg-gold  lg:rounded-2xl lg:border-black lg:border-2"
+                       [routerLink]=" ['/registrasi']" [queryParams]="{login_mode: 'santri'}">
+                    <ion-text class=" text-black font-bold text-md-12 lg:text-black lg:text-md-12 lg:font-semibold items-center">
+                        Menjadi Santri
+                    </ion-text>
+                    <ion-icon name="arrow-forward-circle-outline" class="text-black" size="large"></ion-icon>
+                </ion-button>
+            </div>             
+            <div class="lg:flex-auto lg:h-4 lg:w-10 lg:mt-8 mt-2  lg:pl-8 "  *ngIf="!withReferal">
+                  <ion-button fill="clear" class="h-12 w-72 bg-white dark:bg-black rounded-2xl border-black border-2 lg:bg-white  lg:rounded-2xl lg:border-black lg:border-2"
+                      routerLink="/penyaluran-donasi">
+                      <ion-text class=" text-black font-semibold text-xs-9 dark:text-gold  lg:text-black lg:text-md-12 lg:font-semibold items-center">
+                          Menjadi Donatur Program
+                      </ion-text>
+                      <ion-icon name="arrow-forward-circle-outline" class="text-black" size="large"></ion-icon>
+                  </ion-button>
+              </div>
+        </ion-card>
+        </ion-col>
+ </ion-row> 
+</ion-grid>   

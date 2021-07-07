@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute,Router } from '@angular/router';
+import { ActivatedRoute,Router,NavigationExtras } from '@angular/router';
 import { AhmadproviderService } from '../ahmadprovider.service';
 
 
@@ -11,38 +11,62 @@ import { AhmadproviderService } from '../ahmadprovider.service';
 export class DonasiRiwayatPage implements OnInit {
   public donatur_id:any;
   public riwayatlist:any=[];
+  public usrinfo:any;
+  public total_paket:any;
+  public total_harga:any;
+  public donasi_cara_bayar:string="";
+
   constructor(
     private router: ActivatedRoute,
     private route : Router,
     public asp: AhmadproviderService
   ) { }
 
-  ngOnInit() {
-    this.donatur_id= this.router.snapshot.paramMap.get("donatur_id");
+  ngOnInit() {    
+    this.usrinfo =  this.asp.getUserInfo();
+    this.donatur_id= this.usrinfo.ref_object.id;
     this.initialdatariwayat();
   }
   initialdatariwayat(){
-    let row1 ={
-      "riwayat_id":1,
-      "riwayat_date": "2021-06-01",
-      "riwayat_title": "10 Paket Donasi (Rp8.000.000)",
-      "riwayat_status": "selesai",
-      "riwayat_desc": "Donasi Penuh",    
-    };
-    this.riwayatlist.push(row1);
-    let row2 ={
-      "riwayat_id":2,
-      "riwayat_date": "2021-07-01",
-      "riwayat_title": "10 Paket Donasi (Rp8.000.000)",
-      "riwayat_status": "Aktif  -",
-      "riwayat_desc": "Donasi Harian (Rp10.000)",    
-    };
-    this.riwayatlist.push(row2);
+    var item_donasi:any=JSON.parse(localStorage.getItem("item_donasi"));
+    if (item_donasi)
+    {
+      this.riwayatlist.push(item_donasi.donasi);
+      this.total_paket = this.asp.format_number(item_donasi.donasi_jumlah_santri);
+      this.total_harga = this.asp.format_number(item_donasi.donasi_total_harga);
+      this.donasi_cara_bayar= this.caraBayarCode(item_donasi.donasi_cara_bayar,item_donasi.donasi_tagih);
+    }
   }
   goBack(){
-    this.route.navigateByUrl('/dashboard-donatur', { replaceUrl:true });
+    //this.route.navigateByUrl('/dashboard-donatur', { replaceUrl:true });
+    this.asp.go_previous_page();
   }
-  goDetailRiwayat(id){
-    this.route.navigate(['donasi-detail', { riwayat_id: id }]);
+  goDetailRiwayat(v){
+    //this.route.navigate(['donasi-detail', { donasi_id: v.id }]);
+    let navigationExtras: NavigationExtras = {
+      state: {
+        cicilan: v.cicilan
+      }
+    };
+    this.route.navigate(['donasi-detail'], navigationExtras);
+  }
+
+  caraBayarCode(str,nominal){
+    var cara_bayar:string="";
+    switch (str) {
+      case "1":
+        cara_bayar="Donasi Harian (Rp."+ this.asp.format_number(nominal)  +")";
+        break;
+      case "2":
+        cara_bayar="Donasi Pekanan (Rp."+ this.asp.format_number(nominal)  +")";
+        break;
+      case "3":
+        cara_bayar="Donasi Bulanan (Rp."+ this.asp.format_number(nominal)  +")";
+        break;
+      case "4":
+        cara_bayar="Donasi Penuh (Rp."+ this.asp.format_number(nominal)  +")";
+        break;
+    }
+    return cara_bayar;
   }
 }

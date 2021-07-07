@@ -70,7 +70,6 @@ export class PembayaranDonasiPage implements OnInit {
     var temp_donasi_no:string="";
     var item_donasi:any= JSON.parse(localStorage.getItem("item_donasi"));
     if (item_donasi) {
-      console.log(item_donasi);
       temp_donasi_no= item_donasi.temp_donasi_no;
       this.jenis_donasi= item_donasi.jenis_donasi_text;
      
@@ -82,7 +81,7 @@ export class PembayaranDonasiPage implements OnInit {
       this.gran_total = (total_bayar+this.kode_unik);
       this.gran_total_text ="Rp." + this.format_number(this.gran_total);      
       this.bank_selected= item_donasi.bank_selected[0];
-      
+      /*
         this.asp.donaturRegisterDonasi(this.user_email,this.user_displayName,temp_donasi_no).then(
             data => {
               this.result_simpan=data;
@@ -93,6 +92,7 @@ export class PembayaranDonasiPage implements OnInit {
                 item_donasi.temp_donasi_no= this.result_simpan.data.temp_donasi_no;
               }
             });     
+            */
     }       
   }
   goBack(){
@@ -157,7 +157,7 @@ export class PembayaranDonasiPage implements OnInit {
       };
       donasiproduk.push(item_produk);
       this.asp.simpan_donasi( this.usrinfo.ref_object.id,
-        item_donasi.bank_rekening_id,
+        item_donasi.rekening_id,
         item_donasi.donasi_tanggal,
         item_donasi.donasi_jumlah_santri,
         item_donasi.donasi_tagih,
@@ -171,10 +171,11 @@ export class PembayaranDonasiPage implements OnInit {
             }
             else {
               //console.log(item_donasi);
+              item_donasi.donasi= this.result_simpan.data;              
               localStorage.setItem("item_donasi", JSON.stringify(item_donasi));                                  
             }
           });  
-      this.router.navigateByUrl('/selesai-donasi', { replaceUrl:true });
+      this.router.navigateByUrl('/selesai-donasi');
     }
     else
     {

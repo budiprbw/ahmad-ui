@@ -77,16 +77,8 @@ export class LoginPage implements OnInit {
       this.fireAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(success => {
         console.log('success in google login', success);
         this.user = success.user;
-        let userinfo = {
-          "user_email": this.user.email,
-          "user_displayName": this.user.displayName,
-          "user_photoURL": this.user.photoURL,
-          "login_by":"google",
-          "login_mode":this.login_mode,
-          "route_from":"login"
-        };
-        localStorage.setItem("usrinfo",JSON.stringify(userinfo));
-        this.redirectMe();
+        this.user_email= this.user.email;
+        this.goLogin_gmail();        
         this.loading.dismiss();
 
       }).catch(err => {
@@ -101,6 +93,7 @@ export class LoginPage implements OnInit {
     this.fireAuth.signInWithCredential(credential)
       .then((success) => {
         this.user = success.user;
+        this.user_email= this.user.email;
         this.goLogin_gmail();
       });
 
@@ -120,7 +113,7 @@ export class LoginPage implements OnInit {
     }
     else
     {
-      this.asp.go_previous_page();
+      this.route.navigateByUrl('/webdashboard', { replaceUrl: true });
     }    
   }
 

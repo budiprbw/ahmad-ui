@@ -1,10 +1,5 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="end">
-      <ion-button (click)="goInfoMasuk()">
-        <ion-icon slot="icon-only" name="notifications-circle-outline"></ion-icon>
-      </ion-button>
-    </ion-buttons>
     <ion-title class="ion-text-center">Akun Donatur</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -20,8 +15,8 @@
               <div class="donatur-akun-emailemailcom">{{user_email}}</div>
             </div>
           </ion-card>
-          <ion-card class="donatur-akun-Rectangle-638" (click)="goProfile()">
-            <div class="donatur-akun-rubah-profile">
+          <ion-card class="donatur-akun-Rectangle-638" >
+            <div class="donatur-akun-rubah-profile" (click)="goProfile()">
               <div class="donatur-akun-rubah-profile-text">Ubah Profil
                 <ion-icon name="arrow-forward-circle-outline" class="vector1" size="large"></ion-icon>
               </div>

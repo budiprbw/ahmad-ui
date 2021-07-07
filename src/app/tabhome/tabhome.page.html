@@ -19,14 +19,14 @@
       </ion-card>
 
       <ion-card class="dashboard-donatur-sudah-donasi"   *ngIf="!belum_donasi">
-          <div class="text-black p-1 font-bold font-poppins">Statistik Santri Penerima Donasi Anda</div>
-          <div class="grid grid-rows-1 grid-cols-2 gap-2">
+          <div class="text-black mb-3 font-bold font-poppins">Statistik Santri Penerima Donasi Anda</div>
+          <div class="grid grid-rows-1 grid-cols-2 gap-2  justify-between">
             <div class="bg-gold text-black rounded-xl">
-                <div class="text-center font-bold font-poppins">Paket Tersalurkan</div>
+                <div class="text-center text-md-12 font-bold pt-2 font-poppins">Paket Tersalurkan</div>
                 <div class="dashboard-donatur-box-paket-tersalurkan-value">10</div>
             </div>
             <div class="bg-black text-gold rounded-xl">
-                <div class="dashboard-donatur-box-santri-belajar-text pl-1 ">Santri Selesai Belajar</div>
+                <div class="text-md-12 font-bold  pl-1 pt-2 ">Santri Selesai Belajar</div>
                 <div class="dashboard-donatur-box-santri-belajar-value">0</div>
             </div>
           </div>
@@ -55,7 +55,7 @@
           a, purus elit odio fringilla suspendisse. Accumsan viverra sapien, accumsan, et. Libero, laoreet turpis venenatis
           sem in. Vivamus id lacus, eleifend vivamus sit. Arcu ultricies tincidunt ut consectetur vulputate ut amet tempus.</div>
         <div class="dashboard-donatur-button">
-          <ion-button fill="clear" slot="end"  (click)="goSalurkanDonasi()">
+          <ion-button fill="clear" slot="end"  routerLink="/penyaluran-donasi">
             <ion-text class="dashboard-donatur-sign-up">
               Salurkan Donasi
             </ion-text>
@@ -65,7 +65,9 @@
       </ion-card>  
       <ion-card class="dashboard-donatur-card3">  
         <div class="dashboard-donatur-card3-title">Hadis /Doa Hari Ini</div>
-        <div class="dashboard-donatur-card3-text1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et magna nec enim feugiat nulla. Hendrerit elit nisi consectetur aliquam lacus morbi diam sit. Lectus aenean sed at vel vulputate nisl. Odio sit leo lobortis eu. Varius sollicitudin quam feugiat pellentesque imperdiet volutpat elementum amet. Velit porta fringilla malesuada sit vitae vitae ut ullamcorper ac. A phasellus condimentum suspendisse curabitur ipsum imperdiet mauris volutpat.</div>
+        
+          <ion-label style="font-weight: bold;"  class="ion-text-wrap">{{hadistList.hadist_judul}}</ion-label>
+          <div class="dashboard-donatur-card3-text1"><span [innerHTML]="html_entity(hadistList.hadist_isi)"></span></div>
       </ion-card> 
     </ion-col>
   </ion-row>

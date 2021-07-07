@@ -1,7 +1,7 @@
 import { Component, OnInit,ViewChild  } from '@angular/core';
 import { IonContent,Platform } from '@ionic/angular';
 import { AhmadproviderService } from '../ahmadprovider.service';
-import { DomSanitizer } from '@angular/platform-browser'
+
 @Component({
   selector: 'app-webdashboard',
   templateUrl: './webdashboard.page.html',
@@ -27,12 +27,12 @@ export class WebdashboardPage implements OnInit {
         };
   constructor(
     private platform:Platform,
-    public asp: AhmadproviderService ,
-    private sanitized: DomSanitizer
+    public asp: AhmadproviderService
   ) { }
 
 
   ngOnInit() {
+    this.asp.removeUserInfo();
     this.initDataLembaga();
     this.toggleGroup(0);
   }
@@ -43,8 +43,6 @@ export class WebdashboardPage implements OnInit {
             if (this.line_data_lembaga) this.no_data_lembaga  =true;
             this.initialdataCarousel();
             this.initialdataQuestion();
-            console.log(this.line_data_lembaga);
-
       });
   }
 
@@ -106,15 +104,11 @@ export class WebdashboardPage implements OnInit {
   gotToTop()
   {       
     this.content.scrollToTop(1500);
-    console.log(this.content.scrollX );
+    //console.log(this.content.scrollX );
 
   }
   html_entity(val){
-    // var txt = document.createElement('textarea');
-    // txt.innerHTML = val;
-    // return txt.value;
-    //console.log(val);
-     return this.sanitized.bypassSecurityTrustHtml(val);    
+     return this.asp.html_entity(val);
     }
    
 }

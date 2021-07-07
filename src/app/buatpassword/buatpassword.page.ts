@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router,ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { AhmadproviderService } from '../ahmadprovider.service';
 
 @Component({
@@ -8,6 +8,7 @@ import { AhmadproviderService } from '../ahmadprovider.service';
   styleUrls: ['./buatpassword.page.scss'],
 })
 export class BuatpasswordPage implements OnInit {
+
   public isActiveToggleTextPassword_1:boolean=true;
   public isActiveToggleTextPassword_2:boolean=true;
   public newpassword:any;
@@ -28,8 +29,7 @@ export class BuatpasswordPage implements OnInit {
 
   constructor(
           private route: Router,
-          public asp: AhmadproviderService,
-          public router:ActivatedRoute
+           public asp: AhmadproviderService
         ) { }
 
   ngOnInit() {
@@ -39,9 +39,8 @@ export class BuatpasswordPage implements OnInit {
       this.user_email = this.usrinfo.user_email;
       this.login_by   = this.usrinfo.login_by;
       this.user_displayName = this.usrinfo.user_displayName;
-      if (this.login_mode=="donatur")this.user_tipe="1";
-      if (this.login_mode=="santri")this.user_tipe="2";
-
+      // if (this.login_mode=="donatur")this.user_tipe="1";
+      // if (this.login_mode=="santri")this.user_tipe="2";
   }
  
   public toggleTextPassword_1(): void {
@@ -138,19 +137,14 @@ export class BuatpasswordPage implements OnInit {
       var item_donasi:any=JSON.parse(localStorage.getItem("item_donasi"));
       if (item_donasi) {
         this.route.navigateByUrl('/pembayaran-donasi', { replaceUrl: true });
-      }
+      }     
       else{
-        this.route.navigate(['donatur-profile']);
+       this.asp.go_previous_page();
       }
-      if (this.usrinfo.route_from=="tabakun"){
-        this.route.navigate(['dashboard-donatur/tabakun']);
-      }
-    }          
-    
+    }              
   }
   goBack(){
-    this.route.navigate(['webdashboard']);
-    this.route.ngOnDestroy();
+   this.redirectMe();
   }
 
 }

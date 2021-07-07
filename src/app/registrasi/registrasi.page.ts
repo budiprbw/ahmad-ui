@@ -21,6 +21,7 @@ export class RegistrasiPage implements OnInit {
   public response: any;
   public login_mode: string = "";
   public login_by:string="";
+  public referal_kode:string="";
 
   constructor(
     public asp: AhmadproviderService,
@@ -175,7 +176,7 @@ export class RegistrasiPage implements OnInit {
   }
 
   saveDonasi(item_donasi){
-    this.asp.save_donasi_temp(item_donasi.bank_rekening_id,
+    this.asp.save_donasi_temp(item_donasi.rekening_id,
       item_donasi.donasi_tanggal,
       item_donasi.donasi_jumlah_santri,
       item_donasi.donasi_tagih,
@@ -194,11 +195,13 @@ export class RegistrasiPage implements OnInit {
         });     
   }
   registerDonaturToDonasi(item_donasi){
-    this.asp.donaturRegisterDonasi(this.user_email,this.nama_lengkap,item_donasi.temp_donasi_no).then(
-      data => {
+    this.referal_kode=localStorage.getItem("referal_kode");
+    if (this.referal_kode) // via referal
+    {
+      this.asp.donatur_register_donasi_referal(this.user_email,this.nama_lengkap,item_donasi.temp_donasi_no,this.referal_kode).then(data => {
         let retval:any = data;
-        if (retval.data.status == 'error') {
-            this.error_msg = retval.data.message;                                  
+        if (retval.status == 'error') {
+          this.error_msg = retval.message;                                  
         }
         else
         {
@@ -211,10 +214,35 @@ export class RegistrasiPage implements OnInit {
           }            
           else{
             this.response=retval.data;
-            console.log(item_donasi);
-            this.buatpasswordAhmadProject();            
+            this.toPembayaran();            
+          }
         }
-      }})   
+      });
+    }
+    else{
+      this.asp.donaturRegisterDonasi(this.user_email,this.nama_lengkap,item_donasi.temp_donasi_no).then(
+        data => {
+          let retval:any = data;
+          if (retval.data.status == 'error') {
+              this.error_msg = retval.data.message;                                  
+          }
+          else
+          {
+            item_donasi.donatur = retval.data.donatur;
+            item_donasi.donasi= retval.data.donatur.donasi;
+            localStorage.setItem("item_donasi", JSON.stringify(item_donasi));
+            if (this.login_by!="google"){
+              this.error_msg = "Silahkan cek inbox anda di " + this.user_email + " untuk melanjutkan proses berikutnya";
+              this.route.navigate(['confirm-page', { msg: this.error_msg }]);
+            }            
+            else{
+              this.response=retval.data;
+              //console.log(item_donasi);
+              this.toPembayaran();            
+          }
+        }})   
+    }
+    
   }
   saveWithNodonasi(){
     this.asp.register_donatur(this.user_email,this.nama_lengkap).then(data => {
@@ -246,6 +274,20 @@ export class RegistrasiPage implements OnInit {
     };        
     this.asp.setUserInfo(userinfo);    
     this.route.navigateByUrl('/buatpassword', { replaceUrl: true });
+  }
+  toPembayaran(){
+    let userinfo = {
+      "user_id":  this.response.id,
+      "user_email": this.response.email,
+      "user_displayName": this.response.name,
+      "user_photoURL": "",
+      "login_by": "google",
+      "login_mode": this.login_mode,
+      "ref_object": this.response.donatur,
+      "route_from": "registrasi"
+    };        
+    this.asp.setUserInfo(userinfo);    
+    this.route.navigateByUrl('/pembayaran-donasi', { replaceUrl: true });
   }
   
   

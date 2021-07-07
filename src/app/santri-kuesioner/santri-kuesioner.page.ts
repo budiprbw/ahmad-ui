@@ -63,16 +63,16 @@ export class SantriKuesionerPage implements OnInit {
       this.user_displayName = this.usrinfo.user_displayName;
       this.login_by = this.usrinfo.login_by;
   }
-  getSantri(){
-    this.asp.login_santri(this.user_email).then(
+  async getSantri(){
+    await this.asp.login_santri(this.user_email).then(
       data => {
         this.santriData = data;
         this.santri_id= this.santriData.id;
       });
   }
 
-  getKuesionerList() {
-    this.asp.kuesioner_getList().then(
+  async getKuesionerList() {
+    await this.asp.kuesioner_getList().then(
       data => {
         this.initialKuesioner = data;
       });

@@ -15,6 +15,7 @@
         <ion-card>
                 <div class="pl-4">
                   <ion-input placeholder="Nomor Hp/whatsapp" [(ngModel)]="no_telepon" name="no_telepon"></ion-input>
+                  <ion-text color="danger"><h3>{{error_msg}}</h3></ion-text>
                 </div>  
                 <ion-button fill="clear" class="ajak-gabung-button" (click)="goAjak()">
                   <ion-text class="ajak-gabung-Sign-up">

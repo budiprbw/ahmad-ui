@@ -1,14 +1,17 @@
 <ion-header>
-  <ion-toolbar>
-      <ion-title class="ion-text-center">Lengkapi Profile Anda</ion-title>
-      <ion-item>
-        <ion-avatar item-start>
-          <img src="{{user_photoURL}}" >
-        </ion-avatar>
-        <ion-label>{{user_displayName}}</ion-label>
-    </ion-item>
-  </ion-toolbar>
- 
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button color="dark" (click)="goDashboard()">
+                <ion-icon slot="icon-only" name="close-circle-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title class="ion-text-center">Lengkapi Profile Anda</ion-title>
+        <!-- <ion-item>
+            <ion-avatar slot="end">
+                <img src="{{user_photoURL}}">
+            </ion-avatar>
+        </ion-item> -->
+    </ion-toolbar>
 </ion-header>
 <ion-content>
   <ion-grid class="ion-grid">
@@ -24,8 +27,8 @@
                   <ion-item>
                       <ion-label>Jenis Kelamin</ion-label>
                       <ion-select placeholder="Jenis Kelamin"  [(ngModel)]="santri_gender" name="santri_gender">
-                          <ion-select-option value="Laki">Laki-laki</ion-select-option>
-                          <ion-select-option value="Perempuan">Perempuan</ion-select-option>
+                          <ion-select-option value="PRIA">PRIA</ion-select-option>
+                          <ion-select-option value="WANITA">WANITA</ion-select-option>
                       </ion-select>
                   </ion-item>
                   <ion-item>

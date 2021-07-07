@@ -40,11 +40,11 @@ export class DaftarPage implements OnInit {
     this.router.params.subscribe((params: any) => {
       if (params['idreg']) {
         this.hashcode = params['idreg'];
-        console.log(this.hashcode);
+        this.user_tipe= params['usertipe'];
+        
         this.asp.user_by_hashcode(this.hashcode).then(
           data => {
             this.response = data;
-            console.log(this.response);
             if (this.response.status == 'error') {
               this.route.navigate(['confirm-page', { msg: this.response.message }]);
             }
@@ -55,17 +55,15 @@ export class DaftarPage implements OnInit {
               this.id_user = this.response.data.id;              
               this.user_displayName = this.response.data.name;
               this.user_email = this.response.data.email;
-              this.user_tipe = this.response.data.tipe; //1 :donatur, 2:santri     
               let object_ref: any;
 
-
-              if (this.user_tipe == "1") {
-                this.login_mode = "donatur";
+              this.login_mode = this.user_tipe;
+              if (this.user_tipe == "donatur") {
                 object_ref = this.response.data.donatur;
                 this.donasi = this.response.data.donatur.donasi;
               }
-              if (this.user_tipe == "2") {
-                this.login_mode = "santri";
+              if (this.user_tipe == "santri") {
+
                 let santri={
                   "donatur_lokasi_photo":""
                 }
@@ -180,7 +178,7 @@ export class DaftarPage implements OnInit {
       "donasi_jumlah_santri": this.donasi.donasi_jumlah_santri,
       "durasi_donasi": durasi_donasi,
       "bank_selected": this.donasi.rekeningbank,
-      "bank_rekening_id": this.donasi.rekeningbank.id,
+      "rekening_id": this.donasi.rekeningbank.id,
       "temp_donasi_no": this.donasi.donasi_no,
       "donasiproduk": this.donasi.produk
     };

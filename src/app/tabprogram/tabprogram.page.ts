@@ -18,16 +18,16 @@ export class TabprogramPage implements OnInit {
   ngOnInit() {
   }
   goRiwayat(){
-    this.route.navigateByUrl('/donasi-riwayat', { replaceUrl:true });
+    this.route.navigateByUrl('/donasi-riwayat');
   }
   goListPenerimaDonasi(){
-    this.route.navigateByUrl('/donasi-santri-list', { replaceUrl:true });
+    this.route.navigateByUrl('/donasi-santri-list');
   }
   goStatusPengiriman(){
-    this.route.navigateByUrl('/pengiriman-status-donasi', { replaceUrl:true });
+    this.route.navigateByUrl('/pengiriman-status-donasi');
   }
   goSalurkanDonasi(){
-    this.route.navigateByUrl('/penyaluran-donasi', { replaceUrl:true });
+    this.route.navigateByUrl('/penyaluran-donasi');
   }
  
 }

@@ -14,11 +14,11 @@
         <ion-col>          
             <ion-card class="donasi-detail-Rectangle-597" >
             <div class="timeline">
-                <div  *ngFor="let item of riwayatdetaillist;">
+                <div  *ngFor="let item of cicilanlist;">
                     <div  [ngClass]="item.riwayat_status=='cicil'?'timeline-container-orange right':'timeline-container-green right'">
                         <div class="timeline-content">
-                          <div class="donasi-detail-tanggal">{{item.riwayat_detail_date}}</div>
-                          <div class="donasi-detail-text">{{item.riwayat_detail_desc}}</div>
+                          <div class="donasi-detail-tanggal">{{item.cicilan_jatuh_tempo | date:'dd-MM-yyyy'}}</div>
+                          <div class="donasi-detail-text">Pembayaran Donasi {{item.cicilan_ke}} (Rp. {{item.cicilan_nominal | number : '.0'}})</div>
                         </div>
                       </div>
                 </div>

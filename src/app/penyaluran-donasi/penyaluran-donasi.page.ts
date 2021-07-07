@@ -25,6 +25,7 @@ export class PenyaluranDonasiPage implements OnInit {
   public produk :any;
   public result_temp:any;
   public error_msg:string="";
+  public usrinfo:any;
   
 
   constructor(
@@ -40,7 +41,8 @@ export class PenyaluranDonasiPage implements OnInit {
   }
 
   goBack() {
-    this.route.navigateByUrl('/dashboard-donatur/tabprogram', { replaceUrl: true });
+    //this.route.navigateByUrl('/dashboard-donatur/tabprogram', { replaceUrl: true });
+    this.asp.go_previous_page();
   }
   decrement() {
     this.currentNumber--;
@@ -150,16 +152,24 @@ export class PenyaluranDonasiPage implements OnInit {
       "donasi_tagih": nominal_donasi,
       "donasi_total_harga": this.total_donasi,
       "donasi_jumlah_santri": this.currentNumber,
+      "temp_donasi_nominal": this.currentNumber,
       "durasi_donasi":durasi_donasi,
       "bank_selected":this.bankListSelected,
-      "bank_rekening_id":this.bankListSelected[0].id,
+      "rekening_id":this.bankListSelected[0].id,
       "temp_donasi_no":"",
       "donasiproduk":item_produk_list,
       "donasiproduktemp":donasiproduktemp
     };
     localStorage.setItem("item_donasi", JSON.stringify(item_donasi));
+    this.usrinfo = this.asp.getUserInfo();
+    if (this.usrinfo){
+      this.route.navigateByUrl('/pembayaran-donasi', { replaceUrl: true });
+    }
+    else{
+      this.route.navigateByUrl('/donasi-tanya-akun?login_mode=donatur', { replaceUrl: true });
+    }
       
-    this.route.navigateByUrl('/donasi-tanya-akun?login_mode=donatur', { replaceUrl: true });
+    
     /*
     let navigationExtras: NavigationExtras = {
       state: {

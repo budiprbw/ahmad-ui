@@ -97,8 +97,8 @@
   "cordova": {
     "plugins": {
       "cordova-plugin-googleplus": {
-        "REVERSED_CLIENT_ID": "622466272928-7sppv2sol13pkhojcn119048obvdvonv.apps.googleusercontent.com",
-        "WEB_APPLICATION_CLIENT_ID": ""
+        "REVERSED_CLIENT_ID": "169518870541-b2fuohq1lkso25u1mkkafrvk2kpccrm8.apps.googleusercontent.com",                              
+        "WEB_APPLICATION_CLIENT_ID": "169518870541-b2fuohq1lkso25u1mkkafrvk2kpccrm8.apps.googleusercontent.com"
       },
       "cordova-plugin-whitelist": {},
       "cordova-plugin-statusbar": {},

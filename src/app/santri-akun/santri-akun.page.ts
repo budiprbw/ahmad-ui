@@ -27,5 +27,10 @@ export class SantriAkunPage implements OnInit {
   goUbahPassword(){
 
   }
+  goKeluar(){
+    this.asp.clearLocalstorage();
+    this.route.navigateByUrl('/webdashboard', { replaceUrl:true });
+
+  }
 
 }

@@ -5,9 +5,23 @@
     <author email="hi@ionicframework.com" href="http://ionicframework.com/">Ionic Framework Team</author>
     <content src="index.html" />
     <access origin="*" />
-    <allow-navigation href="http://localhost:8100" sessionid="278685e5" />
+    <access origin="http://localhost:8000/*" />
+    <access origin="http://localhost:8080/*" />
+    <access origin="https://*.ahmadproject.org/*" />
+    <access origin="https://ahmadproject.org/*" />
+    <allow-navigation href="http://*/*" />
+    <allow-navigation href="https://*/*" />
+    <allow-navigation href="data:*" />
+    <allow-navigation href="http://localhost:8000/*" />
+    <allow-navigation href="http://localhost:8080/*" />
+    <allow-navigation href="https:/*.ahmadproject.org/*" />
+    <allow-navigation href="https:/ahmadproject.org/*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
+    <allow-intent href="http://localhost:8000" />
+    <allow-intent href="http://localhost:8080" />
+    <allow-intent href="https:/*.ahmadproject.org" />
+    <allow-intent href="https:/ahmadproject.org" />
     <allow-intent href="tel:*" />
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />

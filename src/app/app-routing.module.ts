@@ -47,14 +47,6 @@ const routes: Routes = [
     loadChildren: () => import('./dashboard-santri/dashboard-santri.module').then( m => m.DashboardSantriPageModule)
   },
   {
-    path: 'buatpassword',
-    loadChildren: () => import('./buatpassword/buatpassword.module').then( m => m.BuatpasswordPageModule)
-  },
-  {
-    path: 'buatpassword/:idreg',
-    loadChildren: () => import('./buatpassword/buatpassword.module').then( m => m.BuatpasswordPageModule)
-  },
-  {
     path: 'detail-berita',
     loadChildren: () => import('./detail-berita/detail-berita.module').then( m => m.DetailBeritaPageModule)
   },
@@ -117,6 +109,10 @@ const routes: Routes = [
   {
     path: 'donasi-riwayat',
     loadChildren: () => import('./donasi-riwayat/donasi-riwayat.module').then( m => m.DonasiRiwayatPageModule)
+  },  
+  {
+    path: 'gabung/:referal_kode',
+    loadChildren: () => import('./donasi-program/donasi-program.module').then( m => m.DonasiProgramPageModule)
   },
   {
     path: 'donasi-program',
@@ -177,13 +173,13 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
-  },
+  },  
   {
-    path: 'daftar',
+    path: 'daftar/',
     loadChildren: () => import('./daftar/daftar.module').then( m => m.DaftarPageModule)
   },
   {
-    path: 'daftar/:idreg',
+    path: 'daftar/:usertipe/:idreg',
     loadChildren: () => import('./daftar/daftar.module').then( m => m.DaftarPageModule)
   },
   {
@@ -199,8 +195,16 @@ const routes: Routes = [
     loadChildren: () => import('./modal-konfirmasi-donasi/modal-konfirmasi-donasi.module').then( m => m.ModalKonfirmasiDonasiPageModule)
   },
   {
+    path: 'buatpassword',
+    loadChildren: () => import('./buatpassword/buatpassword.module').then( m => m.BuatpasswordPageModule)
+  },  
+  {
     path: 'ajak-gabung',
     loadChildren: () => import('./ajak-gabung/ajak-gabung.module').then( m => m.AjakGabungPageModule)
+  },
+  {
+    path: 'paket-pembelajaran',
+    loadChildren: () => import('./paket-pembelajaran/paket-pembelajaran.module').then( m => m.PaketPembelajaranPageModule)
   }
 ];
 @NgModule({

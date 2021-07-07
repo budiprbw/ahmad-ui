@@ -13,6 +13,9 @@ export class DonasiProgramPage implements OnInit {
   public vidurl: string="";
   public  urlSafe: SafeResourceUrl;
   public line_berita:any=[];  
+  public referal_kode:any;
+  public usrinfo:any;
+  public withReferal:boolean=false;
 
   constructor(
     private router: ActivatedRoute,
@@ -23,24 +26,34 @@ export class DonasiProgramPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    
+    this.cek_referal();
     this.getBeritaKampanye();
     this.vidurl=  JSON.parse(localStorage.getItem("videourl"));
-    this.urlSafe =this.domSanitizer.bypassSecurityTrustResourceUrl(this.vidurl);      
+    console.log(this.vidurl);
+    this.urlSafe = this.domSanitizer.bypassSecurityTrustResourceUrl(this.vidurl);      
     localStorage.removeItem("videourl");
   }
   goBack(){
-    this.route.navigateByUrl('/registrasi-akun', { replaceUrl:true });
+    this.route.navigateByUrl('/webdashboard', { replaceUrl:true });
   }
-   getBeritaKampanye(){
+  async cek_referal(){
+    await this.router.params.subscribe((params: any) => {
+      if (params['referal_kode']) {
+        this.referal_kode = params['referal_kode'];
+        localStorage.setItem("referal_kode",this.referal_kode);        
+        this.withReferal=true;
+      }
+
+    })
+  }
+   async getBeritaKampanye(){
     
-     this.asp.getlist_berita_kampanye().then(
+     await this.asp.getlist_berita_kampanye().then(
       data=> {        
             this.line_berita=data;
             if (!(JSON.stringify(this.line_berita) === '{}')){
                 if (this.line_berita.berita_web_link!=null){
-                  localStorage.setItem("videourl", JSON.stringify(this.line_berita.berita_web_link));
-                  
+                  localStorage.setItem("videourl", JSON.stringify(this.line_berita.berita_web_link));                  
               }              
             }
       });

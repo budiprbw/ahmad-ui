@@ -60,7 +60,8 @@ export class DonaturProfilePage implements OnInit {
       this.initdata();
   }
   initdata() {
-    this.userInfo();
+    this.userInfo();    
+    this.bindData();
     this.getpropinsi();
   }
   userInfo() {
@@ -72,40 +73,77 @@ export class DonaturProfilePage implements OnInit {
     this.login_by = this.usrinfo.login_by;
     this.donaturData = this.usrinfo.ref_object;
     this.donatur_id= this.usrinfo.ref_object.id;
+    this.donaturData= this.usrinfo.ref_object;
   }
-  getDonatur(){
-    this.asp.login_donatur(this.user_email).then(
-      data => {
-        this.donaturData = data;
-        this.donatur_id= this.donaturData.id;
-      });
+  bindData(){
+    if (this.donaturData.donatur_status=="2")
+    {
+      this.donatur_telepon=this.donaturData.donatur_telepon;
+      this.donatur_nama= this.donaturData.donatur_nama,
+      this.donatur_tmp_lahir=this.donaturData.donatur_tmp_lahir;  
+      this.donatur_tgl_lahir=this.donaturData.donatur_tgl_lahir;
+      this.donatur_gender= this.donaturData.donatur_gender;
+      this.donatur_agama= this.donaturData.donatur_agama;
+      this.donatur_telepon= this.donaturData.donatur_telepon;
+      this.donatur_kerja= this.donaturData.donatur_kerja;
+      this.donatur_no_ktp= this.donaturData.donatur_nid;
+      this.donatur_alamat= this.donaturData.donatur_alamat;
+      this.donatur_provinsi=  this.donaturData.donatur_provinsi;
+      this.getkota(this.donatur_provinsi);
+      this.donatur_kota =this.donaturData.donatur_kota;
+      this.getkec(this.donatur_kota);
+      this.donatur_kecamatan= this.donaturData.donatur_kecamatan;
+      this.getkel(this.donatur_kecamatan);
+      this.donatur_kelurahan= this.donaturData.donatur_kelurahan;
+      this.getkodepos(this.donatur_kelurahan);
+      this.donatur_kode_pos= this.donaturData.donatur_kode_pos;
+    }    
   }
-  getpropinsi() {
-    this.asp.getAll_propinsi().then(
+  async getpropinsi() {
+   await this.asp.getAll_propinsi().then(
       data => {
         this.propinsiInitial = data;
       });
   }
-  getkota(v: any) {
-    this.asp.getkota_bypropinsi(v.target.value).then(
+  async getkota(v: any) {
+    let val:any="";
+    if (v.target!=null) {
+      val=v.target.value; 
+      this.donatur_kota="";
+      this.donatur_kecamatan= "";
+      this.donatur_kelurahan= "";
+      this.donatur_kode_pos= "";
+    }
+    else
+    {
+      val=v;
+    }
+    
+    await this.asp.getkota_bypropinsi(val).then(
       data => {
         this.kotaInitial = data;
       });
   }
-  getkec(v: any) {
-    this.asp.getkec_bykota(v.target.value).then(
+  async getkec(v: any) {
+    let val:any="";
+    if (v.target!=null) val=v.target.value; else val=v;
+    this.asp.getkec_bykota(val).then(
       data => {
         this.kecamatansInitial = data;
       });
   }
-  getkel(v: any) {
-    this.asp.getkel_bykec(v.target.value).then(
+  async getkel(v: any) {
+    let val:any="";
+    if (v.target!=null) val=v.target.value; else val=v;
+    await this.asp.getkel_bykec(val).then(
       data => {
         this.kelurahansInitial = data;
       });
   }
-  getkodepos(v: any) {
-    this.asp.getkodepos_bykel(v.target.value).then(
+  async getkodepos(v: any) {
+    let val:any="";
+    if (v.target!=null) val=v.target.value; else val=v;
+    await this.asp.getkodepos_bykel(val).then(
       data => {
         this.kodeposInitial = data;
       });
@@ -119,11 +157,14 @@ export class DonaturProfilePage implements OnInit {
     this.redirectMe();
   }
   goSaveProfile() {
+    let d:Date =  new Date(this.donatur_tgl_lahir);
+    var dTglLahir = d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate();  
+
     this.asp.donaturUpdateProfile(
       this.donatur_id,
       this.donatur_nama,
       this.donatur_tmp_lahir,
-      this.donatur_tgl_lahir,
+      dTglLahir,
       this.donatur_gender,
       this.donatur_agama,
       this.donatur_telepon,
@@ -142,7 +183,8 @@ export class DonaturProfilePage implements OnInit {
         })
   }
   redirectMe(){
-    this.route.navigate(['dashboard-donatur']);
+    this.route.navigate(['/dashboard-donatur/tabakun']);
+    //this.asp.go_previous_page();
   }
 
 }

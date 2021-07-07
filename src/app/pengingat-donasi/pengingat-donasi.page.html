@@ -1,7 +1,12 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Fitur Pengingat</ion-title>
-  </ion-toolbar>
+    <ion-toolbar> 
+        <ion-buttons slot="start">
+            <ion-button color="dark"  (click)="goBack()">
+              <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+            </ion-button>
+      </ion-buttons>
+      <ion-title  class="ion-text-center">Fitur Pengingat</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-grid class="pengingat-donasi">
@@ -13,7 +18,7 @@
 
                 Untuk mempermudah mengingat waktu pembayaran donasi maka fitur pengingat pembayaran diaktifkan sesuai dengan jenis donasi yang sudah anda tentukan yaitu:<br><br>
                 
-                [Donasi Harian - Rp10.000]<br><br>
+                [{{jenis_donasi}} - Rp{{nominal_donasi}}]<br><br>
                 
                 Pembayaran cicilan donasi akan dilakukan mulai dari H-2 hingga hari H</p>
                 <p>
