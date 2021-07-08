@@ -205,15 +205,15 @@ export class RegistrasiPage implements OnInit {
         }
         else
         {
-          item_donasi.donatur = retval.data.donatur;
-          item_donasi.donasi= retval.data.donatur.donasi;
+          item_donasi.donatur = retval.donatur;
+          item_donasi.donasi= retval.donatur.donasi;
           localStorage.setItem("item_donasi", JSON.stringify(item_donasi));
           if (this.login_by!="google"){
             this.error_msg = "Silahkan cek inbox anda di " + this.user_email + " untuk melanjutkan proses berikutnya";
             this.route.navigate(['confirm-page', { msg: this.error_msg }]);
           }            
           else{
-            this.response=retval.data;
+            this.response=retval;
             this.toPembayaran();            
           }
         }

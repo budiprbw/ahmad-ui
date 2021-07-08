@@ -66,7 +66,7 @@ public noBerita:any=false;
     this.route.navigate(['santri-program', { santri_id: this.santri_id }]);
   }
   goBack(){
-    
+    this.asp.go_previous_page();    
   }
    html_entity(val){
      return this.asp.html_entity(val);    

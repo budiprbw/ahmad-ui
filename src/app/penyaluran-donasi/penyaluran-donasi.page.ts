@@ -154,7 +154,7 @@ export class PenyaluranDonasiPage implements OnInit {
       "donasi_jumlah_santri": this.currentNumber,
       "temp_donasi_nominal": this.currentNumber,
       "durasi_donasi":durasi_donasi,
-      "bank_selected":this.bankListSelected,
+      "bank_selected":this.bankListSelected[0],
       "rekening_id":this.bankListSelected[0].id,
       "temp_donasi_no":"",
       "donasiproduk":item_produk_list,

@@ -38,8 +38,10 @@
             </div>
           </ion-card>
           <ion-card class="donatur-akun-program">
-                <div class="donatur-akun-program-title">Program Santri</div>
-                <div class="donatur-akun-program-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id ullamcorper egestas imperdiet diam augue. Erat egestas amet, sit felis nisl tristique. </div>
+                <div class="donatur-akun-program-title">{{line_data_lembaga.lembaga_landing_santri_judul}}</div>
+                <div class="donatur-akun-program-content">
+                    <span [innerHTML]="html_entity(line_data_lembaga.lembaga_landing_santri_isi)"></span>
+                </div>
                 <div class="donatur-akun-button">
                     <ion-button fill="clear" slot="end" routerLink="/santri-kuesioner">
                         <ion-text class="donatur-akunSign-up">
@@ -67,7 +69,7 @@
               </div>
           </ion-card>
           <div class="donatur-akun-button-keluar">
-                <ion-button fill="clear" slot="end"  routerLink="/login" [queryParams]="{login_mode: 'donatur'}">
+                <ion-button fill="clear" slot="end"  (click)="goKeluar()">
                         <ion-text class="donatur-akun-button-keluar-text">
                            Keluar
                         </ion-text>

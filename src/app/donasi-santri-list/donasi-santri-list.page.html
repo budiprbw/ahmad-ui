@@ -10,25 +10,26 @@
   </ion-header>
   <ion-grid class="donasi-santri-list">
     <ion-row>
-      <ion-col>
+      <ion-col>        
         <div class="donasi-santri-box-title">
           <div class="donasi-santri-title">Total Santri Penerima Donasi</div>
           <div class="donasi-santri-text">{{total_santri}} Santri</div>
+          <ion-text color="danger"><h3>{{error_msg}}</h3></ion-text>
         </div>  
-        <div *ngFor="let item of santrilist;">        
-          <ion-card class="donasi-santri-list-Rectangle-597">
-              <ion-avatar>
-                  <img src="{{item.photo_url}}" style="height: 30px;width:30px;" ><br>                            
-              </ion-avatar>      
-            <div class="donasi-pengiriman-nama-santri">
-              {{item.nama_santri}}
-            </div>
-            <div class="donasi-santri-list-text" (click)="goDetailPenerima(item)" style="cursor:pointer">
-              {{item.nama_prgram}} {{item.pencapaian}} 
-              <ion-icon name="arrow-forward-circle-outline" style="color: black;float:right;cursor: pointer"></ion-icon>
-            </div>
-          </ion-card>
-        </div>
+          <div *ngFor="let item of santrilist;">        
+            <ion-card class="donasi-santri-list-Rectangle-597">
+                <ion-avatar class="pt-4 pl-3">
+                    <img src="{{item.photo_url}}" style="height: 30px;width:30px;" ><br>                            
+                </ion-avatar>      
+              <div class="donasi-pengiriman-nama-santri">
+                {{item.nama_santri}}
+              </div>
+              <div class="donasi-santri-list-text" (click)="goDetailPenerima(item)" style="cursor:pointer">
+                {{item.nama_prgram}} {{item.pencapaian}} 
+                <ion-icon name="arrow-forward-circle-outline" style="color: black;float:right;cursor: pointer"></ion-icon>
+              </div>
+            </ion-card>
+          </div>
       </ion-col>
     </ion-row>
   

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
 import { AhmadproviderService } from '../ahmadprovider.service';
 
 @Component({
@@ -9,58 +9,47 @@ import { AhmadproviderService } from '../ahmadprovider.service';
 })
 export class DonasiSantriListPage implements OnInit {
   public santrilist: any = [];
+  public donasi_id:any;
   public total_santri:any=0;
+  public error_msg:string="";
   constructor(
     public asp: AhmadproviderService,
-    public route: Router
+    public route: Router,
+    public router: ActivatedRoute,
 
   ) { }
 
   ngOnInit() {
+    this.donasi_id= this.router.snapshot.paramMap.get("donasi_id");
     this.initialSantriList();
   }
   
   initialSantriList(){
-    let row1 = {
-      "santri_id": 1,
-      "photo_url": "assets/images/no-image.png",
-      "nama_santri": "Abdullah Nasir",
-      "nama_prgram": "Progress Pembelajaran",
-      "pencapaian": "40%",
-    };
-    this.santrilist.push(row1);
-    let row2 = {
-      "santri_id": 2,
-      "photo_url": "assets/images/no-image.png",
-      "nama_santri": "Amin",
-      "nama_prgram": "Progress Pembelajaran ",
-      "pencapaian": "30%",
-    };
-    this.santrilist.push(row2);
-    let row3 = {
-      "santri_id": 3,
-      "photo_url": "assets/images/no-image.png",
-      "nama_santri": "Darso",
-      "nama_prgram": "Progress Pembelajaran ",
-      "pencapaian": "90%",
-    };
-    this.santrilist.push(row3);
-    let row4 = {
-      "santri_id": 4,
-      "photo_url": "assets/images/no-image.png",
-      "nama_santri": "Asep",
-      "nama_prgram": "Progress Pembelajaran ",
-      "pencapaian": "78%",
-    };
-    this.santrilist.push(row4);
-    let row5 = {
-      "santri_id": 5,
-      "photo_url": "assets/images/no-image.png",
-      "nama_santri": "Sholeh",
-      "nama_prgram": "Dalam Pengiriman ",
-    };
-    this.santrilist.push(row5);
-    this.total_santri =this.santrilist.length;
+    this.asp.list_santri_by_donasiid(this.donasi_id).then(
+      data=> {        
+            let result:any;
+            result =data;            
+            this.total_santri=result.data[0].santri.length;
+            if (result.data[0].santri.length === 0)
+            {
+              this.error_msg = "tidak ada data ";
+            }
+            else
+            {
+                  for(let i =0; i <= result.data[0].santri.length-1; i++) {
+                    let row1 = {
+                      "santri_id": result.data[0].santri[i].id,
+                      "photo_url": "assets/images/no-image.png",
+                      "nama_santri": result.data[0].santri[i].santri_nama,
+                      "nama_prgram": "Progress Pembelajaran",
+                      "pencapaian": "40%",
+                    };
+                    this.santrilist.push(row1);
+                  }
+             } 
+      });
+
+      
   }
   goBack(){
     //this.route.navigateByUrl('/dashboard-donatur/tabhome', { replaceUrl: true });

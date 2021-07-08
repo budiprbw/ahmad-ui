@@ -56,12 +56,12 @@ export class SantriKuesionerPage implements OnInit {
 
   userInfo() {
       this.usrinfo =  this.asp.getUserInfo();      
-      this.getSantri();
       this.santri_id  = this.usrinfo.user_id;
       this.user_photoURL = this.usrinfo.ref_object.donatur_lokasi_photo;
       this.user_email = this.usrinfo.user_email;
       this.user_displayName = this.usrinfo.user_displayName;
       this.login_by = this.usrinfo.login_by;
+      this.getSantri();
   }
   async getSantri(){
     await this.asp.login_santri(this.user_email).then(
@@ -80,7 +80,6 @@ export class SantriKuesionerPage implements OnInit {
   onJawab(no, yesno, item: any) {
     //if exist remove
     for (var i = 0; i < this.kuesioner_list.length; i++) {
-      var obj = this.kuesioner_list[i];
 
       if (this.kuesioner_list[i].kuesioner_id == item.id) {
         this.kuesioner_list.splice(i, 1);

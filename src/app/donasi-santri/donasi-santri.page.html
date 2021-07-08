@@ -1,0 +1,31 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button (click)="goBack()">
+          <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+        </ion-button>
+      </ion-buttons>    
+      <ion-title class="ion-text-center">Donasi Santri</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-grid class="santri-donasi">
+    <ion-row>
+      <ion-col>
+          <ion-text color="danger"><h3>{{error_msg}}</h3></ion-text>
+          <div  *ngFor="let item of santrilist;">
+             <div class="santri-date">{{item.donasi_tanggal | date: 'dd-MM-yyyy'  }} </div> 
+          <ion-card class="santri-donasi-Rectangle-656">
+            <div class="santri-donasi-title">              
+                {{item.donasi_jumlah_santri}} Paket Donasi (Rp.{{item.donasi_total_harga|number:0}})
+            </div>
+            <div class="santri-donasi-text" (click)="goDetailSantri(item)" style="cursor:pointer">              
+                <span [innerHTML]="caraBayarCode(item.donasi_cara_bayar)"></span>
+                <ion-icon name="arrow-forward-circle-outline" class="text-black" style="zoom:2.0;float: right;" ></ion-icon>
+            </div>
+          </ion-card>
+        </div>      
+      </ion-col>
+    </ion-row>
+  </ion-grid>       
+  

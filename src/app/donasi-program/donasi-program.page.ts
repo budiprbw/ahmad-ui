@@ -26,12 +26,13 @@ export class DonasiProgramPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.asp.removeUserInfo();
+    this.asp.removeItemDonasi();
     this.cek_referal();
     this.getBeritaKampanye();
     this.vidurl=  JSON.parse(localStorage.getItem("videourl"));
-    console.log(this.vidurl);
     this.urlSafe = this.domSanitizer.bypassSecurityTrustResourceUrl(this.vidurl);      
-    localStorage.removeItem("videourl");
+    //localStorage.removeItem("videourl");
   }
   goBack(){
     this.route.navigateByUrl('/webdashboard', { replaceUrl:true });

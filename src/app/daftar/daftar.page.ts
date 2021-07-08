@@ -168,12 +168,12 @@ export class DaftarPage implements OnInit {
         jenis_donasi_text = "Donasi " + "penuh";
         break;
     }
-    let durasi_donasi = (this.donasi.donasi_total_harga / this.donasi.donasi_tagih);
+    let durasi_donasi = (this.donasi.donasi_total_harga / this.donasi.donasi_nominal);
     let item_donasi = {
       "donasi_tanggal": this.donasi.donasi_tanggal,
       "donasi_cara_bayar": this.donasi.donasi_cara_bayar,
       "jenis_donasi_text": jenis_donasi_text,
-      "donasi_tagih": this.donasi.donasi_tagih,
+      "donasi_tagih": this.donasi.donasi_nominal,
       "donasi_total_harga": this.donasi.donasi_total_harga,
       "donasi_jumlah_santri": this.donasi.donasi_jumlah_santri,
       "durasi_donasi": durasi_donasi,

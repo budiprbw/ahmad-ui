@@ -34,7 +34,13 @@ export class AhmadproviderService {
   private api_santri_profile_save = this.api_url + environment.ahmadApi.santri.update_profile;
   private api_photo_profile_santri = this.api_url + environment.ahmadApi.santri.upload_poto;
   private api_santri_register_referal = this.api_url + environment.ahmadApi.santri.register_referal;
+  private api_santri_bimbingan_progress = this.api_url + environment.ahmadApi.santri.bimbingan_progress;
+  private api_santri_bimbingan_penilaian = this.api_url + environment.ahmadApi.santri.bimbingan_penilaian;
   //#endregion
+
+  //#region Pendamping
+  private api_santri_by_pendampingId = this.api_url + environment.ahmadApi.pendamping.santri_by_pendampingId;
+  //#endregion 
 
   //#region Data Master
   private api_list_berita = this.api_url + environment.ahmadApi.lookup.list_berita;
@@ -48,6 +54,7 @@ export class AhmadproviderService {
   private api_kuesioner_list = this.api_url + environment.ahmadApi.lookup.list_kuesioner;
   private api_lembaga = this.api_url + environment.ahmadApi.lookup.lembaga;
   private api_list_rekening_lembaga = this.api_url + environment.ahmadApi.lookup.list_rekening_lembaga;
+  private api_list_materi = this.api_url + environment.ahmadApi.lookup.list_materi;
   //#endregion
 
   //#region tools
@@ -74,6 +81,8 @@ export class AhmadproviderService {
   private api_by_donasiid_donaturid = this.api_url + environment.ahmadApi.donasi.by_donasiid_donaturid;
   private api_donasi_update_rekening= this.api_url + environment.ahmadApi.donasi.update_rekening;
   private api_donasi_cicilan_donaturid= this.api_url + environment.ahmadApi.donasi.cicilan_donaturid;
+  private api_list_santri_by_donasiid= this.api_url + environment.ahmadApi.donasi.list_santri_by_donasiid;
+
 
   //#endregion
   isLoading = false;
@@ -260,6 +269,15 @@ export class AhmadproviderService {
       });
     });
   }
+  getlist_materi() {
+    return new Promise(resolve => {
+      this.httpclient.get(this.api_list_materi).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
   getAll_propinsi() {
     return new Promise(resolve => {
       this.httpclient.get(this.api_all_propinsi).subscribe(data => {
@@ -313,7 +331,7 @@ export class AhmadproviderService {
         console.log(err);
       });
     });
-  }
+  }  
   login_donatur(user_email) {
     return new Promise(resolve => {
       this.httpclient.get(this.api_donatur_byemail + user_email).subscribe(data => {
@@ -415,6 +433,15 @@ export class AhmadproviderService {
       });
     });
   }
+  santri_bimbingan_progress(santri_id) {
+    return new Promise(resolve => {
+      this.httpclient.get(this.api_santri_bimbingan_progress +  santri_id).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
   kuesioner_santri_simpan(santri_id, kuesioner_list: any) {
     let data = {
       "santri_id": santri_id,
@@ -437,6 +464,7 @@ export class AhmadproviderService {
       });
     });
   }
+
 
   santriUpdateProfile(santri_id,
     santri_nama,
@@ -497,6 +525,44 @@ export class AhmadproviderService {
       resolve(data);
     });
   }
+  santri_bimbingan_penilaian(santri_id,pendamping_id,materi_id,bimbingan_materi_angka,bimbingan_materi_huruf,bimbingan_materi_catatan) {
+    let data = {
+      "santri_id": santri_id,
+      "pendamping_id": pendamping_id,
+      "materi_id": materi_id,
+      "bimbingan_materi_angka": bimbingan_materi_angka,
+      "bimbingan_materi_huruf":bimbingan_materi_huruf,
+      "bimbingan_materi_catatan":bimbingan_materi_catatan
+    };
+    return new Promise(resolve => {
+      this.httpclient.post(this.api_santri_bimbingan_penilaian, data).subscribe(data => {
+        let result = {
+          "message": '',
+          "status": 'OK',
+          "data": data
+        };
+        resolve(result);
+      }, err => {
+        let result = {
+          "message": err.message,
+          "status": 'error'
+        };
+        resolve(result);
+      });
+    });
+  }
+  //#endregion
+
+  //#region Proses Pendamping
+  santri_by_pendampingId(pendamping_id) {
+    return new Promise(resolve => {
+      this.httpclient.get(this.api_santri_by_pendampingId + pendamping_id).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
   //#endregion
 
   //#region Proses Donatur 
@@ -530,6 +596,24 @@ export class AhmadproviderService {
   donasi_cicilan_donaturid(donatur_id) {
     return new Promise(resolve => {
       this.httpclient.get(this.api_donasi_cicilan_donaturid + donatur_id).subscribe(data => {
+        let result = {
+          "message": '',
+          "status": 'OK',
+          "data": data
+        };
+        resolve(result);
+      }, err => {
+        let result = {
+          "message": err.message,
+          "status": 'error'
+        };
+        resolve(result);
+      });
+    });
+  }
+  list_santri_by_donasiid(donasi_id) {
+    return new Promise(resolve => {
+      this.httpclient.get(this.api_list_santri_by_donasiid + donasi_id).subscribe(data => {
         let result = {
           "message": '',
           "status": 'OK',
@@ -797,8 +881,17 @@ export class AhmadproviderService {
   }
 
   setUserInfo(userinfo: any) {
-    if (userinfo.ref_object.donatur_lokasi_photo == null) userinfo.ref_object.donatur_lokasi_photo = "assets/images/no-image.png";
-    if (userinfo.ref_object.donatur_lokasi_photo == "") userinfo.ref_object.donatur_lokasi_photo = "assets/images/no-image.png";
+    if (userinfo.ref_object!=null){
+      if (userinfo.ref_object.donatur_lokasi_photo == null) userinfo.ref_object.donatur_lokasi_photo = "assets/images/no-image.png";
+      if (userinfo.ref_object.donatur_lokasi_photo == "") userinfo.ref_object.donatur_lokasi_photo = "assets/images/no-image.png";
+    }
+    else
+    {
+      let ref_object={
+        "donatur_lokasi_photo":"assets/images/no-image.png"
+      }
+      userinfo.ref_object=ref_object;
+    }
     localStorage.setItem("usrinfo", JSON.stringify(userinfo));
   }
   async removeUserInfo() {

@@ -49,11 +49,10 @@
           <div class="dashboard-donatur-pengingat-content">Cicilan 2 - Tanggal 25 Juni 2021 - Rp000.000</div>
       </ion-card>
       <ion-card class="dashboard-donatur-card2">
-        <div class="dashboard-donatur-card2-text1">Donasi Paket Pembelajaran</div>
-        <div class="dashboard-donatur-card2-text2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Convallis diam
-          semper nunc eget id nisl aliquet iaculis tortor. Enim euismod elementum, viverra pretium vitae quam. Id viverra
-          a, purus elit odio fringilla suspendisse. Accumsan viverra sapien, accumsan, et. Libero, laoreet turpis venenatis
-          sem in. Vivamus id lacus, eleifend vivamus sit. Arcu ultricies tincidunt ut consectetur vulputate ut amet tempus.</div>
+        <div class="dashboard-donatur-card2-text1"> {{line_data_lembaga.lembaga_landing_donatur_judul}}</div>
+        <div class="dashboard-donatur-card2-text2">
+            <span [innerHTML]="html_entity(line_data_lembaga.lembaga_landing_donatur_isi)"></span>
+        </div>
         <div class="dashboard-donatur-button">
           <ion-button fill="clear" slot="end"  routerLink="/penyaluran-donasi">
             <ion-text class="dashboard-donatur-sign-up">

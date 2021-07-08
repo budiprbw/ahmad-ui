@@ -29,7 +29,12 @@ export const environment = {
       find_by_id:"donatur/byid/",
       kuesioner_simpan: "kuesioner/santri/simpan",
       update_profile :"santri/update/profile",
-      register_referal:"santri/register/referral"
+      register_referal:"santri/register/referral",
+      bimbingan_progress : "bimbingan/dashboard/santri/",
+      bimbingan_penilaian :"bimbingan/penilaian/santri"
+    },
+    pendamping:{
+      santri_by_pendampingId: "pendamping/santri/byid/",
     },
     lookup:{
       kode_pos:{
@@ -44,7 +49,8 @@ export const environment = {
       list_berita_entitas:"berita/entitas/",
       list_kuesioner: "kuesioner/list",     
       lembaga:"lembaga",
-      list_rekening_lembaga:"lembaga/rekening/bank"
+      list_rekening_lembaga:"lembaga/rekening/bank",
+      list_materi:"materi/list",
     },
     user:{
       by_login:"user/login",
@@ -63,7 +69,8 @@ export const environment = {
       registrasi_donatur:"donatur/register/donasi",
       update_rekening: "donasi/update/rekening/",
       by_donasiid_donaturid: "donasi/donasiid/",
-      cicilan_donaturid: "donasi/donasiid/",
+      cicilan_donaturid: " donasi/cicilan/donatur/",
+      list_santri_by_donasiid:"donasi/santri/"
     },
     send_wa_message:"message/send/wa",
     referal_send_link : "referral/send/link"

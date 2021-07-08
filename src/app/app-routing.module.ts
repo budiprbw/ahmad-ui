@@ -205,6 +205,18 @@ const routes: Routes = [
   {
     path: 'paket-pembelajaran',
     loadChildren: () => import('./paket-pembelajaran/paket-pembelajaran.module').then( m => m.PaketPembelajaranPageModule)
+  },
+  {
+    path: 'donasi-santri',
+    loadChildren: () => import('./donasi-santri/donasi-santri.module').then( m => m.DonasiSantriPageModule)
+  },
+  {
+    path: 'dashboard-pendamping',
+    loadChildren: () => import('./dashboard-pendamping/dashboard-pendamping.module').then( m => m.DashboardPendampingPageModule)
+  },
+  {
+    path: 'santri-penilaian',
+    loadChildren: () => import('./santri-penilaian/santri-penilaian.module').then( m => m.SantriPenilaianPageModule)
   }
 ];
 @NgModule({

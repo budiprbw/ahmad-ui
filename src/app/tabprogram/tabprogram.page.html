@@ -23,8 +23,10 @@
           </div>
      </ion-card>   
        <ion-card class="dashboard-donatur-program">
-                 <div class="dashboard-donatur-program-title">Donasi Paket Pembelajaran</div>
-                <div class="dashboard-donatur-program-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Convallis diam semper nunc eget id nisl aliquet iaculis tortor. Enim euismod elementum, viverra pretium vitae quam. Id viverra a, purus elit odio fringilla suspendisse. Accumsan viverra sapien, accumsan, et. Libero, laoreet turpis venenatis sem in. Vivamus id lacus, eleifend vivamus sit. Arcu ultricies tincidunt ut consectetur vulputate ut amet tempus.</div>
+                 <div class="dashboard-donatur-program-title">{{line_data_lembaga.lembaga_landing_donatur_judul}}</div>
+                <div class="dashboard-donatur-program-content">
+                    <span [innerHTML]="html_entity(line_data_lembaga.lembaga_landing_donatur_isi)"></span>
+                </div>
                 <div class="dashboard-donatur-program-button">
                     <ion-button fill="clear" slot="end" (click)="goSalurkanDonasi()">
                       <ion-text class="dashboard-donatur-program-sign-up">

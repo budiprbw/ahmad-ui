@@ -80,7 +80,7 @@ export class PembayaranDonasiPage implements OnInit {
       let total_bayar = parseFloat(item_donasi.donasi_tagih);
       this.gran_total = (total_bayar+this.kode_unik);
       this.gran_total_text ="Rp." + this.format_number(this.gran_total);      
-      this.bank_selected= item_donasi.bank_selected[0];
+      this.bank_selected= item_donasi.bank_selected;
       /*
         this.asp.donaturRegisterDonasi(this.user_email,this.user_displayName,temp_donasi_no).then(
             data => {
@@ -102,7 +102,7 @@ export class PembayaranDonasiPage implements OnInit {
     return v.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');    
   }
   goJadualDonasi(){
-    this.router.navigateByUrl('/jadual-pembayaran-donasi', { replaceUrl:true });
+    this.router.navigateByUrl('/jadual-pembayaran-donasi');
   }
   goUbahDonasi(){
     this.router.navigate(['penyaluran-donasi']);

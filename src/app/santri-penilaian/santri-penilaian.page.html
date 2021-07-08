@@ -1,0 +1,76 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button (click)="goBack()">
+          <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-buttons slot="end" class="hidden">
+        <ion-button (click)="goInfoMasuk()">
+          <ion-icon slot="icon-only" name="notifications-circle-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title class="ion-text-center">Penilaian Santri</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-grid class="ion-grid">
+    <ion-row>
+      <ion-col>
+        <ion-card class="dashboard-santri-ion-card-rectangle"  *ngIf="!noProgram">
+            <div class="dashboard-santri-Rectangle-671">
+                <div class="dashboard-santri-ionbook-outline"></div>
+                Belum ada Progress Belajar
+            </div>
+        </ion-card>
+        <ion-card class="dashboard-santri-ion-card-rectangle"  *ngIf="noProgram">
+          <div class="ion-card-title">
+            <ion-label>Progress Belajar</ion-label>
+            <ion-progress-bar value="0.92"></ion-progress-bar>
+          </div>
+          <div class="ion-card-title">
+            <ion-label>Bulan Pendampingan</ion-label>
+            <ion-progress-bar value="0.70"></ion-progress-bar>
+          </div>                    
+        </ion-card>       
+        <ion-card class="program-santri-Rectangle-656">
+          <div class="program-santri-Materi-Pembelajaran">Materi Penilaian</div>
+          <ion-item>
+            <ion-label>Materi</ion-label>
+            <ion-select interface="popover" placeholder="Pilih Materi" [(ngModel)]="materi_id" name="materi_id">
+              <ion-select-option value="{{ item.id }}" *ngFor="let item of materilist">{{ item.materi_nama }}</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-label>Nilai (Angka)</ion-label>
+            <ion-input placeholder="angka" type="number" maxlength="2" [(ngModel)]="bimbingan_materi_angka" name="bimbingan_materi_angka"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Nilai (Huruf)</ion-label>
+            <ion-select placeholder="huruf" [(ngModel)]="bimbingan_materi_huruf" name="bimbingan_materi_huruf">
+              <ion-select-option value="A">A</ion-select-option>
+              <ion-select-option value="B">B</ion-select-option>
+              <ion-select-option value="C">C</ion-select-option>
+              <ion-select-option value="D">D</ion-select-option>
+              <ion-select-option value="E">E</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+              <ion-label>Catatan</ion-label>
+              <ion-input placeholder="Catatan santri" [(ngModel)]="bimbingan_materi_catatan" name="bimbingan_materi_catatan"></ion-input>
+            </ion-item>
+        </ion-card>
+        <ion-card class="donatur-Rectangle-628">
+            <ion-button fill="clear" class="masuk-santri-donatur-button" (click)="goSavePenilaian()">
+                <ion-text class="donatur-profile-card2-Sign-up">
+                    Simpan
+                </ion-text>
+                <div class="">
+                    <ion-icon name="arrow-forward-circle-outline" style="color: black" size="large"></ion-icon>
+                </div>
+            </ion-button>            
+            <ion-text color="danger"><h3>{{error_msg}}</h3></ion-text>
+        </ion-card>
+      </ion-col>
+    </ion-row> 
+   </ion-grid>

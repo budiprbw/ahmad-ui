@@ -12,14 +12,16 @@
 <ion-grid class="riwayat-donasi">
   <ion-row>
     <ion-col>
+        <ion-text color="danger"><h3>{{error_msg}}</h3></ion-text>
         <div  *ngFor="let item of riwayatlist;">
            <div class="riwayat-date">{{item.donasi_tanggal | date: 'dd-MM-yyyy'  }} </div> 
         <ion-card class="riwayat-donasi-Rectangle-656">
           <div class="riwayat-donasi-title">              
-              {{this.total_paket}} Paket Donasi (Rp.{{total_harga}})
+              {{item.donasi_jumlah_santri}} Paket Donasi (Rp.{{item.donasi_total_harga|number:0}})
           </div>
-          <div class="riwayat-donasi-text" (click)="goDetailRiwayat(item)" style="cursor:pointer">
-              {{donasi_cara_bayar }} <ion-icon name="arrow-forward-circle-outline"  style="color: black;float:right;:10px;cursor: pointer; "></ion-icon>
+          <div class="riwayat-donasi-text" (click)="goDetailRiwayat(item)" style="cursor:pointer">              
+              <span [innerHTML]="caraBayarCode(item.donasi_cara_bayar)"></span>
+              <ion-icon name="arrow-forward-circle-outline" class="text-black" style="zoom:2.0;float: right;" ></ion-icon>
           </div>
         </ion-card>
       </div>      

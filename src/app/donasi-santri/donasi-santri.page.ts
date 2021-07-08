@@ -3,15 +3,14 @@ import { ActivatedRoute,Router,NavigationExtras } from '@angular/router';
 import { AhmadproviderService } from '../ahmadprovider.service';
 import { formatNumber } from '@angular/common';
 
-
 @Component({
-  selector: 'app-donasi-riwayat',
-  templateUrl: './donasi-riwayat.page.html',
-  styleUrls: ['./donasi-riwayat.page.scss'],
+  selector: 'app-donasi-santri',
+  templateUrl: './donasi-santri.page.html',
+  styleUrls: ['./donasi-santri.page.scss'],
 })
-export class DonasiRiwayatPage implements OnInit {
+export class DonasiSantriPage implements OnInit {
   public donatur_id:any;
-  public riwayatlist:any=[];
+  public santrilist:any=[];
   public usrinfo:any;
   public total_paket:any;
   public total_harga:any;
@@ -19,42 +18,34 @@ export class DonasiRiwayatPage implements OnInit {
   public error_msg:string="";
 
   constructor(
-      private router: ActivatedRoute,
-      private route : Router,
-      public asp: AhmadproviderService
+  private router: ActivatedRoute,
+    private route : Router,
+    public asp: AhmadproviderService
   ) { }
 
-  ngOnInit() {    
+  ngOnInit() {
     this.usrinfo =  this.asp.getUserInfo();
     this.donatur_id= this.usrinfo.ref_object.id;
-    this.initialdatariwayat();
+    this.donasiSantri();
   }
-  initialdatariwayat(){
+  donasiSantri(){
     this.asp.donasi_cicilan_donaturid( this.donatur_id).then(
       data=> {        
             let result:any;
             result =data;
-            this.riwayatlist= result.data;
-            if (this.riwayatlist.length === 0)
+            this.santrilist= result.data;
+            if (this.santrilist.length === 0)
             {
-              this.error_msg = "tidak ada data jadual pembayaran ";
+              this.error_msg = "tidak ada data ";
             }            
       });
   }
   goBack(){
-    this.route.navigateByUrl('/dashboard-donatur', { replaceUrl:true });
-    //this.asp.go_previous_page();
+    this.asp.go_previous_page();
   }
-  goDetailRiwayat(v){
-    //this.route.navigate(['donasi-detail', { donasi_id: v.id }]);
-    let navigationExtras: NavigationExtras = {
-      state: {
-        cicilan: v.cicilan
-      }
-    };
-    this.route.navigate(['donasi-detail'], navigationExtras);
+  goDetailSantri(v){
+    this.route.navigate(['donasi-santri-list', { donasi_id: v.id }]);
   }
-
   caraBayarCode(str){
     var cara_bayar:string="";
     switch (str) {
@@ -78,4 +69,5 @@ export class DonasiRiwayatPage implements OnInit {
   {
     return this.asp.format_number(val);
   }
+
 }

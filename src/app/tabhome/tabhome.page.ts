@@ -12,6 +12,7 @@ export class TabhomePage implements OnInit {
   public donatur_id:any;
   public usrinfo:any;
   public berita:any;
+  public line_data_lembaga:any=[];
   public hadistList:any=[];
 
   constructor(
@@ -26,11 +27,12 @@ export class TabhomePage implements OnInit {
     this.donatur_id=  this.usrinfo.ref_object.id;
     this.getHadistHariini();
     this.getBeritaKampanye();    
+    this.getDataLembaga();
   
   }
-  getBeritaKampanye(){
+  async getBeritaKampanye(){
     this.belum_donasi=false;
-    this.asp.getlist_berita_kampanye().then(
+    await this.asp.getlist_berita_kampanye().then(
       data=> {        
         this.berita=data;
       });   
@@ -42,10 +44,16 @@ export class TabhomePage implements OnInit {
         this.hadistList=retval.data;
       });   
   }
+  async getDataLembaga(){
+    await this.asp.get_lembaga().then(
+      data=> {        
+            this.line_data_lembaga=data;            
+      });
+  }
 
   
   goLihatdetail(){
-    this.route.navigateByUrl('/donasi-santri-list', { replaceUrl:true });
+    this.route.navigateByUrl('/donasi-santri');
   }
   goPengingat(){
     this.route.navigateByUrl('/donasi-riwayat', { replaceUrl:true });

@@ -25,7 +25,6 @@ export class DonasiDetailPage implements OnInit {
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation().extras.state) {
         this.cicilanlist = this.router.getCurrentNavigation().extras.state.cicilan;
-        console.log(this.cicilanlist);
       }
     });
     

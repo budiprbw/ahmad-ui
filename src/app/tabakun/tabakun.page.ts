@@ -17,6 +17,7 @@ export class TabakunPage implements OnInit {
   public login_by: string = "";
   public donatur_id: string;
   public donaturData:any;
+  public line_data_lembaga:any=[];
 
   constructor(
     private route : Router,
@@ -29,6 +30,7 @@ export class TabakunPage implements OnInit {
   ngOnInit() {
     this.userInfo();
     this.getDonatur();
+    this.getDataLembaga();
   }
   userInfo() {
     this.usrinfo = this.asp.getUserInfo();
@@ -37,12 +39,18 @@ export class TabakunPage implements OnInit {
     this.user_displayName = this.usrinfo.user_displayName;
     this.login_by = this.usrinfo.login_by;
   }
-  getDonatur(){
-    this.asp.login_donatur(this.user_email).then(
+  async getDonatur(){
+    await this.asp.login_donatur(this.user_email).then(
       data => {
         this.donaturData = data;
         this.donatur_id= this.donaturData.id;
-        this.user_photoURL= this.donaturData.donatur_lokasi_photo;
+        if (this.donaturData.donatur_lokasi_photo!=null) this.user_photoURL= this.donaturData.donatur_lokasi_photo;
+      });
+  }
+  async getDataLembaga(){
+    await this.asp.get_lembaga().then(
+      data=> {        
+            this.line_data_lembaga=data;            
       });
   }
   goAjak(){
@@ -72,5 +80,13 @@ export class TabakunPage implements OnInit {
   goInfoMasuk(){
 
   }
+  goKeluar(){
+    this.asp.clearLocalstorage();
+    this.route.navigateByUrl('/webdashboard', { replaceUrl:true });
+  }
+  html_entity(val){
+    return this.asp.html_entity(val);
+  }
+
 
 }
