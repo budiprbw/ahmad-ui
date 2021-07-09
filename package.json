@@ -97,7 +97,7 @@
   "cordova": {
     "plugins": {
       "cordova-plugin-googleplus": {
-        "REVERSED_CLIENT_ID": "169518870541-b2fuohq1lkso25u1mkkafrvk2kpccrm8.apps.googleusercontent.com",                              
+        "REVERSED_CLIENT_ID": "169518870541-b2fuohq1lkso25u1mkkafrvk2kpccrm8.apps.googleusercontent.com",
         "WEB_APPLICATION_CLIENT_ID": "169518870541-b2fuohq1lkso25u1mkkafrvk2kpccrm8.apps.googleusercontent.com"
       },
       "cordova-plugin-whitelist": {},
@@ -114,8 +114,8 @@
       "cordova-plugin-file-transfer": {}
     },
     "platforms": [
-      "browser",
-      "android"
+      "android",
+      "browser"
     ]
   }
 }

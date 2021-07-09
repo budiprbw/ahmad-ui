@@ -108,6 +108,7 @@ export class SantriKuesionerPage implements OnInit {
       }).catch(err => {
         this.asp.dismissLoading();
       });
+      this.asp.dismissLoading();
   }
   cekJawab(item) {
     for (var i = 0; i < this.kuesioner_list.length; i++) {

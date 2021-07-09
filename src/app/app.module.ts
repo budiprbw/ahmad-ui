@@ -18,6 +18,7 @@ import {  RouterModule } from '@angular/router';
 import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
 import { FileTransfer,  FileTransferObject } from '@ionic-native/file-transfer/ngx';
 import { Storage } from '@ionic/storage';
+import {HashLocationStrategy, LocationStrategy, PathLocationStrategy} from '@angular/common';
 
 
 @NgModule({

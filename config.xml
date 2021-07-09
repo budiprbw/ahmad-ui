@@ -16,6 +16,7 @@
     <allow-navigation href="http://localhost:8080/*" />
     <allow-navigation href="https:/*.ahmadproject.org/*" />
     <allow-navigation href="https:/ahmadproject.org/*" />
+    <allow-navigation href="https://*youtube.com/*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="http://localhost:8000" />

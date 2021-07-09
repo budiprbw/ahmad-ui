@@ -10,7 +10,7 @@ import {DomSanitizer,SafeResourceUrl} from '@angular/platform-browser'
 })
 export class DonasiProgramPage implements OnInit {
   //public vidurl: string = "https://www.youtube.com/embed/e-KygsbNVGk";
-  public vidurl: string="";
+  public vidurl:any;
   public  urlSafe: SafeResourceUrl;
   public line_berita:any=[];  
   public referal_kode:any;
@@ -21,18 +21,19 @@ export class DonasiProgramPage implements OnInit {
     private router: ActivatedRoute,
     private route : Router,
     public asp: AhmadproviderService,
-    public domSanitizer: DomSanitizer
-
+    public domSanitizer: DomSanitizer,
   ) { }
 
   ngOnInit() {
-    this.asp.removeUserInfo();
-    this.asp.removeItemDonasi();
-    this.cek_referal();
-    this.getBeritaKampanye();
-    this.vidurl=  JSON.parse(localStorage.getItem("videourl"));
-    this.urlSafe = this.domSanitizer.bypassSecurityTrustResourceUrl(this.vidurl);      
-    //localStorage.removeItem("videourl");
+      this.asp.removeUserInfo();
+      this.asp.removeItemDonasi();
+      this.cek_referal();
+      this.getBeritaKampanye();
+      /*
+      this.vidurl=  JSON.parse(localStorage.getItem("videourl"));
+      this.urlSafe = this.domSanitizer.bypassSecurityTrustResourceUrl(this.vidurl);      
+      localStorage.removeItem("videourl");
+     */
   }
   goBack(){
     this.route.navigateByUrl('/webdashboard', { replaceUrl:true });
@@ -54,7 +55,13 @@ export class DonasiProgramPage implements OnInit {
             this.line_berita=data;
             if (!(JSON.stringify(this.line_berita) === '{}')){
                 if (this.line_berita.berita_web_link!=null){
+                  /*
+                  this.vidurl= JSON.stringify(this.line_berita.berita_web_link);
                   localStorage.setItem("videourl", JSON.stringify(this.line_berita.berita_web_link));                  
+                  this.urlSafe = this.domSanitizer.bypassSecurityTrustResourceUrl(this.line_berita.berita_web_link);  
+                  */
+                  const iframe =  document.getElementById('embeddedPage') as HTMLIFrameElement;
+                  iframe.contentWindow.location.replace(this.line_berita.berita_web_link);  
               }              
             }
       });

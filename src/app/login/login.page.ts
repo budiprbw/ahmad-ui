@@ -153,9 +153,9 @@ export class LoginPage implements OnInit {
         }
         else {
           let object_ref: any;
-          if (this.login_mode == "donatur") object_ref = this.response.donatur;
-          if (this.login_mode == "santri") object_ref = this.response.santri;
-          if (this.login_mode == "pendamping") object_ref = this.response.pendamping;
+          if (this.login_mode == "donatur") object_ref = this.response.data.donatur;
+          if (this.login_mode == "santri") object_ref = this.response.data.santri;
+          if (this.login_mode == "pendamping") object_ref = this.response.data.pendamping;
           let userinfo = {
             "user_id": this.response.id,
             "user_email": this.response.email,
