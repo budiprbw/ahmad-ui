@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
+import { AhmadproviderService } from '../ahmadprovider.service';
 
 @Component({
   selector: 'app-confirm-page',
@@ -10,14 +11,17 @@ export class ConfirmPagePage implements OnInit {
 
   public msg:string;
   constructor(
-    public router:ActivatedRoute
-
+    public router:ActivatedRoute,
+    private route : Router,
+    public asp: AhmadproviderService
   ) { }
 
   ngOnInit() {
     this.msg= this.router.snapshot.paramMap.get("msg");
     console.log(this.msg);
-
+  }
+  goKeluar(){
+    this.route.navigateByUrl('/webdashboard', { replaceUrl:true });
   }
 
 }

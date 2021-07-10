@@ -6,13 +6,22 @@
 
 <ion-grid class="ion-grid">
   <ion-row>
-      <ion-col>
-      <ion-card class="confirm-page-rectangle">
-          <ion-icon name="checkmark-circle-outline" size="large" color="primary" ></ion-icon>
-          <div class="santri-reg-info-text">
-              <h1>{{msg}}</h1>
-        </div>        
-      </ion-card>
+    <ion-col>
+        <ion-card class="confirm-page-rectangle" >
+            <ion-icon name="checkmark-circle-outline" size="large" color="primary"></ion-icon>
+            <div class="confirm-page-Rectangle-671" >
+                <!-- <div class="confirm-page-ionbook-outline"></div> -->
+                {{msg}}
+            </div>
+            <div class="confirm-page-button-keluar">
+                <ion-button fill="clear" slot="end" (click)="goKeluar()">
+                  <ion-text class="confirm-page-button-keluar-text">
+                    Keluar
+                  </ion-text>
+                </ion-button>
+                <ion-icon name="arrow-forward-circle-outline" style="color: white" size="large"></ion-icon>
+              </div>
+        </ion-card>
     </ion-col>
   </ion-row>
 </ion-grid>
