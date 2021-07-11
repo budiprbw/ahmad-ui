@@ -10,8 +10,8 @@ import {DomSanitizer,SafeResourceUrl} from '@angular/platform-browser'
   styleUrls: ['./paket-pembelajaran.page.scss'],
 })
 export class PaketPembelajaranPage implements OnInit {
-  public vidurl: string="";
-  public  urlSafe: SafeResourceUrl;
+  //public vidurl: string="";
+  //public  urlSafe: SafeResourceUrl;
   public line_berita:any=[];  
   public referal_kode:any;
   public usrinfo:any;
@@ -26,10 +26,12 @@ export class PaketPembelajaranPage implements OnInit {
 
   ngOnInit() {
     this.getBeritaKampanye();
+    /*
     this.vidurl=  JSON.parse(localStorage.getItem("videourl"));
     console.log(this.vidurl);
     this.urlSafe = this.domSanitizer.bypassSecurityTrustResourceUrl(this.vidurl);      
     localStorage.removeItem("videourl");
+    */
   }
   goBack(){
     this.route.navigateByUrl('/webdashboard', { replaceUrl:true });
@@ -41,7 +43,9 @@ export class PaketPembelajaranPage implements OnInit {
            this.line_berita=data;
            if (!(JSON.stringify(this.line_berita) === '{}')){
                if (this.line_berita.berita_web_link!=null){
-                 localStorage.setItem("videourl", JSON.stringify(this.line_berita.berita_web_link));                  
+                 //localStorage.setItem("videourl", JSON.stringify(this.line_berita.berita_web_link));                  
+                 const iframe =  document.getElementById('embeddedPage') as HTMLIFrameElement;
+                 iframe.contentWindow.location.replace(this.line_berita.berita_web_link);  
              }              
            }
      });

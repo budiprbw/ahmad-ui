@@ -34,7 +34,7 @@
                             <div class="lg:mb-10">Belajar Alquran <span class="text-white">lebih</span>,</div>
                             <div><span class="text-white pt-3">Bersedekah</span> Lebih</div>
                         </div>
-                        <div class=" text-xs-9 font-medium pt-2 text-left lg:text-md-20 lg:pt-10  lg:pl-10 pr-7">
+                        <div class=" text-xs-9 font-medium text-left lg:text-md-20 lg:pt-10  lg:pl-10 pr-10 text-justify">
                             <div>Asmaul Husna Makna dan Doa (AHMaD) project adalah sebuah</div>
                             <div>program khusus untuk siapa saja yang ingin belajar memahami makna</div>
                             <div>dibalik nama-nama ALLAH SWT yang terdapat didalam Ayat Alquran</div>
@@ -216,12 +216,12 @@
                         <ion-list class="dark:bg-gelapbaru ">
                             <div *ngFor="let d of ask_question; let i=index" text-wrap (click)="toggleGroup(i)" [ngClass]="{active: isGroupShown(i)}">
                                 <div class="flex justify-between card5-Rectangle-614 mt-2 mr-2 mb-2 ">
-                                    <div class="card5-title pt-3 pl-6">{{d.faq_tanya}}</div>
+                                    <div class="card5-title lg:text-md-16 lg:font-bold text-md-12 font-semibold  pt-3 pl-6">{{d.faq_tanya}}</div>
                                     <div class="pt-3 pr-5">
                                         <ion-icon color="warning" item-right [name]="isGroupShown(i) ? 'arrow-down-circle-outline' : 'arrow-up-circle-outline'" size="large"></ion-icon>
                                     </div>
                                 </div>
-                                <div *ngIf="isGroupShown(i)" class="text-black text-left text-xs-9 dark:text-bluey_grey lg:text-xl lg:pl-6">{{d.faq_jawab}}</div>
+                                <div *ngIf="isGroupShown(i)" class="text-black text-left text-md-13 dark:text-bluey_grey lg:text-md-18 lg:pl-6">{{d.faq_jawab}}</div>
                             </div>
                         </ion-list>
                     </ion-card-content>
