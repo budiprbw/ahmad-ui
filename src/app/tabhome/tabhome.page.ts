@@ -14,6 +14,7 @@ export class TabhomePage implements OnInit {
   public berita:any;
   public line_data_lembaga:any=[];
   public hadistList:any=[];
+  public pengingatList:any=[];
 
   constructor(
     private router: ActivatedRoute,
@@ -28,6 +29,7 @@ export class TabhomePage implements OnInit {
     this.getHadistHariini();
     this.getBeritaKampanye();    
     this.getDataLembaga();
+    this.getListPengingat();
   
   }
   async getBeritaKampanye(){
@@ -50,10 +52,17 @@ export class TabhomePage implements OnInit {
             this.line_data_lembaga=data;            
       });
   }
+  async getListPengingat(){
+    await this.asp.getlist_pengingat().then(
+      data=> {        
+            this.pengingatList=data[0];            
+      });
+  }
+
 
   
   goLihatdetail(){
-    this.route.navigateByUrl('/donasi-santri');
+    this.route.navigateByUrl('/donasi-santri-list');
   }
   goPengingat(){
     this.route.navigateByUrl('/donasi-riwayat', { replaceUrl:true });

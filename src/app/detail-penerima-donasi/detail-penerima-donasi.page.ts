@@ -10,6 +10,7 @@ import { AhmadproviderService } from '../ahmadprovider.service';
 })
 export class DetailPenerimaDonasiPage implements OnInit {
 public noProgram:any=true;
+public santri:any;
 public santri_id:any="";
 public nama_santri:any="";
 public bulan_pendampingan:any="";
@@ -21,15 +22,30 @@ public nama_donatur:string="";
 
   constructor(
     private route: Router,
-    private router:ActivatedRoute
+    private router:ActivatedRoute,
+    private asp:AhmadproviderService
   ) { }
 
   ngOnInit() {
-    this.santri_id= this.router.snapshot.paramMap.get("santri_id");
-    this.nama_santri= this.router.snapshot.paramMap.get("nama_santri");
+    this.router.queryParams.subscribe(params => {
+      if (this.route.getCurrentNavigation().extras.state) {
+        this.santri = this.route.getCurrentNavigation().extras.state.santri;
+        this.santri_id= this.santri.santri_id;
+        this.nama_santri= this.santri.nama_santri;
+        this.progress_belajar=this.santri.pencapaian;
+      }
+    });
+    
     this.bulan_pendampingan="0.70";
-    this.progress_belajar="0.92";
-    this.initialsantriprogram();
+    //this.progress_belajar="0.92";
+    this.getMateri();
+
+  }
+  async getMateri(){
+    await this.asp.getlist_materi().then(
+      data => {
+        this.programlist = data;
+      });
   }
   initialsantriprogram(){
     let row1 ={

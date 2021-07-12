@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router,ActivatedRoute } from '@angular/router';
+import { Router,ActivatedRoute,NavigationExtras } from '@angular/router';
 import { AhmadproviderService } from '../ahmadprovider.service';
+import { TouchSequence } from 'selenium-webdriver';
 
 @Component({
   selector: 'app-donasi-santri-list',
@@ -12,6 +13,9 @@ export class DonasiSantriListPage implements OnInit {
   public donasi_id:any;
   public total_santri:any=0;
   public error_msg:string="";
+  public donatur_id:any;
+  public usrinfo:any;
+ 
   constructor(
     public asp: AhmadproviderService,
     public route: Router,
@@ -20,11 +24,44 @@ export class DonasiSantriListPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.donasi_id= this.router.snapshot.paramMap.get("donasi_id");
-    this.initialSantriList();
+    this.usrinfo =  this.asp.getUserInfo();
+    
+    this.getListSantriByDonatur();    
+  }
+  getListSantriByDonatur(){
+    this.donatur_id= this.usrinfo.ref_object.id;
+      this.asp.bimbingan_list_santri_bydonaturid(this.donatur_id).then(
+        data=> {        
+              let result:any;
+              result =data;                         
+              if (result.data.length === 0)
+              {
+                this.error_msg = "tidak ada data ";
+              }
+              else
+              {
+                    for(let i =0; i <= result.data.length-1; i++) {
+                      let santri_lokasi_photo="assets/images/no-image.png";
+                      if ( result.data[i].santri.santri_lokasi_photo!=null) santri_lokasi_photo= result.data[i].santri.santri_lokasi_photo;
+                      let row1 = {
+                        "santri_id": result.data[i].santri.id,
+                        "photo_url":  santri_lokasi_photo,
+                        "nama_santri": result.data[i].santri.santri_nama,
+                        "nama_prgram": result.data[i].bimbingan_predikat,
+                        "pencapaian": result.data[i].bimbingan_progress
+                      };
+                      this.santrilist.push(row1);
+                    }
+                    this.total_santri= this.santrilist.length;
+                    
+               } 
+        });
+  
+
   }
   
   initialSantriList(){
+    this.donasi_id= this.router.snapshot.paramMap.get("donasi_id");
     this.asp.list_santri_by_donasiid(this.donasi_id).then(
       data=> {        
             let result:any;
@@ -46,7 +83,9 @@ export class DonasiSantriListPage implements OnInit {
                     };
                     this.santrilist.push(row1);
                   }
+                  
              } 
+             
       });
 
       
@@ -56,7 +95,13 @@ export class DonasiSantriListPage implements OnInit {
     this.asp.go_previous_page();
   }
   goDetailPenerima(item){
-    this.route.navigate(['detail-penerima-donasi', { santri_id: item.santri_id,nama_santri:item.nama_santri }]);
+    let navigationExtras: NavigationExtras = {
+      state: {
+        santri: item
+      }
+    };
+    this.route.navigate(['detail-penerima-donasi'], navigationExtras);
+    // this.route.navigate(['detail-penerima-donasi', { santri_id: item.santri_id,nama_santri:item.nama_santri }]);
 
   }
 }

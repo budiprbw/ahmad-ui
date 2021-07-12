@@ -25,12 +25,12 @@
           <div class="program-santri-Materi-Pembelajaran">Materi Pembelajaran</div>
           <div *ngFor="let item of programlist" class="program-santri-Rectangle-657">
             <div class="  program-santri-ion-card-title">
-              <ion-label>{{item.progam_name}}<span style="color:black;margin-left:170px ">{{item.program_nilai*100}}%</span><ion-icon
-                  name="arrow-forward-circle-outline" style="color: black;margin-left:5px "></ion-icon>
+              <ion-label>{{item.materi_nama}}<span style="color:black;float:right;padding-right: 30px">{{item.materi_bobot}}%</span>
+                <!-- <ion-icon name="arrow-forward-circle-outline" style="color: black;float:right;margin-left:5px "></ion-icon> -->
               </ion-label>
   
             </div>
-            <ion-progress-bar value="{{item.program_nilai}}"></ion-progress-bar>
+            <ion-progress-bar value="{{item.materi_bobot/100}}"></ion-progress-bar>
   
           </div>
         </ion-card>

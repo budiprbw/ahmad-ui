@@ -24,6 +24,8 @@ export class AhmadproviderService {
   private api_donatur_register_referal = this.api_url + environment.ahmadApi.donatur.register_referal;
   private api_donatur_register_donasi_referal = this.api_url + environment.ahmadApi.donatur.register_donasi_referal;
   private api_hadist_by_donaturid = this.api_url + environment.ahmadApi.donatur.hadist_by_donaturid;
+  private api_bimbingan_list_santri_bydonaturid = this.api_url + environment.ahmadApi.donatur.bimbingan_list_santri_bydonaturid;
+  
   //#endregion
 
   //#region Santri  
@@ -55,6 +57,7 @@ export class AhmadproviderService {
   private api_lembaga = this.api_url + environment.ahmadApi.lookup.lembaga;
   private api_list_rekening_lembaga = this.api_url + environment.ahmadApi.lookup.list_rekening_lembaga;
   private api_list_materi = this.api_url + environment.ahmadApi.lookup.list_materi;
+  private api_pengingat_list = this.api_url + environment.ahmadApi.lookup.pengingat_list;
   //#endregion
 
   //#region tools
@@ -281,6 +284,15 @@ export class AhmadproviderService {
   getlist_materi() {
     return new Promise(resolve => {
       this.httpclient.get(this.api_list_materi).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+  getlist_pengingat() {
+    return new Promise(resolve => {
+      this.httpclient.get(this.api_pengingat_list).subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
@@ -641,6 +653,24 @@ export class AhmadproviderService {
   hadist_by_donaturid(donatur_id) {
     return new Promise(resolve => {
       this.httpclient.get(this.api_hadist_by_donaturid + donatur_id).subscribe(data => {
+        let result = {
+          "message": '',
+          "status": 'OK',
+          "data": data
+        };
+        resolve(result);
+      }, err => {
+        let result = {
+          "message": err.message,
+          "status": 'error'
+        };
+        resolve(result);
+      });
+    });
+  }
+  bimbingan_list_santri_bydonaturid(donatur_id) {
+    return new Promise(resolve => {
+      this.httpclient.get(this.api_bimbingan_list_santri_bydonaturid + donatur_id).subscribe(data => {
         let result = {
           "message": '',
           "status": 'OK',

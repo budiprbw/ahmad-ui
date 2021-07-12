@@ -30,7 +30,7 @@ export class TabprogramPage implements OnInit {
     this.route.navigateByUrl('/donasi-riwayat');
   }
   goListPenerimaDonasi(){
-    this.route.navigateByUrl('/donasi-santri');
+    this.route.navigateByUrl('/donasi-santri-list');
   }
   goStatusPengiriman(){
     this.route.navigateByUrl('/pengiriman-status-donasi');

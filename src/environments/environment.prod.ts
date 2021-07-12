@@ -19,7 +19,8 @@ export const environment = {
       update_profile :"donatur/update/profile/",
       register_referal:"donatur/register/referral",
       register_donasi_referal:"onatur/register/donasi/referral",
-      hadist_by_donaturid:"hadist/entitas/donatur/"
+      hadist_by_donaturid:"hadist/entitas/donatur/",
+      bimbingan_list_santri_bydonaturid:"bimbingan/list/santri/donatur/"
     },
     santri:{
       register:"santri/register",
@@ -51,6 +52,7 @@ export const environment = {
       lembaga:"lembaga",
       list_rekening_lembaga:"lembaga/rekening/bank",
       list_materi:"materi/list",
+      pengingat_list:"pengingat/list"
     },
     user:{
       by_login:"user/login",
