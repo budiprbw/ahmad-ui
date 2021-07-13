@@ -51,6 +51,9 @@ module.exports = {
       },
       spacing: {
         md: '46px'
+      },
+      boxShadow: {
+        'md-A':'box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32)'
       }
     }
   },
