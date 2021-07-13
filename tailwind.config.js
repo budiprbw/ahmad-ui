@@ -5,8 +5,13 @@ module.exports = {
   theme: {
     extend: {     
       width: {
+        '1244': '1244px', 
         '1048': '1048px',      
-        '474': '474px'  
+        '474': '474px',
+        '326': '326px',
+        '336': '336px',
+        '307': '307px',  
+        '500': '500px'  
       },
       height:{
         '660': '660px',        
@@ -35,6 +40,7 @@ module.exports = {
         'md-16': '16px',
         'md-18': '18px',        
         'md-20': '20px',  
+        'md-34': '34px',  
         'md-62': '62px',  
       },
       backgroundColor: theme=> ({
@@ -47,10 +53,12 @@ module.exports = {
         'placeholder':'#bdbdbd'
       }),
       gridTemplateColumns: {
-        'paket': '474px minmax(0, 1fr)'
+        'paket': '474px minmax(0, 1fr)',
+        'program': '546px minmax(0, 1fr)',
       },
       spacing: {
-        md: '46px'
+        md: '46px',
+        sm: '20px',
       },
       boxShadow: {
         'md-A':'box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32)'
