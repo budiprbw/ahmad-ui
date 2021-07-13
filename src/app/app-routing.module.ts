@@ -217,6 +217,10 @@ const routes: Routes = [
   {
     path: 'santri-penilaian',
     loadChildren: () => import('./santri-penilaian/santri-penilaian.module').then( m => m.SantriPenilaianPageModule)
+  },
+  {
+    path: 'program-santri',
+    loadChildren: () => import('./program-santri/program-santri.module').then( m => m.ProgramSantriPageModule)
   }
 ];
 @NgModule({

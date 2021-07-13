@@ -4,6 +4,15 @@ module.exports = {
   darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {     
+      width: {
+        '1048': '1048px',      
+        '474': '474px'  
+      },
+      height:{
+        '660': '660px',        
+        '530': '530px', 
+        '322': '322px', 
+      },
       colors:{
         gold: '#fcc604',
         placeholder:'#fafafa',
@@ -36,7 +45,13 @@ module.exports = {
       }),
       borderColor : theme=> ({
         'placeholder':'#bdbdbd'
-      })
+      }),
+      gridTemplateColumns: {
+        'paket': '474px minmax(0, 1fr)'
+      },
+      spacing: {
+        md: '46px'
+      }
     }
   },
   variants: {

@@ -5,7 +5,9 @@
 @import 'tailwindcss/utilities';
 // Ionic Variables and Theming. For more info, please see:
 // http://ionicframework.com/docs/theming/
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins');
+//@import url('https://fonts.googleapis.com/css2?family=Poppins,wght@600&display=swap');
+
 
 /** Ionic CSS Variables **/
 :root {
@@ -170,7 +172,7 @@
           background-color: var(--ion-color-black);  
         }    
        
-        .card1_banner {
+        .card1_  {
           //width: 1244px;
           //height: 660px;
           // margin: 36px 46px 36px 46px;
@@ -1320,7 +1322,7 @@
               justify-content: center;
               align-items: center;
               gap: 10px;
-              margin: 32px 0 24px;
+              margin: 32px 0 24px 5px;
               //padding: 16px 0px;
               object-fit: contain;
               border-radius: 14px;

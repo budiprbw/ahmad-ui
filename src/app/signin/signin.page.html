@@ -5,7 +5,7 @@
             <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
           </ion-button>
         </ion-buttons>
-        <ion-title  class="ion-text-center">MASUK</ion-title>
+        <ion-title  class="ion-text-center normal-case" style="margin-left:-50px">Masuk</ion-title>
       </ion-toolbar>            
 </ion-header>
 <ion-grid class="Login-Wall">
@@ -15,13 +15,13 @@
         <ion-card-content>
           <div class="Pilih-salah-satu">Pilih salah satu</div>
           <ion-button fill="clear" class="s-button"  [routerLink]=" ['/login']" [queryParams]="{login_mode: 'santri'}">
-            <ion-text class="s-sign-up">Santri</ion-text>
+            <ion-text class="s-sign-up normal-case">Santri</ion-text>
           </ion-button>
           <ion-button fill="clear" class="s-button" [routerLink]="['/login']" [queryParams]="{login_mode: 'donatur'}">
-            <ion-text class="s-sign-up">Donatur</ion-text>
+            <ion-text class="s-sign-up normal-case">Donatur</ion-text>
           </ion-button>
           <ion-button fill="clear" class="s-button"  [routerLink]="['/login']" [queryParams]="{login_mode: 'pendamping'}">
-            <ion-text class="s-sign-up">Pendamping</ion-text>
+            <ion-text class="s-sign-up normal-case">Pendamping</ion-text>
           </ion-button>
         </ion-card-content>
       </ion-card>
