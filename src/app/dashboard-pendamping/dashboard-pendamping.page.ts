@@ -18,6 +18,8 @@ export class DashboardPendampingPage implements OnInit {
   public line_berita: any;
   public pendamping_id: string = "";
   public santrilist: any;
+  public hadistList:any=[];
+  public noHadist:any=false;
 
   constructor(
     public route: Router,
@@ -36,6 +38,7 @@ export class DashboardPendampingPage implements OnInit {
     this.user_displayName = this.usrinfo.user_displayName;
     this.getSantri();
     this.getlistberita();
+    this.getHadistHariini();
   }
   async getSantri(){
     await this.asp.santri_by_pendampingId(this.pendamping_id).then(
@@ -72,6 +75,21 @@ export class DashboardPendampingPage implements OnInit {
   goInfoMasuk() {
     this.route.navigate(['pendamping-notifikasi', { pendamping_id: this.pendamping_id }]);
   }
+  async getHadistHariini(){
+    await this.asp.hadist_by_pendampingId(this.pendamping_id).then(
+      data=> {        
+        let retval:any=data;
+        this.hadistList=retval.data;
+        if (JSON.stringify(this.hadistList) === '{}') 
+        {
+          this.noHadist  =false;
+        }
+        else
+        {
+          this.noHadist  =true;
+        }
+      });   
+  }
   goLihatDetail(item) {
     this.route.navigate(['santri-penilaian', { santri_id: item.id,pembimbing_id:this.pendamping_id }]);
   }
@@ -84,7 +102,6 @@ export class DashboardPendampingPage implements OnInit {
   goKeluar(){
     this.asp.clearLocalstorage();
     this.route.navigateByUrl('/webdashboard', { replaceUrl:true });
-
   }
 
 }

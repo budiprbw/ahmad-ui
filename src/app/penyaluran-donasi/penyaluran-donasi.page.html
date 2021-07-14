@@ -5,7 +5,7 @@
         <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title class="ion-text-center">Donasi Paket Pembelajan</ion-title>
+    <ion-title class="ion-text-center" style="margin-left:-50px">Donasi Paket Pembelajan</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -28,21 +28,22 @@
         </div>
       </ion-card>
       <ion-card class="penyaluran-donasi-jenis-donasi">
+          <div class="Jenis-Donasi">Jenis Donasi</div>
         <div class="penyaluran-donatur-button-pilih-donasi" (click)="goPopupJenisDonasi()">
           <ion-button fill="clear" slot="end">
-            <ion-text class="sign-up-1">
+            <ion-text class="sign-up-1 normal-case">
               {{jenis_donasi_text}}
             </ion-text>
           </ion-button>
-          <ion-icon name="arrow-forward-circle-outline" class="vector" size="large"></ion-icon>
+          <ion-icon name="chevron-forward-circle-outline" class="vector" size="large"></ion-icon>
         </div>
         <div class="penyaluran-donatur-button-nominal-donasi" (click)="goPopupNominalDonasi()">
           <ion-button fill="clear" slot="end">
-            <ion-text class="sign-up-2">
+            <ion-text class="sign-up-2  normal-case">
               {{nominal_donasi_text}}
             </ion-text>
           </ion-button>
-          <ion-icon name="arrow-forward-circle-outline" class="vector_1" size="large"></ion-icon>
+          <ion-icon name="chevron-forward-circle-outline" class="vector_1" size="large"></ion-icon>
         </div>
       </ion-card>
 
@@ -61,11 +62,11 @@
       </ion-card>
 
       <ion-button fill="clear" class="penyaluran-donasi-button" (click)="goLanjutkan()">
-        <ion-text class="penyaluran-donasi-button-Sign-up">
+        <ion-text class="penyaluran-donasi-button-Sign-up normal-case">
           Lanjutkan
         </ion-text>
         <div class="">
-          <ion-icon name="arrow-forward-circle-outline" class="vector_2" size="large"></ion-icon>
+          <ion-icon name="chevron-forward-circle-outline" class="vector_2" size="large"></ion-icon>
         </div>
       </ion-button>
       <ion-text color="danger"><h3>{{error_msg}}</h3></ion-text>

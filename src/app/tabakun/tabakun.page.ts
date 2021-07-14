@@ -59,6 +59,9 @@ export class TabakunPage implements OnInit {
   goProfile(){
     this.route.navigateByUrl('/donatur-profile');    
   }
+  goFAQ(){
+    this.route.navigateByUrl('/faq-list');    
+  }
   goUbahPassword(){        
     this.route.navigateByUrl('/buatpassword');
     

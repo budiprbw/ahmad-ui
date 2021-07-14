@@ -221,6 +221,10 @@ const routes: Routes = [
   {
     path: 'program-santri',
     loadChildren: () => import('./program-santri/program-santri.module').then( m => m.ProgramSantriPageModule)
+  },
+  {
+    path: 'faq-list',
+    loadChildren: () => import('./faq-list/faq-list.module').then( m => m.FaqListPageModule)
   }
 ];
 @NgModule({

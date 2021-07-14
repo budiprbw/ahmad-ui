@@ -3,6 +3,7 @@ import { Router,NavigationExtras  } from '@angular/router';
 import { AhmadproviderService } from '../ahmadprovider.service';
 import { NavController } from '@ionic/angular';
 import { DomSanitizer } from '@angular/platform-browser'
+import { fail } from 'assert';
 
 @Component({
   selector: 'app-dashboard-santri',
@@ -12,12 +13,14 @@ import { DomSanitizer } from '@angular/platform-browser'
 export class DashboardSantriPage implements OnInit {
 public noProgram:any=true;
 public noBerita:any=false;
+public noHadist:any=false;
  public usrinfo: any;
  public user_email: string="";
  public user_displayName:string=""
  public user_photoURL:any;
  public line_berita:any;
  public santri_id:string="";
+ public hadistList:any=[];
 
   constructor(
     public route : Router,
@@ -38,10 +41,11 @@ public noBerita:any=false;
       this.user_email = this.usrinfo.user_email;
       this.user_displayName = this.usrinfo.user_displayName;
       this.getlistberita();
+      this.getHadistHariini();
     
   }
-  getlistberita(){
-    this.asp.getlist_berita_entitas('2').then(
+  async getlistberita(){
+    await this.asp.getlist_berita_entitas('2').then(
       data=> {        
             this.line_berita=data;
             if (this.line_berita.length>0)
@@ -49,6 +53,22 @@ public noBerita:any=false;
               this.noBerita  =true;
             }
       });
+  }
+  async getHadistHariini(){
+    await this.asp.hadist_by_santriid(this.santri_id).then(
+      data=> {        
+        let retval:any=data;
+        this.hadistList=retval.data;
+
+        if (JSON.stringify(this.hadistList) === '{}') 
+        {
+          this.noHadist  =false;
+        }
+        else
+        {
+          this.noHadist  =true;
+        }
+      });   
   }
 
   beritadetail(item){    

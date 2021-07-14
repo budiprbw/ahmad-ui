@@ -10,7 +10,7 @@
           <ion-icon slot="icon-only" name="notifications-circle-outline"></ion-icon>
         </ion-button>
       </ion-buttons>
-      <ion-title class="ion-text-center">Dashboard Pendamping</ion-title>
+      <ion-title class="ion-text-center" style="margin-left:-50px">Dashboard Pendamping</ion-title>
     </ion-toolbar>
   </ion-header>
   
@@ -52,9 +52,17 @@
             </ion-item>
           </ion-list>
         </ion-card>
-        <ion-card class="dashboard-pendamping-ion-card-rectangle">
+        <ion-card class="dashboard-pendamping-ion-card-rectangle" *ngIf="noHadist">
           <div class="ion-card-title">Hadist/Doa Hari ini</div>          
+          <ion-label style="font-weight: bold;"  class="ion-text-wrap">{{hadistList.hadist_judul}}</ion-label>
+          <div class="dashboard-pendamping-card3-text1"><span [innerHTML]="html_entity(hadistList.hadist_isi)"></span></div>
         </ion-card>
+        <ion-card class="dashboard-santri-ion-card-rectangle"  *ngIf="!noHadist">
+          <div class="dashboard-santri-Rectangle-672">
+              <div class="dashboard-santri-ionchatbox-ellipses-outline"></div>
+              Belum ada Hadist/Doa Hari ini
+          </div>
+       </ion-card>
         <div class="pendamping-akun-button-keluar">
             <ion-button fill="clear" slot="end"  (click)="goKeluar()">
                     <ion-text class="pendamping-akun-button-keluar-text">

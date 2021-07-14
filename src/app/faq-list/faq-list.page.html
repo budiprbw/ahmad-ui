@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-button color="primary"  (click)="goBack()">
+            <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+          </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center" style="margin-left:-50px">Frequently Ask Question</ion-title>    
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-grid class="ion-grid">
+  <ion-row>
+    <ion-col>
+        <ion-card class="faq-list-rectangle" >
+          <ion-list class="dark:bg-gelapbaru ">
+            <div *ngFor="let d of ask_question; let i=index" text-wrap (click)="toggleGroup(i)" [ngClass]="{active: isGroupShown(i)}">
+                <div class="flex justify-between card5-Rectangle-614 mt-3 lg:ml-2 mr-2 mb-2 ">
+                    <div class="card5-title lg:text-md-12 lg:font-bold text-md-12 font-semibold  pt-3 pl-6">{{d.faq_tanya}}</div>
+                    <div class="pt-3 pr-5">
+                        <ion-icon color="warning" item-right [name]="isGroupShown(i) ? 'arrow-down-circle-outline' : 'arrow-up-circle-outline'" size="large"></ion-icon>
+                    </div>
+                </div>
+                <div *ngIf="isGroupShown(i)" class="text-black text-left text-md dark:text-bluey_grey lg:text-md-18 lg:pl-8 pl-6">{{d.faq_jawab}}</div>
+            </div>
+        </ion-list>
+        <ion-card class="notif-donatur-Rectangle-656"  *ngIf="noFAQ">
+          <ion-text color="danger"><h3>{{error_msg}}</h3></ion-text>
+      </ion-card>
+            
+        </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>

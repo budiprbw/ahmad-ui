@@ -35,10 +35,12 @@ export const environment = {
       update_profile :"santri/update/profile",
       register_referal:"santri/register/referral",      
       bimbingan_progress : "bimbingan/dashboard/santri/",
-      bimbingan_penilaian :"bimbingan/penilaian/santri"
+      bimbingan_penilaian :"bimbingan/penilaian/santri",
+      hadist_by_santriid: "hadist/entitas/santri/"
     },
     pendamping:{
       santri_by_pendampingId: "pendamping/santri/byid/",
+      hadist_by_pendampingId:"hadist/entitas/pendamping/"
     },
     lookup:{
       kode_pos:{
@@ -55,7 +57,8 @@ export const environment = {
       lembaga:"lembaga",
       list_rekening_lembaga:"lembaga/rekening/bank",
       list_materi:"materi/list",
-      pengingat_list:"pengingat/list"
+      pengingat_list:"pengingat/list",
+      hadist_random:"hadist/random/"
     },
     user:{
       by_login:"user/login",

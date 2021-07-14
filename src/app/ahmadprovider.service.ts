@@ -38,10 +38,12 @@ export class AhmadproviderService {
   private api_santri_register_referal = this.api_url + environment.ahmadApi.santri.register_referal;
   private api_santri_bimbingan_progress = this.api_url + environment.ahmadApi.santri.bimbingan_progress;
   private api_santri_bimbingan_penilaian = this.api_url + environment.ahmadApi.santri.bimbingan_penilaian;
+  private api_hadist_by_santriid = this.api_url + environment.ahmadApi.santri.hadist_by_santriid;
   //#endregion
 
   //#region Pendamping
   private api_santri_by_pendampingId = this.api_url + environment.ahmadApi.pendamping.santri_by_pendampingId;
+  private api_hadist_by_pendampingId = this.api_url + environment.ahmadApi.pendamping.hadist_by_pendampingId;
   //#endregion 
 
   //#region Data Master
@@ -58,6 +60,7 @@ export class AhmadproviderService {
   private api_list_rekening_lembaga = this.api_url + environment.ahmadApi.lookup.list_rekening_lembaga;
   private api_list_materi = this.api_url + environment.ahmadApi.lookup.list_materi;
   private api_pengingat_list = this.api_url + environment.ahmadApi.lookup.pengingat_list;
+  private api_hadist_random = this.api_url + environment.ahmadApi.lookup.hadist_random;
   //#endregion
 
   //#region tools
@@ -299,6 +302,24 @@ export class AhmadproviderService {
       });
     });
   }
+  getHadist_random(jenis) {
+    return new Promise(resolve => {
+      this.httpclient.get(this.api_hadist_random+jenis).subscribe(data => {
+        let result = {
+          "message": '',
+          "status": 'OK',
+          "data": data
+        };
+        resolve(result);
+      }, err => {
+        let result = {
+          "message": err.message,
+          "status": 'error'
+        };
+        resolve(result);
+      });
+    });
+  }
   getAll_propinsi() {
     return new Promise(resolve => {
       this.httpclient.get(this.api_all_propinsi).subscribe(data => {
@@ -405,6 +426,24 @@ export class AhmadproviderService {
   //#endregion
 
   //#region Proses Santri
+  hadist_by_santriid(santri_id) {
+    return new Promise(resolve => {
+      this.httpclient.get(this.api_hadist_by_santriid + santri_id).subscribe(data => {
+        let result = {
+          "message": '',
+          "status": 'OK',
+          "data": data
+        };
+        resolve(result);
+      }, err => {
+        let result = {
+          "message": err.message,
+          "status": 'error'
+        };
+        resolve(result);
+      });
+    });
+  }
   santriRegGmail(user_email, user_name) {
     let data = {
       "email": user_email,
@@ -581,6 +620,24 @@ export class AhmadproviderService {
         resolve(data);
       }, err => {
         console.log(err);
+      });
+    });
+  }
+  hadist_by_pendampingId(pendamping_id) {
+    return new Promise(resolve => {
+      this.httpclient.get(this.api_hadist_by_pendampingId + pendamping_id).subscribe(data => {
+        let result = {
+          "message": '',
+          "status": 'OK',
+          "data": data
+        };
+        resolve(result);
+      }, err => {
+        let result = {
+          "message": err.message,
+          "status": 'error'
+        };
+        resolve(result);
       });
     });
   }

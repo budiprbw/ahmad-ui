@@ -73,7 +73,7 @@ export class PenyaluranDonasiPage implements OnInit {
     modal.onDidDismiss()
       .then((data) => {
         this.jenis_donasi = data['data'];
-        this.jenis_donasi_text = "DONASI " + this.jenis_donasi;
+        this.jenis_donasi_text = "Donasi " + this.jenis_donasi;
       });
     return await modal.present();
   }

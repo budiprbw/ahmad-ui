@@ -16,6 +16,8 @@ export class DonasiProgramPage implements OnInit {
   public referal_kode:any;
   public usrinfo:any;
   public withReferal:boolean=false;
+  public hadistList:any=[];    
+  public noHadist:any=false;
 
   constructor(
     private router: ActivatedRoute,
@@ -29,6 +31,7 @@ export class DonasiProgramPage implements OnInit {
       this.asp.removeItemDonasi();
       this.cek_referal();
       this.getBeritaKampanye();
+      this.getHadistHariini();
       /*
       this.vidurl=  JSON.parse(localStorage.getItem("videourl"));
       this.urlSafe = this.domSanitizer.bypassSecurityTrustResourceUrl(this.vidurl);      
@@ -64,8 +67,26 @@ export class DonasiProgramPage implements OnInit {
                   iframe.contentWindow.location.replace(this.line_berita.berita_web_link);  
               }              
             }
-      });
-    
+      });    
   }
+  async getHadistHariini(){
+    await this.asp.getHadist_random("1").then(
+      data=> {        
+        let retval:any=data;
+        this.hadistList=retval.data;
+        if (JSON.stringify(this.hadistList) === '{}') 
+        {
+          this.noHadist  =false;
+        }
+        else
+        {
+          this.noHadist  =true;
+        }
+      });   
+  }
+  html_entity(val){
+    return this.asp.html_entity(val);    
+   }
+
 
 }

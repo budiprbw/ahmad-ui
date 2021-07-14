@@ -1,6 +1,6 @@
 .penyaluran-donasi-Rectangle-631 {
     width: 343px;
-    height: 272px;
+    //height: 272px;
     margin: 16px;
     padding: 16px;
     border-radius: 14px;
@@ -87,7 +87,10 @@
 }    
 .penyaluran-donasi-value{
     //width: 115px;
-    height: 20px;
+    width: 311px;
+    height: 52px;
+    margin: 16px 0 0;
+    padding: 16px 98px;
     font-family: Poppins;
     font-size: 18px;
     font-weight: 600;
@@ -97,6 +100,8 @@
     letter-spacing: normal;
     text-align: center;
     color: var(--ion-color-goldd);
+    background-color: var(--ion-color-black);
+    border-radius: 14px;
 }
 .penyaluran-donasi-jenis-donasi{
     width: 343px;
@@ -221,9 +226,9 @@
 }
 .vector{
     position: absolute;
-    top :  10%;
+    top :  33%;
     padding: 0px 0px 0px 108px;
-    color: var(--ion-color-goldd);
+    color: var(--ion-color-black);
 }
 .penyaluran-donatur-button-nominal-donasi{
     width: 311px;
@@ -251,9 +256,9 @@
 }
 .vector_1{
     position: absolute;
-    top :50%;
+    top :68%;
     padding: 0px 0px 0px 110px;
-    color: var(--ion-color-goldd);   
+    color: var(--ion-color-black);   
 }
 ion-input{
     position: absolute;
@@ -316,3 +321,17 @@ ion-input{
   object-fit: contain;  
 
 }
+.Jenis-Donasi {
+    width: 90px;
+    height: 20px;
+    margin: 0 217px 16px 4px;
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    text-align: left;
+    color: var(--ion-color-black);
+  }
