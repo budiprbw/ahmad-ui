@@ -32,7 +32,7 @@ export class WebdashboardPage implements OnInit {
 
 
   ngOnInit() {
-    this.asp.removeUserInfo();
+    this.asp.clearLocalstorage();
     this.initDataLembaga();
     this.toggleGroup(0);
   }
@@ -79,17 +79,19 @@ export class WebdashboardPage implements OnInit {
   {       
     if (this.is_dark_mode=='0')
     {
-      /* ionic css document.body.setAttribute('color-theme','dark');    */
+      /* ionic css     */
+      document.body.setAttribute('color-theme','dark');
       this.is_dark_mode='1';
       let htmlclass= document.querySelector('html').classList ;          
       htmlclass.add("class",'dark');  
     }
     else{
       /* document.body.setAttribute('color-theme','light');  */
-
+      document.body.setAttribute('color-theme','light'); 
       let htmlclass= document.querySelector('html').classList ;          
       htmlclass.remove('dark');       
       this.is_dark_mode='0';
+      
     }
       
   }

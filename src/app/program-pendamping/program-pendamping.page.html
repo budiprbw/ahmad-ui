@@ -1,0 +1,42 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button (click)="goBack()">
+                <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title class="ion-text-center" style="margin-left:-50px">Program Pendamping</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="w-full" [scrollEvents]="true">
+  <ion-grid class="ion-grid  lg:w-480 w-375">
+    <ion-row>
+        <ion-col>
+            <ion-card class="pendamping-program-Rectangle-631 lg:ml-16">
+                <ion-item class="mt-5">
+                    <iframe id="embeddedPage" width="100%" height="100%"  frameborder="0" allowfullscreen></iframe>
+                </ion-item>
+            </ion-card>
+            
+            <ion-card class="pendamping-program-Rectangle-632  lg:ml-16" >
+                <div class="pendamping-program-berita-kampanye">
+                    {{this.line_berita.berita_isi}}
+                </div>
+            </ion-card>          
+            
+          <ion-card class="pendamping-program-Rectangle-628  lg:ml-16">
+              <div class="">
+                  <ion-button fill="clear" class=" h-12 w-80  bg-gold rounded-2xl  border-black border lg:bg-gold  lg:rounded-2xl lg:border-gold lg:border lg:ml-4"
+                  routerLink="/login" [queryParams]="{login_mode: 'pendamping'}">
+                      <ion-text class=" text-black text-md-12 lg:text-black lg:text-md-16 items-center normal-case">
+                          Registrasi Menjadi Pendamping
+                      </ion-text>
+                      <ion-icon name="chevron-forward-circle-outline" class="text-black" size="large"></ion-icon>
+                  </ion-button>
+              </div>                         
+          </ion-card>
+          </ion-col>
+   </ion-row> 
+  </ion-grid>   
+</ion-content>          
+  

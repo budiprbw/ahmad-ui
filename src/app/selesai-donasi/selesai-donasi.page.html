@@ -8,13 +8,13 @@
       <ion-title  class="ion-text-center">Menunggu Pembayaran</ion-title>
     </ion-toolbar>
 </ion-header>
-
-<ion-grid class="selesai-donasi">
+<ion-content class="w-full" [scrollEvents]="true">
+<ion-grid class="selesai-donasi  lg:w-480 w-375">
     <ion-row>
       <ion-col>
-          <ion-card class="selesai-donasi-Rectangle-633">
+          <ion-card class="selesai-donasi-Rectangle-633 lg:ml-16">
             <div class="selesai-donasi-text">
-                Thank You Page<br><br>
+                Thank You<br><br>
 
                 Selesaikan pembayaran donasi Anda paling lambat 1 jam kedepan<br><br>                
                 Kami Sudah mengirimkan detail donasi anda ke alamat email<br>
@@ -22,15 +22,16 @@
             </div>            
           </ion-card> 
           <ion-card class="selesai-donasi-Rectangle-628">
-              <ion-button color="warning" fill="clear" class="selesai-donasi-button" (click)="goLanjutkan()">                        
+              <ion-button color="warning" fill="clear" class="selesai-donasi-button lg:ml-16" (click)="goLanjutkan()">                        
                   <ion-text class="selesai-donasi-Sign-up">
                       Lanjutkan                           
                   </ion-text>                        
                   <div class="vector">
-                      <ion-icon name="arrow-forward-circle-outline"   size="large"  ></ion-icon>
+                      <ion-icon name="chevron-forward-circle-outline"   size="large"  ></ion-icon>
                   </div>                      
               </ion-button> 
           </ion-card>
       </ion-col>  
     </ion-row>
  </ion-grid>      
+</ion-content>

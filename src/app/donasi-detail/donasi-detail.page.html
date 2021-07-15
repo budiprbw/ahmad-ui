@@ -8,11 +8,11 @@
       <ion-title class="ion-text-center">Detail Donasi</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <ion-grid class="donasi-detail">
+  <ion-content class="w-full" [scrollEvents]="true">
+  <ion-grid class="donasi-detail  lg:w-480 w-375">
       <ion-row>
         <ion-col>          
-            <ion-card class="donasi-detail-Rectangle-597" >
+            <ion-card class="donasi-detail-Rectangle-597 lg:ml-16" >
             <div class="timeline">
                 <div  *ngFor="let item of cicilanlist;">
                     <div  [ngClass]="item.riwayat_status=='cicil'?'timeline-container-orange right':'timeline-container-green right'">
@@ -27,3 +27,4 @@
         </ion-col>
       </ion-row>
     </ion-grid>    
+  </ion-content>

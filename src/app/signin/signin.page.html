@@ -8,20 +8,23 @@
         <ion-title  class="ion-text-center normal-case" style="margin-left:-50px">Masuk</ion-title>
       </ion-toolbar>            
 </ion-header>
-<ion-grid class="Login-Wall">
+<ion-grid class="Login-Wall lg:w-480 w-375">
   <ion-row>
     <ion-col>
-      <ion-card class="Rectangle-597">
-        <ion-card-content>
+      <ion-card class="Rectangle-597 lg:mt-40 lg:ml-16 mt-20 ml-5 ">
+        <ion-card-content >
           <div class="Pilih-salah-satu">Pilih salah satu</div>
-          <ion-button fill="clear" class="s-button"  [routerLink]=" ['/login']" [queryParams]="{login_mode: 'santri'}">
+          <ion-button fill="clear" class="s-button"  (click)="goLogin('santri')">
             <ion-text class="s-sign-up normal-case">Santri</ion-text>
+            <ion-icon name="chevron-forward-circle-outline" class="text-black items-center " ></ion-icon>
           </ion-button>
-          <ion-button fill="clear" class="s-button" [routerLink]="['/login']" [queryParams]="{login_mode: 'donatur'}">
+          <ion-button fill="clear" class="s-button"  (click)="goLogin('donatur')">
             <ion-text class="s-sign-up normal-case">Donatur</ion-text>
+            <ion-icon name="chevron-forward-circle-outline" class="text-black items-center " ></ion-icon>
           </ion-button>
-          <ion-button fill="clear" class="s-button"  [routerLink]="['/login']" [queryParams]="{login_mode: 'pendamping'}">
+          <ion-button fill="clear" class="s-button"  (click)="goLogin('pendamping')">
             <ion-text class="s-sign-up normal-case">Pendamping</ion-text>
+            <ion-icon name="chevron-forward-circle-outline" class="text-black items-center " ></ion-icon>
           </ion-button>
         </ion-card-content>
       </ion-card>

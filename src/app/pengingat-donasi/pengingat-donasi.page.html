@@ -8,11 +8,11 @@
       <ion-title  class="ion-text-center">Fitur Pengingat</ion-title>
     </ion-toolbar>
 </ion-header>
-
-<ion-grid class="pengingat-donasi">
+<ion-content class="w-full" [scrollEvents]="true">
+<ion-grid class="pengingat-donasi  lg:w-480 w-375">
     <ion-row>
       <ion-col>
-          <ion-card class="pengingat-donasi-Rectangle-633">
+          <ion-card class="pengingat-donasi-Rectangle-633 lg:ml-16">
             <div class="pengingat-donasi-text">
                 <p>Pengingat Pembayaran Diaktifkan!<br><br>
 
@@ -28,15 +28,16 @@
             </div>            
           </ion-card> 
           <ion-card class="pengingat-donasi-Rectangle-628">
-              <ion-button color="warning" fill="clear" class="pengingat-donasi-button" (click)="goRiwayatDonasi()">                        
+              <ion-button color="warning" fill="clear" class="pengingat-donasi-button  lg:ml-16" (click)="goRiwayatDonasi()">                        
                   <ion-text class="pengingat-donasi-Sign-up">
                       Riwayat Donasi                            
                   </ion-text>                        
                   <div class="vector">
-                      <ion-icon name="arrow-forward-circle-outline"   size="large"  ></ion-icon>
+                      <ion-icon name="chevron-forward-circle-outline"   size="large"  ></ion-icon>
                   </div>                      
               </ion-button> 
           </ion-card>
       </ion-col>  
     </ion-row>
  </ion-grid>      
+</ion-content>

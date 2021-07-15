@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LoadingController, Platform } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/auth';
 import  firebase from 'firebase';
@@ -15,6 +16,8 @@ export class SigninPage implements OnInit {
 
   public loading: any;
   public user = null;
+  public referal_kode: any;
+  public is_referal:boolean=false;
 
   constructor(
     private google: GooglePlus,
@@ -22,66 +25,45 @@ export class SigninPage implements OnInit {
     private fireAuth: AngularFireAuth,
     private platform: Platform,
     public location: Location,
-    public asp: AhmadproviderService
+    public asp: AhmadproviderService,
+    private router: ActivatedRoute,
+    public route: Router,
   ) {}
 
  
   async ngOnInit() {
     this.asp.clearLocalstorage();
-    this.loading = await this.loadingController.create({
-      message: 'Connecting ...'
-    });
+    this.cek_referal();
   }
-  doLogin(){
-    let params: any;
-    if (this.platform.is('cordova')) {
-      if (this.platform.is('android')) {
-        params = {
-          webClientId: '169518870541-b2fuohq1lkso25u1mkkafrvk2kpccrm8.apps.googleusercontent.com', //  webclientID 'string'
-          offline: true
-        };
-      } else {
-        params = {};
+  cek_referal() {
+    this.router.params.subscribe((params: any) => {
+      if (params['referal_kode']) {
+        this.referal_kode = params['referal_kode'];
+        localStorage.setItem("referal_kode", this.referal_kode);
+        this.is_referal=true;
       }
-      this.google.login(params)
-      .then((response) => {
-        const { idToken, accessToken } = response;
-        this.onLoginSuccess(idToken, accessToken);
-      }).catch((error) => {
-        console.log(error);
-        alert('error:' + JSON.stringify(error));
-      });
-    } else{
-      console.log('else...');
-      this.fireAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(success => {
-        console.log('success in google login', success);
-        this.user =  success.user;
-      }).catch(err => {
-        console.log(err.message, 'error in google login');
-      });
-    }
-  }
-  onLoginSuccess(accessToken, accessSecret) {
-    const credential = accessSecret ? firebase.auth.GoogleAuthProvider
-        .credential(accessToken, accessSecret) : firebase.auth.GoogleAuthProvider
-            .credential(accessToken);
-    this.fireAuth.signInWithCredential(credential)
-      .then((success) => {
-        alert('successfully');
-        this.user =  success.user;
-        this.loading.dismiss();
-      });
-
-  }
-  onLoginError(err) {
-    console.log(err);
-  }
-  logout() {
-    this.fireAuth.signOut().then(() => {
-    });
-  }
+    })
+  }  
   goBack(){
      this.asp.go_previous_page();
+  }
+  goLogin(p){
+    if (p=='donatur')
+    {
+        if (this.is_referal)
+        {
+          this.route.navigateByUrl('/donasi-program', { replaceUrl:true });
+        }
+        else{
+          this.route.navigateByUrl('/login?login_mode='+p);
+        }
+        
+    }
+    else
+    {
+      this.route.navigateByUrl('/login?login_mode='+p);
+    }
+    
   }
 
 

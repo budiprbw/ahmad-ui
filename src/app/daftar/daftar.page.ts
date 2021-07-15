@@ -52,36 +52,43 @@ export class DaftarPage implements OnInit {
               this.error_msg = "registrasi anda tidak terdaftar";
             }
             else {
-              this.id_user = this.response.data.id;              
-              this.user_displayName = this.response.data.name;
-              this.user_email = this.response.data.email;
-              let object_ref: any;
-
-              this.login_mode = this.user_tipe;
-              if (this.user_tipe == "donatur") {
-                object_ref = this.response.data.donatur;
-                this.donasi = this.response.data.donatur.donasi;
+              if (this.response.data.status=='error')
+              {
+                this.error_msg = this.response.data.message;
               }
-              if (this.user_tipe == "santri") {
+              else
+              {
+                this.id_user = this.response.data.id;              
+                this.user_displayName = this.response.data.name;
+                this.user_email = this.response.data.email;
+                let object_ref: any;
 
-                let santri={
-                  "donatur_lokasi_photo":""
+                this.login_mode = this.user_tipe;
+                if (this.user_tipe == "donatur") {
+                  object_ref = this.response.data.donatur;
+                  this.donasi = this.response.data.donatur.donasi;
                 }
-                object_ref = santri;//this.response.data.santri;
-              }
+                if (this.user_tipe == "santri") {
 
-              this.asp.removeUserInfo();
-              let userinfo = {
-                "user_id": this.id_user,
-                "user_email": this.user_email,
-                "user_displayName": this.user_displayName,
-                "user_photoURL": "",
-                "login_by": "data",
-                "login_mode": this.login_mode,
-                "ref_object": object_ref,
-                "route_from": "daftar",
-              };
-              this.asp.setUserInfo(userinfo);
+                  let santri={
+                    "donatur_lokasi_photo":""
+                  }
+                  object_ref = santri;//this.response.data.santri;
+                }
+
+                this.asp.removeUserInfo();
+                let userinfo = {
+                  "user_id": this.id_user,
+                  "user_email": this.user_email,
+                  "user_displayName": this.user_displayName,
+                  "user_photoURL": "",
+                  "login_by": "data",
+                  "login_mode": this.login_mode,
+                  "ref_object": object_ref,
+                  "route_from": "daftar",
+                };
+                this.asp.setUserInfo(userinfo);
+              }
             }
           });
       }

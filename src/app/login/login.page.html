@@ -8,51 +8,55 @@
     <ion-title class="ion-text-center" style="margin-left:-50px">Masuk</ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-grid class="masuk-santri-donatur">
-  <ion-row>
-    <ion-col>
-      <ion-card class="masuk-santri-donatur-Rectangle-597">
-        <div class="masuk-santri-card-title">
-          Masuk untuk mulai belajar dan berdonasi untuk amal jariyah terbaik
-        </div>
-        <form id="form">
-          <div class="password-Rectangle-630">
-            <ion-input placeholder="Email" [(ngModel)]="user_email" name="user_email" required (ngModelChange)="blurEvent1($event);"></ion-input>
+<ion-content class="w-full" [scrollEvents]="true">
+  <ion-grid class="masuk-santri-donatur lg:w-480 w-375">
+    <ion-row>
+      <ion-col>
+        <ion-card class="masuk-santri-donatur-Rectangle-597 lg:mt-4 lg:ml-16">
+          <div class="masuk-santri-card-title">
+            Masuk untuk mulai belajar dan berdonasi untuk amal jariyah terbaik
           </div>
-          <div class="password-Rectangle-630">
-            <ion-input [type]="getType()" placeholder="password anda" required [(ngModel)]="user_password" name="user_password">
-            </ion-input>
-            <ion-icon name="eye" (click)="toggleTextPassword()" style="padding-left:15px;cursor:pointer" slot=“end”></ion-icon>
-          </div>
-          <ion-text color="danger">
-            <h3>{{error_msg}}</h3>
-          </ion-text>
-
-          <ion-button color="warning" fill="clear" class="masuk-santri-donatur-button" (click)="goLogin()">
-            <ion-text class="donatur-login-card2-Sign-up normal-case">
-              Lanjutkan
-            </ion-text>
-            <div class="">
-              <ion-icon name="arrow-forward-circle-outline" style="color: black" size="large"></ion-icon>
+          <form id="form">            
+              <ion-input class="password-Rectangle-630" placeholder="Email" [(ngModel)]="user_email" name="user_email" required (ngModelChange)="blurEvent1($event);"></ion-input>
+            
+            <div class="password-Rectangle-630">
+              <ion-input [type]="getType()" placeholder="password anda" required [(ngModel)]="user_password" name="user_password">                  
+              </ion-input>
+              <ion-icon name="eye" (click)="toggleTextPassword()" class="ioneye"></ion-icon>
+              
             </div>
-          </ion-button>
-          <div *ngIf="notPendamping">
-          <ion-text class="masuk-santri-donatur-text">belum punya akun? </ion-text>
-            <button ion-button icon-only clear class="masuk-santri-donatur-Registrasi" (click)="gotoregistrasi()">Register</button>
-          </div>
-        </form>
-        <ion-text style="text-align: center">
-          <h3>Atau lebih cepat</h3>
-        </ion-text>
-        <ion-button fill="clear" class="h-12 w-72 bg-white rounded-lg  border-placeholder border lg:bg-white  lg:rounded-2xl lg:border-placeholder lg:border ml-5"
-          (click)="doLogin()">
-          <img src="../../assets/images/Google_Logo.svg" class="mr-10">
-          <ion-text class=" text-black font-semibold text-xs-9 lg:text-black lg:text-md-12 lg:font-semibold items-cente normal-case">
-            Masuk dengan Google
+            <ion-text color="danger">
+              <h3>{{error_msg}}</h3>
+            </ion-text>
+
+            <ion-button color="warning" fill="clear" class="login-wall-button" (click)="goLogin()">
+              <ion-text class="donatur-login-card2-Sign-up normal-case">
+                Lanjutkan
+              </ion-text>
+              <div class="">
+                <ion-icon name="chevron-forward-circle-outline" style="color: black;zoom:1.4"></ion-icon>
+              </div>
+            </ion-button>
+            <div *ngIf="notPendamping">
+              <ion-text class="masuk-santri-donatur-text">Belum Punya Akun? </ion-text>
+              <button ion-button icon-only clear class="masuk-santri-donatur-Registrasi" (click)="gotoregistrasi()">Register</button>
+            </div>
+          </form>
+          
+        </ion-card>
+        <ion-card class="masuk-santri-donatur-Rectangle-598 lg:mt-2 lg:ml-16">
+          <ion-text style="text-align: center">
+            <h3>Atau lebih cepat</h3>
           </ion-text>
-        </ion-button>
-      </ion-card>
-    </ion-col>
-  </ion-row>
-</ion-grid>
+          <ion-button fill="clear" class="h-12 w-72 bg-white rounded-lg  border-placeholder border lg:bg-white  lg:rounded-2xl lg:border-placeholder lg:border ml-4"
+            (click)="doLogin()">
+            <img src="../../assets/images/Google_Logo.svg" class="mr-10">
+            <ion-text class=" text-black font-semibold text-xs-9 lg:text-black lg:text-md-12 lg:font-semibold items-cente normal-case">
+              Masuk dengan Google
+            </ion-text>
+          </ion-button>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,17 +1,18 @@
 <ion-header>
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-button (click)="goBack()">
-          <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
-        </ion-button>
-      </ion-buttons>
-      <ion-title class="ion-text-center">{{nama_santri}}</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-grid class="ion-grid">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">{{nama_santri}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="w-full" [scrollEvents]="true">
+  <ion-grid class="ion-grid  lg:w-480 w-375">
     <ion-row>
       <ion-col>
-        <ion-card class="program-santri-ion-card-rectangle" *ngIf="noProgram">
+        <ion-card class="program-santri-ion-card-rectangle lg:ml-16" *ngIf="noProgram">
           <div class="program-santri-ion-card-title">
             <ion-label>Progress Belajar</ion-label><span style="color:black;float:right">{{progress_belajar*100}}%</span>
             <ion-progress-bar value="{{progress_belajar}}"></ion-progress-bar>
@@ -21,29 +22,29 @@
             <ion-progress-bar value="{{bulan_pendampingan}}"></ion-progress-bar>
           </div>
         </ion-card>
-        <ion-card class="program-santri-Rectangle-656">
+        <ion-card class="program-santri-Rectangle-656 lg:ml-16">
           <div class="program-santri-Materi-Pembelajaran">Materi Pembelajaran</div>
           <div *ngFor="let item of programlist" class="program-santri-Rectangle-657">
             <div class="  program-santri-ion-card-title">
               <ion-label>{{item.materi_nama}}<span style="color:black;float:right;padding-right: 30px">{{item.materi_bobot}}%</span>
                 <!-- <ion-icon name="arrow-forward-circle-outline" style="color: black;float:right;margin-left:5px "></ion-icon> -->
               </ion-label>
-  
+
             </div>
             <ion-progress-bar value="{{item.materi_bobot/100}}"></ion-progress-bar>
-  
+
           </div>
         </ion-card>
-        <ion-card class="program-santri-Rectangle-675">
+        <ion-card class="program-santri-Rectangle-675 lg:ml-16">
           <div class="program-santri-nama-donatur">Nama Donatur</div>
           <div class="program-santri-BapakIbu-Nama">{{nama_donatur}}</div>
-  
+
         </ion-card>
-        <ion-card class="program-santri-Rectangle-675">
+        <ion-card class="program-santri-Rectangle-675 lg:ml-16">
           <div class="program-santri-nama-pendamping">Nama Pendamping</div>
           <div class="program-santri-BapakIbu-Nama">{{nama_pendamping}}</div>
         </ion-card>
       </ion-col>
-  
     </ion-row>
   </ion-grid>
+</ion-content>

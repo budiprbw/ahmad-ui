@@ -1,35 +1,40 @@
 <ion-header>
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-button (click)="goBack()">
-          <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
-        </ion-button>
-      </ion-buttons>
-      <ion-title class="ion-text-center">List Penerima Donasi</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <ion-grid class="donasi-santri-list">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">List Penerima Donasi</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="w-full" [scrollEvents]="true">
+  <ion-grid class="donasi-santri-list  lg:w-480 w-375">
     <ion-row>
-      <ion-col>        
-        <div class="donasi-santri-box-title">
+      <ion-col>
+        <div class="donasi-santri-box-title lg:ml-1">
           <div class="donasi-santri-title">Total Santri Penerima Donasi</div>
           <div class="donasi-santri-text">{{total_santri}} Santri</div>
-          <ion-text color="danger"><h3>{{error_msg}}</h3></ion-text>
-        </div>  
-          <div *ngFor="let item of santrilist;">        
-            <ion-card class="donasi-santri-list-Rectangle-597">
-                <ion-avatar class="pt-4 pl-3">
-                    <img src="{{item.photo_url}}" style="height: 30px;width:30px;" ><br>                            
-                </ion-avatar>      
-              <div class="donasi-pengiriman-nama-santri">
-                {{item.nama_santri}}
-              </div>
-              <div class="donasi-santri-list-text" (click)="goDetailPenerima(item)" style="cursor:pointer">
-                {{item.nama_prgram}} {{item.pencapaian}}% 
-                <ion-icon name="arrow-forward-circle-outline" style="color: black;zoom:2.0;float: right;cursor: pointer"></ion-icon>
-              </div>
-            </ion-card>
-          </div>
+          <ion-text color="danger">
+            <h3>{{error_msg}}</h3>
+          </ion-text>
+        </div>
+        <div *ngFor="let item of santrilist;">
+          <ion-card class="donasi-santri-list-Rectangle-597 lg:ml-1">
+            <ion-avatar class="pt-4 pl-3">
+              <img src="{{item.photo_url}}" style="height: 30px;width:30px;"><br>
+            </ion-avatar>
+            <div class="donasi-pengiriman-nama-santri">
+              {{item.nama_santri}}
+            </div>
+            <div class="donasi-santri-list-text" (click)="goDetailPenerima(item)" style="cursor:pointer">
+              {{item.nama_prgram}} {{item.pencapaian}}%
+              <ion-icon name="arrow-forward-circle-outline" style="color: black;zoom:2.0;float: right;cursor: pointer"></ion-icon>
+            </div>
+          </ion-card>
+        </div>
       </ion-col>
     </ion-row>
-  
+    </ion-grid> 
+</ion-content>

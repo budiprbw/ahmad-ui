@@ -12,7 +12,6 @@ import {DomSanitizer,SafeResourceUrl} from '@angular/platform-browser'
 export class PaketPembelajaranPage implements OnInit {
 
   public line_berita:any=[];  
-  public referal_kode:any;
   public usrinfo:any;
   public withReferal:boolean=false;
   public hadistList:any=[];    

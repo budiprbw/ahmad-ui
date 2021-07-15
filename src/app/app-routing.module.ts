@@ -112,7 +112,7 @@ const routes: Routes = [
   },  
   {
     path: 'gabung/:referal_kode',
-    loadChildren: () => import('./donasi-program/donasi-program.module').then( m => m.DonasiProgramPageModule)
+    loadChildren: () => import('./signin/signin.module').then( m => m.SigninPageModule)
   },
   {
     path: 'donasi-program',
@@ -225,6 +225,10 @@ const routes: Routes = [
   {
     path: 'faq-list',
     loadChildren: () => import('./faq-list/faq-list.module').then( m => m.FaqListPageModule)
+  },
+  {
+    path: 'program-pendamping',
+    loadChildren: () => import('./program-pendamping/program-pendamping.module').then( m => m.ProgramPendampingPageModule)
   }
 ];
 @NgModule({

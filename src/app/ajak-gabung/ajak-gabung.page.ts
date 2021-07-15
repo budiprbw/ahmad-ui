@@ -31,6 +31,7 @@ export class AjakGabungPage implements OnInit {
       this.donatur_kode = this.usrinfo.ref_object.donatur_kode;
   }
   goAjak(){    
+    this.asp.presentLoading("Sending");
     this.asp.referal_send_link(this.donatur_kode, this.no_telepon).then(res=>{
       let retval:any;
       retval= res;
@@ -41,7 +42,9 @@ export class AjakGabungPage implements OnInit {
         {
           this.asp.presentToast("referal berhasil dikirim");
         }
-    })    
+    })
+    this.asp.dismissLoading();    
   }
+  
 
 }

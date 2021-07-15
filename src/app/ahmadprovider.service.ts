@@ -874,9 +874,18 @@ export class AhmadproviderService {
     };
     return new Promise(resolve => {
       this.httpclient.post(this.api_donatur_register_donasi_referal, data).subscribe(data => {
-        resolve(data);
+        let result = {
+          "message": '',
+          "status": 'OK',
+          "data": data
+        };
+        resolve(result);
       }, err => {
-        console.log(err);
+        let result = {
+          "message": err.message,
+          "status": 'error'
+        };
+        resolve(result);      
       });
     });
   }

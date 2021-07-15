@@ -1,10 +1,9 @@
 .password-Rectangle-630 {
-    width: 307px;
+    width: 311px;
     height: 52px;
-    margin: 10px 0 24px 5px;
-    padding: 14px 16px;
+    margin: 32px 0 24px;
+    padding: 16px 188px 16px 16px;
     border-radius: 14px;
-    display:flex;
     border: solid 1px var(--ion-color-goldd);
     background-color: var(--fill-placeholder);
   }
@@ -17,4 +16,28 @@
     text-align: left;
     border: none;
     background-color:transparent;
+}
+.ioneye{
+  width: 24px;
+  height: 24px;
+  margin: 0 0 0 178px;
+  position: absolute;
+  top: 53%;
+  cursor: pointer;
+  z-index: 100;
+}
+.login-wall-button {
+  width: 311px;
+  height: 52px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 32px 0 24px;
+  padding: 16px 20px;
+  object-fit: contain;
+  border-radius: 14px;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.17), 0 0 3px 0 rgba(0, 0, 0, 0.08);
+  background-color: var(--ion-color-goldd);
 }

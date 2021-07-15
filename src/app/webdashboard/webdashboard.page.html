@@ -28,7 +28,7 @@
                 <div  *ngIf="!no_data_lembaga">
                         <ion-text color="danger"><h3>Tidak ada data lembaga</h3></ion-text>
                 </div>                
-                <div class="bg-auto bg-no-repeat bg-cover w-auto h-auto rounded-2xl text-gold font-poppins text-left pr-4" *ngIf="no_data_lembaga">
+                <div class="bg-auto bg-no-repeat bg-cover w-auto h-auto rounded-2xl text-gold font-poppins text-left pr-1" *ngIf="no_data_lembaga">
                     <div class="grid grid-rows-3 grid-cols-1 absolute pl-8 lg:pt-10">
                         <div class="text-xl  pt-2 lg:pt-20 lg:text-md-62 lg:font-bold lg:pl-12 ">
                             <div class="lg:mb-10">Belajar Alquran <span class="text-white">lebih</span>,</div>
@@ -42,14 +42,14 @@
                         <div class="hidden lg:block lg:pt-12 lg:pl-10">
                             <ion-button fill="clear" class="card1-button_lanjut " routerLink="/signin">
                                 <ion-text class="Sign-up normal-case lg:pr-3">
-                                    Pelajari lebih lanjut
+                                    Pelajari Lebih Lanjut
                                 </ion-text>                                
                                 <ion-icon name="chevron-forward-circle-outline" class="text-black items-center " ></ion-icon>
                             </ion-button>                            
                         </div>
                     </div>
 
-                    <img src="assets/images/banner.webp" style="no-repeat;min-width: 100%; min-height: 100%;" class="lg:w-1048 lg:h-660" >
+                    <img src="assets/images/banner.webp" style="no-repeat;min-width: 100%; min-height: 100%;" class="lg:w-1048 lg:h-660 w-343" >
 
                     <div [ngClass]="is_dark_mode=='0'?'button-dark-mode-false':'button-dark-mode-true'" (click)="darkmode()"></div>
 
@@ -65,7 +65,7 @@
                             <h3>Tidak ada data lembaga</h3>
                         </ion-text>
                     </div>
-                    <div class="bg-white  dark:bg-gelapbaru  rounded-3xl shadow-md mt-5 h-auto lg:ml-6 lg:mr-10 lg:h-660 lg:w-1244" *ngIf="no_data_lembaga">
+                    <div class="bg-white  dark:bg-gelapbaru  rounded-3xl shadow-md mt-5 h-auto lg:ml-6 lg:mr-10 lg:h-660 lg:w-1244 h-705 w-343" *ngIf="no_data_lembaga">
                         <div class="text-xl dark:text-gold text-center lg:text-5xl sm:text-xl text-black font-bold font-poppins mt-5 lg:pt-9">
                             {{line_data_lembaga.lembaga_tentang_ahmad_judul}}
                         </div>
@@ -76,23 +76,23 @@
                         <ion-slides [options]="slideOptsOne">
                             <ion-slide *ngFor="let data of images_carousel">
                                 <div class="grid grid-rows-2 grid-cols-1 md:grid-rows-1 md:grid-cols-program md:gap-1 lg:pl-12 lg:mt-9  mt-3">
-                                    <div class="w-500">
-                                        <img src="{{data.image_santri}}" style="width:500px;height: 321px;" />
+                                    <div class="">
+                                        <img src="{{data.image_santri}}" class="w-307 h:197 lg:w-500 lg:h-321" />
                                     </div>
                                     <div class="h-auto lg:p-md">
-                                        <div class="pl-5 mt-5 font-poppins font-bold text-black dark:text-gold text-xl lg:text-2xl lg:font-bold text-left">
+                                        <div class="pl-5 mt-5 font-poppins font-bold text-black dark:text-gold text-xl lg:text-5xl lg:font-bold text-left">
                                             {{data.carousel_title}}
                                         </div>
                                         <div class="pl-5 font-poppins font-bold text-black dark:text-bluey_grey  text-left ">
                                             <span [innerHTML]="html_entity(data.carousel_content)"></span>
                                         </div>
                                         <div class="lg:h-4 lg:w-10 lg:mt-5 mt-10">
-                                            <ion-button fill="clear" class="h-12 w-72 bg-white rounded-lg  border-black border lg:bg-white  lg:rounded-2xl lg:border-black lg:border"
+                                            <ion-button fill="clear" class="lg:h-12 lg:w-72 h-52 w-307 bg-white rounded-lg  border-black border lg:bg-white  lg:rounded-2xl lg:border-black lg:border"
                                                 routerLink="/signin">
-                                                <ion-text class=" text-black font-semibold text-xs-9 lg:text-black lg:text-md-12 lg:font-semibold items-center normal-case lg:pr-3">
-                                                    Pelajari lebih lanjut
+                                                <ion-text class=" text-black  text-md-14 lg:text-black lg:text-md-16  items-center normal-case lg:pr-3">
+                                                    Pelajari Lebih Lanjut
                                                 </ion-text>
-                                                <ion-icon name="chevron-forward-circle-outline" class="text-black items-center"></ion-icon>
+                                                <ion-icon name="chevron-forward-circle-outline" class="text-gold items-center"></ion-icon>
                                             </ion-button>
                                         </div>
                                     </div>
@@ -106,11 +106,11 @@
             <ion-col>
                 <ion-card class="bg-white  dark:bg-gelapbaru  rounded-3xl shadow-md mt-5 lg:ml-6 lg:mr-10 lg:h-530 lg:w-1244">
                     <div class="grid grid-rows-2 grid-cols-1 lg:grid-rows-1 lg:grid-cols-paket lg:gap-1">
-                        <div class="rounded-lg bg-cover w-474 ">
-                            <img src="assets/images/image-paket.webp"  style="no-repeat;min-width: 100%; min-height: 100%;" />
+                        <div class="rounded-lg bg-cover lg:w-474 ">
+                            <img src="assets/images/image-paket.webp"  style="no-repeat;min-width: 100%; min-height: 100%;" class="w-343 h-343" />
                         </div>
                         <div class="lg:p-md">
-                            <div class="font-poppins font-bold text-black text-md-18 dark:text-gold lg:text-md-34 lg:font-bold text-left mt-3 pl-5">
+                            <div class="font-poppins font-bold text-black text-md-18 dark:text-gold lg:text-5xl lg:font-bold text-left mt-3 pl-5">
                                 {{line_data_lembaga.lembaga_landing_produk_judul}}
                             </div>
                             <div class="font-poppins font-bold text-black dark:text-bluey_grey text-left mt-5 pl-5 pr-5 lg:text-md-18">
@@ -146,18 +146,18 @@
                                 </table> -->
                                 <div class="lg:flex">
                                     <div class="lg:flex-auto lg:h-4 lg:mt-8 mt-5">
-                                        <ion-button fill="clear" class=" h-12  lg:w-326 w-307  bg-gold rounded-2xl  border-black border lg:bg-gold  lg:rounded-2xl lg:border-gold lg:border"
+                                        <ion-button fill="clear" class=" h-12  lg:w-326 w-307 h-52   bg-gold rounded-2xl  border-black border lg:bg-gold  lg:rounded-2xl lg:border-gold lg:border"
                                             routerLink="/paket-pembelajaran">
-                                            <ion-text class=" text-black font-semibold text-xs-9 lg:text-black lg:text-md-12 lg:font-bold items-center normal-case lg:pr-3">
-                                                Lihat detail Paket Pembelajaran
+                                            <ion-text class=" text-black text-md-14 lg:text-black lg:text-md-16 items-center normal-case lg:pr-3">
+                                                Lihat Detail Paket Pembelajaran
                                             </ion-text>
                                             <ion-icon name="chevron-forward-circle-outline" class="text-black"></ion-icon>
                                         </ion-button>
                                     </div>
                                     <div class="lg:flex-auto lg:h-4 lg:mt-5 mt-2 ">
-                                        <ion-button fill="clear" class="h-12  lg:w-336 w-307 bg-white dark:bg-black rounded-2xl border-black border lg:bg-white  lg:rounded-2xl lg:border-black lg:border"
+                                        <ion-button fill="clear" class="h-12  lg:w-336 w-307 h-52 lg:mt-4 bg-white dark:bg-black rounded-2xl border-black border lg:bg-white  lg:rounded-2xl lg:border-black lg:border"
                                             routerLink="/signin">
-                                            <ion-text class=" text-black font-semibold text-xs-9 dark:text-gold  lg:text-black lg:text-md-12 lg:font-bold items-center normal-case lg:pr-3">
+                                            <ion-text class=" text-black text-md-14 dark:text-gold  lg:text-black lg:text-md-16 items-center normal-case lg:pr-3">
                                                 Bagikan Halaman ini
                                             </ion-text>
                                             <ion-icon name="share-social-outline" class="text-black dark:text-gold" ></ion-icon>
@@ -175,25 +175,25 @@
         <ion-row class="mb-9">
             <ion-col >
                 <div class="lg:ml-3 lg:mr-2">
-                    <div class="font-poppins font-bold text-black text-xs lg:text-3xl text-left lg:pl-12 lg:pt-10 absolute pl-8 pt-6 ">                    
+                    <div class="font-poppins font-bold text-black text-xs lg:text-5xl text-left lg:pl-12 lg:pt-10 absolute pl-8 pt-6 ">                    
                         {{line_data_lembaga.lembaga_landing_donatur_judul}}
                     </div>
                     <div class="font-poppins font-bold text-black text-left lg:pl-12 lg:pt-20 lg:pr-10 absolute pl-8 mt-12 pr-10">
                             <span [innerHTML]="html_entity(line_data_lembaga.lembaga_landing_donatur_isi)"></span>
                         <div class="lg:flex ">
                             <div class="lg:flex-initial lg:mt-16 mt-1 lg:pr-5 mt-14">
-                                <ion-button fill="clear" class="h-12 w-64 bg-black rounded-2xl  border-black border lg:bg-black   lg:border-black lg:border "
+                                <ion-button fill="clear" class="lg:h-12 lg:w-64 w-270 h-52 bg-black rounded-2xl  border-black border lg:bg-black   lg:border-black lg:border "
                                     routerLink="/donasi-program">
-                                    <ion-text class=" text-gold font-semibold text-xs-9 lg:text-gold lg:text-md-12 lg:font-bold text-left font-poppins normal-case lg:pr-3">
+                                    <ion-text class=" text-gold text-md-14 lg:text-gold lg:text-md-16  text-left normal-case lg:pr-3">
                                         Pelajari Lebih Lanjut
                                     </ion-text>
                                     <ion-icon name="chevron-forward-circle-outline" class="text-gold" ></ion-icon>
                                 </ion-button>
                             </div>
                             <div class="lg:flex-initial lg:mt-16 ">
-                                <ion-button fill="clear" class="h-12 w-64 bg-gold rounded-2xl  border-black border lg:bg-gold lg:border-black lg:border "
+                                <ion-button fill="clear" class="lg:h-12 lg:w-64 w-270 h-52 bg-gold rounded-2xl  border-black border lg:bg-gold lg:border-black lg:border "
                                     routerLink="/signin">
-                                    <ion-text class=" text-black font-semibold text-xs-9 lg:text-black lg:text-md-12 lg:font-bold text-left font-poppins normal-case lg:pr-3">
+                                    <ion-text class="text-black text-md-14 lg:text-black lg:text-md-16 text-left normal-case lg:pr-3">
                                         Bagikan Halaman ini
                                     </ion-text>
                                     <ion-icon name="share-social-outline" class="text-black" ></ion-icon>
@@ -213,7 +213,7 @@
         <ion-row class="mb-9">
             <ion-col>
                 <div class="bg-white dark:bg-gelapbaru rounded-3xl shadow-md  lg:ml-6 lg:mr-10 lg:w-1244 lg:h-screen">
-                        <div class="card5-Frequently-Ask-Question lg:text-2xl text-xl text-black font-bold dark:text-gold lg:pt-5">
+                        <div class="card5-Frequently-Ask-Question lg:text-5xl text-xl text-black font-bold dark:text-gold lg:pt-10 lg:mb-20">
                             Frequently Ask Question
                         </div>
                         <ion-list class="dark:bg-gelapbaru ">
@@ -235,7 +235,7 @@
                 <ion-card class="bg-white dark:bg-gelapbaru rounded-3xl shadow-md mt-10  lg:ml-6 lg:mr-10 lg:h-322">
                     <ion-card-content>
                         <div class="lg:pl-8">
-                            <div class="font-poppins font-bold text-black text-xl lg:text-2xl lg:font-bold text-left  lg:mb-5 dark:text-gold">
+                            <div class="font-poppins font-bold text-black text-xl lg:text-5xl  text-left  lg:mb-5 dark:text-gold">
                                 {{line_data_lembaga.lembaga_landing_mitra_judul}}
                             </div>
                             <div class="font-poppins font-bold text-black text-xs-9  lg:text-md-12 lg:font-bold text-left dark:text-bluey_grey">
@@ -291,7 +291,7 @@
             </ion-col>
         </ion-row>
 
-        <ion-row class="mb-20">
+        <ion-row>
             <ion-col>
             <div class="bg-black w-full pt-5">
                 <div class="logo_putih mb-5">
@@ -320,7 +320,7 @@
                         </ion-button>
                     </div>
                     <div>
-                        <ion-button fill="clear" class="rounded-md border w-64" routerLink="/login" [queryParams]="{login_mode: 'pendamping'}">
+                        <ion-button fill="clear" class="rounded-md border w-64" routerLink="/program-pendamping" [queryParams]="{login_mode: 'pendamping'}">
                             <ion-text class="footer-Program-Pendamping normal-case">
                                 Program Pendamping
                             </ion-text>
@@ -345,21 +345,21 @@
         <ion-card class="bg-white dark:bg-gelapbaru rounded-3xl shadow-md mt-1 h-24  ">
             <div class="lg:flex justify-center">
                 <div class="lg:flex-initial lg:h-5 lg:w-10 lg:mt-5 mt-1 lg:pr-64">
-                    <ion-button fill="clear" class="bg-gold rounded-lg  border-black border lg:bg-gold  lg:rounded-lg lg:border-black lg:border w-60 h-7 lg:h-12 "
+                    <ion-button fill="clear" class="bg-gold rounded-lg  border-black border lg:bg-gold  lg:rounded-lg lg:border-black lg:border w-72 h-7 lg:h-12 "
                         routerLink="/signin">
-                         <ion-text class=" text-black font-semibold text-xs-9 lg:text-black  lg:text-md lg:font-medium w-full text-left font-poppins text-center normal-case lg:pr-3">
+                         <ion-text class=" text-black text-md-14 lg:text-black  lg:text-md-16  w-full text-left font-poppins text-center normal-case lg:pr-3">
                             Registrasi Akun
                         </ion-text>
                         <ion-icon name="chevron-forward-circle-outline" class="text-black"></ion-icon>
                     </ion-button>
                 </div>
                 <div class="lg:flex-initial lg:h-5 lg:w-10 lg:mt-5 ">
-                    <ion-button fill="clear" class="bg-white rounded-lg  border-black border lg:bg-white  lg:rounded-lg lg:border-black lg:border  w-60 h-7 lg:h-12 "
+                    <ion-button fill="clear" class="bg-white dark:bg-black rounded-lg  border-black dark:border-gold border lg:bg-white  lg:rounded-lg lg:border-black lg:border  w-72 h-7 lg:h-12 "
                         routerLink="/donasi-program">
-                        <ion-text class=" text-gold font-semibold text-xs-9 lg:text-gold lg:text-md lg:font-medium w-full text-left font-poppins text-center normal-case lg:pr-3">
+                        <ion-text class="text-black dark:text-gold text-md-14 lg:text-black lg:text-md-16 lg:font-medium w-full text-left font-poppins text-center normal-case lg:pr-3">
                             Menjadi Donatur Program
                         </ion-text>
-                        <ion-icon name="chevron-forward-circle-outline" class="text-black" ></ion-icon>
+                        <ion-icon name="chevron-forward-circle-outline" class="text-black dark:text-gold"></ion-icon>
                     </ion-button>
                 </div>
             </div>

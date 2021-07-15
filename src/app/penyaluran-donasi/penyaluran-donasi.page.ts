@@ -107,16 +107,16 @@ export class PenyaluranDonasiPage implements OnInit {
   caraBayarCode(str){
     var cara_bayar:string="";
     switch (str) {
-      case "harian":
+      case "Harian":
         cara_bayar="1";
         break;
-      case "pekanan":
+      case "Pekanan":
         cara_bayar="2";
         break;
-      case "bulanan":
+      case "Bulanan":
         cara_bayar="3";
         break;
-      case "penuh":
+      case "Penuh":
         cara_bayar="4";
         break;
     }

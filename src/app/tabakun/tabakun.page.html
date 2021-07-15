@@ -3,79 +3,85 @@
     <ion-title class="ion-text-center">Akun Donatur</ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-grid class="ion-grid" >
-    <ion-row>
-      <ion-col>
-          <ion-card class="donatur-akun-Rectangle-637">
-            <div style="float:left">
-              <ion-avatar>
-                <img src="{{user_photoURL}}" class="donatur-akun-Ellipse-87">
-              </ion-avatar>
-              <div class="donatur-akun-nama-User">{{user_displayName}}</div>
-              <div class="donatur-akun-emailemailcom">{{user_email}}</div>
-            </div>
-          </ion-card>
-          <ion-card class="donatur-akun-Rectangle-638" >
-            <div class="donatur-akun-rubah-profile" (click)="goProfile()">
-              <div class="donatur-akun-rubah-profile-text">Ubah Profil
-                <ion-icon name="arrow-forward-circle-outline" class="vector1" size="large"></ion-icon>
-              </div>
-            </div>
-            <div class="donatur-akun-rubah-password" (click)="goUbahPassword()">
-              <div class="donatur-akun-rubah-password-text">Ubah Password
-                <ion-icon name="arrow-forward-circle-outline" class="vector2" size="large"></ion-icon>
-              </div>
-            </div>
-            <div class="donatur-akun-rubah-password">
-              <div class="donatur-akun-rubah-password-text">Tentang Kami
-                <ion-icon name="arrow-forward-circle-outline" class="vector3" size="large"></ion-icon>
-              </div>
-            </div>
-            <div class="donatur-akun-rubah-password"  (click)="goFAQ()">
-              <div class="donatur-akun-rubah-password-text">FAQ
-                <ion-icon name="arrow-forward-circle-outline" class="vector4" size="large"></ion-icon>
-              </div>
-            </div>
-          </ion-card>
-          <ion-card class="donatur-akun-program">
-                <div class="donatur-akun-program-title">{{line_data_lembaga.lembaga_landing_santri_judul}}</div>
-                <div class="donatur-akun-program-content">
-                    <span [innerHTML]="html_entity(line_data_lembaga.lembaga_landing_santri_isi)"></span>
-                </div>
-                <div class="donatur-akun-button">
-                    <ion-button fill="clear" slot="end" routerLink="/santri-kuesioner">
-                        <ion-text class="donatur-akunSign-up normal-case">
-                            Menjadi Santri
-                        </ion-text>
-                    </ion-button>               
-                    <ion-icon name="arrow-forward-circle-outline" style="color: var(--ion-color-goldd);" size="large"></ion-icon>
-            </div>
-          </ion-card> 
-          <ion-card class="donatur-akun-ajak-keluarga">
-              <div class="donatur-akun-ajak-keluarga-text1">
-                    Ajak <span style="color:white">keluarga, teman</span> dan kerabat
-                    bergabung dengan program ini <span style="color:white">baik menjadi</span> donatur <span style="color:white">atau</span> santri
-              </div>
-              <div class="donatur-akun-ajak-keluarga-text2">
-                    Asmaul Husna Makna dan Doa (AHMaD) project adalah sebuah program khusus untuk siapa saja yang ingin belajar memahami makna  dibalik nama-nama ALLAH SWT yang terdapat didalam Ayat Alquran
-              </div>
-              <div class="donatur-akun-ajak-lainnya-button " (click)="goAjak()">
-                    <ion-button fill="clear" slot="end">
-                        <ion-text class="donatur-akun-ajak-lainnya-button-text normal-case">
-                            Ajak yang lainnya
-                        </ion-text>
-                    </ion-button>  
-                    <ion-icon name="arrow-forward-circle-outline" style="color: black" size="large"></ion-icon>             
-              </div>
-          </ion-card>
-          <div class="donatur-akun-button-keluar">
-                <ion-button fill="clear" slot="end"  (click)="goKeluar()">
-                        <ion-text class="donatur-akun-button-keluar-text normal-case">
-                           Keluar
-                        </ion-text>
-                    </ion-button>  
-                    <ion-icon name="arrow-forward-circle-outline" style="color: white" size="large"></ion-icon>
-          </div>
-        </ion-col>
-      </ion-row>  
-</ion-grid>        
+<ion-content class="w-full" [scrollEvents]="true">
+    <div class="flex justify-center">
+        <div>
+        <ion-grid class="ion-grid  lg:w-480 w-375" >
+            <ion-row>
+              <ion-col>
+                  <ion-card class="donatur-akun-Rectangle-637 lg:ml-16">
+                    <div style="float:left">
+                      <ion-avatar>
+                        <img src="{{user_photoURL}}" class="donatur-akun-Ellipse-87">
+                      </ion-avatar>
+                      <div class="donatur-akun-nama-User">{{user_displayName}}</div>
+                      <div class="donatur-akun-emailemailcom">{{user_email}}</div>
+                    </div>
+                  </ion-card>
+                  <ion-card class="donatur-akun-Rectangle-638 lg:ml-16" >
+                    <div class="donatur-akun-rubah-profile" (click)="goProfile()">
+                      <div class="donatur-akun-rubah-profile-text">Ubah Profil
+                        <ion-icon name="chevron-forward-circle-outline" class="vector1" size="large"></ion-icon>
+                      </div>
+                    </div>
+                    <div class="donatur-akun-rubah-password lg:ml-16" (click)="goUbahPassword()">
+                      <div class="donatur-akun-rubah-password-text">Ubah Password
+                        <ion-icon name="chevron-forward-circle-outline" class="vector2" size="large"></ion-icon>
+                      </div>
+                    </div>
+                    <div class="donatur-akun-rubah-password lg:ml-16">
+                      <div class="donatur-akun-rubah-password-text">Tentang Kami
+                        <ion-icon name="chevron-forward-circle-outline" class="vector3" size="large"></ion-icon>
+                      </div>
+                    </div>
+                    <div class="donatur-akun-rubah-password lg:ml-16"  (click)="goFAQ()">
+                      <div class="donatur-akun-rubah-password-text">FAQ
+                        <ion-icon name="chevron-forward-circle-outline" class="vector4" size="large"></ion-icon>
+                      </div>
+                    </div>
+                  </ion-card>
+                  <ion-card class="donatur-akun-program lg:ml-16">
+                        <div class="donatur-akun-program-title">{{line_data_lembaga.lembaga_landing_santri_judul}}</div>
+                        <div class="donatur-akun-program-content">
+                            <span [innerHTML]="html_entity(line_data_lembaga.lembaga_landing_santri_isi)"></span>
+                        </div>
+                        <div class="donatur-akun-button">
+                            <ion-button fill="clear" slot="end" routerLink="/santri-kuesioner">
+                                <ion-text class="donatur-akunSign-up normal-case">
+                                    Menjadi Santri
+                                </ion-text>
+                            </ion-button>               
+                            <ion-icon name="arrow-forward-circle-outline" style="color: var(--ion-color-goldd);" size="large"></ion-icon>
+                    </div>
+                  </ion-card> 
+                  <ion-card class="donatur-akun-ajak-keluarga lg:ml-16">
+                      <div class="donatur-akun-ajak-keluarga-text1">
+                            Ajak <span style="color:white">keluarga, teman</span> dan kerabat
+                            bergabung dengan program ini <span style="color:white">baik menjadi</span> donatur <span style="color:white">atau</span> santri
+                      </div>
+                      <div class="donatur-akun-ajak-keluarga-text2">
+                            Asmaul Husna Makna dan Doa (AHMaD) project adalah sebuah program khusus untuk siapa saja yang ingin belajar memahami makna  dibalik nama-nama ALLAH SWT yang terdapat didalam Ayat Alquran
+                      </div>
+                      <div class="donatur-akun-ajak-lainnya-button " (click)="goAjak()">
+                            <ion-button fill="clear" slot="end">
+                                <ion-text class="donatur-akun-ajak-lainnya-button-text normal-case">
+                                    Ajak yang lainnya
+                                </ion-text>
+                            </ion-button>  
+                            <ion-icon name="chevron-forward-circle-outline" style="color: black;zoom:1.4;" ></ion-icon>             
+                      </div>
+                  </ion-card>
+                   <div class="donatur-akun-button-keluar">
+                          <ion-button fill="clear" slot="end"  (click)="goKeluar()">
+                                  <ion-text class="donatur-akun-button-keluar-text normal-case">
+                                    Keluar
+                                  </ion-text>
+                              </ion-button>  
+                              <ion-icon name="chevron-forward-circle-outline" style="color: white;zoom:1.2;" ></ion-icon>
+                  </div>
+                </ion-col>
+              </ion-row>  
+        </ion-grid>        
+     </div> 
+  </div>      
+</ion-content>
