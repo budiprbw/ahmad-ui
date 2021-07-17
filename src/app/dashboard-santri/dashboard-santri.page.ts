@@ -21,6 +21,7 @@ public noHadist:any=false;
  public line_berita:any;
  public santri_id:string="";
  public hadistList:any=[];
+ public hadistisi:any=[];
 
   constructor(
     public route : Router,
@@ -36,7 +37,7 @@ public noHadist:any=false;
   initpage(){
     
       this.usrinfo = this.asp.getUserInfo();
-      this.santri_id  = this.usrinfo.user_id;
+      this.santri_id  = this.usrinfo.ref_object.id;
       this.user_photoURL = this.usrinfo.ref_object.donatur_lokasi_photo;
       this.user_email = this.usrinfo.user_email;
       this.user_displayName = this.usrinfo.user_displayName;
@@ -59,7 +60,7 @@ public noHadist:any=false;
       data=> {        
         let retval:any=data;
         this.hadistList=retval.data;
-
+        this.hadistisi=retval.data.hadist_isi.substring(0,800);
         if (JSON.stringify(this.hadistList) === '{}') 
         {
           this.noHadist  =false;
@@ -91,7 +92,9 @@ public noHadist:any=false;
    html_entity(val){
      return this.asp.html_entity(val);    
     }
-
+    readMore(item){
+      this.asp.go_page_view_doa(this.hadistList);
+    }
   
 }
     

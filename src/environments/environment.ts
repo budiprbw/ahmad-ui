@@ -16,10 +16,10 @@ export const environment = {
     baseAPIUrl: "https://dev.ahmadproject.org/public/api/",
     donatur:{
       register:  "donatur/register",
-      register_gmail:"donatur/register/gmail",
+      donatur_register_gmail:"donatur/register/gmail",
       upload_poto:"donatur/upload/photo",
       find_by_email:"donatur/byemail/",
-      find_by_id:"donatur/byid/",
+      donatur_find_by_id:"donatur/byid/",
       update_profile :"donatur/update/profile/",      
       register_referal:"donatur/register/referral",
       register_donasi_referal:"donatur/register/donasi/referral",
@@ -28,7 +28,7 @@ export const environment = {
     },
     santri:{
       register:"santri/register",
-      register_gmail:"santri/register/gmail",
+      santri_register_gmail:"santri/register/gmail",
       upload_poto:"santri/upload/photo",
       find_by_email:"santri/byemail",
       kuesioner_simpan: "kuesioner/santri/simpan",

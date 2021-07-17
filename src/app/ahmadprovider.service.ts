@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { NavController, NavParams, AlertController, LoadingController, ToastController } from '@ionic/angular';
 import { Location } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router,NavigationExtras } from '@angular/router';
 import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer/ngx';
 import { FileUploadOptions } from '@ionic-native/file-transfer';
 import { Storage } from '@ionic/storage';
@@ -16,11 +16,11 @@ export class AhmadproviderService {
   readonly api_url: string = environment.ahmadApi.baseAPIUrl;
   //#region Donatur 
   private api_register_donatur = this.api_url + environment.ahmadApi.donatur.register;
-  private api_donatur_register_gmail = this.api_url + environment.ahmadApi.donatur.register_gmail;
+  private api_donatur_register_gmail = this.api_url + environment.ahmadApi.donatur.donatur_register_gmail;
   private api_photo_profile_donatur = this.api_url + environment.ahmadApi.donatur.upload_poto;
   private api_donatur_profile_save = this.api_url + environment.ahmadApi.donatur.update_profile;
   private api_donatur_byemail = this.api_url + environment.ahmadApi.donatur.find_by_email;
-  private api_donatur_byId  = this.api_url + environment.ahmadApi.donatur.find_by_id;
+  private api_donatur_byId  = this.api_url + environment.ahmadApi.donatur.donatur_find_by_id;
   private api_donatur_register_referal = this.api_url + environment.ahmadApi.donatur.register_referal;
   private api_donatur_register_donasi_referal = this.api_url + environment.ahmadApi.donatur.register_donasi_referal;
   private api_hadist_by_donaturid = this.api_url + environment.ahmadApi.donatur.hadist_by_donaturid;
@@ -30,7 +30,7 @@ export class AhmadproviderService {
 
   //#region Santri  
   private api_register_santri = this.api_url + environment.ahmadApi.santri.register;
-  private api_santri_register_gmail = this.api_url + environment.ahmadApi.santri.register_gmail;
+  private api_santri_register_gmail = this.api_url + environment.ahmadApi.santri.santri_register_gmail;
   private api_santri_byemail = this.api_url + environment.ahmadApi.santri.find_by_email;
   private api_santri_kuesioner_simpan = this.api_url + environment.ahmadApi.santri.kuesioner_simpan;
   private api_santri_profile_save = this.api_url + environment.ahmadApi.santri.update_profile;
@@ -1038,6 +1038,16 @@ export class AhmadproviderService {
    }
    format_number(v){
     return v.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');    
+  }
+
+  go_page_view_doa(item){
+    let navigationExtras: NavigationExtras = {
+      state: {
+        judul_doa: item.hadist_judul,
+        isi_doa: item.hadist_isi
+      }
+    };
+    this.route.navigate(['view-doa'], navigationExtras);
   }
 
 

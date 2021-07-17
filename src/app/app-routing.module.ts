@@ -229,6 +229,10 @@ const routes: Routes = [
   {
     path: 'program-pendamping',
     loadChildren: () => import('./program-pendamping/program-pendamping.module').then( m => m.ProgramPendampingPageModule)
+  },
+  {
+    path: 'view-doa',
+    loadChildren: () => import('./view-doa/view-doa.module').then( m => m.ViewDoaPageModule)
   }
 ];
 @NgModule({

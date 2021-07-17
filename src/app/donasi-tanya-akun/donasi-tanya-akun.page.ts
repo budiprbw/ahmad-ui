@@ -29,6 +29,9 @@ public login_mode:string="";
   goLogin(){
     this.route.navigateByUrl('/login?login_mode='+ this.login_mode, { replaceUrl: true });
   }
+  goBack(){
+    
+  }
  
 
 }

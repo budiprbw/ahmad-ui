@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-button color="primary"  (click)="goBack()">
+            <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+          </ion-button>
+    </ion-buttons>
+    <ion-title  class="ion-text-center">Hadist/Doa Hari ini</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="w-full" [scrollEvents]="true">
+    <ion-grid class="ion-grid  lg:w-480 w-375">
+  <ion-card class="view-doa-rectangle  lg:ml-16"  *ngIf="noHadist">
+    <ion-label style="font-weight: bold;"  class="ion-text-wrap">{{judul_doa}}</ion-label>
+      <div class="view-doa-card3-text1"><span [innerHTML]="html_entity(isi_doa)"></span></div>
+  </ion-card>
+  <ion-card class="view-doa-rectangle lg:ml-16"  *ngIf="!noHadist">
+    <div class="view-doa-Rectangle-672">
+        <div class="dashboard-santri-ionchatbox-ellipses-outline"></div>
+        Belum ada Hadist/Doa Hari ini
+    </div>
+  </ion-card>
+</ion-grid>
+</ion-content>

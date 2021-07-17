@@ -69,7 +69,8 @@
               <div class="dashboard-donatur-card3-title">Hadis /Doa Hari Ini</div>
 
               <ion-label style="font-weight: bold;" class="ion-text-wrap">{{hadistList.hadist_judul}}</ion-label>
-              <div class="dashboard-donatur-card3-text1"><span [innerHTML]="html_entity(hadistList.hadist_isi)"></span></div>
+              <div class="dashboard-donatur-card3-text1"><span [innerHTML]="html_entity(hadistisi)"></span></div>
+              <a style="cursor: pointer" (click)="readMore(hadistList.hadist_isi)"> read more.. </a>
             </ion-card>
           </ion-col>       
         </ion-row>

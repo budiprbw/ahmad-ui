@@ -9,28 +9,28 @@ export const environment = {
     appId: "1:169518870541:web:d3e7e2ad40ab35692e6544",
     measurementId: "G-7EZ2Q96LYF"
   },  
-  ahmadApi:{    
+  ahmadApi:{
     baseAPIUrl: "https://dev.ahmadproject.org/public/api/",
     donatur:{
       register:  "donatur/register",
-      register_gmail:"donatur/register/gmail",
-      upload_poto:"donatur/upload/photo/",
+      donatur_register_gmail:"donatur/register/gmail",
+      upload_poto:"donatur/upload/photo",
       find_by_email:"donatur/byemail/",
-      update_profile :"donatur/update/profile/",
+      donatur_find_by_id:"donatur/byid/",
+      update_profile :"donatur/update/profile/",      
       register_referal:"donatur/register/referral",
-      register_donasi_referal:"onatur/register/donasi/referral",
+      register_donasi_referal:"donatur/register/donasi/referral",
       hadist_by_donaturid:"hadist/entitas/donatur/",
       bimbingan_list_santri_bydonaturid:"bimbingan/list/santri/donatur/"
     },
     santri:{
       register:"santri/register",
-      register_gmail:"santri/register/gmail",
-      upload_poto:"santri/upload/photo/",
+      santri_register_gmail:"santri/register/gmail",
+      upload_poto:"santri/upload/photo",
       find_by_email:"santri/byemail",
-      find_by_id:"donatur/byid/",
       kuesioner_simpan: "kuesioner/santri/simpan",
       update_profile :"santri/update/profile",
-      register_referal:"santri/register/referral",
+      register_referal:"santri/register/referral",      
       bimbingan_progress : "bimbingan/dashboard/santri/",
       bimbingan_penilaian :"bimbingan/penilaian/santri",
       hadist_by_santriid: "hadist/entitas/santri/"
@@ -50,7 +50,7 @@ export const environment = {
       list_berita: "berita/list",      
       list_berita_kampanye:"berita/kampanye",
       list_berita_entitas:"berita/entitas/",
-      list_kuesioner: "kuesioner/list",     
+      list_kuesioner: "kuesioner/list",
       lembaga:"lembaga",
       list_rekening_lembaga:"lembaga/rekening/bank",
       list_materi:"materi/list",
@@ -74,7 +74,7 @@ export const environment = {
       registrasi_donatur:"donatur/register/donasi",
       update_rekening: "donasi/update/rekening/",
       by_donasiid_donaturid: "donasi/donasiid/",
-      cicilan_donaturid: " donasi/cicilan/donatur/",
+      cicilan_donaturid: "donasi/cicilan/donatur/",     
       list_santri_by_donasiid:"donasi/santri/"
     },
     send_wa_message:"message/send/wa",

@@ -15,6 +15,7 @@ export class TabhomePage implements OnInit {
   public line_data_lembaga:any=[];
   public hadistList:any=[];
   public pengingatList:any=[];
+  public hadistisi:any=[];
 
   constructor(
     private router: ActivatedRoute,
@@ -44,6 +45,7 @@ export class TabhomePage implements OnInit {
       data=> {        
         let retval:any=data;
         this.hadistList=retval.data;
+        this.hadistisi=retval.data.hadist_isi.substring(0,800);
       });   
   }
   async getDataLembaga(){
@@ -58,8 +60,6 @@ export class TabhomePage implements OnInit {
             this.pengingatList=data[0];            
       });
   }
-
-
   
   goLihatdetail(){
     this.route.navigateByUrl('/donasi-santri-list');
@@ -73,8 +73,11 @@ export class TabhomePage implements OnInit {
   goSalurkanDonasi(){
     this.route.navigateByUrl('/penyaluran-donasi', { replaceUrl:true });
   }
-  html_entity(val){
+  html_entity(val){    
     return this.asp.html_entity(val);
+  }
+  readMore(item){
+    this.asp.go_page_view_doa(this.hadistList);
   }
 
 }

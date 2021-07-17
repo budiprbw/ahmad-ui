@@ -16,8 +16,6 @@ export class DonasiProgramPage implements OnInit {
   public referal_kode: any;
   public usrinfo: any;
   public withReferal: boolean = false;
-  public hadistList: any = [];
-  public noHadist: any = false;
 
   constructor(
     private router: ActivatedRoute,
@@ -31,12 +29,7 @@ export class DonasiProgramPage implements OnInit {
     this.asp.removeItemDonasi();
     this.cek_referal();
     this.getBeritaKampanye();
-    this.getHadistHariini();
-    /*
-    this.vidurl=  JSON.parse(localStorage.getItem("videourl"));
-    this.urlSafe = this.domSanitizer.bypassSecurityTrustResourceUrl(this.vidurl);      
-    localStorage.removeItem("videourl");
-   */
+    
   }
   goBack() {
     this.route.navigateByUrl('/webdashboard', { replaceUrl: true });
@@ -56,33 +49,15 @@ export class DonasiProgramPage implements OnInit {
         this.line_berita = data;
         if (!(JSON.stringify(this.line_berita) === '{}')) {
           if (this.line_berita.berita_web_link != null) {
-            /*
-            this.vidurl= JSON.stringify(this.line_berita.berita_web_link);
-            localStorage.setItem("videourl", JSON.stringify(this.line_berita.berita_web_link));                  
-            this.urlSafe = this.domSanitizer.bypassSecurityTrustResourceUrl(this.line_berita.berita_web_link);  
-            */
             const iframe = document.getElementById('embeddedPage') as HTMLIFrameElement;
             iframe.contentWindow.location.replace(this.line_berita.berita_web_link);
           }
         }
       });
   }
-  async getHadistHariini() {
-    await this.asp.getHadist_random("1").then(
-      data => {
-        let retval: any = data;
-        this.hadistList = retval.data;
-        if (JSON.stringify(this.hadistList) === '{}') {
-          this.noHadist = false;
-        }
-        else {
-          this.noHadist = true;
-        }
-      });
+  readMore(item){
+    this.asp.go_page_view_doa(item);
   }
-  html_entity(val) {
-    return this.asp.html_entity(val);
-  }
-
+  
 
 }

@@ -256,16 +256,16 @@ export class LoginPage implements OnInit {
             this.route.navigateByUrl('/santri-profile', { replaceUrl: true });
             break;
           case "4":
+            this.route.navigate(['confirm-page', { msg: "Mohon bersabar,Produk anda belum sampai" }]);            
+            break;
+          case "5":            
             this.route.navigateByUrl('/dashboard-santri', { replaceUrl: true });
             break;
-          case "5":
-            this.route.navigate(['confirm-page', { msg: "Mohon bersabar,Produk anda belum sampai" }]);
+          case "6":            
+            this.route.navigateByUrl('/dashboard-santri', { replaceUrl: true }); //this.route.navigate(['confirm-page', { msg: "Produk anda telah sampai" }]);
             break;
-          case "6":
-            this.route.navigate(['confirm-page', { msg: "Produk anda telah sampai" }]);
-            break;
-          case "7":
-            this.route.navigate(['confirm-page', { msg: "dalam bimbingan" }]);
+          case "7":            
+            this.route.navigateByUrl('/dashboard-santri', { replaceUrl: true });//this.route.navigate(['confirm-page', { msg: "dalam bimbingan" }]);
             break;
           case "8":
             this.route.navigate(['confirm-page', { msg: "bimbingan telah selesai" }]);

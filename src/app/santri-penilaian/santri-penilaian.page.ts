@@ -69,5 +69,8 @@ export class SantriPenilaianPage implements OnInit {
   goBack(){
     this.asp.go_previous_page();
   }
+  goInfoMasuk(){
+    
+  }
 
 }

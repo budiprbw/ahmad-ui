@@ -13,18 +13,18 @@
     <ion-title class="ion-text-center" style="margin-left:-50px">Dashboard Santri</ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-grid class="ion-grid">
+<ion-content class="w-full" [scrollEvents]="true">
+<ion-grid class="ion-grid  lg:w-480 w-375">
   <ion-row>
     <ion-col>
-      <ion-card class="dashboard-santri-ion-card-rectangle"  *ngIf="!noProgram">
+      <ion-card class="dashboard-santri-ion-card-rectangle lg:ml-16"  *ngIf="!noProgram">
           <div class="dashboard-santri-Rectangle-671">
               <div class="dashboard-santri-ionbook-outline"></div>
               Mohon bersabar, Anda belum mendapat paket pembelajaran
               Program AHMaD Project
           </div>
       </ion-card>
-      <ion-card class="dashboard-santri-ion-card-rectangle"  *ngIf="noProgram">
+      <ion-card class="dashboard-santri-ion-card-rectangle lg:ml-16"  *ngIf="noProgram">
         <div class="ion-card-title">
           <ion-label>Progress Belajar</ion-label>
           <ion-progress-bar value="0.92"></ion-progress-bar>
@@ -39,7 +39,7 @@
             <ion-icon name="arrow-forward-circle-outline" style="color: black" ></ion-icon>
         </div>
       </ion-card>
-      <ion-card class="dashboard-santri-ion-card-rectangle"  *ngIf="!noBerita">
+      <ion-card class="dashboard-santri-ion-card-rectangle lg:ml-16"  *ngIf="!noBerita">
           <div class="dashboard-santri-Rectangle-672">
               <div class="dashboard-santri-ionchatbox-ellipses-outline"></div>
               Belum ada berita atau event
@@ -55,12 +55,13 @@
           </ion-item>
         </ion-list>
       </ion-card>
-      <ion-card class="dashboard-santri-ion-card-rectangle"  *ngIf="noHadist">
+      <ion-card class="dashboard-santri-ion-card-rectangle lg:ml-16"  *ngIf="noHadist">
         <div class="ion-card-title">Hadist/Doa Hari ini</div>
         <ion-label style="font-weight: bold;"  class="ion-text-wrap">{{hadistList.hadist_judul}}</ion-label>
-          <div class="dashboard-santri-card3-text1"><span [innerHTML]="html_entity(hadistList.hadist_isi)"></span></div>
+          <div class="dashboard-santri-card3-text1"><span [innerHTML]="html_entity(hadistisi)"></span></div>
+          <a style="cursor: pointer" (click)="readMore(hadistList.hadist_isi)"> read more.. </a>
       </ion-card>
-      <ion-card class="dashboard-santri-ion-card-rectangle"  *ngIf="!noHadist">
+      <ion-card class="dashboard-santri-ion-card-rectangle lg:ml-16"  *ngIf="!noHadist">
         <div class="dashboard-santri-Rectangle-672">
             <div class="dashboard-santri-ionchatbox-ellipses-outline"></div>
             Belum ada Hadist/Doa Hari ini
@@ -69,3 +70,4 @@
     </ion-col>
   </ion-row>
 </ion-grid>
+</ion-content>
