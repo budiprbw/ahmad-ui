@@ -58,6 +58,11 @@ export class DonasiProgramPage implements OnInit {
   readMore(item){
     this.asp.go_page_view_doa(item);
   }
+
+  async shareLink(){
+    let wsurl='https://dev.ahmadproject.org/donasi-program';
+    await this.asp.shareLink(wsurl);
+  }
   
 
 }

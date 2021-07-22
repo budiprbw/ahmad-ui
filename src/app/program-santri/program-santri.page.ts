@@ -66,6 +66,10 @@ export class ProgramSantriPage implements OnInit {
   html_entity(val){
     return this.asp.html_entity(val);    
    }
+    async shareLink(){
+      let wsurl='https://dev.ahmadproject.org/program-santri';
+      await this.asp.shareLink(wsurl);
+   }
 
 
 }

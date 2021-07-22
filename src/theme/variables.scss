@@ -394,6 +394,9 @@
           //   display: none;
           // }
         }
+        ion-button{
+          height: 52px;
+        }
         
         .swiper-slide{
             display: block;
@@ -814,7 +817,7 @@
           border-radius: 50%;
           cursor: pointer;
           content:url('../assets/images/akar-icons_circle-chevron-up.svg');       
-          z-index: 100;
+          z-index: 110;
         }
         .button-dark-mode-true {
           position: fixed;
@@ -832,7 +835,7 @@
           border-radius: 50%;
           cursor: pointer;             
           content:url('../assets/images/Vector_dark.svg');        
-          z-index: 100;
+          z-index: 110;
         }  
         .button-dark-mode-false {
           position: fixed;
@@ -850,7 +853,7 @@
           border-radius: 50%;
           cursor: pointer;             
           content:url('../assets/images/Vector.svg');       
-          z-index: 100;
+          z-index: 110;
         }  
         .Ellipse-2 {
           position: absolute;
@@ -934,14 +937,14 @@
           color: var(--ion-color-black);
         }
         .card6-button-lanjut{
-            width: 260px;
+            width: 307px;
             height: 52px;
             display: flex;
             flex-direction: row;
             justify-content: flex-start;
             align-items: center;
             gap: 10px;
-            margin: 32px 932px 0 0;
+            margin: 32px 932px 0 -10px;
             padding: 16px 20px;
             object-fit: contain;
             border-radius: 14px;
@@ -1396,16 +1399,16 @@
             color: #000000;
           }
           .Registrasi-Santri-grid{
-            width: 375px;
+            //width: 375px;
             height: 812px;
             //flex-grow: 0;
-            padding: 0 0 104px;
+            //padding: 0 0 104px;
             background-color: #efeffe;
           }
           .Registrasi-Santri-Rectangle-597{
-              width: 330px;
+              width: 343px;
               //height: 376px;
-              margin: 16px;
+              //margin: 16px;
               padding: 24px 16px;
               border-radius: 14px;
               box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
@@ -1422,7 +1425,7 @@
               font-style: normal;
               line-height: 1.25;
               letter-spacing: normal;
-              text-align: left;
+              text-align: center;
               color: #000000;
           }
           textarea, input 
@@ -2520,17 +2523,17 @@
                line-height: normal;
                letter-spacing: -0.3px;
                text-align: left;
-         color: var(--bluey-grey);
+               color: var(--bluey-grey);
              }
              .card6-button-lanjut{
-                 width: 260px;
+                 width: 307px;
                  height: 52px;
                  display: flex;
                  flex-direction: row;
                  justify-content: flex-start;
                  align-items: center;
                  gap: 10px;
-                 margin: 32px 932px 0 0;
+                 margin: 32px 932px 0 -10px;
                  padding: 16px 20px;
                  object-fit: contain;
                  border-radius: 14px;
@@ -2686,12 +2689,10 @@
               justify-content: flex-start;
               align-items: center;
               gap: 10px;
-              margin:28px 66px 26px 1px;
-              //padding: 36px 43px 36px 46px;
+              margin:28px 66px 26px 1px;              
               object-fit: contain;
               border-radius: 14px;
               background-color: var(--ion-color-goldd);  
-              display: none;
             }
             .Sign-up {
               //width: 71px;

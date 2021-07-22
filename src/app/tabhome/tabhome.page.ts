@@ -45,7 +45,7 @@ export class TabhomePage implements OnInit {
       data=> {        
         let retval:any=data;
         this.hadistList=retval.data;
-        this.hadistisi=retval.data.hadist_isi.substring(0,800);
+        if (retval.data.hadist_isi!=null)this.hadistisi=retval.data.hadist_isi.substring(0,800);
       });   
   }
   async getDataLembaga(){

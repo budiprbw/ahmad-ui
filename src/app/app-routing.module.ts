@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./webdashboard/webdashboard.module').then( m => m.WebdashboardPageModule)
+    loadChildren: () => import('./webdashboard/webdashboard.module').then( m => m.WebdashboardPageModule),   
   },
   {
     path: 'signin',

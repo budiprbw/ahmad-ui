@@ -12,7 +12,7 @@
 <ion-grid class="ion-grid lg:w-480 w-375">
   <ion-row>
     <ion-col>
-      <ion-card class="penyaluran-donasi-Rectangle-631 lg:ml-16">
+      <ion-card class="penyaluran-donasi-Rectangle-631 lg:ml-16 ml-0">
         <div class="penyaluran-donasi-card1-title">Jumlah Santri Penerima Manfaat</div>
         <div class="penyaluran-donasi-card1-text1">Harga Per Paket Rp{{harga_paket_text}}</div>
         <div class="penyaluran-donasi-card1-counter">
@@ -27,7 +27,7 @@
           Rp{{total_donasi| number:'1.0'}}
         </div>
       </ion-card>
-      <ion-card class="penyaluran-donasi-jenis-donasi lg:ml-16">
+      <ion-card class="penyaluran-donasi-jenis-donasi lg:ml-16 ml-0">
           <div class="Jenis-Donasi">Jenis Donasi</div>
         <div class="penyaluran-donatur-button-pilih-donasi" (click)="goPopupJenisDonasi()">
           <ion-button fill="clear" slot="end">
@@ -47,7 +47,7 @@
         </div>
       </ion-card>
 
-      <ion-card class="penyaluran-donasi-pilih-rekening lg:ml-16">
+      <ion-card class="penyaluran-donasi-pilih-rekening lg:ml-16 ml-0">
         <div class="penyaluran-donasi-pilih-rekening-title">Pilih Rekening Pembayaran Donasi</div>
         <ion-radio-group value="default" (ionChange)="radioGroupChange($event)">
           <div *ngFor="let item of banklist;" [ngClass]="item.is_selected=='1'?'penyaluran-donasi-pilih-rekening-bank':'penyaluran-donasi-pilih-rekening-bank-white'">

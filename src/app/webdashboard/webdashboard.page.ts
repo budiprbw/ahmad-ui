@@ -1,6 +1,8 @@
 import { Component, OnInit,ViewChild  } from '@angular/core';
 import { IonContent,Platform } from '@ionic/angular';
 import { AhmadproviderService } from '../ahmadprovider.service';
+import { ModalController } from '@ionic/angular';
+import { SocialShareComponent } from '../components/social-share/social-share.component';
 
 @Component({
   selector: 'app-webdashboard',
@@ -17,6 +19,7 @@ export class WebdashboardPage implements OnInit {
   public shownGroup:null;
   public is_dark_mode:string ='0';
   public no_data_lembaga:boolean=false;
+
   public slideOptsOne = {
           initialSlide: 0,
           slidesPerView: 1,
@@ -25,9 +28,11 @@ export class WebdashboardPage implements OnInit {
             loop :true,
           },
         };
+
   constructor(
     private platform:Platform,
-    public asp: AhmadproviderService
+    public modalCtrl: ModalController,
+    public asp: AhmadproviderService,
   ) { }
 
 
@@ -36,8 +41,9 @@ export class WebdashboardPage implements OnInit {
     this.initDataLembaga();
     this.toggleGroup(0);
   }
-  initDataLembaga(){
-    this.asp.get_lembaga().then(
+
+  async initDataLembaga(){
+    await this.asp.get_lembaga().then(
       data=> {        
             this.line_data_lembaga=data;
             if (this.line_data_lembaga) this.no_data_lembaga  =true;
@@ -73,7 +79,6 @@ export class WebdashboardPage implements OnInit {
   isGroupShown(group) {    
       return this.shownGroup === group;
   };
-      
  
   darkmode()
   {       
@@ -106,11 +111,39 @@ export class WebdashboardPage implements OnInit {
   gotToTop()
   {       
     this.content.scrollToTop(1500);
-    //console.log(this.content.scrollX );
 
   }
   html_entity(val){
      return this.asp.html_entity(val);
-    }
-   
+  }
+
+  async showShareOptions() {
+    const modal = await this.modalCtrl.create({
+      component: SocialShareComponent,
+      cssClass: 'backTransparent',
+      backdropDismiss: true
+    });
+    return modal.present();
+  }  
+ async shareLink(mode){      
+      let wsurl='';
+      if (mode=='donatur'){
+        wsurl='donasi-program';
+      }
+      if (mode=='santri'){
+        wsurl='program-santri';
+      }
+     this.asp.shareLink(wsurl);
+  }
+
+  // setMetaTag(){   
+  //   this.titleService.setTitle('AHMad Project');
+  //   this.metaService.addTag({ property: 'og:url', content: "https://dev.ahmadproject.org"});
+  //   this.metaService.addTag({ name: 'title', content: 'AHMad Project (Asmaul husna dan Doa)' });
+  //   this.metaService.addTag({ name: 'description', content: 'AHMad Project (Asmaul husna dan Doa)' });
+  //   this.metaService.addTag({ name: 'robots', content: 'index,follow' });
+  //   this.metaService.addTag({ property: 'og:image', content: 'https://dev.ahmadproject.org/assets/images/ahmad-project.png'});
+  // }  
+ 
+
 }

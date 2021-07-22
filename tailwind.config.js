@@ -1,12 +1,23 @@
 module.exports = {
   // mode: 'jit',
-  purge: ['./src/**/*.{html,ts}'],
+  purge: {
+    enabled: true,
+    preserveHtmlElements: false,
+    layers: ['components', 'utilities'],
+    content: ['./src/**/*.{html,ts}'],
+    options: {
+      keyframes: true,
+    }
+  },
   darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {     
       width: {
+        '1275': '1275px', 
         '1244': '1244px', 
+        '1224': '1224px', 
         '1048': '1048px',      
+        '1330': '1330px',      
         '474': '474px',
         '326': '326px',
         '336': '336px',
@@ -29,6 +40,7 @@ module.exports = {
         '197': '197px', 
         '321': '321px', 
         '343': '343px', 
+        '41': '40px',   
       },
       colors:{
         gold: '#fcc604',

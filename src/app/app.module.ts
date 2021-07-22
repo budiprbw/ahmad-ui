@@ -19,10 +19,13 @@ import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
 import { FileTransfer,  FileTransferObject } from '@ionic-native/file-transfer/ngx';
 import { Storage } from '@ionic/storage';
 import {HashLocationStrategy, LocationStrategy, PathLocationStrategy} from '@angular/common';
+import { Push } from '@ionic-native/push/ngx';
+import { SocialShareComponent } from './components/social-share/social-share.component';
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent,SocialShareComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
@@ -37,7 +40,9 @@ import {HashLocationStrategy, LocationStrategy, PathLocationStrategy} from '@ang
     GoogleAnalytics,
     FileTransfer,
     FileTransferObject,
-    Storage
+    Storage,
+    Push,
+    SocialSharing
   ],
   bootstrap: [AppComponent]
 })

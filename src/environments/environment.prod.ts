@@ -10,6 +10,7 @@ export const environment = {
     measurementId: "G-7EZ2Q96LYF"
   },  
   ahmadApi:{
+    AppUrl: "https://dev.ahmadproject.org/",
     baseAPIUrl: "https://dev.ahmadproject.org/public/api/",
     donatur:{
       register:  "donatur/register",
@@ -79,5 +80,32 @@ export const environment = {
     },
     send_wa_message:"message/send/wa",
     referal_send_link : "referral/send/link"
-  }
+  },
+  socialShareOption: [
+    {
+        title: 'Whatsapp',
+        logo: 'assets/socialShare/whatsapp-icon-280x280.png',
+        shareType: 'shareViaWhatsApp'
+    },
+    {
+        title: 'Facebook',
+        logo: 'assets/socialShare/facebook1-280x280.png',
+        shareType: 'shareViaFacebook'
+    },
+    {
+        title: 'Twitter',
+        logo: 'assets/socialShare/twitter.png',
+        shareType: 'shareViaTwitter'
+    },
+    {
+        title: 'Instagram',
+        logo: 'assets/socialShare/Instagram-circle.png',
+        shareType: 'shareViaInstagram'
+    },
+    {
+        title: 'Email',
+        logo: 'assets/socialShare/mail.png',
+        shareType: 'viaEmail'
+    }
+  ]
 };

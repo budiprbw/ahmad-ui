@@ -4,12 +4,10 @@
   </ion-toolbar>
 </ion-header>
 <ion-content class="w-full" [scrollEvents]="true">
-    <div class="flex justify-center">
-        <div>
         <ion-grid class="ion-grid  lg:w-480 w-375" >
             <ion-row>
               <ion-col>
-                  <ion-card class="donatur-akun-Rectangle-637 lg:ml-16">
+                  <ion-card class="donatur-akun-Rectangle-637 lg:ml-16 ml-0">
                     <div style="float:left">
                       <ion-avatar>
                         <img src="{{user_photoURL}}" class="donatur-akun-Ellipse-87">
@@ -18,29 +16,29 @@
                       <div class="donatur-akun-emailemailcom">{{user_email}}</div>
                     </div>
                   </ion-card>
-                  <ion-card class="donatur-akun-Rectangle-638 lg:ml-16" >
+                  <ion-card class="donatur-akun-Rectangle-638 lg:ml-16 ml-0" >
                     <div class="donatur-akun-rubah-profile" (click)="goProfile()">
                       <div class="donatur-akun-rubah-profile-text">Ubah Profil
                         <ion-icon name="chevron-forward-circle-outline" class="vector1" size="large"></ion-icon>
                       </div>
                     </div>
-                    <div class="donatur-akun-rubah-password lg:ml-16" (click)="goUbahPassword()">
+                    <div class="donatur-akun-rubah-password lg:ml-16 ml-0" (click)="goUbahPassword()">
                       <div class="donatur-akun-rubah-password-text">Ubah Password
                         <ion-icon name="chevron-forward-circle-outline" class="vector2" size="large"></ion-icon>
                       </div>
                     </div>
-                    <div class="donatur-akun-rubah-password lg:ml-16">
+                    <div class="donatur-akun-rubah-password lg:ml-16 ml-0">
                       <div class="donatur-akun-rubah-password-text">Tentang Kami
                         <ion-icon name="chevron-forward-circle-outline" class="vector3" size="large"></ion-icon>
                       </div>
                     </div>
-                    <div class="donatur-akun-rubah-password lg:ml-16"  (click)="goFAQ()">
+                    <div class="donatur-akun-rubah-password lg:ml-16 ml-0"  (click)="goFAQ()">
                       <div class="donatur-akun-rubah-password-text">FAQ
                         <ion-icon name="chevron-forward-circle-outline" class="vector4" size="large"></ion-icon>
                       </div>
                     </div>
                   </ion-card>
-                  <ion-card class="donatur-akun-program lg:ml-16">
+                  <ion-card class="donatur-akun-program lg:ml-16 ml-0">
                         <div class="donatur-akun-program-title">{{line_data_lembaga.lembaga_landing_santri_judul}}</div>
                         <div class="donatur-akun-program-content">
                             <span [innerHTML]="html_entity(line_data_lembaga.lembaga_landing_santri_isi)"></span>
@@ -54,7 +52,7 @@
                             <ion-icon name="arrow-forward-circle-outline" style="color: var(--ion-color-goldd);" size="large"></ion-icon>
                     </div>
                   </ion-card> 
-                  <ion-card class="donatur-akun-ajak-keluarga lg:ml-16">
+                  <ion-card class="donatur-akun-ajak-keluarga lg:ml-16 ml-0">
                       <div class="donatur-akun-ajak-keluarga-text1">
                             Ajak <span style="color:white">keluarga, teman</span> dan kerabat
                             bergabung dengan program ini <span style="color:white">baik menjadi</span> donatur <span style="color:white">atau</span> santri
@@ -71,7 +69,7 @@
                             <ion-icon name="chevron-forward-circle-outline" style="color: black;zoom:1.4;" ></ion-icon>             
                       </div>
                   </ion-card>
-                   <div class="donatur-akun-button-keluar">
+                   <div class="donatur-akun-button-keluar lg:ml-16 ml-0">
                           <ion-button fill="clear" slot="end"  (click)="goKeluar()">
                                   <ion-text class="donatur-akun-button-keluar-text normal-case">
                                     Keluar
@@ -82,6 +80,4 @@
                 </ion-col>
               </ion-row>  
         </ion-grid>        
-     </div> 
-  </div>      
 </ion-content>

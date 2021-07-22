@@ -8,11 +8,11 @@
       <ion-title  class="ion-text-center Registrasi-Santri" style="margin-left:-50px">Registrasi {{login_mode}}</ion-title>
     </ion-toolbar>
   </ion-header>
-  
-  <ion-grid class="Registrasi-Santri-grid">
+  <ion-content class="w-full" [scrollEvents]="true">
+  <ion-grid class="Registrasi-Santri-grid lg:w-480 w-375">
     <ion-row>
       <ion-col>
-          <ion-card class="Registrasi-Santri-Rectangle-597">
+          <ion-card class="Registrasi-Santri-Rectangle-597 lg:ml-16 ml-0">
               <div class="Registrasi-Santri-card-title">
                   Tidak ada kata terlambat untuk belajar kebesaran Allah SWT
                 </div>    
@@ -21,7 +21,7 @@
                     <ion-input placeholder="Nama Lengkap" [(ngModel)]="nama_lengkap" name="nama_lengkap" required (ngModelChange)="blurEvent2($event);"></ion-input>
                     <ion-text color="danger"><h3>{{error_msg}}</h3></ion-text>
                     <ion-button color="warning" fill="clear" class="masuk-santri-donatur-button" (click)="goRegister()">                        
-                        <ion-text class="donatur-reg-card2-Sign-up">
+                        <ion-text class="donatur-reg-card2-Sign-up normal-case">
                             Lanjutkan                            
                         </ion-text>                        
                         <div class="">
@@ -35,10 +35,10 @@
                   <ion-text style="text-align: center">
                     <h3>Atau lebih cepat</h3>
                   </ion-text>
-                  <ion-button fill="clear" class="h-12 w-72 bg-white rounded-lg  border-placeholder border-2 lg:bg-white  lg:rounded-2xl lg:border-placeholder lg:border-2"
+                  <ion-button fill="clear" class="w-72 bg-white rounded-lg  border-placeholder border-2 lg:bg-white  lg:rounded-2xl lg:border-placeholder lg:border-2"
                   (click)="doLogin()">
                     <img src="../../assets/images/Google_Logo.svg" class="mr-10">
-                    <ion-text class=" text-black font-semibold text-xs-9 lg:text-black lg:text-md-12 lg:font-semibold items-center">
+                    <ion-text class=" text-black text-md-14 lg:text-black lg:text-md-16 items-center normal-case">
                       Masuk dengan Google
                     </ion-text>                    
                 </ion-button>                                    
@@ -46,4 +46,4 @@
         </ion-col>
      </ion-row>   
   </ion-grid>
-  
+</ion-content>

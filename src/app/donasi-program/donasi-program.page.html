@@ -25,19 +25,19 @@
                 </div>
             </ion-card>                       
           <ion-card class="donasi-program-Rectangle-628  lg:ml-16 ml-0  pr-28 ">
-              <div class="lg:flex-auto lg:h-4 lg:w-10 lg:mt-8 mt-5 lg:pl-8 lg:mb-10">
-                  <ion-button fill="clear" class=" h-12 w-80  bg-gold rounded-2xl  border-black border lg:bg-gold  lg:rounded-2xl lg:border-gold lg:border lg:ml-12"
+              <div class="lg:flex-auto  lg:w-10 lg:mt-8 mt-5 lg:pl-8 lg:mb-10">
+                  <ion-button fill="clear" class=" w-80  bg-gold rounded-2xl  border-black border lg:bg-gold  lg:rounded-2xl lg:border-gold lg:border lg:ml-12"
                       routerLink="/penyaluran-donasi">
-                      <ion-text class=" text-black  text-md-12 lg:text-black lg:text-md-16 items-center normal-case">
+                      <ion-text class=" text-black  text-md-14 lg:text-black lg:text-md-16 items-center normal-case">
                           Donasi Paket Pembelajaran
                       </ion-text>
                       <ion-icon name="arrow-forward-circle-outline" class="text-black" size="large"></ion-icon>
                   </ion-button>
               </div>             
-              <div class="lg:flex-auto lg:h-4 lg:w-10 lg:mt-8 mt-2  lg:pl-8 "  *ngIf="!withReferal">
-                    <ion-button fill="clear" class="h-12 w-80  bg-white dark:bg-black rounded-2xl border-black border lg:bg-white  lg:rounded-2xl lg:border-black lg:border lg:ml-12"
-                        routerLink="/signin">
-                        <ion-text class=" text-black   text-md-12 dark:text-gold  lg:text-black lg:text-md-16 items-center normal-case">
+              <div class="lg:flex-auto lg:w-10 lg:mt-8 mt-2  lg:pl-8 "  *ngIf="!withReferal">
+                    <ion-button fill="clear" class="w-80  bg-white dark:bg-gelapbaru rounded-2xl border-black dark:border-gold border lg:bg-white  lg:rounded-2xl  lg:border lg:ml-12"
+                        (click)="shareLink()">
+                        <ion-text class=" text-black  text-md-14 dark:text-gold  lg:text-black lg:text-md-16 items-center normal-case">
                             Bagikan Halaman ini
                         </ion-text>
                         <ion-icon name="share-social-outline" class="text-black dark:text-gold"   size="large"></ion-icon>

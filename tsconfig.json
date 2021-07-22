@@ -12,7 +12,7 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "amd",
-    "lib": ["es2018", "dom"]
+    "lib": ["es2018", "dom"],
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

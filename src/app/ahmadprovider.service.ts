@@ -1050,6 +1050,17 @@ export class AhmadproviderService {
     this.route.navigate(['view-doa'], navigationExtras);
   }
 
+  async shareLink(wsurl:string){
+    let appUrl = environment.ahmadApi.AppUrl;
+    if (navigator.share){
+      await navigator.share({
+        title: "Ahmad Project",
+        url: appUrl+ wsurl
+      }).then(()=>{
+        console.log("thanks for sharing");
+      }).catch(console.error);
+    }
+  }
 
   //#endregion
 

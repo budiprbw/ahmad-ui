@@ -1,7 +1,7 @@
 <ion-header style="height: 56px">
     <ion-toolbar>
         <ion-buttons slot="start">
-            <ion-button color="dark" (click)="goDashboard()">
+            <ion-button (click)="goDashboard()">
                 <ion-icon slot="icon-only" name="close-circle-outline"></ion-icon>
             </ion-button>
         </ion-buttons>
@@ -17,7 +17,7 @@
     <ion-grid class="ion-grid lg:w-480 w-375">
         <ion-row>
             <ion-col>
-                <ion-card class="donatur-Rectangle-637 lg:ml-16">
+                <ion-card class="donatur-Rectangle-637 lg:ml-16 ml-0">
                     <ion-input type="file" (change)="changeListener($event)" accept="image/*" placeholder="upload foto"></ion-input>
                     <ion-input placeholder="Nomor Hp/whatsapp" [(ngModel)]="donatur_telepon" name="donatur_telepon"></ion-input>
                     <ion-input placeholder="Tempat Lahir" [(ngModel)]="donatur_tmp_lahir" name="donatur_tmp_lahir"></ion-input>
@@ -38,7 +38,7 @@
                         </ion-select>
                     </ion-item>
                 </ion-card>
-                <ion-card class="donatur-Rectangle-639 lg:ml-16">
+                <ion-card class="donatur-Rectangle-639 lg:ml-16  ml-0">
                     <ion-input placeholder="Alamat Lengkap" [(ngModel)]="donatur_alamat" name="donatur_alamat"></ion-input>
                     <ion-item>
                         <ion-label>Pilih Propinsi</ion-label>
@@ -81,7 +81,7 @@
                         Catatan: Alamat ini digunakan sebagai tujuan alamat pengiriman materi paket pembelajaran AHMaD Project
                     </div>
                 </ion-card>
-                <ion-card class="donatur-Rectangle-645 lg:ml-16">
+                <ion-card class="donatur-Rectangle-645 lg:ml-16  ml-0">
                     <ion-select interface="popover" placeholder="Status Pekerjaan" [(ngModel)]="donatur_kerja" name="donatur_kerja">
                         <ion-select-option value="PEGAWAI NEGERI">PEGAWAI NEGERI</ion-select-option>
                         <ion-select-option value="KARYAWAN SWASTA">KARYAWAN SWASTA</ion-select-option>
@@ -97,7 +97,7 @@
                     </ion-select>
                     <ion-input placeholder="No KTP" name="donatur_no_ktp" placeholder="No KTP" [(ngModel)]="donatur_no_ktp" name="donatur_no_ktp"></ion-input>
                 </ion-card>
-                <ion-card class="donatur-Rectangle-628 lg:ml-16">
+                <ion-card class="donatur-Rectangle-628 lg:ml-16  ml-0">
                     <ion-button fill="clear" class="masuk-santri-donatur-button" (click)="goSaveProfile()">
                         <ion-text class="donatur-profile-card2-Sign-up normal-case">
                             Simpan
