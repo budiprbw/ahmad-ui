@@ -118,8 +118,6 @@
           object-fit: contain;              
         }      
         .button_masuk {
-          //width: 88px;
-          //width: 88px;
           height: 40px;
           flex-grow: 0;
           display: flex;
@@ -127,7 +125,6 @@
           justify-content: flex-start;
           align-items: center;
           gap: 10px;
-          //  margin-right: 16px;
           margin:28px 16px 26px 6px;
           padding: 10px 10px;
           border-radius: 14px;
@@ -163,19 +160,15 @@
         }
 
         .button_registrasi {
-          width: 111px;
           height: 40px;
           flex-grow: 0;
-          //display: flex;
           flex-direction: row;
           justify-content: flex-start;
           align-items: center;
           gap: 10px;
           margin:28px 66px 26px 1px;
-          //padding: 36px 43px 36px 46px;
           object-fit: contain;
           border-radius: 14px;
-          background-color: var(--ion-color-black);  
         }    
        
         .card1_  {
@@ -1509,7 +1502,7 @@
           .santri-Rectangle-637 {
             width: 343px;
             //height: 312px;
-            margin: 12px;
+            //margin: 12px;
             padding: 16px;
             border-radius: 14px;
             box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
@@ -1548,7 +1541,7 @@
             background-color: var(--ion-color-white);
           }
           .simpan-santri-profile-button{
-            width: 321px;
+             width: 321px;
               height: 52px;
               flex-direction: row;
               justify-content: center;
@@ -1562,6 +1555,7 @@
           }
           .lewati-santri-profile-button{
             //width: 336px;
+            width: 321px;
             height: 52px;
             flex-grow: 0;
             display: flex;
@@ -1569,8 +1563,7 @@
             justify-content: center;
             align-items: center;
             gap: 10px;
-            //margin: 42px 0 45px 350px;
-            padding: 16px 20px;
+            //padding: 16px 20px;
             object-fit: contain;
             border-radius: 14px;
             border: solid 1px #000000;
@@ -1621,10 +1614,10 @@
             background-color: var(--ion-color-white);
           }
           .santri-Rectangle-628{
-            //width: 375px;
-           // height: 152px;
-            flex-grow: 0;
-            margin: 16px 0 0;
+            width: 375px;
+            height: 152px;
+            flex-grow: 0; 
+            margin: 25px 0 0 -10px;                        
             padding: 16px;
             box-shadow: 0 -4px 12px 0 rgba(0, 0, 0, 0.15);
             background-color: var(--ion-color-white);
@@ -1707,7 +1700,7 @@
           }
           .Kuisioner-Santri {
             //width: 375px;
-            height: 1028px;
+            //height: 1028px;
             //flex-grow: 0;
             padding: 0 0 400px;
             background-color: #efeffe;
@@ -2681,7 +2674,6 @@
               color: var(--ion-color-black);
             }
             .button_registrasi {
-              width: 111px;
               height: 40px;
               flex-grow: 0;
               display: flex;
@@ -2692,10 +2684,8 @@
               margin:28px 66px 26px 1px;              
               object-fit: contain;
               border-radius: 14px;
-              background-color: var(--ion-color-goldd);  
             }
             .Sign-up {
-              //width: 71px;
               height: 20px;
               flex-grow: 0;
               font-family: Poppins;
@@ -2711,16 +2701,12 @@
             .card5-Frequently-Ask-Question {
               width: 389px;
               height: 48px;
-              //margin: 0 382px 36px 384px;
               font-family: Poppins;
-              //font-size: 32px;
-              //font-weight: 600;
               font-stretch: normal;
               font-style: normal;
               line-height: normal;
               letter-spacing: -0.3px;
               text-align: center;
-              //color: var(--ion-color-goldd);
               }
 
   }

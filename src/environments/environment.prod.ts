@@ -22,7 +22,9 @@ export const environment = {
       register_referal:"donatur/register/referral",
       register_donasi_referal:"donatur/register/donasi/referral",
       hadist_by_donaturid:"hadist/entitas/donatur/",
-      bimbingan_list_santri_bydonaturid:"bimbingan/list/santri/donatur/"
+      bimbingan_list_santri_bydonaturid:"bimbingan/list/santri/donatur/",
+      berita_kampanye_donatur:"berita/kampanye/donatur/",
+      pengingat_donatur_byid:"pengingat/donatur/byid/"
     },
     santri:{
       register:"santri/register",
@@ -34,7 +36,9 @@ export const environment = {
       register_referal:"santri/register/referral",      
       bimbingan_progress : "bimbingan/dashboard/santri/",
       bimbingan_penilaian :"bimbingan/penilaian/santri",
-      hadist_by_santriid: "hadist/entitas/santri/"
+      hadist_by_santriid: "hadist/entitas/santri/",    
+      berita_kampanye_santri:"berita/kampanye/santri/",
+      pengingat_santri_byid:"pengingat/santri/byid/"  
     },
     pendamping:{
       santri_by_pendampingId: "pendamping/santri/byid/",
@@ -65,6 +69,7 @@ export const environment = {
       change_password:"user/change/password/",
       pesan_aktif: "pesan/aktif/byuser/",
       update_as_read :"pesan/update/read/",
+      pesan_delete:"pesan/update/delete/"
     },
     product:{
       by_id :"produk/byid/"

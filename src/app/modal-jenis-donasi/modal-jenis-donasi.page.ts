@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-modal-jenis-donasi',
@@ -9,16 +8,16 @@ import { Router } from '@angular/router';
 })
 export class ModalJenisDonasiPage implements OnInit {
 
-  constructor(private modalController: ModalController, public route : Router) { }
+  constructor(private modalController: ModalController) { }
 
   ngOnInit() {
   }
-    async closeModel() {
-      const close: string = "Modal Removed";
-      await this.modalController.dismiss(close);
-    }
-  goModal(jenis_donasi){
-    this.modalController.dismiss(jenis_donasi);    
+  async closeModel() {
+    const close: string = "Modal Removed";
+    await this.modalController.dismiss(close);
+  }
+  goModal(jenis_donasi) {
+    this.modalController.dismiss(jenis_donasi);
   }
 
 }

@@ -17,7 +17,7 @@
            <div class="riwayat-date  lg:ml-16">{{item.donasi_tanggal | date: 'dd-MM-yyyy'  }} </div> 
         <ion-card class="riwayat-donasi-Rectangle-656 lg:ml-16">
           <div class="riwayat-donasi-title">              
-              {{item.donasi_jumlah_santri}} Paket Donasi (Rp.{{item.donasi_total_harga|number:'0'}})
+              {{item.donasi_jumlah_santri}} Paket Donasi (Rp.{{item.donasi_total_harga|number:'.0'}})
           </div>
           <div class="riwayat-donasi-text" (click)="goDetailRiwayat(item)" style="cursor:pointer">              
               <span [innerHTML]="caraBayarCode(item.donasi_cara_bayar)"></span>

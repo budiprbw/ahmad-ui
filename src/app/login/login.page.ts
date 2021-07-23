@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
-import { LoadingController, Platform } from '@ionic/angular';
+import {  Platform } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/auth';
 import firebase from 'firebase';
-import { Router, ActivatedRoute } from '@angular/router';
+import {  ActivatedRoute } from '@angular/router';
 import { AhmadproviderService } from '../ahmadprovider.service';
-import { isGeneratedFile } from '@angular/compiler/src/aot/util';
 import { ModalController } from '@ionic/angular';
 import { ModalKonfirmasiDonasiPage } from '../modal-konfirmasi-donasi/modal-konfirmasi-donasi.page';
 
@@ -29,19 +28,14 @@ export class LoginPage implements OnInit {
 
   constructor(
     private google: GooglePlus,
-    public loadingController: LoadingController,
     private fireAuth: AngularFireAuth,
     private platform: Platform,
-    private route: Router,
     public asp: AhmadproviderService,
     public router: ActivatedRoute,
     public modalController: ModalController,
   ) { }
 
   async ngOnInit() {
-    this.loading = await this.loadingController.create({
-      message: 'Connecting ...'
-    });
     this.router.queryParams.subscribe((params: any) => {
       if (params['login_mode']) {
         this.login_mode = params['login_mode'];
@@ -87,8 +81,6 @@ export class LoginPage implements OnInit {
         this.user = success.user;
         this.user_email = this.user.email;
         this.goLogin_gmail();
-        this.loading.dismiss();
-
       }).catch(err => {
         console.log(err.message, 'error in google login');
       });
@@ -122,7 +114,7 @@ export class LoginPage implements OnInit {
       this.KonfirmasiDonasi();
     }
     else {
-      this.route.navigateByUrl('/webdashboard', { replaceUrl: true });
+      this.asp.go_page_home();
     }
   }
 
@@ -136,13 +128,8 @@ export class LoginPage implements OnInit {
     return await modal.present();
   }
 
-  gotoregistrasi() {
-    if (this.login_mode == 'donatur') {
-      this.route.navigateByUrl('registrasi?login_mode=' + this.login_mode, { replaceUrl: true });
-    }
-    if (this.login_mode == 'santri') {
-      this.route.navigateByUrl('/registrasi?login_mode=' + this.login_mode, { replaceUrl: true });
-    }
+  gotoregistrasi() {    
+    this.asp.go_page_registrasi(this.login_mode);
   }
   goLogin_gmail() {
     this.asp.user_login_gmail(this.user_email).then(
@@ -231,49 +218,49 @@ export class LoginPage implements OnInit {
           is_donasi = true;
         }
         if (is_donasi) {
-          this.route.navigateByUrl('/pembayaran-donasi', { replaceUrl: true });
+          this.asp.go_page_donasi_pembayaran();
         }
         else {
           switch (this.user.ref_object.donatur_status) {
             case "1":
-              this.route.navigateByUrl('/donatur-profile', { replaceUrl: true });
+              this.asp.go_page_donatur_profile();
               break;
             case "2":
-              this.route.navigateByUrl('/dashboard-donatur', { replaceUrl: true });
+              this.asp.go_dashboard_donatur();
               break;
           }
         }
         break;
       case "santri":
         switch (this.user.ref_object.santri_status) {
-          case "1":
-            this.route.navigateByUrl('/santri-kuesioner', { replaceUrl: true });
+          case "1":            
+            this.asp.go_page_santri_kuesioner();
             break;
           case "2":
-            this.route.navigate(['confirm-page', { msg: "Mohon bersabar,saat ini sedang menunggu approval dari lembaga" }]);
+            this.asp.go_page_confirm_message("Mohon bersabar,saat ini sedang menunggu approval dari lembaga");
             break;
           case "3":
-            this.route.navigateByUrl('/santri-profile', { replaceUrl: true });
+            this.asp.go_page_santri_profile();
             break;
           case "4":
-            this.route.navigate(['confirm-page', { msg: "Mohon bersabar,Produk anda belum sampai" }]);            
+            this.asp.go_dashboard_santri(); 
             break;
           case "5":            
-            this.route.navigateByUrl('/dashboard-santri', { replaceUrl: true });
+            this.asp.go_dashboard_santri(); 
             break;
           case "6":            
-            this.route.navigateByUrl('/dashboard-santri', { replaceUrl: true }); //this.route.navigate(['confirm-page', { msg: "Produk anda telah sampai" }]);
+            this.asp.go_dashboard_santri(); 
             break;
-          case "7":            
-            this.route.navigateByUrl('/dashboard-santri', { replaceUrl: true });//this.route.navigate(['confirm-page', { msg: "dalam bimbingan" }]);
+          case "7":                        
+            this.asp.go_dashboard_santri(); //this.route.navigate(['confirm-page', { msg: "dalam bimbingan" }]);
             break;
           case "8":
-            this.route.navigate(['confirm-page', { msg: "bimbingan telah selesai" }]);
+            this.asp.go_page_confirm_message("bimbingan telah selesai");
             break;
         }
         break;
         case "pendamping":
-            this.route.navigateByUrl('/dashboard-pendamping', { replaceUrl: true });
+            this.asp.go_dashboard_pendamping();
         break;
     }
   }

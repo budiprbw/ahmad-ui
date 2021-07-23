@@ -11,26 +11,6 @@ const routes: Routes = [
     loadChildren: () => import('./signin/signin.module').then( m => m.SigninPageModule)
   },
   {
-    path: 'signup',
-    loadChildren: () => import('./signup/signup.module').then( m => m.SignupPageModule)
-  },
-  {
-    path: 'santrilogin',
-    loadChildren: () => import('./santrilogin/santrilogin.module').then( m => m.SantriloginPageModule)
-  },
-  {
-    path: 'donaturlogin',
-    loadChildren: () => import('./donaturlogin/donaturlogin.module').then( m => m.DonaturloginPageModule)
-  },
-  {
-    path: 'donaturreg',
-    loadChildren: () => import('./donaturreg/donaturreg.module').then( m => m.DonaturregPageModule)
-  },
-  {
-    path: 'santrireg',
-    loadChildren: () => import('./santrireg/santrireg.module').then( m => m.SantriregPageModule)
-  },
-  {
     path: 'webdashboard',
     loadChildren: () => import('./webdashboard/webdashboard.module').then( m => m.WebdashboardPageModule)
   },
@@ -83,20 +63,12 @@ const routes: Routes = [
     loadChildren: () => import('./santri-reg-info/santri-reg-info.module').then( m => m.SantriRegInfoPageModule)
   },
   {
-    path: 'santri-notifikasi',
-    loadChildren: () => import('./santri-notifikasi/santri-notifikasi.module').then( m => m.SantriNotifikasiPageModule)
-  },
-  {
     path: 'santri-program',
     loadChildren: () => import('./santri-program/santri-program.module').then( m => m.SantriProgramPageModule)
   },
   {
     path: 'pengiriman-status',
     loadChildren: () => import('./pengiriman-status/pengiriman-status.module').then( m => m.PengirimanStatusPageModule)
-  },
-  {
-    path: 'donatur-notifikasi',
-    loadChildren: () => import('./donatur-notifikasi/donatur-notifikasi.module').then( m => m.DonaturNotifikasiPageModule)
   },
   {
     path: 'donasi-list',
@@ -149,10 +121,6 @@ const routes: Routes = [
   {
     path: 'detail-penerima-donasi',
     loadChildren: () => import('./detail-penerima-donasi/detail-penerima-donasi.module').then( m => m.DetailPenerimaDonasiPageModule)
-  },
-  {
-    path: 'tabs',
-    loadChildren: () => import('./tabs/tabs.module').then( m => m.TabsPageModule)
   },
   {
     path: 'modal-jenis-donasi',
@@ -233,6 +201,14 @@ const routes: Routes = [
   {
     path: 'view-doa',
     loadChildren: () => import('./view-doa/view-doa.module').then( m => m.ViewDoaPageModule)
+  },
+  {
+    path: 'notifikasi',
+    loadChildren: () => import('./notifikasi/notifikasi.module').then( m => m.NotifikasiPageModule)
+  },
+  {
+    path: 'modal-cara-pilih-santri',
+    loadChildren: () => import('./modal-cara-pilih-santri/modal-cara-pilih-santri.module').then( m => m.ModalCaraPilihSantriPageModule)
   }
 ];
 @NgModule({

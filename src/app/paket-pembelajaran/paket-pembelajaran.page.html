@@ -23,17 +23,6 @@
                   {{this.line_berita.berita_isi}}
               </div>
           </ion-card>            
-          <ion-card class="dashboard-santri-ion-card-rectangle lg:ml-16"  *ngIf="noHadist">
-            <div class="ion-card-title">Hadist/Doa Hari ini</div>
-            <ion-label style="font-weight: bold;"  class="ion-text-wrap">{{hadistList.hadist_judul}}</ion-label>
-              <div class="paket-card3-text1"><span [innerHTML]="html_entity(hadistList.hadist_isi)"></span></div>
-          </ion-card>
-          <ion-card class="dashboard-santri-ion-card-rectangle lg:ml-16"  *ngIf="!noHadist">
-            <div class="dashboard-santri-Rectangle-672">
-                <div class="dashboard-santri-ionchatbox-ellipses-outline"></div>
-                Belum ada Hadist/Doa Hari ini
-            </div>
-          </ion-card>
         <ion-card class="paket-Rectangle-628">
             <div class="lg:flex-auto lg:h-4 lg:w-10 lg:mt-8 mt-5 lg:pl-8 lg:mb-10">
                 <ion-button fill="clear" class=" h-12 w-80  bg-gold rounded-2xl  border-black border lg:bg-gold  lg:rounded-2xl lg:border-gold lg:border lg:ml-12"

@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button  (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>    
+    <ion-title class="ion-text-center">Notifikasi</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="w-full" [scrollEvents]="true">
+  <ion-grid class="Notifikasi lg:w-480 w-375">
+    <ion-row>
+      <ion-col>
+        <ion-item>
+            <ion-select placeholder="Options"  [(ngModel)]="mark_options" name="mark_options" (ionChange)="setMarkOption()">
+                  <ion-select-option value="1">Mark as Read</ion-select-option>
+                  <ion-select-option value="2">Remove</ion-select-option>
+            </ion-select>
+        </ion-item>
+        <div *ngFor="let item of notiflist;">
+            <ion-card class="notif-Rectangle-656 lg:ml-16" *ngIf="item.pesan_status!='3'" >
+                <div class="notif-title">
+                  {{item.pesan_waktu_kirim | date: 'dd-MM-yyyy H:mm' }}
+                </div>
+                <div class="notif-text" >
+                  <ion-checkbox  checked="false" (click)="markAsRead(item)"></ion-checkbox>&nbsp;&nbsp;
+                  <ion-label *ngIf="item.pesan_status=='1'" color="primary">{{item.pesan_isi}}</ion-label>
+                  <ion-label *ngIf="item.pesan_status=='2'" color="dark">{{item.pesan_isi}}</ion-label>
+                </div>
+              </ion-card>
+        </div>
+        
+        <ion-card class="notif-Rectangle-656 lg:ml-16" *ngIf="noNotif">
+          <ion-text color="danger">
+            <h4>{{error_msg}}</h4>
+          </ion-text>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

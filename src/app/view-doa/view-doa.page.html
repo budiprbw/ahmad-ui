@@ -10,16 +10,19 @@
 </ion-header>
 
 <ion-content class="w-full" [scrollEvents]="true">
-    <ion-grid class="ion-grid  lg:w-480 w-375">
-  <ion-card class="view-doa-rectangle  lg:ml-16"  *ngIf="noHadist">
-    <ion-label style="font-weight: bold;"  class="ion-text-wrap">{{judul_doa}}</ion-label>
-      <div class="view-doa-card3-text1"><span [innerHTML]="html_entity(isi_doa)"></span></div>
-  </ion-card>
-  <ion-card class="view-doa-rectangle lg:ml-16"  *ngIf="!noHadist">
-    <div class="view-doa-Rectangle-672">
-        <div class="dashboard-santri-ionchatbox-ellipses-outline"></div>
-        Belum ada Hadist/Doa Hari ini
-    </div>
-  </ion-card>
-</ion-grid>
+    <ion-grid class="ion-grid  lg:w-480 w-375">        
+        <ion-card class="view-doa-rectangle  lg:ml-16"  *ngIf="noHadist">            
+          <ion-item class="mt-5 mb-5">                
+                <iframe id="embeddedPage" width="100%" height="100%"  frameborder="0" allowfullscreen></iframe>
+          </ion-item>            
+          <ion-label style="font-weight: bold;m"  class="ion-text-wrap">{{judul_doa}}</ion-label>
+          <div class="view-doa-card3-text1"><span [innerHTML]="html_entity(isi_doa)"></span></div>
+        </ion-card>
+        <ion-card class="view-doa-rectangle lg:ml-16"  *ngIf="!noHadist">
+          <div class="view-doa-Rectangle-672">
+              <div class="dashboard-santri-ionchatbox-ellipses-outline"></div>
+              Belum ada Hadist/Doa Hari ini
+          </div>
+        </ion-card>
+    </ion-grid>
 </ion-content>

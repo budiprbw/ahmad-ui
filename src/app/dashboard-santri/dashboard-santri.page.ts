@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router,NavigationExtras  } from '@angular/router';
 import { AhmadproviderService } from '../ahmadprovider.service';
-import { NavController } from '@ionic/angular';
-import { DomSanitizer } from '@angular/platform-browser'
-import { fail } from 'assert';
 
 @Component({
   selector: 'app-dashboard-santri',
@@ -20,14 +16,12 @@ public noHadist:any=false;
  public user_photoURL:any;
  public line_berita:any;
  public santri_id:string="";
+ public user_id:string="";
  public hadistList:any=[];
  public hadistisi:any=[];
 
   constructor(
-    public route : Router,
     public asp: AhmadproviderService,
-    public navCtrl :NavController,
-    private sanitized: DomSanitizer
 
   ) { }
 
@@ -35,16 +29,20 @@ public noHadist:any=false;
     this.initpage();
   }
   initpage(){
-    
-      this.usrinfo = this.asp.getUserInfo();
-      this.santri_id  = this.usrinfo.ref_object.id;
-      this.user_photoURL = this.usrinfo.ref_object.donatur_lokasi_photo;
-      this.user_email = this.usrinfo.user_email;
-      this.user_displayName = this.usrinfo.user_displayName;
+      this.viewUser();   
       this.getlistberita();
       this.getHadistHariini();
-    
   }
+
+  viewUser(){
+    this.usrinfo = this.asp.getUserInfo();
+    this.santri_id  = this.usrinfo.ref_object.id;
+    this.user_id  = this.usrinfo.user_id;
+    this.user_photoURL = this.usrinfo.ref_object.donatur_lokasi_photo;
+    this.user_email = this.usrinfo.user_email;
+    this.user_displayName = this.usrinfo.user_displayName;
+  }
+
   async getlistberita(){
     await this.asp.getlist_berita_entitas('2').then(
       data=> {        
@@ -73,28 +71,26 @@ public noHadist:any=false;
   }
 
   beritadetail(item){    
-      let navigationExtras: NavigationExtras = {
-        state: {
-          berita: item
-        }
-      };
-      this.route.navigate(['detail-berita'], navigationExtras);
+    this.asp.go_page_detail_berita(item);      
   }
-  goInfoMasuk(){
-    this.route.navigate(['santri-notifikasi', { santri_id: this.santri_id }]);
+  goInfoMasuk(){    
+    this.asp.go_page_notifikasi();
   }
   goLihatDetail(){
-    this.route.navigate(['santri-program', { santri_id: this.santri_id }]);
+    this.asp.go_santri_program(this.santri_id);
   }
   goBack(){
     this.asp.go_previous_page();    
   }
    html_entity(val){
      return this.asp.html_entity(val);    
-    }
-    readMore(item){
+  }
+  readMore(item){
       this.asp.go_page_view_doa(this.hadistList);
-    }
+  }
+  goAjak(){
+     this.asp.go_ajak_gabung_santri();
+  }
   
 }
     

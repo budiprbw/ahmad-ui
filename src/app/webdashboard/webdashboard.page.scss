@@ -13,3 +13,19 @@
   box-shadow: 0 -4px 12px 0 rgba(0, 0, 0, 0.15);
   background-color: var(--ion-color-white);
 }
+.menu-header{
+  width: 163px;
+  height: 21px;
+  flex-grow: 0;
+  margin: 0 32px 0 0;
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.3px;
+  text-align: left;
+  cursor: pointer;
+  color: var(--ion-color-black);
+}

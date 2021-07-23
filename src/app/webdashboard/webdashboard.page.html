@@ -17,12 +17,12 @@
                     </div>                    
                 </ion-title>
             </ion-toolbar>
-            <ion-button class="button_masuk" slot="end"  fill="clear" routerLink="/signin">
+            <ion-button class="button_masuk " slot="end"  fill="clear" routerLink="/signin">
                 <ion-text class="text-masuk normal-case">
                     Masuk 
                 </ion-text>
             </ion-button>
-            <ion-button class="font-poppins hidden  h-41 lg:block lg:bg-black dark:bg-gold  dark:text-gold lg:text-gold lg:rounded-xl" slot="end" fill="clear" routerLink="/signin">
+            <ion-button class="font-poppins hidden  button_registrasi  lg:block lg:bg-black dark:bg-gold  dark:text-gold lg:text-gold lg:rounded-xl" slot="end" fill="clear" routerLink="/signin">
                 <ion-text class="Sign-up-registrasi normal-case">
                     Registrasi
                 </ion-text>
@@ -77,10 +77,10 @@
                         </ion-text>
                     </div>
                     <div class="bg-white  dark:bg-gelapbaru  rounded-3xl shadow-md mt-5 lg:ml-6 lg:min-w-1275 lg:mr-10" *ngIf="no_data_lembaga">
-                        <div class="text-xl dark:text-gold text-center lg:text-5xl sm:text-xl text-black font-bold font-poppins mt-5 lg:pt-9">
+                        <div class="text-md-18 dark:text-gold text-center lg:text-5xl text-black font-bold font-poppins mt-5 lg:pt-9">
                             {{line_data_lembaga.lembaga_tentang_ahmad_judul}}
                         </div>
-                        <div class="dark:text-bluey_grey lg:text-black text-left pr-5 pl-5 lg:pl-12 ">
+                        <div class="dark:text-bluey_grey lg:text-black text-justify pr-5 pl-5 lg:pl-12 text-md-12 lg:text-md-18 ">
                             <span [innerHTML]="html_entity(line_data_lembaga.lembaga_tentang_ahmad_isi)"></span>
                         </div>
                         
@@ -90,7 +90,7 @@
                                     <div class="grid grid-flow-col grid-rows-1 grid-cols-1 lg:grid-rows-1 lg:grid-cols-program gap-1 lg:pl-12 lg:mt-9  mt-3">
                                         <div class="">
                                             <div class="lg:hidden block ">
-                                                    <img src="{{data.image_santri}}" style="no-repeat;width: 307px; height:197px;"/>
+                                                    <img src="{{data.image_santri}}" style="no-repeat;width: 343px; height:146px;"/>
                                             </div>
                                             <div class="lg:block hidden ">
                                                 <img src="{{data.image_santri}}" style="no-repeat;width: 500px; height:321px;" />
@@ -128,10 +128,10 @@
                             <img src="assets/images/image-paket.webp"  style="no-repeat;min-width: 100%;" class="w-343 h-343" />
                         </div>
                         <div class="lg:p-md">
-                            <div class="font-poppins font-bold text-black text-5xl dark:text-gold lg:text-5xl lg:font-bold text-left mt-3 pl-5">
+                            <div class="font-poppins font-bold text-black text-md-18 dark:text-gold lg:text-5xl lg:font-bold text-left mt-3 pl-5">
                                 {{line_data_lembaga.lembaga_landing_produk_judul}}
                             </div>
-                            <div class="font-poppins font-bold text-black dark:text-bluey_grey text-justify mt-5 pl-5 pr-5 lg:text-md-18">
+                            <div class="font-poppins text-black dark:text-bluey_grey text-justify mt-5 pl-5 pr-5 lg:text-md-18 text-md-12">
                                 <span [innerHTML]="html_entity(line_data_lembaga.lembaga_landing_produk_isi)"></span>                                
                             </div>
                             <div class="font-poppins font-bold text-black text-md-14 dark:text-bluey_grey lg:text-xl text-left mt-3">
@@ -193,11 +193,11 @@
         <ion-row class="mb-10">
             <ion-col >
                 <div class="lg:ml-3 lg:mr-2 lg:w-1275 ">
-                    <div class="font-poppins font-bold text-black text-md-16 lg:text-5xl text-left lg:pl-12 lg:pt-10 absolute pl-8 pt-8 ">                    
+                    <div class="font-poppins font-bold text-black text-md-18 lg:text-5xl text-left lg:pl-12 lg:pt-10 absolute pl-8 pt-8 ">                    
                         {{line_data_lembaga.lembaga_landing_donatur_judul}}
                     </div>
                     <div class="font-poppins lg:pl-12 lg:pt-20 absolute pl-8 mt-12 pr-24 ">
-                        <div class="font-poppins text-justify text-black text-md-14  lg:text-md-16">
+                        <div class="font-poppins text-justify text-black text-md-12  lg:text-md-18">
                             <span [innerHTML]="html_entity(line_data_lembaga.lembaga_landing_donatur_isi)"></span>
                         </div>    
                         <div class="lg:flex ">
@@ -233,13 +233,13 @@
         <ion-row class="mb-9 ">
             <ion-col>
                 <div class="bg-white dark:bg-gelapbaru rounded-3xl shadow-md  lg:ml-6 lg:mr-10 lg:min-w-1275 lg:h-auto">
-                        <div class="card5-Frequently-Ask-Question lg:text-5xl text-xl text-black font-bold dark:text-gold lg:pt-10  lg:mb-20">
+                        <div class="card5-Frequently-Ask-Question lg:text-5xl text-md-18 text-black font-bold dark:text-gold lg:pt-10  lg:mb-20">
                             Frequently Ask Question
                         </div>
                         <ion-list class="dark:bg-gelapbaru ">
                             <div *ngFor="let d of ask_question; let i=index" text-wrap (click)="toggleGroup(i)" [ngClass]="{active: isGroupShown(i)}">
                                 <div class="flex justify-between card5-Rectangle-614 mt-3 lg:ml-9 mr-2 mb-2 ">
-                                    <div class="card5-title lg:text-md-16 lg:font-bold text-md-12 font-semibold  pt-3 pl-6">{{d.faq_tanya}}</div>
+                                    <div class="card5-title lg:text-md-18 lg:font-bold text-md-12 font-semibold  pt-3 pl-6">{{d.faq_tanya}}</div>
                                     <div class="pt-3 pr-5">
                                         <ion-icon color="warning" item-right [name]="isGroupShown(i) ? 'arrow-down-circle-outline' : 'arrow-up-circle-outline'" size="large"></ion-icon>
                                     </div>
@@ -255,10 +255,10 @@
                 <ion-card class="bg-white dark:bg-gelapbaru rounded-3xl shadow-md mt-10  lg:ml-6 lg:mr-10 lg:min-h-322 lg:min-w-1275">
                     <ion-card-content>
                         <div class="lg:pl-8">
-                            <div class="font-poppins font-bold text-black text-xl lg:text-5xl  text-left  lg:mb-5 dark:text-gold lg:mt-5">
+                            <div class="font-poppins font-bold text-black text-md-18 lg:text-5xl  text-left  lg:mb-5 dark:text-gold lg:mt-5">
                                 {{line_data_lembaga.lembaga_landing_mitra_judul}}
                             </div>
-                            <div class="font-poppins font-bold text-black text-md-14  lg:text-md-16 lg:font-bold text-left dark:text-bluey_grey">
+                            <div class="font-poppins font-bold text-black text-md-12  lg:text-md-18 lg:font-bold text-left dark:text-bluey_grey">
                                 <span [innerHTML]="html_entity(line_data_lembaga.lembaga_landing_mitra_isi)"></span>    
                             </div>
                             <div class="card6-button-lanjut ">
@@ -276,25 +276,25 @@
         </ion-row>
         <ion-row class="mb-9">
             <ion-col>
-                    <ion-card class="bg-white dark:bg-gelapbaru rounded-3xl shadow-md mt-10  lg:ml-6 lg:mr-10 lg:min-w-1275">
+                    <ion-card class="bg-white dark:bg-gelapbaru rounded-3xl shadow-md mt-10  lg:ml-6 lg:mr-10 lg:min-w-1275 text-md-12 lg:text-md-18">
                         <div class="grid grid-rows-2 grid-cols-1 lg:grid-rows-1 lg:grid-cols-2 lg:gap-1">
                                 <div>
-                                    <div class="font-poppins font-bold pl-4 text-black text-xl lg:text-2xl lg:font-bold text-left lg:mb-5 lg:pl-4 lg:pt-5 dark:text-gold ">
+                                    <div class="font-poppins font-bold pl-4 text-black text-md-18 lg:text-5xl lg:font-bold text-left lg:mb-5 lg:pl-4 lg:pt-5 dark:text-gold ">
                                         Kontak 
                                     </div>
                                     <div [ngClass]="is_dark_mode=='0'?'heroicons-solidoffice-building':'heroicons-solidoffice-building-dark'">
-                                            <div class="text-black dark:text-bluey_grey pl-10 absolute text-left pt-8 lg:pt-1 lg:w-96 ">
+                                            <div class="text-black dark:text-bluey_grey pl-10  absolute text-left pt-8 lg:pt-1 lg:w-96 ">
                                                 {{line_data_lembaga.lembaga_alamat}}
                                             </div>
                                     </div>
                     
                                     <div [ngClass]="is_dark_mode=='0'?'heroicons-solidphone':'heroicons-solidphone-dark'">
-                                        <div class="text-black dark:text-bluey_grey pl-10 absolute text-left">
+                                        <div class="text-black dark:text-bluey_grey pl-10 absolute text-left ">
                                             {{line_data_lembaga.lembaga_telepon}}
                                         </div>
-                                        <div class="text-black dark:text-bluey_grey pl-10 absolute text-left pt-8">
+                                        <!-- <div class="text-black dark:text-bluey_grey pl-10 absolute text-left pt-8 ">
                                                 {{line_data_lembaga.lembaga_telepon}}
-                                        </div>
+                                        </div> -->
                                     </div>                                
                                     <div [ngClass]="is_dark_mode=='0'?'heroicons-solidmail':'heroicons-solidmail-dark'">
                                         <div class="text-black dark:text-bluey_grey pl-10">
@@ -340,7 +340,7 @@
                         </ion-button>
                     </div>
                     <div>
-                        <ion-button fill="clear" class="rounded-2xl border w-64" routerLink="/program-pendamping" [queryParams]="{login_mode: 'pendamping'}">
+                        <ion-button fill="clear" class="rounded-2xl border w-64" routerLink="/program-pendamping" >
                             <ion-text class="footer-Program-Pendamping normal-case">
                                 Program Pendamping
                             </ion-text>

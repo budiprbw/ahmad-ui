@@ -10,6 +10,7 @@ import { AhmadproviderService } from '../ahmadprovider.service';
 export class TabhomePage implements OnInit {
   public belum_donasi:any=false;
   public donatur_id:any;
+  public user_id:any;
   public usrinfo:any;
   public berita:any;
   public line_data_lembaga:any=[];
@@ -27,6 +28,7 @@ export class TabhomePage implements OnInit {
     localStorage.setItem("login_mode","donatur");
     this.usrinfo =this.asp.getUserInfo();
     this.donatur_id=  this.usrinfo.ref_object.id;
+    this.user_id  = this.usrinfo.user_id;
     this.getHadistHariini();
     this.getBeritaKampanye();    
     this.getDataLembaga();
@@ -45,7 +47,7 @@ export class TabhomePage implements OnInit {
       data=> {        
         let retval:any=data;
         this.hadistList=retval.data;
-        if (retval.data.hadist_isi!=null)this.hadistisi=retval.data.hadist_isi.substring(0,800);
+        if (retval.data.hadist_isi!=null)this.hadistisi=retval.data.hadist_isi_singkat.substring(0,100);
       });   
   }
   async getDataLembaga(){
@@ -55,9 +57,10 @@ export class TabhomePage implements OnInit {
       });
   }
   async getListPengingat(){
-    await this.asp.getlist_pengingat().then(
+    await this.asp.pengingat_donatur_byid(this.donatur_id).then(
       data=> {        
-            this.pengingatList=data[0];            
+          let retval:any=data;
+          this.pengingatList=retval.data;            
       });
   }
   
@@ -68,7 +71,8 @@ export class TabhomePage implements OnInit {
     this.route.navigateByUrl('/donasi-riwayat', { replaceUrl:true });
   }
   public goInfoMasuk(){
-    this.route.navigate(['donatur-notifikasi', { donatur_id: this.donatur_id }]);
+    this.asp.go_page_notifikasi();
+
   }
   goSalurkanDonasi(){
     this.route.navigateByUrl('/penyaluran-donasi', { replaceUrl:true });
@@ -76,7 +80,7 @@ export class TabhomePage implements OnInit {
   html_entity(val){    
     return this.asp.html_entity(val);
   }
-  readMore(item){
+  readMore(item){    
     this.asp.go_page_view_doa(this.hadistList);
   }
 

@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, NavigationExtras } from '@angular/router';
 import { AhmadproviderService } from '../ahmadprovider.service';
-import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-dashboard-pendamping',
@@ -19,12 +17,11 @@ export class DashboardPendampingPage implements OnInit {
   public pendamping_id: string = "";
   public santrilist: any;
   public hadistList:any=[];
+  public hadistisi:any=[];
   public noHadist:any=false;
 
   constructor(
-    public route: Router,
     public asp: AhmadproviderService,
-    public navCtrl: NavController,
   ) { }
 
   ngOnInit() {
@@ -32,27 +29,37 @@ export class DashboardPendampingPage implements OnInit {
   }
   initpage() {
 
+    this.viewUser();  
+    this.getSantri();
+    this.getlistberita();
+    this.getHadistHariini();
+  }
+
+  viewUser(){
     this.usrinfo = this.asp.getUserInfo();
     this.pendamping_id = this.usrinfo.ref_object.id;
     this.user_email = this.usrinfo.user_email;
     this.user_displayName = this.usrinfo.user_displayName;
-    this.getSantri();
-    this.getlistberita();
-    this.getHadistHariini();
   }
   async getSantri(){
     await this.asp.santri_by_pendampingId(this.pendamping_id).then(
       data => {
         let result:any;
         result=data;
-        this.santrilist = result[0].santri;
-        if (this.santrilist.length > 0) {
-          this.noProgram = true;
+        if (result>0)
+        {
+          this.santrilist = result[0].santri;
+          if (this.santrilist.length > 0) {
+            this.noProgram = true;
+          }
+          else{
+            this.noProgram = false;
+          }
         }
-        else{
+        else
+        {
           this.noProgram = false;
         }
-
       });
   }
   async getlistberita() {
@@ -65,21 +72,17 @@ export class DashboardPendampingPage implements OnInit {
       });
   }
   beritadetail(item) {
-    let navigationExtras: NavigationExtras = {
-      state: {
-        berita: item
-      }
-    };
-    this.route.navigate(['detail-berita'], navigationExtras);
+      this.asp.go_page_detail_berita(item);
   }
   goInfoMasuk() {
-    this.route.navigate(['pendamping-notifikasi', { pendamping_id: this.pendamping_id }]);
+    this.asp.go_page_notifikasi();
   }
   async getHadistHariini(){
     await this.asp.hadist_by_pendampingId(this.pendamping_id).then(
       data=> {        
         let retval:any=data;
         this.hadistList=retval.data;
+        this.hadistisi=retval.data.hadist_isi.substring(0,800);
         if (JSON.stringify(this.hadistList) === '{}') 
         {
           this.noHadist  =false;
@@ -91,7 +94,7 @@ export class DashboardPendampingPage implements OnInit {
       });   
   }
   goLihatDetail(item) {
-    this.route.navigate(['santri-penilaian', { santri_id: item.id,pembimbing_id:this.pendamping_id }]);
+    this.asp.go_page_penilaian_santri( item.id,this.pendamping_id);
   }
   goBack() {
     this.asp.go_previous_page();
@@ -99,9 +102,11 @@ export class DashboardPendampingPage implements OnInit {
   html_entity(val) {
     return this.asp.html_entity(val);
   }
+  readMore(item){
+    this.asp.go_page_view_doa(this.hadistList);
+} 
   goKeluar(){
-    this.asp.clearLocalstorage();
-    this.route.navigateByUrl('/webdashboard', { replaceUrl:true });
+   this.asp.go_page_home();
   }
 
 }

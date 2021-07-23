@@ -1,0 +1,26 @@
+<div class="modal-cara-pilih-santri-Rectangle-597">
+    <ion-grid>
+      <ion-row>
+        <ion-col text-center>
+          <div class="modal-cara-pilih-santri-text">
+            Pemilihan Santri
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+        <ion-button fill="clear" class="cara-pilih-santri" (click)="goModal('0')">
+          <ion-text class="cara-pilih-santri-text  normal-case">
+            Dipilihkan System
+          </ion-text>
+        </ion-button>
+        <ion-button fill="clear" class="cara-pilih-santri" (click)="goModal('1')">
+          <ion-text class="cara-pilih-santri-text  normal-case">
+            Memilih Sendiri             
+          </ion-text>
+        </ion-button>       
+        <div class="text-xs" style="color:red">Bila Anda memilih santri sendiri, silahkan hubungi admin Lembaga</div>             
+        </ion-col>
+      </ion-row>
+    </ion-grid>  
+  </div>

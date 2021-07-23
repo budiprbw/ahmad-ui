@@ -5,7 +5,7 @@
           <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
         </ion-button>
       </ion-buttons>
-      <ion-buttons slot="end" class="hidden">
+      <ion-buttons slot="end" >
         <ion-button (click)="goInfoMasuk()">
           <ion-icon slot="icon-only" name="notifications-circle-outline"></ion-icon>
         </ion-button>
@@ -13,64 +13,67 @@
       <ion-title class="ion-text-center" style="margin-left:-50px">Dashboard Pendamping</ion-title>
     </ion-toolbar>
   </ion-header>
-  
-  <ion-grid class="ion-grid">
+<ion-content class="w-full" [scrollEvents]="true">
+  <ion-grid class="ion-grid lg:w-480 w-375">
     <ion-row>
       <ion-col>
-        <ion-card class="dashboard-pendamping-ion-card-rectangle"  *ngIf="!noProgram">
-            <div class="dashboard-pendamping-Rectangle-671">
-                <div class="dashboard-pendamping-ionbook-outline"></div>
-                Mohon bersabar, belum ada pendamping yang perlu bimbingan anda
-            </div>
+        <ion-card class="dashboard-pendamping-ion-card-rectangle lg:ml-16 ml-0" *ngIf="!noProgram">
+          <div class="dashboard-pendamping-Rectangle-671">
+            <div class="dashboard-pendamping-ionbook-outline"></div>
+            Mohon bersabar, belum ada santri yang perlu bimbingan anda
+          </div>
         </ion-card>
-        <ion-card class="dashboard-santri-ion-card-rectangle"  *ngIf="noProgram">
-            <div *ngFor="let item of santrilist;">        
-                <ion-card class="donasi-pendamping-list-Rectangle-597">
-                    <ion-avatar class="pt-4 pl-3">
-                        <img src="assets/images/no-image.png" style="height: 30px;width:30px;" ><br>                            
-                    </ion-avatar>      
-                  <div class="donasi-pengiriman-nama-pendamping" (click)="goLihatDetail(item)" style="cursor: pointer">
-                    {{item.santri_nama}}
-                    <ion-icon name="arrow-forward-circle-outline" class="text-black" style="zoom:2.0;float: right;" ></ion-icon>
-                  </div>                  
-                </ion-card>
+        <ion-card class="dashboard-santri-ion-card-rectangle lg:ml-16 ml-0" *ngIf="noProgram">
+          <div *ngFor="let item of santrilist;">
+            <ion-card class="donasi-pendamping-list-Rectangle-597">
+              <ion-avatar class="pt-4 pl-3">
+                <img src="assets/images/no-image.png" style="height: 30px;width:30px;"><br>
+              </ion-avatar>
+              <div class="donasi-pengiriman-nama-pendamping" (click)="goLihatDetail(item)" style="cursor: pointer">
+                {{item.santri_nama}}
+                <ion-icon name="arrow-forward-circle-outline" class="text-black" style="zoom:2.0;float: right;"></ion-icon>
               </div>
+            </ion-card>
+          </div>
         </ion-card>
-        <ion-card class="dashboard-pendamping-ion-card-rectangle"  *ngIf="!noBerita">
-            <div class="dashboard-pendamping-Rectangle-672">
-                <div class="dashboard-pendamping-ionchatbox-ellipses-outline"></div>
-                Belum ada berita atau event
-            </div>
+        <ion-card class="dashboard-pendamping-ion-card-rectangle lg:ml-16 ml-0" *ngIf="!noBerita">
+          <div class="dashboard-pendamping-Rectangle-672">
+            <div class="dashboard-pendamping-ionchatbox-ellipses-outline"></div>
+            Belum ada berita atau event
+          </div>
         </ion-card>
-        <ion-card class="dashboard-pendamping-ion-card-rectangle"  *ngIf="noBerita">
+        <ion-card class="dashboard-pendamping-ion-card-rectangle lg:ml-16 ml-0" *ngIf="noBerita">
           <div class="ion-card-title">
             <ion-label>Berita/Event</ion-label>
           </div>
-          <ion-list >
-            <ion-item *ngFor="let item of line_berita" >
-                <ion-label class="berita-title ion-text-wrap" (click)="beritadetail(item)" style="cursor:pointer" ><span [innerHTML]="html_entity(item.berita_isi)"></span></ion-label>            
+          <ion-list>
+            <ion-item *ngFor="let item of line_berita ">
+              <ion-label class="berita-title ion-text-wrap" (click)="beritadetail(item)" style="cursor:pointer"><span [innerHTML]="html_entity(item.berita_isi)"></span></ion-label>
             </ion-item>
           </ion-list>
         </ion-card>
-        <ion-card class="dashboard-pendamping-ion-card-rectangle" *ngIf="noHadist">
-          <div class="ion-card-title">Hadist/Doa Hari ini</div>          
-          <ion-label style="font-weight: bold;"  class="ion-text-wrap">{{hadistList.hadist_judul}}</ion-label>
-          <div class="dashboard-pendamping-card3-text1"><span [innerHTML]="html_entity(hadistList.hadist_isi)"></span></div>
-        </ion-card>
-        <ion-card class="dashboard-santri-ion-card-rectangle"  *ngIf="!noHadist">
-          <div class="dashboard-santri-Rectangle-672">
-              <div class="dashboard-santri-ionchatbox-ellipses-outline"></div>
-              Belum ada Hadist/Doa Hari ini
+        <ion-card class="dashboard-pendamping-ion-card-rectangle lg:ml-16 ml-0" *ngIf="noHadist">
+          <div class="ion-card-title">Hadist/Doa Hari ini</div>
+          <ion-label style="font-weight: bold;" class="ion-text-wrap">{{hadistList.hadist_judul}}</ion-label>
+          <div class="dashboard-santri-card3-text1"><span [innerHTML]="html_entity(hadistisi)"></span>
+            <a style="cursor: pointer" (click)="readMore(hadistList.hadist_isi)"> read more.. </a>
           </div>
-       </ion-card>
-        <div class="pendamping-akun-button-keluar">
-            <ion-button fill="clear" slot="end"  (click)="goKeluar()">
-                    <ion-text class="pendamping-akun-button-keluar-text">
-                       Keluar
-                    </ion-text>
-                </ion-button>  
-                <ion-icon name="arrow-forward-circle-outline" style="color: white" size="large"></ion-icon>
-      </div>
+        </ion-card>
+        <ion-card class="dashboard-santri-ion-card-rectangle lg:ml-16 ml-0" *ngIf="!noHadist">
+          <div class="dashboard-santri-Rectangle-672">
+            <div class="dashboard-santri-ionchatbox-ellipses-outline"></div>
+            Belum ada Hadist/Doa Hari ini
+          </div>
+        </ion-card>
+        <div class="pendamping-akun-button-keluar  lg:ml-16 ml-0">
+          <ion-button fill="clear" slot="end" (click)="goKeluar()">
+            <ion-text class="pendamping-akun-button-keluar-text">
+              Keluar
+            </ion-text>
+          </ion-button>
+          <ion-icon name="arrow-forward-circle-outline" style="color: white" size="large"></ion-icon>
+        </div>
       </ion-col>
     </ion-row>
   </ion-grid>
+</ion-content>

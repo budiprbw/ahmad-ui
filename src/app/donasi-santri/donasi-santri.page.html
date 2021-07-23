@@ -19,7 +19,7 @@
           <div class="santri-date">{{item.donasi_tanggal | date: 'dd-MM-yyyy' }} </div>
           <ion-card class="santri-donasi-Rectangle-656 lg:ml-16">
             <div class="santri-donasi-title">
-              {{item.donasi_jumlah_santri}} Paket Donasi (Rp.{{item.donasi_total_harga|number:'0'}})
+              {{item.donasi_jumlah_santri}} Paket Donasi (Rp.{{item.donasi_total_harga|number:'.0'}})
             </div>
             <div class="santri-donasi-text" (click)="goDetailSantri(item)" style="cursor:pointer">
               <span [innerHTML]="caraBayarCode(item.donasi_cara_bayar)"></span>

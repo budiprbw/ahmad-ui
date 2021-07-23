@@ -13,10 +13,11 @@
         </ion-item> -->
     </ion-toolbar>
 </ion-header>
-  <ion-grid class="ion-grid">
+<ion-content class="w-full" [scrollEvents]="true">
+    <ion-grid class="ion-grid  lg:w-480 w-375">
       <ion-row>
           <ion-col>
-              <ion-card class="santri-Rectangle-637">
+              <ion-card class="santri-Rectangle-637 lg:ml-16 ml-0">
                   <ion-input type="file" (change)="changeListener($event)" accept="image/*" placeholder="upload foto" ></ion-input>
                   <ion-input placeholder="Nomor Hp/whatsapp"  [(ngModel)]="santri_telepon" name="santri_telepon"></ion-input>
                   <ion-input placeholder="Tempat Lahir"   [(ngModel)]="santri_tmp_lahir" name="santri_tmp_lahir"></ion-input>
@@ -37,7 +38,7 @@
                       </ion-select>
                   </ion-item>
               </ion-card>
-              <ion-card class="santri-Rectangle-639">
+              <ion-card class="santri-Rectangle-639 lg:ml-16 ml-0">
                   <ion-input placeholder="Alamat Lengkap" [(ngModel)]="santri_alamat" name="santri_alamat"></ion-input>
                   <ion-item>
                       <ion-label>Pilih Propinsi</ion-label>
@@ -77,7 +78,7 @@
                       Catatan: Alamat ini digunakan sebagai tujuan alamat pengiriman materi paket pembelajaran AHMaD Project
                   </div>
               </ion-card>
-              <ion-card class="santri-Rectangle-645">
+              <ion-card class="santri-Rectangle-645 lg:ml-16 ml-0">
                   <ion-select  interface="popover" placeholder="Status Pekerjaan" [(ngModel)]="santri_kerja" name="santri_kerja">
                         <ion-select-option value="PEGAWAI NEGERI">PEGAWAI NEGERI</ion-select-option>
                         <ion-select-option value="KARYAWAN SWASTA">KARYAWAN SWASTA</ion-select-option>
@@ -93,21 +94,27 @@
                   </ion-select>
                   <ion-input placeholder="No KTP"  name="santri_no_ktp" placeholder="Status Pekerjaan" [(ngModel)]="santri_no_ktp" name="santri_no_ktp"></ion-input>
               </ion-card>
-              <ion-card class="santri-Rectangle-628">
-                      <ion-button fill="clear" class="simpan-santri-profile-button" (click)="goSaveProfile()">
-                          <ion-text class="santri-profile-card2-Sign-up">
+              <ion-card class="santri-Rectangle-628 lg:ml-16 ml-0  pr-28    ">
+                    <div class="lg:flex-auto  lg:w-10 lg:mt-8 mt-5 lg:pl-8 lg:mb-10" >
+                        <ion-button fill="clear" class=" w-80  bg-gold rounded-2xl  border-black border lg:bg-gold  lg:rounded-2xl lg:border-gold lg:border lg:ml-12" 
+                        (click)="goSaveProfile()">
+                            <ion-text class=" text-black  text-md-14 lg:text-black lg:text-md-16 items-center normal-case">
                               Simpan
                           </ion-text>
-                          <div class="">
-                              <ion-icon name="arrow-forward-circle-outline" style="color: black" size="large"></ion-icon>
-                          </div>                        
+                          <ion-icon name="chevron-forward-circle-outline" class="text-black" size="large"></ion-icon>                                                    
                       </ion-button>
-                      <ion-button class="lewati-santri-profile-button" fill="clear" (click)="goDashboard()">
-                          <ion-text class="santri-profile-card2-Sign-up">
+                    </div>    
+                    <div class="lg:flex-auto lg:w-10 lg:mt-8 mt-2  lg:pl-8"  >
+                      <ion-button fill="clear" class="w-80  bg-white dark:bg-gelapbaru rounded-2xl border-black dark:border-gold border lg:bg-white  lg:rounded-2xl  lg:border lg:ml-12" 
+                            (click)="goDashboard()">
+                            <ion-text class=" text-black  text-md-14 dark:text-gold  lg:text-black lg:text-md-16 items-center normal-case">
                               Lewati Dahulu
-                          </ion-text>
+                            </ion-text>
+                          <ion-icon name="share-social-outline" class="text-black dark:text-gold"   size="large"></ion-icon>
                       </ion-button>      
+                    </div>    
               </ion-card>
           </ion-col>
       </ion-row>
   </ion-grid>
+  </ion-content>    

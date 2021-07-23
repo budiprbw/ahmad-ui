@@ -25,6 +25,8 @@ export class AhmadproviderService {
   private api_donatur_register_donasi_referal = this.api_url + environment.ahmadApi.donatur.register_donasi_referal;
   private api_hadist_by_donaturid = this.api_url + environment.ahmadApi.donatur.hadist_by_donaturid;
   private api_bimbingan_list_santri_bydonaturid = this.api_url + environment.ahmadApi.donatur.bimbingan_list_santri_bydonaturid;
+  private api_berita_kampanye_donatur = this.api_url + environment.ahmadApi.donatur.berita_kampanye_donatur;
+  private api_pengingat_donatur_byid = this.api_url + environment.ahmadApi.donatur.pengingat_donatur_byid;
   
   //#endregion
 
@@ -39,6 +41,8 @@ export class AhmadproviderService {
   private api_santri_bimbingan_progress = this.api_url + environment.ahmadApi.santri.bimbingan_progress;
   private api_santri_bimbingan_penilaian = this.api_url + environment.ahmadApi.santri.bimbingan_penilaian;
   private api_hadist_by_santriid = this.api_url + environment.ahmadApi.santri.hadist_by_santriid;
+  private api_berita_kampanye_santri = this.api_url + environment.ahmadApi.santri.berita_kampanye_santri;
+  private api_pengingat_santri_byid = this.api_url + environment.ahmadApi.santri.pengingat_santri_byid;
   //#endregion
 
   //#region Pendamping
@@ -75,6 +79,8 @@ export class AhmadproviderService {
   private api_user_change_password = this.api_url + environment.ahmadApi.user.change_password;
   private api_user_pesan_aktif = this.api_url + environment.ahmadApi.user.pesan_aktif;  
   private api_user_update_as_read = this.api_url + environment.ahmadApi.user.update_as_read;  
+  private api_user_pesan_delete = this.api_url + environment.ahmadApi.user.pesan_delete;  
+  
 
   //#endregion
   //#region Product
@@ -205,7 +211,25 @@ export class AhmadproviderService {
       "id_pesan": id_pesan,
     };
     return new Promise(resolve => {
-      this.httpclient.put(this.api_user_change_password + id_pesan, data).subscribe(data => {
+      this.httpclient.get(this.api_user_update_as_read + id_pesan).subscribe(data => {
+        let result = {
+          "message": '',
+          "status": 'OK',
+          "data": data
+        };
+        resolve(result);
+      }, err => {
+        let result = {
+          "message": err.message,
+          "status": 'error'
+        };
+        resolve(result);
+      });
+    });
+  }
+  delete_pesan(id_pesan) {
+    return new Promise(resolve => {
+      this.httpclient.get(this.api_user_pesan_delete + id_pesan).subscribe(data => {
         let result = {
           "message": '',
           "status": 'OK',
@@ -425,7 +449,25 @@ export class AhmadproviderService {
   }
   //#endregion
 
-  //#region Proses Santri
+  //#region Proses Santri  
+  berita_kampanye_santri(no_urut) {
+    return new Promise(resolve => {
+      this.httpclient.get(this.api_berita_kampanye_santri + no_urut).subscribe(data => {
+        let result = {
+          "message": '',
+          "status": 'OK',
+          "data": data
+        };
+        resolve(result);
+      }, err => {
+        let result = {
+          "message": err.message,
+          "status": 'error'
+        };
+        resolve(result);
+      });
+    });
+  }
   hadist_by_santriid(santri_id) {
     return new Promise(resolve => {
       this.httpclient.get(this.api_hadist_by_santriid + santri_id).subscribe(data => {
@@ -611,6 +653,24 @@ export class AhmadproviderService {
       });
     });
   }
+  pengingat_santri_byid(santri_id) {
+    return new Promise(resolve => {
+      this.httpclient.get(this.api_pengingat_santri_byid + santri_id).subscribe(data => {
+        let result = {
+          "message": '',
+          "status": 'OK',
+          "data": data
+        };
+        resolve(result);
+      }, err => {
+        let result = {
+          "message": err.message,
+          "status": 'error'
+        };
+        resolve(result);
+      });
+    });
+  }
   //#endregion
 
   //#region Proses Pendamping
@@ -743,6 +803,42 @@ export class AhmadproviderService {
       });
     });
   }
+  pengingat_donatur_byid(donatur_id) {
+    return new Promise(resolve => {
+      this.httpclient.get(this.api_pengingat_donatur_byid + donatur_id).subscribe(data => {
+        let result = {
+          "message": '',
+          "status": 'OK',
+          "data": data
+        };
+        resolve(result);
+      }, err => {
+        let result = {
+          "message": err.message,
+          "status": 'error'
+        };
+        resolve(result);
+      });
+    });
+  }
+  berita_kampanye_donatur(no_urut) {
+    return new Promise(resolve => {
+      this.httpclient.get(this.api_berita_kampanye_donatur + no_urut).subscribe(data => {
+        let result = {
+          "message": '',
+          "status": 'OK',
+          "data": data
+        };
+        resolve(result);
+      }, err => {
+        let result = {
+          "message": err.message,
+          "status": 'error'
+        };
+        resolve(result);
+      });
+    });
+  }
   donasi_findby_id_donaturid(donasi_id, donatur_id) {
     return new Promise(resolve => {
       this.httpclient.get(this.api_by_donasiid_donaturid + donasi_id+"/"+ donatur_id).subscribe(data => {
@@ -783,7 +879,7 @@ export class AhmadproviderService {
     });
   }
 
-  simpan_donasi(donatur_id,rekening_id,donasi_tanggal,jumlah_santri,donasi_tagih,donasi_total_harga,donasi_cara_bayar, donasiproduk) {
+  simpan_donasi(donatur_id,rekening_id,donasi_tanggal,jumlah_santri,donasi_tagih,donasi_total_harga,donasi_cara_bayar, donasiproduk,donasi_random_santri) {
     let data = {
       "donatur_id": donatur_id,
       "rekening_id": rekening_id,
@@ -792,7 +888,8 @@ export class AhmadproviderService {
       "donasi_cara_bayar":donasi_cara_bayar,
       "donasi_jumlah_santri": jumlah_santri,
       "donasi_tanggal": donasi_tanggal,
-      "donasiproduk": donasiproduk
+      "donasiproduk": donasiproduk,
+      "donasi_random_santri": donasi_random_santri
     };
     console.log(data);
     return new Promise(resolve => {
@@ -1044,14 +1141,24 @@ export class AhmadproviderService {
     let navigationExtras: NavigationExtras = {
       state: {
         judul_doa: item.hadist_judul,
-        isi_doa: item.hadist_isi
+        isi_doa: item.hadist_isi,
+        hadist_lokasi_video:item.hadist_lokasi_video
       }
     };
     this.route.navigate(['view-doa'], navigationExtras);
   }
 
+  go_page_confirm_message(msg){
+    let navigationExtras: NavigationExtras = {
+      state: {
+        msg: msg
+      }
+    };
+    this.route.navigate(['confirm-page'], navigationExtras);
+  }
+
   async shareLink(wsurl:string){
-    let appUrl = environment.ahmadApi.AppUrl;
+    let appUrl = environment.ahmadApi.AppUrl;    
     if (navigator.share){
       await navigator.share({
         title: "Ahmad Project",
@@ -1062,7 +1169,65 @@ export class AhmadproviderService {
     }
   }
 
+  go_page_penilaian_santri(santri_id,pendamping_id){
+    this.route.navigate(['santri-penilaian', { santri_id: santri_id, pembimbing_id:pendamping_id }]);
+  }
+
+  go_page_notifikasi(){
+    this.route.navigate(['notifikasi']);
+  }
+  go_page_detail_berita(item){
+    let navigationExtras: NavigationExtras = {
+      state: {
+        berita: item
+      }
+    };
+    this.route.navigate(['detail-berita'], navigationExtras);
+  }
+
+  go_page_home(){
+    this.clearLocalstorage();
+    this.route.navigateByUrl('/webdashboard', { replaceUrl:true });
+  }
+
+  go_ajak_gabung_santri(){
+    this.route.navigate(['ajak-gabung', { mode: 'santri' }]);
+  }
+
+  go_santri_program(santri_id){
+    this.route.navigate(['santri-program', { santri_id: santri_id }]);
+  }
+  go_dashboard_pendamping(){
+    this.route.navigateByUrl('/dashboard-pendamping', { replaceUrl: true });
+  }
+  go_dashboard_donatur(){
+    this.route.navigateByUrl('/dashboard-donatur', { replaceUrl: true });
+  }
+  go_dashboard_santri(){
+    this.route.navigateByUrl('/dashboard-santri', { replaceUrl: true });
+  }
+  go_page_santri_profile(){
+    this.route.navigateByUrl('/santri-profile', { replaceUrl: true });
+  }
+  go_page_donatur_profile(){
+    this.route.navigateByUrl('/donatur-profile', { replaceUrl: true });
+  }
+  go_page_santri_kuesioner(){
+    this.route.navigateByUrl('/santri-kuesioner', { replaceUrl: true });
+  }
+  go_page_donasi_pembayaran(){
+    this.route.navigateByUrl('/pembayaran-donasi', { replaceUrl: true });
+  }
+  go_page_registrasi(login_mode){
+    this.route.navigateByUrl('/registrasi?login_mode=' + login_mode, { replaceUrl: true });
+  }
+  go_page_donasi_tanya_akun(){
+    this.route.navigateByUrl('/donasi-tanya-akun?login_mode=donatur', { replaceUrl: true });
+  }
+
   //#endregion
+
+
 
 
 }

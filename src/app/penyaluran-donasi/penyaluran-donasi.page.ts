@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router,NavigationExtras } from '@angular/router';
 import { AhmadproviderService } from '../ahmadprovider.service';
 import { ModalController } from '@ionic/angular';
 import { ModalJenisDonasiPage } from '../modal-jenis-donasi/modal-jenis-donasi.page';
 import { ModalNominalDonasiPage } from '../modal-nominal-donasi/modal-nominal-donasi.page';
+import { ModalCaraPilihSantriPage } from '../modal-cara-pilih-santri/modal-cara-pilih-santri.page';
 
 @Component({
   selector: 'app-penyaluran-donasi',
@@ -26,11 +26,10 @@ export class PenyaluranDonasiPage implements OnInit {
   public result_temp:any;
   public error_msg:string="";
   public usrinfo:any;
+  public donasi_random_santri:string="0";
   
 
   constructor(
-    private router: ActivatedRoute,
-    private route: Router,
     public modalController: ModalController,
     public asp: AhmadproviderService
   ) { }
@@ -40,8 +39,7 @@ export class PenyaluranDonasiPage implements OnInit {
     this.getBank();    
   }
 
-  goBack() {
-    //this.route.navigateByUrl('/dashboard-donatur/tabprogram', { replaceUrl: true });
+  goBack() {    
     this.asp.go_previous_page();
   }
   decrement() {
@@ -60,7 +58,7 @@ export class PenyaluranDonasiPage implements OnInit {
     this.popupjenisdonasi();
   }
   goPopupNominalDonasi() {
-    this.popupnominaldonasi();
+    if (this.jenis_donasi!="Penuh")this.popupnominaldonasi();
   }
   async  popupjenisdonasi() {
     const modal = await this.modalController.create({
@@ -74,6 +72,10 @@ export class PenyaluranDonasiPage implements OnInit {
       .then((data) => {
         this.jenis_donasi = data['data'];
         this.jenis_donasi_text = "Donasi " + this.jenis_donasi;
+        if (this.jenis_donasi=="Penuh"){
+          this.nominal_donasi=this.total_donasi.toString();
+          this.nominal_donasi_text = "Rp."+this.format_number(parseFloat(this.nominal_donasi));
+        }
       });
     return await modal.present();
   }
@@ -88,11 +90,30 @@ export class PenyaluranDonasiPage implements OnInit {
 
     modal.onDidDismiss()
       .then((data) => {
-        this.nominal_donasi = data['data'];
+        this.nominal_donasi = data['data'];       
         this.nominal_donasi_text = "Rp."+this.format_number(parseFloat(this.nominal_donasi));
       });
     return await modal.present();
   }
+
+  async  popupPilihSantri() {
+    const modal = await this.modalController.create({
+      component: ModalCaraPilihSantriPage,
+      componentProps: {
+        'model_title': "Modal Pemilihan Santri"
+      }
+    });
+
+    modal.onDidDismiss()
+      .then((data) => {
+        this.donasi_random_santri = data['data'];       
+        this.save_local_storage();
+      });
+    return await modal.present();
+  }
+
+  
+
   getTotal(event: number){        
     console.log(event);
     if (event<0){
@@ -123,6 +144,18 @@ export class PenyaluranDonasiPage implements OnInit {
     return cara_bayar;
   }
   goLanjutkan(){
+    this.donasi_random_santri="0";
+    if (this.jenis_donasi=="Penuh"){
+      this.popupPilihSantri();
+    }
+    else
+    {
+      this.save_local_storage();
+    }
+    
+    
+  }
+  save_local_storage(){
     let nominal_donasi= parseFloat(this.nominal_donasi);
     let durasi_donasi=( this.total_donasi/nominal_donasi);
     let d:Date =  new Date();
@@ -158,26 +191,17 @@ export class PenyaluranDonasiPage implements OnInit {
       "rekening_id":this.bankListSelected[0].id,
       "temp_donasi_no":"",
       "donasiproduk":item_produk_list,
-      "donasiproduktemp":donasiproduktemp
+      "donasiproduktemp":donasiproduktemp,
+      "donasi_random_santri":this.donasi_random_santri
     };
     localStorage.setItem("item_donasi", JSON.stringify(item_donasi));
     this.usrinfo = this.asp.getUserInfo();
     if (this.usrinfo){
-      this.route.navigateByUrl('/pembayaran-donasi', { replaceUrl: true });
+      this.asp.go_page_donasi_pembayaran();
     }
     else{
-      this.route.navigateByUrl('/donasi-tanya-akun?login_mode=donatur', { replaceUrl: true });
-    }
-      
-    
-    /*
-    let navigationExtras: NavigationExtras = {
-      state: {
-        item_bayar: item_donasi
-      }
-    };
-    this.route.navigate(['pembayaran-donasi'], navigationExtras);
-    */
+      this.asp.go_page_donasi_tanya_akun();
+    }            
   }
   getProduct(){
     this.asp.produk_by_id(1).then(

@@ -155,7 +155,7 @@ export class RegistrasiPage implements OnInit {
           else {
             if (this.login_by != "google") {
               this.error_msg = "Silahkan cek inbox anda di " + this.user_email + " untuk melanjutkan proses berikutnya";
-              this.route.navigate(['confirm-page', { msg: this.error_msg }]);
+              this.asp.go_page_confirm_message(this.error_msg);
             }
             else {
               let userinfo = {
@@ -186,7 +186,7 @@ export class RegistrasiPage implements OnInit {
             else {
               if (this.login_by != "google") {
                 this.error_msg = "Silahkan cek inbox anda di " + this.user_email + " untuk melanjutkan proses berikutnya";
-                this.route.navigate(['confirm-page', { msg: this.error_msg }]);
+                this.asp.go_page_confirm_message( this.error_msg); 
               }
               else {
                 let userinfo = {
@@ -252,7 +252,7 @@ export class RegistrasiPage implements OnInit {
             localStorage.setItem("item_donasi", JSON.stringify(item_donasi));
             if (this.login_by!="google"){
               this.error_msg = "Silahkan cek inbox anda di " + this.user_email + " untuk melanjutkan proses berikutnya";
-              this.route.navigate(['confirm-page', { msg: this.error_msg }]);
+              this.asp.go_page_confirm_message(this.error_msg); 
             }            
             else{
               this.response=retval;
@@ -277,12 +277,11 @@ export class RegistrasiPage implements OnInit {
             localStorage.setItem("item_donasi", JSON.stringify(item_donasi));
             if (this.login_by!="google"){
               this.error_msg = "Silahkan cek inbox anda di " + this.user_email + " untuk melanjutkan proses berikutnya";
-              this.route.navigate(['confirm-page', { msg: this.error_msg }]);
+              this.asp.go_page_confirm_message(this.error_msg); 
             }            
             else{
               this.response=retval.data;
               this.asp.dismissLoading();
-              //console.log(item_donasi);
               this.toPembayaran();            
           }
         }})   
@@ -298,8 +297,8 @@ export class RegistrasiPage implements OnInit {
       }
       else {
         if (this.login_by!="google"){
-          this.error_msg = "Silahkan cek inbox anda di " + this.user_email + " untuk melanjutkan proses berikutnya";
-          this.route.navigate(['confirm-page', { msg: this.error_msg }]);
+          this.error_msg = "Silahkan cek inbox anda di " + this.user_email + " untuk melanjutkan proses berikutnya";          
+          this.asp.go_page_confirm_message(this.error_msg); 
         }            
         else{
           this.asp.dismissLoading();

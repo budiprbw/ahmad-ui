@@ -46,7 +46,7 @@ export class DaftarPage implements OnInit {
           data => {
             this.response = data;
             if (this.response.status == 'error') {
-              this.route.navigate(['confirm-page', { msg: this.response.message }]);
+              this.asp.go_page_confirm_message(this.response.message);
             }
             if (JSON.stringify(this.response.data) === '{}') {
               this.error_msg = "registrasi anda tidak terdaftar";

@@ -149,6 +149,7 @@ export class PembayaranDonasiPage implements OnInit {
     {
       var item_donasi:any= JSON.parse(localStorage.getItem("item_donasi"));
       let donasiproduk=[];
+      //donasi_random_santri="0"; dipilihkan sistem
       let item_produk  = {
         "produk_id": item_donasi.donasiproduk[0].id ,
         "donasi_produk_jml": item_donasi.donasi_jumlah_santri,
@@ -163,7 +164,8 @@ export class PembayaranDonasiPage implements OnInit {
         item_donasi.donasi_tagih,
         item_donasi.donasi_total_harga, 
         item_donasi.donasi_cara_bayar,
-        donasiproduk).then(
+        donasiproduk,
+        item_donasi.donasi_random_santri).then(
           data => {
             this.result_simpan = data;
             if (this.result_simpan.status == 'error') {

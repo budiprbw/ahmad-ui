@@ -54,7 +54,7 @@ export class TabakunPage implements OnInit {
       });
   }
   goAjak(){
-    this.route.navigateByUrl('/ajak-gabung');
+    this.route.navigate(['ajak-gabung', { mode: 'donatur' }]);
   }
   goProfile(){
     this.route.navigateByUrl('/donatur-profile');    

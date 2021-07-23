@@ -11,17 +11,22 @@ export class ConfirmPagePage implements OnInit {
 
   public msg:string;
   constructor(
-    public router:ActivatedRoute,
-    private route : Router,
+    public route:ActivatedRoute,
+    private router : Router,
     public asp: AhmadproviderService
   ) { }
-
+r
   ngOnInit() {
-    this.msg= this.router.snapshot.paramMap.get("msg");
-    console.log(this.msg);
+    // this.msg= this.route.snapshot.paramMap.get("msg");
+    this.route.queryParams.subscribe(params => {
+      if (this.router.getCurrentNavigation().extras.state) {
+        this.msg = this.router.getCurrentNavigation().extras.state.msg;
+      }
+    });
+    
   }
   goKeluar(){
-    this.route.navigateByUrl('/webdashboard', { replaceUrl:true });
+    this.router.navigateByUrl('/webdashboard', { replaceUrl:true });
   }
 
 }

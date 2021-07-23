@@ -3,7 +3,7 @@ ion-toolbar {
     }
 .dashboard-donatur-program{
     width: 343px;
-    min-height: 338px; 
+    min-height: 406px; 
   //margin: 16px 16px 32px;
     //padding: 24px 16px;
     object-fit: contain;
@@ -13,7 +13,7 @@ ion-toolbar {
     background-size: auto;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url('../../assets/images/dashboard-donatur-program-Rectangle-608.webp');
+    //background-image: url('../../assets/images/dashboard-donatur-program-Rectangle-608.webp');
 }    
 .dashboard-donatur-program-title{
     height: 27px;
@@ -50,7 +50,7 @@ ion-toolbar {
     justify-content: center;
     align-items: center;
     gap: 10px;
-    margin:16px 0 0 10px;
+    margin:16px 0 0 15px;
     padding: 16px 20px;
     object-fit: contain;
     border-radius: 14px;

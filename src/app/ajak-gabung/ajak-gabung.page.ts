@@ -10,7 +10,6 @@ import { AhmadproviderService } from '../ahmadprovider.service';
 export class AjakGabungPage implements OnInit {
   public no_telepon:string;
   public usrinfo:any;
-  public donatur_id:any;
   public donatur_kode:any;
   public error_msg:string="";
 
@@ -27,7 +26,6 @@ export class AjakGabungPage implements OnInit {
   }
   getUserInfo(){
       this.usrinfo = this.asp.getUserInfo();
-      this.donatur_id  = this.usrinfo.user_id;
       this.donatur_kode = this.usrinfo.ref_object.donatur_kode;
   }
   goAjak(){    
