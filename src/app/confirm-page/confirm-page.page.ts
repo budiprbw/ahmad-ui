@@ -26,7 +26,7 @@ r
     
   }
   goKeluar(){
-    this.router.navigateByUrl('/webdashboard', { replaceUrl:true });
+    this.asp.go_page_home();
   }
 
 }

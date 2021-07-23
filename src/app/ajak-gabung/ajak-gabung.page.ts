@@ -10,12 +10,14 @@ import { AhmadproviderService } from '../ahmadprovider.service';
 export class AjakGabungPage implements OnInit {
   public no_telepon:string;
   public usrinfo:any;
-  public donatur_kode:any;
+  public referal_kode:any;
   public error_msg:string="";
+  public login_mode:string="";
+  public user_tipe: string="";
 
   constructor(
     private asp:AhmadproviderService,
-    private route: Router
+    public router: ActivatedRoute,
   ) { }
 
   ngOnInit() {
@@ -25,12 +27,27 @@ export class AjakGabungPage implements OnInit {
     this.asp.go_previous_page();
   }
   getUserInfo(){
-      this.usrinfo = this.asp.getUserInfo();
-      this.donatur_kode = this.usrinfo.ref_object.donatur_kode;
+      this.usrinfo = this.asp.getUserInfo();      
+      this.router.queryParams.subscribe((params: any) => {
+        if (params['mode']) {
+          this.login_mode = params['mode'];
+          switch (this.login_mode) {
+            case 'donatur':
+              this.user_tipe = "1";
+              this.referal_kode = this.usrinfo.ref_object.donatur_kode;
+              break;
+            case 'santri':
+              this.user_tipe = "2";
+              this.referal_kode = this.usrinfo.ref_object.santri_kode;
+              break;
+          }
+        }
+      })  
+
   }
   goAjak(){    
     this.asp.presentLoading("Sending");
-    this.asp.referal_send_link(this.donatur_kode, this.no_telepon).then(res=>{
+    this.asp.referal_send_link(this.referal_kode, this.no_telepon, this.user_tipe).then(res=>{
       let retval:any;
       retval= res;
       if (retval.status=='error'){

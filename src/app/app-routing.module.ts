@@ -83,7 +83,7 @@ const routes: Routes = [
     loadChildren: () => import('./donasi-riwayat/donasi-riwayat.module').then( m => m.DonasiRiwayatPageModule)
   },  
   {
-    path: 'gabung/:referal_kode',
+    path: 'gabung/:usertipe/:referal_kode',
     loadChildren: () => import('./signin/signin.module').then( m => m.SigninPageModule)
   },
   {

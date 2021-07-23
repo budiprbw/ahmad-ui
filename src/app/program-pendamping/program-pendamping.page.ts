@@ -31,7 +31,7 @@ export class ProgramPendampingPage implements OnInit {
     this.getBeritaKampanye();
   }
   goBack(){
-    this.route.navigateByUrl('/webdashboard', { replaceUrl:true });
+    this.asp.go_page_home();
   } 
    async getBeritaKampanye(){
     

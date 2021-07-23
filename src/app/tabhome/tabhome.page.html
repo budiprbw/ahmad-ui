@@ -25,18 +25,18 @@
               <div class="grid grid-rows-1 grid-cols-2 gap-2  justify-between">
                 <div class="bg-gold text-black rounded-xl">
                   <div class="text-center text-md-12 font-bold pt-2 font-poppins">Paket Tersalurkan</div>
-                  <div class="dashboard-donatur-box-paket-tersalurkan-value">10</div>
+                  <div class="dashboard-donatur-box-paket-tersalurkan-value">{{donatur_progress.donatur_paket_tersalurkan}}</div>
                 </div>
                 <div class="bg-black text-gold rounded-xl">
                   <div class="text-md-12 font-bold  pl-1 pt-2 ">Santri Selesai Belajar</div>
-                  <div class="dashboard-donatur-box-santri-belajar-value">0</div>
+                  <div class="dashboard-donatur-box-santri-belajar-value">{{donatur_progress.donatur_santri_selesai}}</div>
                 </div>
               </div>
               <div class="dashboard-donatur-box-progress">
                 <div class="dashboard-donatur-box-progress-title">
                   Progress Pembelajaran Santri Aktif
                 </div>
-                <div class="dashboard-donatur-box-progress-value">42%</div>
+                <div class="dashboard-donatur-box-progress-value">{{donatur_progress.bimbingan_santri_progress}} %</div>
               </div>
               <div class="dashboard-donatur-lihat-detail" (click)="goLihatdetail()">
                 <ion-label>Lihat Detail</ion-label>

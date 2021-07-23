@@ -18,6 +18,7 @@ export class SigninPage implements OnInit {
   public user = null;
   public referal_kode: any;
   public is_referal:boolean=false;
+  public user_tipe:string="";
 
   constructor(
     private google: GooglePlus,
@@ -39,6 +40,15 @@ export class SigninPage implements OnInit {
     this.router.params.subscribe((params: any) => {
       if (params['referal_kode']) {
         this.referal_kode = params['referal_kode'];
+        this.user_tipe=params['usertipe'];
+        if (this.user_tipe.toUpperCase()=='DONATUR')
+        {
+            this.asp.go_page_salurkan_donasi();
+        }
+        if (this.user_tipe.toUpperCase()=='SANTRI')
+        { 
+            this.asp.go_page_program_santri();
+        }
         localStorage.setItem("referal_kode", this.referal_kode);
         this.is_referal=true;
       }
@@ -48,22 +58,7 @@ export class SigninPage implements OnInit {
      this.asp.go_previous_page();
   }
   goLogin(p){
-    if (p=='donatur')
-    {
-        if (this.is_referal)
-        {
-          this.route.navigateByUrl('/donasi-program', { replaceUrl:true });
-        }
-        else{
-          this.route.navigateByUrl('/login?login_mode='+p);
-        }
-        
-    }
-    else
-    {
-      this.route.navigateByUrl('/login?login_mode='+p);
-    }
-    
+    this.asp.go_page_login(p);
   }
 
 

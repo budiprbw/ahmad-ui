@@ -27,6 +27,8 @@ export class AhmadproviderService {
   private api_bimbingan_list_santri_bydonaturid = this.api_url + environment.ahmadApi.donatur.bimbingan_list_santri_bydonaturid;
   private api_berita_kampanye_donatur = this.api_url + environment.ahmadApi.donatur.berita_kampanye_donatur;
   private api_pengingat_donatur_byid = this.api_url + environment.ahmadApi.donatur.pengingat_donatur_byid;
+  private api_donatur_dashboard = this.api_url + environment.ahmadApi.donatur.donatur_dashboard;
+  
   
   //#endregion
 
@@ -425,10 +427,11 @@ export class AhmadproviderService {
       });
     });
   }
-  referal_send_link(referral_entitas_kode, referral_telepon) {
+  referal_send_link(referral_entitas_kode, referral_telepon,referral_entitas_tujuan) {
     let data = {
       "referral_entitas_kode": referral_entitas_kode,
-      "referral_telepon": referral_telepon
+      "referral_telepon": referral_telepon,
+      "referral_entitas_tujuan":referral_entitas_tujuan
     };
     return new Promise(resolve => {
       this.httpclient.post(this.api_referal_send_link, data).subscribe(data => {
@@ -821,6 +824,24 @@ export class AhmadproviderService {
       });
     });
   }
+  donatur_dashboard(donatur_id) {
+    return new Promise(resolve => {
+      this.httpclient.get(this.api_donatur_dashboard + donatur_id).subscribe(data => {
+        let result = {
+          "message": '',
+          "status": 'OK',
+          "data": data
+        };
+        resolve(result);
+      }, err => {
+        let result = {
+          "message": err.message,
+          "status": 'error'
+        };
+        resolve(result);
+      });
+    });
+  }
   berita_kampanye_donatur(no_urut) {
     return new Promise(resolve => {
       this.httpclient.get(this.api_berita_kampanye_donatur + no_urut).subscribe(data => {
@@ -1184,16 +1205,16 @@ export class AhmadproviderService {
     };
     this.route.navigate(['detail-berita'], navigationExtras);
   }
-
   go_page_home(){
     this.clearLocalstorage();
     this.route.navigateByUrl('/webdashboard', { replaceUrl:true });
   }
-
   go_ajak_gabung_santri(){
     this.route.navigate(['ajak-gabung', { mode: 'santri' }]);
   }
-
+  go_ajak_gabung_donatur(){
+    this.route.navigate(['ajak-gabung', { mode: 'donatur' }]);
+  }
   go_santri_program(santri_id){
     this.route.navigate(['santri-program', { santri_id: santri_id }]);
   }
@@ -1221,10 +1242,30 @@ export class AhmadproviderService {
   go_page_registrasi(login_mode){
     this.route.navigateByUrl('/registrasi?login_mode=' + login_mode, { replaceUrl: true });
   }
+  go_page_login(login_mode){
+    this.route.navigateByUrl('/login?login_mode=' + login_mode);
+  }
   go_page_donasi_tanya_akun(){
     this.route.navigateByUrl('/donasi-tanya-akun?login_mode=donatur', { replaceUrl: true });
   }
-
+  go_page_faq_list(){
+    this.route.navigateByUrl('/faq-list');    
+  }
+  go_page_buatpassword(){
+    this.route.navigateByUrl('/buatpassword');
+  }
+  go_page_salurkan_donasi(){
+      this.route.navigateByUrl('/penyaluran-donasi', { replaceUrl:true });
+  }  
+  go_page_donasi_riwayat(){
+    this.route.navigateByUrl('/donasi-riwayat', { replaceUrl:true });
+  }
+  go_page_santri_list(){
+    this.route.navigateByUrl('/donasi-santri-list');
+  }
+  go_page_program_santri(){
+    this.route.navigateByUrl('/program-santri');    
+  }
   //#endregion
 
 

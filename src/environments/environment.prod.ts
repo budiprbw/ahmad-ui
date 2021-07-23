@@ -24,7 +24,8 @@ export const environment = {
       hadist_by_donaturid:"hadist/entitas/donatur/",
       bimbingan_list_santri_bydonaturid:"bimbingan/list/santri/donatur/",
       berita_kampanye_donatur:"berita/kampanye/donatur/",
-      pengingat_donatur_byid:"pengingat/donatur/byid/"
+      pengingat_donatur_byid:"pengingat/donatur/byid/",
+      donatur_dashboard:"donatur/dashboard/",
     },
     santri:{
       register:"santri/register",

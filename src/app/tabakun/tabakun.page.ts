@@ -1,7 +1,5 @@
 import { Component, OnInit,NgZone } from '@angular/core';
-import { Router,ActivatedRoute } from '@angular/router';
 import { AhmadproviderService } from '../ahmadprovider.service';
-import {  Platform,NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tabakun',
@@ -20,11 +18,7 @@ export class TabakunPage implements OnInit {
   public line_data_lembaga:any=[];
 
   constructor(
-    private route : Router,
-    private router:ActivatedRoute,
     public asp: AhmadproviderService,
-    public navCtrl: NavController,
-    public ngZone:NgZone
   ) { }
 
   ngOnInit() {
@@ -54,16 +48,16 @@ export class TabakunPage implements OnInit {
       });
   }
   goAjak(){
-    this.route.navigate(['ajak-gabung', { mode: 'donatur' }]);
+    this.asp.go_ajak_gabung_donatur();
   }
   goProfile(){
-    this.route.navigateByUrl('/donatur-profile');    
+    this.asp.go_page_donatur_profile();  
   }
   goFAQ(){
-    this.route.navigateByUrl('/faq-list');    
+    this.asp.go_page_faq_list();
   }
   goUbahPassword(){        
-    this.route.navigateByUrl('/buatpassword');
+    this.asp.go_page_buatpassword();
     
     /*
     this.route.ngOnDestroy();
@@ -84,8 +78,7 @@ export class TabakunPage implements OnInit {
 
   }
   goKeluar(){
-    this.asp.clearLocalstorage();
-    this.route.navigateByUrl('/webdashboard', { replaceUrl:true });
+    this.asp.go_page_home();
   }
   html_entity(val){
     return this.asp.html_entity(val);

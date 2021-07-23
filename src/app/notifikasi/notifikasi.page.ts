@@ -67,14 +67,14 @@ export class NotifikasiPage implements OnInit {
       }
       if (this.mark_options=="2")
       {
-        // mark as unread
+        // remove
         if (this.notiflist[i].is_selected=="0")
         {
             this.delete_pesan(this.notiflist[i].id);
         }  
       }      
     }
-    this.getNotif();
+    this.getNotif();    
     this.mark_options="";
   }
   async update_read(id)

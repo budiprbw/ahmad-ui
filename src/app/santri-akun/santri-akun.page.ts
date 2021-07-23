@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute,Router } from '@angular/router';
 import { AhmadproviderService } from '../ahmadprovider.service';
 
 @Component({
@@ -10,11 +9,9 @@ import { AhmadproviderService } from '../ahmadprovider.service';
 export class SantriAkunPage implements OnInit {
   public user_photoURL:any;
   constructor(
-    private router: ActivatedRoute,
-    private route : Router,
     public asp: AhmadproviderService
   ) { }
-
+  
   ngOnInit() {
     this.user_photoURL="assets/images/no-image.png";
   }
@@ -22,14 +19,13 @@ export class SantriAkunPage implements OnInit {
 
   }
   goProfile(){
-    this.route.navigateByUrl('/santri-profile', { replaceUrl:true });
+    this.asp.go_page_santri_profile();
   }
   goUbahPassword(){
 
   }
   goKeluar(){
-    this.asp.clearLocalstorage();
-    this.route.navigateByUrl('/webdashboard', { replaceUrl:true });
+    this.asp.go_page_home();
 
   }
 
