@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute,Router } from '@angular/router';
 import { AhmadproviderService } from '../ahmadprovider.service';
 
 @Component({
@@ -9,15 +8,23 @@ import { AhmadproviderService } from '../ahmadprovider.service';
 })
 export class TabprogramPage implements OnInit {
   public line_data_lembaga:any=[];
+  public adaDonasi:boolean=false;
+  public donatur_id:any;
+  public riwayatlist:any=[];
+  public usrinfo:any;
 
   constructor(
-    private router: ActivatedRoute,
-    private route : Router,
     public asp: AhmadproviderService
   ) { }
 
   ngOnInit() {
+    this.viewUser();
     this.getDataLembaga();
+    this.cekDonasi();
+  }
+  viewUser(){
+    this.usrinfo =  this.asp.getUserInfo();
+    this.donatur_id= this.usrinfo.ref_object.id;
   }
 
   async getDataLembaga(){
@@ -26,17 +33,30 @@ export class TabprogramPage implements OnInit {
             this.line_data_lembaga=data;            
       });
   }
+  async cekDonasi(){
+    this.asp.donasi_cicilan_donaturid( this.donatur_id).then(
+      data=> {        
+            let result:any;
+            result =data;
+            this.riwayatlist= result.data;
+            this.adaDonasi=false;
+            if (this.riwayatlist.length > 0)
+            {
+              this.adaDonasi=true;
+            }            
+      });
+  }
   goRiwayat(){
-    this.route.navigateByUrl('/donasi-riwayat');
+    this.asp.go_page_donasi_riwayat();
   }
   goListPenerimaDonasi(){
-    this.route.navigateByUrl('/donasi-santri-list');
+    this.asp.go_page_santri_list();
   }
   goStatusPengiriman(){
-    this.route.navigateByUrl('/pengiriman-status-donasi');
+    this.asp.go_page_pengiriman_status_donasi();
   }
   goSalurkanDonasi(){
-    this.route.navigateByUrl('/penyaluran-donasi');
+    this.asp.go_page_salurkan_donasi();
   }
   html_entity(val){
     return this.asp.html_entity(val);

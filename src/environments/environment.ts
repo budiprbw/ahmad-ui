@@ -87,7 +87,8 @@ export const environment = {
       update_rekening: "donasi/update/rekening/",
       by_donasiid_donaturid: "donasi/donasiid/",
       cicilan_donaturid: "donasi/cicilan/donatur/",     
-      list_santri_by_donasiid:"donasi/santri/"
+      list_santri_by_donasiid:"donasi/santri/",
+      donasi_byid:"donasi/byid/"
     },
     send_wa_message:"message/send/wa",
     referal_send_link : "referral/send/link"

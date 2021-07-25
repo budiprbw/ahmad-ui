@@ -45,9 +45,9 @@ export class AjakGabungPage implements OnInit {
       })  
 
   }
-  goAjak(){    
+  async goAjak(){    
     this.asp.presentLoading("Sending");
-    this.asp.referal_send_link(this.referal_kode, this.no_telepon, this.user_tipe).then(res=>{
+    await this.asp.referal_send_link(this.referal_kode, this.no_telepon, this.user_tipe).then(res=>{
       let retval:any;
       retval= res;
       if (retval.status=='error'){

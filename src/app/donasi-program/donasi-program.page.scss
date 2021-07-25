@@ -45,29 +45,30 @@
   }
   .donasi-program-berita-kampanye {
     //width: 186px;
-    height: 40px;
+    //height: 40px;
     font-family: Poppins;
+    margin: 10px 20px 10px 10px;
     font-size: 14px;
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
     line-height: 1.43;
     letter-spacing: normal;
-    text-align: center;
-    color: var(--black);
+    text-align: justify ;
+    color: var(--ion-color-black);
   }
   .donasi-program-card3-text1{
-    width:290px;
-    //height: 197px;
-    //margin: 12px 0 0;
+    //width: 247px;
+    height: 27px;
+    margin: 10 20px 10px 10px;
     font-family: Poppins;
-    font-size: 12px;
-    font-weight: normal;
+    font-size: 18px;
+    font-weight: 600;
     font-stretch: normal;
     font-style: normal;
-    line-height: 1.67;
-    letter-spacing: normal;
-    margin-left: 10px;
-    text-align: justify;
-    color:var(--ion-color-black);
+    line-height: normal;
+    letter-spacing: -0.3px;
+    text-align: center;
+    color: var(--ion-color-black);
   }
+  

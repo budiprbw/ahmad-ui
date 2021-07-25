@@ -97,7 +97,7 @@ export class RegistrasiPage implements OnInit {
     });
   }
   gotologinpage() {
-    this.route.navigateByUrl('/login', { replaceUrl: true });
+    this.route.navigateByUrl('/login?login_mode'+ this.login_mode, { replaceUrl: true });
   }
   goBack() {
     this.asp.go_previous_page();

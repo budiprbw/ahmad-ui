@@ -32,7 +32,6 @@ export class JadualPembayaranDonasiPage implements OnInit {
     this.donatur_id= this.usrinfo.ref_object.id;
   }
   initialJadwalPembayaran(){
-    //var item_donasi:any=JSON.parse(localStorage.getItem("item_donasi"));
     this.asp.donasi_cicilan_donaturid( this.donatur_id).then(
       data=> {        
             this.jadwallist=data;

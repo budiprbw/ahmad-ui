@@ -8,6 +8,7 @@ import { FileUploadOptions } from '@ionic-native/file-transfer';
 import { Storage } from '@ionic/storage';
 import { environment } from 'src/environments/environment';
 import { DomSanitizer } from '@angular/platform-browser'
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root'
@@ -100,7 +101,8 @@ export class AhmadproviderService {
   private api_donasi_update_rekening= this.api_url + environment.ahmadApi.donasi.update_rekening;
   private api_donasi_cicilan_donaturid= this.api_url + environment.ahmadApi.donasi.cicilan_donaturid;
   private api_list_santri_by_donasiid= this.api_url + environment.ahmadApi.donasi.list_santri_by_donasiid;
-
+  private api_donasi_byid= this.api_url + environment.ahmadApi.donasi.donasi_byid;
+  
 
   //#endregion
   isLoading = false;
@@ -121,8 +123,8 @@ export class AhmadproviderService {
     private transfer: FileTransfer,
     private storage: Storage,
     public route: Router,
-    private sanitized: DomSanitizer
-
+    private sanitized: DomSanitizer,
+    private fireAuth: AngularFireAuth,
   ) { }
 
 
@@ -809,6 +811,24 @@ export class AhmadproviderService {
       });
     });
   }
+  donasi_byid(donasi_id) {
+    return new Promise(resolve => {
+      this.httpclient.get(this.api_donasi_byid + donasi_id).subscribe(data => {
+        let result = {
+          "message": '',
+          "status": 'OK',
+          "data": data
+        };
+        resolve(result);
+      }, err => {
+        let result = {
+          "message": err.message,
+          "status": 'error'
+        };
+        resolve(result);
+      });
+    });
+  }
   hadist_by_donaturid(donatur_id) {
     return new Promise(resolve => {
       this.httpclient.get(this.api_hadist_by_donaturid + donatur_id).subscribe(data => {
@@ -1244,15 +1264,38 @@ export class AhmadproviderService {
     };
     this.route.navigate(['detail-berita'], navigationExtras);
   }
+  go_page_donasi_detail(item){
+    let navigationExtras: NavigationExtras = {
+      state: {
+        cicilan: item.cicilan
+      }
+    };
+    this.route.navigate(['donasi-detail'], navigationExtras);
+  }
+  go_page_view_pembayaran_donasi(item){
+    let navigationExtras: NavigationExtras = {
+      state: {
+        item_donasi: item
+      }
+    };
+    this.route.navigate(['view-pembayaran-donasi'], navigationExtras);
+  }
   go_page_home(){
+    let usrinfo:any = this.getUserInfo(); 
+    if(usrinfo!=null){
+      if (usrinfo.login_by=="gmail"){
+        this.fireAuth.signOut().then(() => {
+        });
+      }
+    }
     this.clearLocalstorage();
-    this.route.navigateByUrl('/webdashboard', { replaceUrl:true });
+    this.route.navigateByUrl('/webdashboard', { replaceUrl:true });    
   }
   go_ajak_gabung_santri(){
-    this.route.navigate(['ajak-gabung', { mode: 'santri' }]);
+    this.route.navigateByUrl('/ajak-gabung?mode=santri');
   }
   go_ajak_gabung_donatur(){
-    this.route.navigate(['ajak-gabung', { mode: 'donatur' }]);
+    this.route.navigateByUrl('/ajak-gabung?mode=donatur');
   }
   go_santri_program(santri_id){
     this.route.navigate(['santri-program', { santri_id: santri_id }]);
@@ -1323,6 +1366,10 @@ export class AhmadproviderService {
   go_page_pengiriman_status(){
     this.route.navigateByUrl('/pengiriman-status', { replaceUrl: true });   
   }
+  go_page_pengiriman_status_donasi(){
+    this.route.navigateByUrl('/pengiriman-status-donasi');   
+  }
+
 
   //#endregion
 

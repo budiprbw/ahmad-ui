@@ -7,7 +7,7 @@ import { AhmadproviderService } from '../ahmadprovider.service';
   styleUrls: ['./tabhome.page.scss'],
 })
 export class TabhomePage implements OnInit {
-  public belum_donasi:any=false;
+  public adaDonasi:any=false;
   public donatur_id:any;
   public user_id:any;
   public usrinfo:any;
@@ -17,6 +17,7 @@ export class TabhomePage implements OnInit {
   public pengingatList:any=[];
   public hadistisi:any=[];
   public donatur_progress:any=[];
+  public riwayatlist:any=[];
 
   constructor(
     public asp: AhmadproviderService
@@ -24,6 +25,7 @@ export class TabhomePage implements OnInit {
 
   ngOnInit() {        
     this.viewUser();
+    this.cekDonasi();
     this.getDonaturDashboard();
     this.getHadistHariini();
     this.getBeritaKampanye();    
@@ -37,11 +39,23 @@ export class TabhomePage implements OnInit {
     this.user_id  = this.usrinfo.user_id;
   }
   async getBeritaKampanye(){
-    this.belum_donasi=false;
     await this.asp.getlist_berita_kampanye().then(
       data=> {        
         this.berita=data;
       });   
+  }
+  async cekDonasi(){
+    this.asp.donasi_cicilan_donaturid( this.donatur_id).then(
+      data=> {        
+            let result:any;
+            result =data;
+            this.riwayatlist= result.data;
+            this.adaDonasi=false;
+            if (this.riwayatlist.length > 0)
+            {
+              this.adaDonasi=true;
+            }            
+      });
   }
   async getHadistHariini(){
     await this.asp.hadist_by_donaturid(this.donatur_id).then(

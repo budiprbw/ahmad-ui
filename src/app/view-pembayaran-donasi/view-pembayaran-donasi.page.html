@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Pembayaran Donasi</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="w-full" [scrollEvents]="true">
+  <ion-grid class="ion-grid lg:w-480 w-375">
+    <ion-row>
+      <ion-col>
+        <ion-card class="view-pembayaran-donasi-Rectangle-636  lg:ml-16 ml-0">
+          <div class="view-pembayaran-donasi-Ringkasan-Transaksi">Ringkasan Transaksi</div>          
+          <div class="view-pembayaran-donasi-Nama-Donatur  lg:ml-16">
+            <ion-title class="ion-text-center">{{user_displayName}}</ion-title>
+          </div>
+          <div class="view-pembayaran-donasi-emailemailcom  lg:ml-16 ml-0">
+            <ion-title class="ion-text-center">{{user_email}}</ion-title>
+          </div>
+          <div class="Line-10"></div>
+          <div class="view-pembayaran-donasi-text1">Tanggal Transaksi</div>
+          <div class="view-pembayaran-donasi-value1"><ion-datetime displayFormat="DD/MM/YYYY" value="{{donasi_tanggal}}"></ion-datetime></div>
+          <div class="view-pembayaran-donasi-text1">Total Donasi ({{qty_donasi}} Paket)</div>
+          <div class="view-pembayaran-donasi-value2">{{total_donasi}}</div>
+          <div class="view-pembayaran-donasi-text1">Jenis Donasi</div>
+          <div class="view-pembayaran-donasi-value3">{{jenis_donasi}}</div>
+          <div class="view-pembayaran-donasi-text1">Nominal Donasi</div>
+          <div class="view-pembayaran-donasi-value4">{{nominal_donasi}}</div>
+          <div class="view-pembayaran-donasi-text1">Durasi Pembayaran Donasi</div>
+          <div class="view-pembayaran-donasi-value5">{{durasi_donasi}}</div>
+          <ion-button fill="clear" class="view-pembayaran-donasi-button" (click)="goJadualDonasi()">
+            <ion-text class="view-pembayaran-donasi-button-Sign-up">
+              Lihat Jadwal Pembayaran Donasi
+            </ion-text>
+            <div class="">
+              <ion-icon name="arrow-forward-circle-outline" class="vector_2" size="large"></ion-icon>
+            </div>
+          </ion-button>
+        </ion-card>      
+        <ion-card class="view-pembayaran-donasi-Rectangle-635  lg:ml-16 ml-0">
+          <div class="view-pembayaran-donasi-text1">Rincian Transaksi</div>
+          <div class="view-pembayaran-donasi-value6">{{nominal_donasi}}</div>
+          <div class="view-pembayaran-donasi-text1">Total Bayar (Donasi 1)</div>
+          <div class="view-pembayaran-donasi-value7">{{nominal_donasi}}</div>
+          <div class="view-pembayaran-donasi-text1">Kode Unik</div>
+          <div class="view-pembayaran-donasi-value8">{{kode_unik}}</div>
+          <div class="view-pembayaran-donasi-text1">Grand Total</div>
+          <div class="view-pembayaran-donasi-value9">{{gran_total_text}}</div>
+        </ion-card>
+        <ion-card class="view-pembayaran-Rectangle-635  lg:ml-16 ml-0">
+          <div class="view-pembayaran-donasi-pilih-rekening-title">Rekening Pembayaran Donasi</div>
+          <div class="view-pembayaran-donasi-pilih-rekening-bank  lg:ml-16">
+            <div class="nama-bank">{{bank_selected.rekening_nama_bank}}</div>
+            <div class="no-rekening">{{bank_selected.rekening_no}}</div>
+            <div class="atas-nama">{{bank_selected.rekening_nama}}</div>
+          </div>
+        </ion-card>
+        <ion-text color="danger">
+            <h5>{{error_msg}}</h5>
+          </ion-text>      
+      </ion-col>  
+    </ion-row>
+  </ion-grid>
+</ion-content>

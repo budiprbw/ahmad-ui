@@ -213,6 +213,10 @@ const routes: Routes = [
   {
     path: 'pengingat-bimbingan',
     loadChildren: () => import('./pengingat-bimbingan/pengingat-bimbingan.module').then( m => m.PengingatBimbinganPageModule)
+  },
+  {
+    path: 'view-pembayaran-donasi',
+    loadChildren: () => import('./view-pembayaran-donasi/view-pembayaran-donasi.module').then( m => m.ViewPembayaranDonasiPageModule)
   }
 ];
 @NgModule({

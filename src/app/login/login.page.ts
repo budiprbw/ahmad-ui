@@ -35,7 +35,7 @@ export class LoginPage implements OnInit {
     public modalController: ModalController,
   ) { }
 
-  async ngOnInit() {
+  async ngOnInit() {    
     this.router.queryParams.subscribe((params: any) => {
       if (params['login_mode']) {
         this.login_mode = params['login_mode'];
@@ -149,7 +149,7 @@ export class LoginPage implements OnInit {
             "user_displayName": this.response.name,
             "is_approve": this.response.approve,
             "user_photoURL": "",
-            "login_by": "data",
+            "login_by": "gmail",
             "login_mode": this.login_mode,
             "ref_object": object_ref,
             "route_from": "login"

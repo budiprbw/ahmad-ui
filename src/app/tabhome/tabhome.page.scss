@@ -2,15 +2,13 @@ ion-toolbar {
     --background: var(--ion-color-goldd);
     }
     .dashboard-donatur-card1{
-        height: 200px;
+        height: 116px;
         width: 343px;
-        //margin: 36px 46px 36px 46px;
-        padding: 26px 43px 36px 26px;
+        //margin: 0 10px 10px;
         object-fit: contain;
-        //transform: rotate(180deg);
-        border-radius: 32px;
-        box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
-        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), linear-gradient(to top, rgba(185, 185, 185, 0.68), #212121), linear-gradient(to bottom, #c4c4c4, #c4c4c4);
+        border-radius: 14px;
+        box-shadow: 0 0.8px 1.4px 0 rgba(176, 190, 197, 0.32), 0 2.2px 6.6px 0 rgba(176, 190, 197, 0.32);
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), linear-gradient(to top, rgba(185, 185, 185, 0.68), #212121), linear-gradient(to bottom, #c4c4c4, #c4c4c4);        
         background-size: auto;
         background-position: center;
         background-image: url('../../assets/images/banner.webp');
@@ -18,7 +16,7 @@ ion-toolbar {
       .dashboard-donatur-card1-title{
         width: 173.3px;
         height: 36px;
-        margin: 52px 162.7px 38px 39px;
+        margin: 42px 162.7px 38px 39px;
         font-family: Poppins;
         font-size: 16px;
         font-weight: 600;
@@ -223,7 +221,7 @@ ion-toolbar {
         color: var(--ion-color-black);
       }
       .dashboard-donatur-box-progress-value{
-        width: 68px;
+        width: 88px;
         height: 48px;
         margin: 5px 71px 0;
         font-family: Poppins;

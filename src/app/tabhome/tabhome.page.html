@@ -14,13 +14,13 @@
       <ion-grid class="ion-grid lg:w-480 w-375">
         <ion-row>
           <ion-col >
-            <ion-card class="dashboard-donatur-card1 lg:ml-16" *ngIf="belum_donasi">
+            <ion-card class="dashboard-donatur-card1 lg:ml-16" >
               <div class="dashboard-donatur-card1-title">
                 Belajar Alquran <span style="color:white">Lebih</span>,
                 <span style="color:white">Bersedekah</span> Lebih
               </div>
-            </ion-card>
-            <ion-card class="dashboard-donatur-sudah-donasi lg:ml-16" *ngIf="!belum_donasi">
+            </ion-card>            
+            <ion-card class="dashboard-donatur-sudah-donasi lg:ml-16" *ngIf="adaDonasi">
               <div class="text-black mb-3 font-bold font-poppins">Statistik Santri Penerima Donasi Anda</div>
               <div class="grid grid-rows-1 grid-cols-2 gap-2  justify-between">
                 <div class="bg-gold text-black rounded-xl">
@@ -36,14 +36,14 @@
                 <div class="dashboard-donatur-box-progress-title">
                   Progress Pembelajaran Santri Aktif
                 </div>
-                <div class="dashboard-donatur-box-progress-value">{{donatur_progress.bimbingan_santri_progress}} %</div>
+                <div class="dashboard-donatur-box-progress-value">{{donatur_progress.bimbingan_santri_progress * 100}} %</div>
               </div>
               <div class="dashboard-donatur-lihat-detail" (click)="goLihatdetail()">
                 <ion-label>Lihat Detail</ion-label>
                 <ion-icon name="chevron-forward-circle-outline" class="vector0" size="large"></ion-icon>
               </div>
             </ion-card>
-            <ion-card class="dashboard-donatur-pengingat lg:ml-16" *ngIf="!belum_donasi" (click)="goPengingat()">
+            <ion-card class="dashboard-donatur-pengingat lg:ml-16" *ngIf="adaDonasi" (click)="goPengingat()">
               <div class="dashboard-donatur-pengingat-text">
                 Pengingat Pembayaran Donasi
                 <ion-icon name="chevron-forward-circle-outline" class="vector" size="large"></ion-icon>
@@ -51,7 +51,7 @@
               <div class="dashboard-donatur-pengingat-content">{{pengingatList.pengingat_judul}} - {{pengingatList.created_at
                 | date:'dd-MM-yyyy'}} </div>
             </ion-card>
-            <ion-card class="dashboard-donatur-card2 lg:ml-16">
+            <ion-card class="dashboard-donatur-card2 lg:ml-16 hidden">
               <div class="dashboard-donatur-card2-text1"> {{line_data_lembaga.lembaga_landing_donatur_judul}}</div>
               <div class="dashboard-donatur-card2-text2">
                 <span [innerHTML]="html_entity(line_data_lembaga.lembaga_landing_donatur_isi)"></span>

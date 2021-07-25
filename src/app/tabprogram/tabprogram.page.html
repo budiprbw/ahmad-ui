@@ -9,23 +9,23 @@
         <ion-grid class="ion-grid  lg:w-480 w-375">
           <ion-row>
             <ion-col>
-              <ion-card class="dashboard-donatur-Rectangle-660 lg:ml-16" (click)="goRiwayat()">
+              <ion-card class="dashboard-donatur-Rectangle-660 lg:ml-16" (click)="goRiwayat()" *ngIf="adaDonasi">
                 <div class="dashboard-donatur-Rectangle-660-text">Riwayat Pembayaran Donasi
                   <ion-icon name="chevron-forward-circle-outline" class="vector1" size="large"></ion-icon>
                 </div>
               </ion-card>
-              <ion-card class="dashboard-donatur-Rectangle-660  lg:ml-16" (click)="goListPenerimaDonasi()">
+              <ion-card class="dashboard-donatur-Rectangle-660  lg:ml-16" (click)="goListPenerimaDonasi()" *ngIf="adaDonasi">
                 <div class="dashboard-donatur-Rectangle-660-text">List Penerima Donasi
                   <ion-icon name="chevron-forward-circle-outline" class="vector2" size="large"></ion-icon>
                 </div>
               </ion-card>
-              <ion-card class="dashboard-donatur-Rectangle-660 lg:ml-16" (click)="goStatusPengiriman()">
+              <ion-card class="dashboard-donatur-Rectangle-660 lg:ml-16" (click)="goStatusPengiriman()" *ngIf="adaDonasi">
                 <div class="dashboard-donatur-Rectangle-660-text">Status Pengiriman Paket Donasi
                   <ion-icon name="chevron-forward-circle-outline" class="vector3" size="large"></ion-icon>
                 </div>
               </ion-card>
               <ion-card class="dashboard-donatur-program lg:ml-16">                
-                <div class="dashboard-donatur-program-title">{{line_data_lembaga.lembaga_landing_donatur_judul}}</div>
+                <div class="dashboard-donatur-program-title mt-5">{{line_data_lembaga.lembaga_landing_donatur_judul}}</div>
                 <div class="dashboard-donatur-program-content">
                   <span [innerHTML]="html_entity(line_data_lembaga.lembaga_landing_donatur_isi)"></span>
                 </div>

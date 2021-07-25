@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute,NavigationExtras } from '@angular/router';
 import { AhmadproviderService } from '../ahmadprovider.service';
-import { TouchSequence } from 'selenium-webdriver';
+// import { TouchSequence } from 'selenium-webdriver';
 
 @Component({
   selector: 'app-donasi-santri-list',

@@ -17,6 +17,8 @@ export class ProgramSantriPage implements OnInit {
   public no_urut:number=1;
   public isPrev: boolean = false;
   public isNext: boolean = true;
+  public berita_judul:any;
+  public berita_isi:any;
 
   
 
@@ -41,6 +43,8 @@ export class ProgramSantriPage implements OnInit {
           if (this.line_berita.data.berita_lokasi_video != null) {
             const iframe = document.getElementById('embeddedPage') as HTMLIFrameElement;
             iframe.src = this.line_berita.data.berita_lokasi_video;
+            this.berita_isi= this.line_berita.data.berita_isi;
+            this.berita_judul= this.line_berita.data.berita_judul;
           }
         }
         else {

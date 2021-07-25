@@ -1,4 +1,4 @@
-.pembayaran-donasi-Rectangle-636{
+.view-pembayaran-donasi-Rectangle-636{
     width: 343px;
     height: 354px;
     //margin: 16px;
@@ -6,7 +6,7 @@
     border-radius: 14px;
     background-color: var(--ion-color-goldd);
 }
-.pembayaran-donasi-Ringkasan-Transaksi {
+.view-pembayaran-donasi-Ringkasan-Transaksi {
     //width: 146px;
     height: 20px;
     margin: 6px 75px 16px 0;
@@ -20,7 +20,7 @@
     text-align: left;
     color: #000000;
   }
-  .pembayaran-donasi-Nama-Donatur{
+  .view-pembayaran-donasi-Nama-Donatur{
     //width: 132px;
     height: 20px;
    // margin: 15px 5px 6px 10px;
@@ -34,7 +34,7 @@
     text-align: left;
     color: #000000;
   }
-  .pembayaran-donasi-emailemailcom{
+  .view-pembayaran-donasi-emailemailcom{
     //width: 132px;
     height: 20px;
     //margin: 15px 5px 6px 10px;
@@ -48,7 +48,7 @@
     text-align: left;
     color: #000000;
   }
-  .pembayaran-donasi-button{
+  .view-pembayaran-donasi-button{
     //width: 90px;
     height: 32px;
     display: flex;
@@ -62,9 +62,8 @@
     box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.17), 0 0 3px 0 rgba(0, 0, 0, 0.08);
     border: solid 1px #000000;
     background-color: var(--ion-color-goldd);
-    display: none;
   }
-  .pembayaran-donasi-button-Sign-up{
+  .view-pembayaran-donasi-button-Sign-up{
     width: 240px;
     height: 20px;
     flex-grow: 0;
@@ -95,7 +94,7 @@
     border: solid 1px #000000;
     background-color: var(--ion-color-goldd);
   }
-  .pembayaran-donasi-ubah-text{
+  .view-pembayaran-donasi-ubah-text{
     //width: 78px;
     height: 20px;
     flex-grow: 0;
@@ -117,7 +116,7 @@
     opacity: 0.4;
     background-color: var(--black);
   }
-  .pembayaran-donasi-text1{
+  .view-pembayaran-donasi-text1{
     //width: 112px;
     height: 20px;
     margin: 15px 109px 8px 0;
@@ -131,7 +130,7 @@
     text-align: left;
     color: var(--ion-color-black);
   }
-  .pembayaran-donasi-value1{
+  .view-pembayaran-donasi-value1{
     position: absolute;
     top:31%;
     width:180px;
@@ -148,7 +147,7 @@
     float: right;
     color: var(--ion-color-black);
   }
-  .pembayaran-donasi-value2{
+  .view-pembayaran-donasi-value2{
     position: absolute;
     top:40%;
     width:180px;
@@ -165,7 +164,7 @@
     float: right;
     color: var(--ion-color-black);
   }
-  .pembayaran-donasi-value3{
+  .view-pembayaran-donasi-value3{
     position: absolute;
     top:50%;
     width:180px;
@@ -182,7 +181,7 @@
     float: right;
     color: var(--ion-color-black);
   }
-  .pembayaran-donasi-value4{
+  .view-pembayaran-donasi-value4{
     position: absolute;
     top:60%;
     width:180px;
@@ -199,7 +198,7 @@
     float: right;
     color: var(--ion-color-black);
   }
-  .pembayaran-donasi-value5{
+  .view-pembayaran-donasi-value5{
     position: absolute;
     top:71%;
     width:180px;
@@ -216,7 +215,7 @@
     float: right;
     color: var(--ion-color-black);
   }
-  .pembayaran-donasi-value6{
+  .view-pembayaran-donasi-value6{
     position: absolute;
     top:30%;
     width:180px;
@@ -233,7 +232,7 @@
     float: right;
     color: var(--ion-color-black);
   }
-  .pembayaran-donasi-value7{
+  .view-pembayaran-donasi-value7{
     position: absolute;
     top:91%;
     width:180px;
@@ -250,7 +249,7 @@
     float: right;
     color: var(--ion-color-black);
   }
-  .pembayaran-donasi-value8{
+  .view-pembayaran-donasi-value8{
     position: absolute;
     top:52%;
     width:180px;
@@ -267,7 +266,7 @@
     float: right;
     color: var(--ion-color-black);
   }
-  .pembayaran-donasi-value9{
+  .view-pembayaran-donasi-value9{
     position: absolute;
     top:70%;
     width:180px;
@@ -286,7 +285,7 @@
   }
   
   
-  .pembayaran-donasi-Rectangle-635{
+  .view-pembayaran-donasi-Rectangle-635{
     width: 343px;
     height: 168px;
     //margin: 16px;
@@ -295,7 +294,7 @@
     box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
     background-color: var(--ion-color-white);
   }
-  .pembayaran-Rectangle-635 {
+  .view-pembayaran-Rectangle-635 {
     width: 343px;
     height: 168px;
     //margin: 16px;
@@ -304,17 +303,9 @@
     box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
     background-color:  var(--ion-color-white);
   }
-  .pembayaran-Rectangle-628{
-    //width: 375px;
-    height: 140px;
-    flex-grow: 0;
-    margin: 16px 0 0 -8px;
-    padding: 16px;
-    box-shadow: 0 -4px 12px 0 rgba(0, 0, 0, 0.15);
-    background-color:  var(--ion-color-white);
-
-  }
-  .pembayaran-donasi-pilih-rekening-title{
+  
+  
+  .view-pembayaran-donasi-pilih-rekening-title{
     width: 218px;
     height: 20px;
     margin: 6px 48px 16px 4px;
@@ -345,7 +336,7 @@
     border: solid 1px #000000;
     background-color: var(--ion-color-white);
   }
-  .pembayaran-donasi-ubah-text{
+  .view-pembayaran-donasi-ubah-text{
     //width: 33px;
     height: 20px;
     flex-grow: 0;
@@ -359,7 +350,7 @@
     text-align: right;
     color: #000000;
   }
-  .pembayaran-donasi-pilih-rekening-bank{
+  .view-pembayaran-donasi-pilih-rekening-bank{
     width: 311px;
     height: 72px;
     flex-grow: 0;
@@ -513,13 +504,4 @@
   text-align: center;
   color: var(--ion-color-black);
 
-}
-.vector_footer{
-  width: 16px;
-  height: 16px;
-  //position: absolute;
-  //top: 46%;
-  flex-grow: 0;
-  //margin-left: 47%;
-  object-fit: contain;
 }

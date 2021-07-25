@@ -28,6 +28,7 @@ export class PembayaranDonasiPage implements OnInit {
   public user_email: string = "";
   public user_displayName: string = "";
   public login_by: string = "";
+  public donasi_tanggal:any;
 
   constructor(
     public asp: AhmadproviderService,
@@ -69,7 +70,7 @@ export class PembayaranDonasiPage implements OnInit {
     if (item_donasi) {
       temp_donasi_no= item_donasi.temp_donasi_no;
       this.jenis_donasi= item_donasi.jenis_donasi_text;
-     
+      this.donasi_tanggal =item_donasi.donasi_tanggal;
       this.nominal_donasi= this.format_number(item_donasi.donasi_tagih);
       this.total_donasi="Rp." + this.format_number(item_donasi.donasi_total_harga);
       this.qty_donasi= item_donasi.donasi_jumlah_santri;

@@ -16,6 +16,8 @@ export class DonasiProgramPage implements OnInit {
   public no_urut:number=1;
   public isPrev: boolean = false;
   public isNext: boolean = true;
+  public berita_isi:any;
+  public berita_judul:any;
 
   constructor(
     public asp: AhmadproviderService,
@@ -41,14 +43,17 @@ export class DonasiProgramPage implements OnInit {
   }
 
   async getBeritaKampanye() {
-
-    await this.asp.berita_kampanye_donatur(this.no_urut).then(
+    
+    let nomor: string= this.no_urut.toString().padStart(2, '0');
+    await this.asp.berita_kampanye_donatur(nomor).then(
       data => {
         this.line_berita = data;
         if (!(JSON.stringify(this.line_berita.data) === '{}')) {
           if (this.line_berita.data.berita_lokasi_video != null) {
             const iframe = document.getElementById('embeddedPage') as HTMLIFrameElement;
             iframe.src= this.line_berita.data.berita_lokasi_video;
+            this.berita_isi= this.line_berita.data.berita_isi;
+            this.berita_judul= this.line_berita.data.berita_judul;
           }
         }
         else

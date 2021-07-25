@@ -19,8 +19,6 @@ export class DonasiRiwayatPage implements OnInit {
   public error_msg:string="";
 
   constructor(
-      private router: ActivatedRoute,
-      private route : Router,
       public asp: AhmadproviderService
   ) { }
 
@@ -37,22 +35,16 @@ export class DonasiRiwayatPage implements OnInit {
             this.riwayatlist= result.data;
             if (this.riwayatlist.length === 0)
             {
-              this.error_msg = "tidak ada data jadual pembayaran ";
+              this.error_msg = "Belum ada donasi dan Cicilan pembayaran ";
             }            
       });
   }
   goBack(){
-    this.route.navigateByUrl('/dashboard-donatur', { replaceUrl:true });
-    //this.asp.go_previous_page();
+    this.asp.go_dashboard_donatur();
   }
   goDetailRiwayat(v){
-    //this.route.navigate(['donasi-detail', { donasi_id: v.id }]);
-    let navigationExtras: NavigationExtras = {
-      state: {
-        cicilan: v.cicilan
-      }
-    };
-    this.route.navigate(['donasi-detail'], navigationExtras);
+    // this.asp.go_page_donasi_detail(v);
+    this.asp.go_page_view_pembayaran_donasi(v);
   }
 
   caraBayarCode(str){
