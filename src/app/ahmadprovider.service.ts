@@ -45,6 +45,8 @@ export class AhmadproviderService {
   private api_hadist_by_santriid = this.api_url + environment.ahmadApi.santri.hadist_by_santriid;
   private api_berita_kampanye_santri = this.api_url + environment.ahmadApi.santri.berita_kampanye_santri;
   private api_pengingat_santri_byid = this.api_url + environment.ahmadApi.santri.pengingat_santri_byid;
+  private api_pengingat_bimbingan_simpan = this.api_url + environment.ahmadApi.santri.pengingat_bimbingan_simpan;
+  
   //#endregion
 
   //#region Pendamping
@@ -641,6 +643,32 @@ export class AhmadproviderService {
     };
     return new Promise(resolve => {
       this.httpclient.post(this.api_santri_bimbingan_penilaian, data).subscribe(data => {
+        let result = {
+          "message": '',
+          "status": 'OK',
+          "data": data
+        };
+        resolve(result);
+      }, err => {
+        let result = {
+          "message": err.message,
+          "status": 'error'
+        };
+        resolve(result);
+      });
+    });
+  }
+  pengingat_bimbingan_simpan(pendamping_id,pengingat_judul,pengingat_isi_singkat,pengingat_isi,pengingat_jenis,santri_list) {
+    let data = {
+      "pendamping_id": pendamping_id,
+      "pengingat_judul": pengingat_judul,
+      "pengingat_isi_singkat": pengingat_isi_singkat,
+      "pengingat_isi":pengingat_isi,
+      "pengingat_jenis":pengingat_jenis,
+      "santri": santri_list
+    };
+    return new Promise(resolve => {
+      this.httpclient.post(this.api_pengingat_bimbingan_simpan, data).subscribe(data => {
         let result = {
           "message": '',
           "status": 'OK',
@@ -1265,6 +1293,9 @@ export class AhmadproviderService {
   }
   go_page_program_santri(){
     this.route.navigateByUrl('/program-santri');    
+  }
+  go_page_pengingat_bimbingan(){
+    this.route.navigateByUrl('/pengingat-bimbingan');    
   }
   //#endregion
 

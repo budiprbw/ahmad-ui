@@ -14,7 +14,7 @@ public noHadist:any=false;
  public user_email: string="";
  public user_displayName:string=""
  public user_photoURL:any;
- public line_berita:any;
+ public line_berita:any=[];
  public santri_id:string="";
  public user_id:string="";
  public hadistList:any=[];
@@ -30,8 +30,8 @@ public noHadist:any=false;
   }
   initpage(){
       this.viewUser();   
-      this.getlistberita();
       this.getHadistHariini();
+      this.getPengingatSantri();
   }
 
   viewUser(){
@@ -42,7 +42,19 @@ public noHadist:any=false;
     this.user_email = this.usrinfo.user_email;
     this.user_displayName = this.usrinfo.user_displayName;
   }
+  async getPengingatSantri()
+  {
+    await this.asp.pengingat_santri_byid(this.santri_id).then(
+      data=> {        
+            let result:any= data;
+            this.line_berita.push(result.data);
+            if (this.line_berita.length>0)
+            {
+              this.noBerita  =true;
+            }
+      });
 
+  }
   async getlistberita(){
     await this.asp.getlist_berita_entitas('2').then(
       data=> {        

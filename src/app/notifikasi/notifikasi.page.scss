@@ -40,3 +40,26 @@
     text-align: left;
     color: var(--ion-color-black);
   }
+  .notifikasi-ion-card-rectangle{
+    width: 343px;
+    //margin: 15px 16px 32px;
+    padding: 16px;
+    border-radius: 14px;
+    box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
+    background-color: var(--ion-color-white);
+  }
+  .notifikasi-Rectangle-671 {
+    width: 311px;
+    height: 104px;
+    margin: 0 0 16px;
+    padding: 11px 16px;
+    border-radius: 14px;
+    border: solid 1px var(--ion-color-black);
+    }
+    .notifikasi-ionbook-outline {
+      width: 16px;
+      height: 16px;
+      margin: 0 133px 6px 130px;
+      object-fit: contain;
+      content:url('../../assets/images/ion_book-outline.svg');
+      }

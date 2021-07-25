@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>    
+    <ion-title class="ion-text-center">Pengingat Bimbingan</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="w-full" [scrollEvents]="true">
+  <ion-grid class="ion-grid lg:w-480 w-375">
+    <ion-row>
+      <ion-col>
+        <ion-card class="pengingat-bimbingan-Rectangle-656 lg:ml-16">
+          <div class="pengingat-bimbingan-Materi-Pembelajaran">Pengingat Entri</div>
+          <ion-item>
+            <ion-label>Judul</ion-label>&nbsp;&nbsp;
+            <ion-input placeholder="Judul" [(ngModel)]="pengingat_judul" name="pengingat_judul"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Isi </ion-label>&nbsp;&nbsp;
+            <ion-input placeholder="isi singkat" [(ngModel)]="pengingat_isi_singkat" name="pengingat_isi_singkat"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Isi </ion-label>&nbsp;&nbsp;
+            <ion-input placeholder="isi lengkap" [(ngModel)]="pengingat_isi" name="pengingat_isi"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Jenis</ion-label>
+            <ion-select placeholder="Jenis Pengingat" [(ngModel)]="pengingat_jenis" name="pengingat_jenis">
+              <ion-select-option value="7">Online</ion-select-option>
+              <ion-select-option value="8">Offline</ion-select-option>
+              <ion-select-option value="9">Talkin dzikir</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-card>
+        <ion-card class="pengingat-ion-card-rectangle lg:ml-16 ml-0" *ngIf="!noSantri">
+            <div class="pengingat-Rectangle-671">
+              <div class="pengingat-ionbook-outline"></div>
+               belum ada santri yang perlu bimbingan anda
+            </div>
+          </ion-card>
+        <ion-card class="pengingat-bimbingan-Rectangle-656 lg:ml-16"  *ngIf="noSantri">
+            <div class="pengingat-bimbingan-text mb-10">Pilih Santri dalam Bimbingan Anda</div>
+            <div *ngFor="let item of santrilist;">
+                <div class="pengingat-text" >
+                    <ion-checkbox  checked="false" (click)="markAsRead(item)"></ion-checkbox>&nbsp;&nbsp;
+                    <ion-label color="primary" class="font-bold">{{item.santri_nama}}</ion-label>
+                  </div>
+            </div>
+        </ion-card>
+        <ion-card class="donatur-Rectangle-628 lg:ml-16">
+            <ion-text color="danger">
+                <h3>{{error_msg}}</h3>
+              </ion-text>
+          <ion-button fill="clear" class="masuk-santri-donatur-button" (click)="goSavePengingat()">
+            <ion-text class="donatur-profile-card2-Sign-up">
+              Simpan
+            </ion-text>
+            <div class="">
+              <ion-icon name="arrow-forward-circle-outline" style="color: black" size="large"></ion-icon>
+            </div>
+          </ion-button>
+         
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

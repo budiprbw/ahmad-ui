@@ -13,17 +13,17 @@
       <ion-title class="ion-text-center">Penilaian Santri</ion-title>
     </ion-toolbar>
   </ion-header>
-  
-  <ion-grid class="ion-grid">
+  <ion-content class="w-full" [scrollEvents]="true">
+  <ion-grid class="ion-grid lg:w-480 w-375">
     <ion-row>
       <ion-col>
-        <ion-card class="dashboard-santri-ion-card-rectangle"  *ngIf="!noProgram">
+        <ion-card class="dashboard-santri-ion-card-rectangle lg:ml-16"  *ngIf="!noProgram">
             <div class="dashboard-santri-Rectangle-671">
                 <div class="dashboard-santri-ionbook-outline"></div>
                 Belum ada Progress Belajar
             </div>
         </ion-card>
-        <ion-card class="dashboard-santri-ion-card-rectangle"  *ngIf="noProgram">
+        <ion-card class="dashboard-santri-ion-card-rectangle lg:ml-16"  *ngIf="noProgram">
           <div class="ion-card-title">
             <ion-label>Progress Belajar</ion-label>
             <ion-progress-bar value="0.92"></ion-progress-bar>
@@ -33,7 +33,7 @@
             <ion-progress-bar value="0.70"></ion-progress-bar>
           </div>                    
         </ion-card>       
-        <ion-card class="program-santri-Rectangle-656">
+        <ion-card class="program-santri-Rectangle-656 lg:ml-16">
           <div class="program-santri-Materi-Pembelajaran">Materi Penilaian</div>
           <ion-item>
             <ion-label>Materi</ion-label>
@@ -42,8 +42,10 @@
             </ion-select>
           </ion-item>
           <ion-item>
-            <ion-label>Nilai (Angka)</ion-label>
-            <ion-input placeholder="angka" type="number" maxlength="2" [(ngModel)]="bimbingan_materi_angka" name="bimbingan_materi_angka"></ion-input>
+            <ion-label>Nilai (Angka)</ion-label>&nbsp;
+            <div class="cnilai" slot="end">
+                <ion-input placeholder="angka"   type="number" maxlength="2" [(ngModel)]="bimbingan_materi_angka" name="bimbingan_materi_angka" (ngModelChange)="getGrade($event);"></ion-input>
+            </div>
           </ion-item>
           <ion-item>
             <ion-label>Nilai (Huruf)</ion-label>
@@ -53,14 +55,15 @@
               <ion-select-option value="C">C</ion-select-option>
               <ion-select-option value="D">D</ion-select-option>
               <ion-select-option value="E">E</ion-select-option>
+              <ion-select-option value="F">F</ion-select-option>
             </ion-select>
           </ion-item>
           <ion-item>
-              <ion-label>Catatan</ion-label>
+              <ion-label>Catatan</ion-label>&nbsp;&nbsp;
               <ion-input placeholder="Catatan santri" [(ngModel)]="bimbingan_materi_catatan" name="bimbingan_materi_catatan"></ion-input>
             </ion-item>
         </ion-card>
-        <ion-card class="donatur-Rectangle-628">
+        <ion-card class="donatur-Rectangle-628 lg:ml-16">
             <ion-button fill="clear" class="masuk-santri-donatur-button" (click)="goSavePenilaian()">
                 <ion-text class="donatur-profile-card2-Sign-up">
                     Simpan
@@ -74,3 +77,4 @@
       </ion-col>
     </ion-row> 
    </ion-grid>
+  </ion-content>  

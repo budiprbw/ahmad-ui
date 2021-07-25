@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AhmadproviderService } from '../ahmadprovider.service';
-import { Router,ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-santri-penilaian',
@@ -21,7 +21,6 @@ export class SantriPenilaianPage implements OnInit {
 
   constructor(
     public asp: AhmadproviderService,
-    private route: Router,
     private router:ActivatedRoute
   ) { }
 
@@ -71,6 +70,27 @@ export class SantriPenilaianPage implements OnInit {
   }
   goInfoMasuk(){
     
+  }
+  getGrade(event){
+    let val = parseFloat(event);
+    if (val>85 && val<=100){
+      this.bimbingan_materi_huruf="A";
+    }
+    if (val>75 && val<=85){
+      this.bimbingan_materi_huruf="B";
+    }
+    if (val>65 && val<=75){
+      this.bimbingan_materi_huruf="C";
+    }
+    if (val>55 && val<=65){
+      this.bimbingan_materi_huruf="D";
+    }
+    if (val>45 && val<55){
+      this.bimbingan_materi_huruf="E";
+    }
+    if (val<=45 ){
+      this.bimbingan_materi_huruf="F";
+    }
   }
 
 }

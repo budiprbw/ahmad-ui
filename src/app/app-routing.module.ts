@@ -209,6 +209,10 @@ const routes: Routes = [
   {
     path: 'modal-cara-pilih-santri',
     loadChildren: () => import('./modal-cara-pilih-santri/modal-cara-pilih-santri.module').then( m => m.ModalCaraPilihSantriPageModule)
+  },
+  {
+    path: 'pengingat-bimbingan',
+    loadChildren: () => import('./pengingat-bimbingan/pengingat-bimbingan.module').then( m => m.PengingatBimbinganPageModule)
   }
 ];
 @NgModule({

@@ -65,6 +65,16 @@
             Belum ada Hadist/Doa Hari ini
           </div>
         </ion-card>
+        <ion-card class="dashboard-santri-ion-card-rectangle lg:ml-16 ml-0" >
+          <div class="dashboard-pendamping-pengingat-button" (click)="goPengingat()">
+              <ion-button fill="clear" slot="end">
+                  <ion-text class="dashboard-pendamping-pengingat--button-text normal-case">
+                      Pengingat Bimbingan
+                  </ion-text>
+              </ion-button>  
+              <ion-icon name="chevron-forward-circle-outline" style="color: black;zoom:1.4;" ></ion-icon>             
+          </div>
+      </ion-card>
         <div class="pendamping-akun-button-keluar  lg:ml-16 ml-0">
           <ion-button fill="clear" slot="end" (click)="goKeluar()">
             <ion-text class="pendamping-akun-button-keluar-text">

@@ -49,9 +49,12 @@
             <ion-label>Berita/Event</ion-label>
           </div>
           <ion-list>
-            <ion-item *ngFor="let item of line_berita">
-              <ion-label class="berita-title ion-text-wrap" (click)="beritadetail(item)" style="cursor:pointer"><span [innerHTML]="html_entity(item.berita_isi)"></span></ion-label>
-            </ion-item>
+            <div *ngFor="let item of line_berita">
+                <div style="font-weight: bold;text-align: center">{{item.pengingat_judul}}</div>
+                <div style="text-align: justify"><span [innerHTML]="html_entity(item.pengingat_isi)"></span></div>
+                <!-- <ion-label class="berita-title ion-text-wrap" (click)="beritadetail(item)" style="cursor:pointer"><span [innerHTML]="html_entity(item.pengingat_isi)"></span></ion-label> -->
+              
+            </div>
           </ion-list>
         </ion-card>
         <ion-card class="dashboard-santri-ion-card-rectangle lg:ml-16" *ngIf="noHadist">

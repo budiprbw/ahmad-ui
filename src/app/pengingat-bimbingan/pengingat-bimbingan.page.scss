@@ -1,10 +1,37 @@
-.Program-Santri {
+.pengingat-bimbingan-Rectangle-657 {
+    width: 290px;
+    height: 51px;
+    flex-grow: 0;
+    margin: 12px 0;
+    padding: 12px 16px;
+    border-radius: 14px;
+    border: solid 1px var(--placeholder);
+  }
+  .pengingat-bimbingan-ion-card-title{
+    width: 300px;
+    margin: 0 106px 6px 0;
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    text-align: left;
+    color: var(--ion-color-black);      
+  }
+  .cnilai{
+    width: 100px;
+    text-align: right;
+    background-color:transparent;
+}
+.pengingat-bimbingan {
     width: 375px;
     height: 1202px;
     flex-grow: 0;
     background-color: #efeffe;
   }
-  .program-santri-Rectangle-659 {
+  .pengingat-bimbingan-Rectangle-659 {
     width: 343px;
     height: 82px;
     //margin: 16px;
@@ -13,7 +40,7 @@
     box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
     background-color: var(--ion-color-white);
   }
-  .program-santri-card1-title {
+  .pengingat-bimbingan-card1-title {
     //width: 279px;
     height: 20px;
     //margin: 0 16px 10px 0;
@@ -27,7 +54,7 @@
     text-align: left;
     color: var(--ion-color-black);
   }
-  .program-santri-card2-title{
+  .pengingat-bimbingan-card2-title{
     //width: 154px;
     height: 20px;
     flex-grow: 0;
@@ -42,21 +69,21 @@
     text-align: left;
     color: #000000;
   }
-  .program-santri-Lihat-Detail{
+  .pengingat-bimbingan-Lihat-Detail{
     width: 16px;
     height: 16px;
     margin: 17px 0 17px 16px;
     object-fit: contain;
   }
-  .program-santri-ion-card-rectangle{
+  .pengingat-bimbingan-ion-card-rectangle{
     width: 343px;
     padding: 16px;
     border-radius: 14px;
     box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
     background-color: var(--ion-color-white);
   }
-  .program-santri-Rectangle-656{
-    width: 343px;
+  .pengingat-bimbingan-Rectangle-656{
+    width: 343px;   
     height: 486px;
     //margin: 16px;
     padding: 16px;
@@ -64,7 +91,7 @@
     box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
     background-color: var(--ion-color-white);
   }
-  .program-santri-Materi-Pembelajaran {
+  .pengingat-bimbingan-Materi-Pembelajaran {
     //width: 149px;
     height: 20px;
     //margin: 0 162px 12px 0;
@@ -78,7 +105,7 @@
     text-align: left;
     color: var(--ion-color-black);
   }
-  .program-santri-Rectangle-657 {
+  .pengingat-bimbingan-Rectangle-657 {
     width: 290px;
     height: 51px;
     flex-grow: 0;
@@ -87,7 +114,7 @@
     border-radius: 14px;
     border: solid 1px var(--placeholder);
   }
-  .program-santri-ion-card-title{
+  .pengingat-bimbingan-ion-card-title{
     width: 300px;
     margin: 0 106px 6px 0;
     font-family: Poppins;
@@ -100,7 +127,7 @@
     text-align: left;
     color: var(--ion-color-black);      
   }
-  .program-santri-Rectangle-675 {
+  .pengingat-bimbingan-Rectangle-675 {
     width: 343px;
     height: 84px;
     //margin: 16px;
@@ -109,7 +136,7 @@
     box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
     background-color: var(--ion-color-white);
   }
-  .program-santri-nama-donatur{
+  .pengingat-bimbingan-nama-donatur{
     height: 20px;
     //margin: 0 105px 12px 0;
     font-family: Poppins;
@@ -122,7 +149,7 @@
     text-align: left;
     color: var(--ion-color-black);
   }
-  .program-santri-nama-pendamping{
+  .pengingat-bimbingan-nama-pendamping{
     height: 20px;
    // margin: 0 111px 12px 0;
     font-family: Poppins;
@@ -135,7 +162,7 @@
     text-align: left;
     color: var(--ion-color-black);
 }
-.program-santri-BapakIbu-Nama{
+.pengingat-bimbingan-BapakIbu-Nama{
     //width: 210px;
     height: 20px;
     margin: 12px 0 0;
@@ -149,3 +176,54 @@
     text-align: left;
     color: #000000;
 }
+.pengingat-text{
+    width: 311px;
+    flex-grow: 0;
+    margin: 2px 0 0;
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.67;
+    letter-spacing: normal;
+    text-align: left;
+    color: var(--ion-color-black);
+  }
+  .pengingat-ion-card-rectangle{
+    width: 343px;
+    //margin: 15px 16px 32px;
+    padding: 16px;
+    border-radius: 14px;
+    box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
+    background-color: var(--ion-color-white);
+  }
+  .pengingat-Rectangle-671 {
+    width: 311px;
+    height: 104px;
+    margin: 0 0 16px;
+    padding: 11px 16px;
+    border-radius: 14px;
+    border: solid 1px var(--ion-color-black);
+    }
+    .pengingat-ionbook-outline {
+    width: 16px;
+    height: 16px;
+    margin: 0 133px 6px 130px;
+    object-fit: contain;
+    content:url('../../assets/images/ion_book-outline.svg');
+    }
+    .pengingat-bimbingan-text {
+        //width: 90px;
+        height: 20px;
+        margin: 0 0px 16px 30px;
+        font-family: Poppins;
+        font-size: 14px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.43;
+        letter-spacing: normal;
+        text-align: left;
+        color: var(--ion-color-black);
+      }

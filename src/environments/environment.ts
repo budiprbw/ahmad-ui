@@ -42,7 +42,8 @@ export const environment = {
       bimbingan_penilaian :"bimbingan/penilaian/santri",
       hadist_by_santriid: "hadist/entitas/santri/",
       berita_kampanye_santri:"berita/kampanye/santri/",
-      pengingat_santri_byid:"pengingat/santri/byid/"  
+      pengingat_santri_byid:"pengingat/santri/byid/",
+      pengingat_bimbingan_simpan:"pengingat/bimbingan/simpan"
     },
     pendamping:{
       santri_by_pendampingId: "pendamping/santri/byid/",

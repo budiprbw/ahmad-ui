@@ -25,16 +25,25 @@
                 </div>
                 <div class="notif-text" >
                   <ion-checkbox  checked="false" (click)="markAsRead(item)"></ion-checkbox>&nbsp;&nbsp;
-                  <ion-label *ngIf="item.pesan_status=='1'" color="primary">{{item.pesan_isi}}</ion-label>
-                  <ion-label *ngIf="item.pesan_status=='2'" color="dark">{{item.pesan_isi}}</ion-label>
+                  <ion-label *ngIf="item.pesan_status=='1'" color="primary" class="font-bold">{{item.pesan_isi}}</ion-label>
+                  <ion-label *ngIf="item.pesan_status=='2'" color="dark" >{{item.pesan_isi}}</ion-label>
                 </div>
               </ion-card>
+              <div class="message-actions position-r mr-1 v-hover p-15 bgc-white-tp1 shadow-sm radius-2px">
+                <a href="#" class="btn btn-tp border-0 btn-text-danger btn-light-danger mr-2px px-2">
+                  <i class="fa fa-trash-alt text-danger-m1 w-2"></i>
+                </a>
+                <a href="#" class="btn btn-tp border-0 btn-text-info btn-light-info px-2">
+                  <i class="fa fa-reply w-2"></i>
+                </a>
+              </div>
         </div>
         
-        <ion-card class="notif-Rectangle-656 lg:ml-16" *ngIf="noNotif">
-          <ion-text color="danger">
-            <h4>{{error_msg}}</h4>
-          </ion-text>
+        <ion-card class="notifikasi-ion-card-rectangle lg:ml-16 ml-0" *ngIf="noNotif">
+          <div class="notifikasi-Rectangle-671">
+            <div class="notifikasi-ionbook-outline"></div>
+              Belum Ada Notifikasi
+          </div>
         </ion-card>
       </ion-col>
     </ion-row>
