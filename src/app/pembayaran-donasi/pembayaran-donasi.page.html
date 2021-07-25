@@ -13,7 +13,7 @@
   <ion-grid class="ion-grid lg:w-480 w-375">
     <ion-row>
       <ion-col>
-        <ion-card class="pembayaran-donasi-Rectangle-636  lg:ml-16">
+        <ion-card class="pembayaran-donasi-Rectangle-636  lg:ml-16 ml-0">
           <div class="pembayaran-donasi-Ringkasan-Transaksi">Ringkasan Transaksi</div>
           <ion-button fill="clear" class="pembayaran-ubah-donasi-button" (click)="goUbahDonasi()">
             <ion-text class="pembayaran-donasi-ubah-text">
@@ -23,7 +23,7 @@
           <div class="pembayaran-donasi-Nama-Donatur  lg:ml-16">
             <ion-title class="ion-text-center">{{user_displayName}}</ion-title>
           </div>
-          <div class="pembayaran-donasi-emailemailcom  lg:ml-16">
+          <div class="pembayaran-donasi-emailemailcom  lg:ml-16 ml-0">
             <ion-title class="ion-text-center">{{user_email}}</ion-title>
           </div>
           <div class="Line-10"></div>
@@ -45,11 +45,8 @@
               <ion-icon name="arrow-forward-circle-outline" class="vector_2" size="large"></ion-icon>
             </div>
           </ion-button>
-        </ion-card>
-        <ion-text color="danger">
-          <h3>{{error_msg}}</h3>
-        </ion-text>
-        <ion-card class="pembayaran-donasi-Rectangle-635  lg:ml-16">
+        </ion-card>      
+        <ion-card class="pembayaran-donasi-Rectangle-635  lg:ml-16 ml-0">
           <div class="pembayaran-donasi-text1">Rincian Transaksi</div>
           <div class="pembayaran-donasi-value6">{{nominal_donasi}}</div>
           <div class="pembayaran-donasi-text1">Total Bayar (Donasi 1)</div>
@@ -59,7 +56,7 @@
           <div class="pembayaran-donasi-text1">Grand Total</div>
           <div class="pembayaran-donasi-value9">{{gran_total_text}}</div>
         </ion-card>
-        <ion-card class="pembayaran-Rectangle-635  lg:ml-16">
+        <ion-card class="pembayaran-Rectangle-635  lg:ml-16 ml-0">
           <div class="pembayaran-donasi-pilih-rekening-title">Rekening Pembayaran Donasi</div>
           <ion-button fill="clear" class="pembayaran-ubah-donasi-button-bank" (click)="goUbahBank()">
             <ion-text class="pembayaran-donasi-ubah-text">
@@ -72,15 +69,19 @@
             <div class="atas-nama">{{bank_selected.rekening_nama}}</div>
           </div>
         </ion-card>
-        <ion-card class="pembayaran-Rectangle-628">
+        <ion-text color="danger">
+            <h5>{{error_msg}}</h5>
+          </ion-text>
+        <ion-card class="pembayaran-Rectangle-628 ">
+            
           <div class="vector_setuju">
             <ion-checkbox (ionChange)="setujuBayar($event)"></ion-checkbox>
           </div>
           <div class="footex-text">Dengan ini Saya menyetujui syarat & ketentuan yang berlaku</div>
-          <div class="grid justify-items-center">
+          <div class="grid justify-items-center"> 
             <div>
               <ion-toolbar>
-                <ion-button fill="clear" [ngClass]="setuju_bayar=='0'?'bayar-donasi':'bayar-donasi-gold'" (click)="goBayar()">
+                <ion-button fill="clear" [ngClass]="setuju_bayar=='0'?'bayar-donasi':'bayar-donasi-gold'" [disabled]="setuju_bayar=='0'? true: false" (click)="goBayar()">
                   <div class="vector_footer"><img src="assets/images/ion_shield-checkmark-outline.svg"></div>
                   <ion-text [ngClass]="setuju_bayar=='0'?'bayar-donasi-text':'bayar-donasi-text-black'">
                     Bayar
@@ -88,7 +89,7 @@
                 </ion-button>
               </ion-toolbar>
             </div>
-          </div>
+          </div>        
         </ion-card>
       </ion-col>
     </ion-row>

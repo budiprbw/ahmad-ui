@@ -97,6 +97,7 @@
                     </ion-select>
                     <ion-input placeholder="No KTP" name="donatur_no_ktp" placeholder="No KTP" [(ngModel)]="donatur_no_ktp" name="donatur_no_ktp"></ion-input>
                 </ion-card>
+                <h5><ion-text color="danger" [innerHtml]="html_entity(error_msg)"></ion-text></h5>
                 <ion-card class="donatur-Rectangle-628 lg:ml-16  ml-0">
                     <ion-button fill="clear" class="masuk-santri-donatur-button" (click)="goSaveProfile()">
                         <ion-text class="donatur-profile-card2-Sign-up normal-case">

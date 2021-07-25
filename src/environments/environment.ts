@@ -43,7 +43,8 @@ export const environment = {
       hadist_by_santriid: "hadist/entitas/santri/",
       berita_kampanye_santri:"berita/kampanye/santri/",
       pengingat_santri_byid:"pengingat/santri/byid/",
-      pengingat_bimbingan_simpan:"pengingat/bimbingan/simpan"
+      pengingat_bimbingan_simpan:"pengingat/bimbingan/simpan",
+      santri_byid :"santri/byid/"
     },
     pendamping:{
       santri_by_pendampingId: "pendamping/santri/byid/",

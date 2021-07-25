@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Platform } from '@ionic/angular';
 import { AhmadproviderService } from '../ahmadprovider.service';
-import { Storage } from '@ionic/storage';
+// import { Storage } from '@ionic/storage';
 
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-donatur-profile',
@@ -42,6 +40,9 @@ export class DonaturProfilePage implements OnInit {
   public donatur_kota: string;
   public donatur_provinsi: string;
   public donatur_no_ktp: string;
+  public error_msg:string="";
+
+
   customPopoverOptions: any = {
     header: 'Lookup data master',
     subHeader: 'Select your dats',
@@ -50,10 +51,7 @@ export class DonaturProfilePage implements OnInit {
 
 
   constructor(
-    public platform: Platform,
     public asp: AhmadproviderService,
-    public route: Router,
-    public storage: Storage
   ) { }
 
   ngOnInit() {
@@ -157,34 +155,56 @@ export class DonaturProfilePage implements OnInit {
     this.redirectMe();
   }
   goSaveProfile() {
-    let d:Date =  new Date(this.donatur_tgl_lahir);
-    var dTglLahir = d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate();  
+    if (this.validateInput())
+    {
+        let d:Date =  new Date(this.donatur_tgl_lahir);
+        var dTglLahir = d.getFullYear() + "-" + (d.getMonth()+1) + "-" + d.getDate();  
 
-    this.asp.donaturUpdateProfile(
-      this.donatur_id,
-      this.donatur_nama,
-      this.donatur_tmp_lahir,
-      dTglLahir,
-      this.donatur_gender,
-      this.donatur_agama,
-      this.donatur_telepon,
-      this.donatur_lokasi_photo,
-      this.donatur_kerja,
-      this.donatur_no_ktp,
-      this.donatur_alamat,
-      this.donatur_kode_pos,
-      this.donatur_kelurahan,
-      this.donatur_kecamatan,
-      this.donatur_kota,
-      this.donatur_provinsi).then(
-        data => {
-          this.response = data;
-          this.redirectMe();
-        })
+        this.asp.donaturUpdateProfile(
+          this.donatur_id,
+          this.donatur_nama,
+          this.donatur_tmp_lahir,
+          dTglLahir,
+          this.donatur_gender,
+          this.donatur_agama,
+          this.donatur_telepon,
+          this.donatur_lokasi_photo,
+          this.donatur_kerja,
+          this.donatur_no_ktp,
+          this.donatur_alamat,
+          this.donatur_kode_pos,
+          this.donatur_kelurahan,
+          this.donatur_kecamatan,
+          this.donatur_kota,
+          this.donatur_provinsi).then(
+            data => {
+              this.response = data;
+              this.redirectMe();
+            })
+      }      
   }
   redirectMe(){
-    this.route.navigate(['/dashboard-donatur/tabakun']);
-    //this.asp.go_previous_page();
+    this.asp.go_page_donatur_tabakun();
+  }
+  validateInput(){
+    let retVal:boolean=false;
+    let msg="";
+    var newLine = "<br>"
+    if (this.donatur_telepon=="") msg+= newLine +"No telp";    
+    if (this.donatur_alamat=="")  msg+= newLine +"Alamat";
+    if (this.donatur_no_ktp=="")  msg+= newLine +"No Ktp";
+    if (msg!="")
+    {
+      msg="Silahkan check inputan" +msg;
+      this.error_msg=msg;
+    }
+    else{
+      retVal=true;
+    }
+    return retVal;
+  }
+  html_entity(val){
+    return this.asp.html_entity(val);
   }
 
 }

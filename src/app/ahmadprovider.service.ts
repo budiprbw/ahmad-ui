@@ -46,6 +46,8 @@ export class AhmadproviderService {
   private api_berita_kampanye_santri = this.api_url + environment.ahmadApi.santri.berita_kampanye_santri;
   private api_pengingat_santri_byid = this.api_url + environment.ahmadApi.santri.pengingat_santri_byid;
   private api_pengingat_bimbingan_simpan = this.api_url + environment.ahmadApi.santri.pengingat_bimbingan_simpan;
+  private api_santri_byid = this.api_url + environment.ahmadApi.santri.santri_byid;
+  
   
   //#endregion
 
@@ -402,6 +404,15 @@ export class AhmadproviderService {
       });
     });
   }  
+  santri_byid(id) {
+    return new Promise(resolve => {
+      this.httpclient.get(this.api_santri_byid + id).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }    
   login_donatur(user_email) {
     return new Promise(resolve => {
       this.httpclient.get(this.api_donatur_byemail + user_email).subscribe(data => {
@@ -1297,6 +1308,22 @@ export class AhmadproviderService {
   go_page_pengingat_bimbingan(){
     this.route.navigateByUrl('/pengingat-bimbingan');    
   }
+  go_page_selesai_donasi(){
+    this.router.navigateByUrl('/selesai-donasi');
+  }
+  go_page_jadual_pembayaran(){
+    this.router.navigateByUrl('/jadual-pembayaran-donasi');
+  }
+  go_page_donatur_tabakun(){
+    this.route.navigate(['/dashboard-donatur/tabakun']);    
+  }
+  go_page_santri_reg_info(){
+    this.route.navigateByUrl('santri-reg-info', { replaceUrl: true });    
+  }
+  go_page_pengiriman_status(){
+    this.route.navigateByUrl('/pengiriman-status', { replaceUrl: true });   
+  }
+
   //#endregion
 
 

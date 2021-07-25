@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute,Router  } from '@angular/router';
 import { AhmadproviderService } from '../ahmadprovider.service';
 import { ModalController } from '@ionic/angular';
 import { ModalUbahBankPage } from '../modal-ubah-bank/modal-ubah-bank.page';
@@ -31,8 +30,6 @@ export class PembayaranDonasiPage implements OnInit {
   public login_by: string = "";
 
   constructor(
-    public route : ActivatedRoute,
-    public router: Router,
     public asp: AhmadproviderService,
     public modalController: ModalController,
   ) { }
@@ -96,16 +93,16 @@ export class PembayaranDonasiPage implements OnInit {
     }       
   }
   goBack(){
-    this.router.navigate(['penyaluran-donasi']);
+    this.asp.go_page_salurkan_donasi();
   }
   format_number(v){
     return v.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');    
   }
   goJadualDonasi(){
-    this.router.navigateByUrl('/jadual-pembayaran-donasi');
+    this.asp.go_page_jadual_pembayaran();
   }
-  goUbahDonasi(){
-    this.router.navigate(['penyaluran-donasi']);
+  goUbahDonasi(){    
+    this.asp.go_page_salurkan_donasi();
   }
   goUbahBank(){
     this.popupUbahBank();
@@ -177,7 +174,7 @@ export class PembayaranDonasiPage implements OnInit {
               localStorage.setItem("item_donasi", JSON.stringify(item_donasi));                                  
             }
           });  
-      this.router.navigateByUrl('/selesai-donasi');
+      this.asp.go_page_selesai_donasi();
     }
     else
     {

@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Platform } from '@ionic/angular';
 import { AhmadproviderService } from '../ahmadprovider.service';
-import { Storage } from '@ionic/storage';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-santri-profile',
@@ -41,6 +38,7 @@ export class SantriProfilePage implements OnInit {
   public santri_kota: string;
   public santri_provinsi: string;
   public santri_no_ktp: string;
+  public error_msg: string = "";
 
   customPopoverOptions: any = {
     header: 'Lookup Data',
@@ -49,29 +47,25 @@ export class SantriProfilePage implements OnInit {
   };
 
   constructor(
-    public platform: Platform,
     public asp: AhmadproviderService,
-    public route: Router,
-    public storage: Storage
-
   ) { }
 
   ngOnInit() {
-      this.initdata();
+    this.initdata();
   }
   initdata() {
     this.userInfo();
     this.getpropinsi();
   }
   async userInfo() {
-    
-    this.usrinfo= this.asp.getUserInfo();
+
+    this.usrinfo = this.asp.getUserInfo();
     this.user_photoURL = this.usrinfo.ref_object.donatur_lokasi_photo;
     this.user_email = this.usrinfo.user_email;
     this.user_displayName = this.usrinfo.user_displayName;
     this.santri_nama = this.usrinfo.user_displayName;
     this.login_by = this.usrinfo.login_by;
-    
+
   }
   getpropinsi() {
     this.asp.getAll_propinsi().then(
@@ -107,10 +101,10 @@ export class SantriProfilePage implements OnInit {
     this.santri_lokasi_photo = event.target.files[0];
   }
   goDashboard() {
-    this.route.navigateByUrl('dashboard-santri', { replaceUrl: true });
+    this.asp.go_dashboard_santri();
   }
   goSaveProfile() {
-      this.asp.santriUpdateProfile(
+    this.asp.santriUpdateProfile(
       this.santri_id,
       this.santri_nama,
       this.santri_tmp_lahir,
@@ -119,7 +113,7 @@ export class SantriProfilePage implements OnInit {
       this.santri_agama,
       this.santri_telepon,
       this.santri_kerja,
-      this.santri_lokasi_photo,      
+      this.santri_lokasi_photo,
       this.santri_no_ktp,
       this.santri_alamat,
       this.santri_kode_pos,
@@ -127,11 +121,32 @@ export class SantriProfilePage implements OnInit {
       this.santri_kecamatan,
       this.santri_kota,
       this.santri_provinsi).then(
-    data => {    
-      this.response = data;      
-      this.route.navigateByUrl('santri-reg-info', { replaceUrl: true });
-    })
+        data => {
+          this.response = data;
+          this.asp.go_page_santri_reg_info();
+        })
   }
+
+  validateInput() {
+    let retVal: boolean = false;
+    let msg = "";
+    var newLine = "<br>"
+    if (this.santri_telepon == "") msg += newLine + "No telp";
+    if (this.santri_alamat == "") msg += newLine + "Alamat";
+    if (msg != "") {
+      msg = "Silahkan check inputan" + msg;
+      this.error_msg = msg;
+    }
+    else {
+      retVal = true;
+    } 
+    return retVal;
+  }
+
+  html_entity(val) {
+    return this.asp.html_entity(val);
+  }
+
 
 
 }

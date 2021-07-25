@@ -13,6 +13,9 @@ export class SantriProgramPage implements OnInit {
  public nama_pendamping:string="";
  public bulan_pendampingan:any="";
  public progress_belajar:any="";
+ public santri_id:any;
+ public usrinfo:any;
+ public santri_status_text="";
 
   constructor(
     public asp: AhmadproviderService,
@@ -20,11 +23,39 @@ export class SantriProgramPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.viewUser();
+    this.getSantri();
     this.getNamaDonatur();
     this.getNamaPendamping();
     this.initialsantriprogram();
     this.bulan_pendampingan="0.70";
     this.progress_belajar="0.92";
+  }
+  viewUser(){
+    this.usrinfo = this.asp.getUserInfo();
+    this.santri_id  = this.usrinfo.ref_object.id;
+  }
+  async getSantri(){
+    await this.asp.santri_byid(this.santri_id).then(
+      data => {
+          let result:any = data;
+          switch( result.santri_status)
+          {
+              case "4":
+              this.santri_status_text="menunggu produk";
+              break;
+              case "5":
+              this.santri_status_text="Sudah terpilih oleh donatur,menunggu produk";
+              break;
+              case "6":
+              this.santri_status_text="Dalam bimbingan";
+              break;
+              case "7":
+              this.santri_status_text="Sudah lulus";
+              break;
+          }
+          
+      });
   }
   getNamaDonatur(){
       this.nama_donatur="H.Dermawan";
@@ -53,7 +84,7 @@ export class SantriProgramPage implements OnInit {
     this.asp.go_previous_page();
   } 
   goStatusPengiriman(){
-    this.route.navigateByUrl('/pengiriman-status', { replaceUrl: true });    
+    this.asp.go_page_pengiriman_status(); 
   }
 }
 

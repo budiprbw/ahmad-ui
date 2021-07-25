@@ -20,13 +20,15 @@ export class PenyaluranDonasiPage implements OnInit {
   public jenis_donasi_text: string = "Pilih Jenis Donasi";
   public nominal_donasi: string = "";
   public nominal_donasi_text: string = "Pilih Nominal Donasi";
+  public donasi_random_santri_text: string = "Pilih Santri";
   public banklist:any=[];
   public bankListSelected:any=[];
   public produk :any;
   public result_temp:any;
   public error_msg:string="";
   public usrinfo:any;
-  public donasi_random_santri:string="0";
+  public donasi_random_santri:string="";
+  public pilih_santri:boolean=false;
   
 
   constructor(
@@ -55,10 +57,24 @@ export class PenyaluranDonasiPage implements OnInit {
     this.total_donasi = this.currentNumber * this.harga_paket;
   }
   goPopupJenisDonasi() {
-    this.popupjenisdonasi();
+    if (this.currentNumber>0){
+      this.popupjenisdonasi();
+    }
+    else
+    {
+      this.asp.presentToast("total donasi tidak boleh 0");
+    }
+    
   }
   goPopupNominalDonasi() {
-    if (this.jenis_donasi!="Penuh")this.popupnominaldonasi();
+    if (this.jenis_donasi=="")
+    {
+      this.asp.presentToast("Pilih Jenis Donasi terlebih dahulu");
+    }
+    else
+    {
+      if (this.jenis_donasi!="Penuh") this.popupnominaldonasi();
+    }
   }
   async  popupjenisdonasi() {
     const modal = await this.modalController.create({
@@ -70,12 +86,17 @@ export class PenyaluranDonasiPage implements OnInit {
 
     modal.onDidDismiss()
       .then((data) => {
-        this.jenis_donasi = data['data'];
-        this.jenis_donasi_text = "Donasi " + this.jenis_donasi;
-        if (this.jenis_donasi=="Penuh"){
-          this.nominal_donasi=this.total_donasi.toString();
-          this.nominal_donasi_text = "Rp."+this.format_number(parseFloat(this.nominal_donasi));
-        }
+        if (data['data']!=null)
+        {
+            this.jenis_donasi = data['data'];
+            this.jenis_donasi_text = "Donasi " + this.jenis_donasi;
+            this.pilih_santri=false;
+            if (this.jenis_donasi=="Penuh"){
+              this.nominal_donasi=this.total_donasi.toString();
+              this.nominal_donasi_text = "Rp."+this.format_number(parseFloat(this.nominal_donasi));
+              this.pilih_santri=true;
+            }
+          }
       });
     return await modal.present();
   }
@@ -90,8 +111,11 @@ export class PenyaluranDonasiPage implements OnInit {
 
     modal.onDidDismiss()
       .then((data) => {
-        this.nominal_donasi = data['data'];       
-        this.nominal_donasi_text = "Rp."+this.format_number(parseFloat(this.nominal_donasi));
+        if (data['data']!=null)
+        {
+          this.nominal_donasi = data['data'];       
+          this.nominal_donasi_text = "Rp."+this.format_number(parseFloat(this.nominal_donasi));
+        }        
       });
     return await modal.present();
   }
@@ -106,14 +130,20 @@ export class PenyaluranDonasiPage implements OnInit {
 
     modal.onDidDismiss()
       .then((data) => {
-        this.donasi_random_santri = data['data'];       
-        this.save_local_storage();
+        if (data['data']!=null)
+        {
+          this.donasi_random_santri = data['data'];       
+          if ( this.donasi_random_santri=="0"){
+            this.donasi_random_santri_text= "Dipilihkan System";
+          }
+          if ( this.donasi_random_santri=="1"){
+            this.donasi_random_santri_text= "Memilih Sendiri";
+          }            
+        }
       });
     return await modal.present();
   }
-
   
-
   getTotal(event: number){        
     console.log(event);
     if (event<0){
@@ -144,17 +174,34 @@ export class PenyaluranDonasiPage implements OnInit {
     return cara_bayar;
   }
   goLanjutkan(){
-    this.donasi_random_santri="0";
-    if (this.jenis_donasi=="Penuh"){
-      this.popupPilihSantri();
-    }
-    else
-    {
-      this.save_local_storage();
-    }
-    
-    
+    if (this.validateInput()) this.save_local_storage();        
   }
+  validateInput(){
+    let retVal:boolean=false;
+    let msg="";
+    var newLine = "<br>"
+    if (this.currentNumber==0) msg+= newLine +"total donasi";    
+    if (this.jenis_donasi=="")  msg+= newLine +"jenis donasi";
+    if (this.nominal_donasi=="")  msg+= newLine +"nominal donasi";
+    if (this.jenis_donasi=="Penuh")
+    {
+      if (this.donasi_random_santri=="") msg+= newLine +"pilih santri";
+    }    
+    if (this.bankListSelected.length==0)
+    {
+      msg+= newLine +"pilih rekening pembayaran";
+    }
+    if (msg!="")
+    {
+      msg="Silahkan check inputan" +msg;
+      this.error_msg=msg;
+    }
+    else{
+      retVal=true;
+    }
+    return retVal;
+  }
+
   save_local_storage(){
     let nominal_donasi= parseFloat(this.nominal_donasi);
     let durasi_donasi=( this.total_donasi/nominal_donasi);
@@ -230,6 +277,10 @@ export class PenyaluranDonasiPage implements OnInit {
         this.banklist[i].is_selected='0';
       }
     }
+  }
+  html_entity(val)
+  {
+    return this.asp.html_entity(val);
   }
 
 }
