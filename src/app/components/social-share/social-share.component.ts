@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { ModalController } from '@ionic/angular';
+import { ModalController,NavParams } from '@ionic/angular';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import {  Platform,NavController,AlertController } from '@ionic/angular';
 
@@ -10,6 +10,7 @@ import {  Platform,NavController,AlertController } from '@ionic/angular';
   styleUrls: ['./social-share.component.scss'],
 })
 export class SocialShareComponent implements OnInit {
+  
 
   public sharingList= environment.socialShareOption;
     
@@ -19,23 +20,42 @@ export class SocialShareComponent implements OnInit {
   emailSubject = 'Download Apps'
   recipent = ['recipient@example.org'];
   sharingImage = ['https://dev.ahmadproject.org/logo.5312922993b0f123276f.svg'];  
-  sharingUrl = 'https://dev.ahmadproject.org';
+  sharingUrl = environment.ahmadApi.AppUrl; //'https://dev.ahmadproject.org/';
+  shareTitle ='Ahmad Project';
 
   constructor(
     private modal: ModalController,
     private socialSharing: SocialSharing,
     private platform:Platform,
+    private navParams : NavParams
   ) { }
 
   ngOnInit() {
+    this.sharingUrl= this.sharingUrl+ this.navParams.get('value');
   }
-
-
   closeModal() {
     this.modal.dismiss();
   }
-
   async shareVia(shareData) {
+    switch(shareData.shareType)
+    {
+      case "shareViaFacebook":
+        window.open('https://www.facebook.com/sharer/sharer.php?u='+this.sharingUrl, '_system', 'location=yes');
+        break;
+      case "viaEmail":    
+        window.open('https://plus.google.com/share?url='+this.sharingUrl, '_system', 'location=yes');
+        break;
+      case "shareViaTwitter":
+        window.open('https://twitter.com/share?url='+this.sharingUrl+'&text='+ this.shareTitle +'&hashtags=ahmadproject', '_system', 'location=yes');
+        break;  
+      case "shareViaWhatsApp":
+        window.open('https://api.whatsapp.com/send?text='+ this.shareTitle +' '+this.sharingUrl, '_system', 'location=yes');
+        break;  
+    }
+
+  }
+
+  async shareVia_old(shareData) {
     if (shareData.shareType === 'viaEmail') {
       this.shareViaEmail();
     } else {

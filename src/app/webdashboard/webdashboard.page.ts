@@ -117,14 +117,32 @@ export class WebdashboardPage implements OnInit {
      return this.asp.html_entity(val);
   }
 
-  async showShareOptions() {
-    const modal = await this.modalCtrl.create({
-      component: SocialShareComponent,
-      cssClass: 'backTransparent',
-      backdropDismiss: true
-    });
-    return modal.present();
+  async showShareOptions(mode) {
+
+    let wsurl='';
+    if (mode=='donatur'){
+      wsurl='donasi-program';
+    }
+    if (mode=='santri'){
+      wsurl='program-santri';
+    }
+    if (this.platform.is('desktop')) {
+      const modal = await this.modalCtrl.create({
+        component: SocialShareComponent,
+        componentProps: { 
+          value: wsurl        
+        },
+        cssClass: 'backTransparent',
+        backdropDismiss: true
+      });
+      return modal.present();
+    }
+    else
+    {
+      this.asp.shareLink(wsurl);
+    }
   }  
+  
  async shareLink(mode){      
       let wsurl='';
       if (mode=='donatur'){
@@ -133,7 +151,8 @@ export class WebdashboardPage implements OnInit {
       if (mode=='santri'){
         wsurl='program-santri';
       }
-     this.asp.shareLink(wsurl);
+      this.asp.shareLink(wsurl);
+     
   }
 
   // setMetaTag(){   

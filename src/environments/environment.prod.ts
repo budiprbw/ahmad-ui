@@ -106,11 +106,11 @@ export const environment = {
         logo: 'assets/socialShare/twitter.png',
         shareType: 'shareViaTwitter'
     },
-    {
-        title: 'Instagram',
-        logo: 'assets/socialShare/Instagram-circle.png',
-        shareType: 'shareViaInstagram'
-    },
+    // {
+    //     title: 'Instagram',
+    //     logo: 'assets/socialShare/Instagram-circle.png',
+    //     shareType: 'shareViaInstagram'
+    // },
     {
         title: 'Email',
         logo: 'assets/socialShare/mail.png',

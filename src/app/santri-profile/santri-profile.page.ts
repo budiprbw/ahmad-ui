@@ -39,6 +39,7 @@ export class SantriProfilePage implements OnInit {
   public santri_provinsi: string;
   public santri_no_ktp: string;
   public error_msg: string = "";
+  public santriData:any;
 
   customPopoverOptions: any = {
     header: 'Lookup Data',
@@ -55,17 +56,47 @@ export class SantriProfilePage implements OnInit {
   }
   initdata() {
     this.userInfo();
+    this.getSantri();    
     this.getpropinsi();
   }
   async userInfo() {
 
     this.usrinfo = this.asp.getUserInfo();
-    this.user_photoURL = this.usrinfo.ref_object.donatur_lokasi_photo;
+    this.user_photoURL = this.usrinfo.ref_object.santri_lokasi_photo;
     this.user_email = this.usrinfo.user_email;
     this.user_displayName = this.usrinfo.user_displayName;
     this.santri_nama = this.usrinfo.user_displayName;
     this.login_by = this.usrinfo.login_by;
-
+    this.santriData = this.usrinfo.ref_object;
+    this.santri_id= this.usrinfo.ref_object.id;
+  }
+  async getSantri(){
+    await this.asp.login_santri(this.user_email).then(
+      data => {
+        this.santriData = data;
+        this.santri_id= this.santriData.id;
+        if (this.santriData.santri_lokasi_photo!=null) this.user_photoURL= this.santriData.santri_lokasi_photo;
+        this.bindData();
+      });
+  }
+  bindData(){   
+      this.santri_telepon=this.santriData.santri_telepon;
+      this.santri_nama= this.santriData.santri_nama,
+      this.santri_tmp_lahir=this.santriData.santri_tmp_lahir;  
+      this.santri_tgl_lahir=this.santriData.santri_tgl_lahir;
+      this.santri_gender= this.santriData.santri_gender;
+      this.santri_agama= this.santriData.santri_agama;
+      this.santri_kerja= this.santriData.santri_kerja;
+      this.santri_alamat= this.santriData.santri_alamat;
+      this.santri_provinsi=  this.santriData.santri_provinsi;
+      this.getkota(this.santri_provinsi);
+      this.santri_kota =this.santriData.santri_kota;
+      this.getkec(this.santri_kota);
+      this.santri_kecamatan= this.santriData.santri_kecamatan;
+      this.getkel(this.santri_kecamatan);
+      this.santri_kelurahan= this.santriData.santri_kelurahan;
+      this.getkodepos(this.santri_kelurahan);
+      this.santri_kode_pos= this.santriData.santri_kode_pos;
   }
   getpropinsi() {
     this.asp.getAll_propinsi().then(
@@ -73,26 +104,44 @@ export class SantriProfilePage implements OnInit {
         this.propinsiInitial = data;
       });
   }
-  getkota(v: any) {
-    this.asp.getkota_bypropinsi(v.target.value).then(
+  async getkota(v: any) {
+    let val:any="";
+    if (v.target!=null) {
+      val=v.target.value; 
+      this.santri_kota="";
+      this.santri_kecamatan= "";
+      this.santri_kelurahan= "";
+      this.santri_kode_pos= "";
+    }
+    else
+    {
+      val=v;
+    }
+    await this.asp.getkota_bypropinsi(val).then(
       data => {
         this.kotaInitial = data;
       });
   }
-  getkec(v: any) {
-    this.asp.getkec_bykota(v.target.value).then(
+  async getkec(v: any) {
+    let val:any="";
+    if (v.target!=null) val=v.target.value; else val=v;
+    await this.asp.getkec_bykota(val).then(
       data => {
         this.kecamatansInitial = data;
       });
-  }
-  getkel(v: any) {
-    this.asp.getkel_bykec(v.target.value).then(
+  }  
+  async getkel(v: any) {
+    let val:any="";
+    if (v.target!=null) val=v.target.value; else val=v;
+    await this.asp.getkel_bykec(val).then(
       data => {
         this.kelurahansInitial = data;
       });
   }
-  getkodepos(v: any) {
-    this.asp.getkodepos_bykel(v.target.value).then(
+  async getkodepos(v: any) {
+    let val:any="";
+    if (v.target!=null) val=v.target.value; else val=v;
+    await this.asp.getkodepos_bykel(val).then(
       data => {
         this.kodeposInitial = data;
       });
@@ -123,7 +172,15 @@ export class SantriProfilePage implements OnInit {
       this.santri_provinsi).then(
         data => {
           this.response = data;
-          this.asp.go_page_santri_reg_info();
+          let mode=localStorage.getItem("mode");
+          if (mode=="tabakunsantri")
+          {
+            this.asp.go_previous_page();
+          }
+          else
+          {
+            this.asp.go_page_santri_reg_info();
+          }          
         })
   }
 
@@ -131,7 +188,6 @@ export class SantriProfilePage implements OnInit {
     let retVal: boolean = false;
     let msg = "";
     var newLine = "<br>"
-    if (this.santri_telepon == "") msg += newLine + "No telp";
     if (this.santri_alamat == "") msg += newLine + "Alamat";
     if (msg != "") {
       msg = "Silahkan check inputan" + msg;

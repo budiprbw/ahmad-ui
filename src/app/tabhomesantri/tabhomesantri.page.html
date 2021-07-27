@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="goInfoMasuk()">
+        <ion-icon slot="icon-only" name="notifications-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center" style="margin-left:-50px">Dashboard Santri</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="w-full" [scrollEvents]="true">
+  <ion-grid class="ion-grid  lg:w-480 w-375">
+    <ion-row>
+      <ion-col>
+        <ion-card class="dashboard-santri-ion-card-rectangle lg:ml-16" *ngIf="!noProgram">
+          <div class="dashboard-santri-Rectangle-671">
+            <div class="dashboard-santri-ionbook-outline"></div>
+            Mohon bersabar, Anda belum mendapat paket pembelajaran Program AHMaD Project
+          </div>
+        </ion-card>
+        <ion-card class="dashboard-santri-ion-card-rectangle lg:ml-16" *ngIf="noProgram">
+          <div class="ion-card-title">
+            <ion-label>Progress Belajar</ion-label>
+            <ion-progress-bar value="0.92"></ion-progress-bar>
+          </div>
+          <div class="ion-card-title">
+            <ion-label>Bulan Pendampingan</ion-label>
+            <ion-progress-bar value="0.70"></ion-progress-bar>
+          </div>
+
+          <div class="dashboard-santri-Lihat-Detail" (click)="goLihatDetail()">
+            <ion-label>Lihat Detail</ion-label>
+            <ion-icon name="arrow-forward-circle-outline" style="color: black"></ion-icon>
+          </div>
+        </ion-card>
+        <ion-card class="dashboard-santri-ion-card-rectangle lg:ml-16" *ngIf="!noBerita">
+          <div class="dashboard-santri-Rectangle-672">
+            <div class="dashboard-santri-ionchatbox-ellipses-outline"></div>
+            Belum ada berita atau event
+          </div>
+        </ion-card>
+        <ion-card class="dashboard-santri-ion-card-rectangle  lg:ml-16" *ngIf="noBerita">
+          <div class="ion-card-title">
+            <ion-label>Berita/Event</ion-label>
+          </div>
+          <ion-list>
+            <div *ngFor="let item of line_berita">
+                <div style="font-weight: bold;text-align: center">{{item.pengingat_judul}}</div>
+                <div style="text-align: justify"><span [innerHTML]="html_entity(item.pengingat_isi)"></span></div>
+                <!-- <ion-label class="berita-title ion-text-wrap" (click)="beritadetail(item)" style="cursor:pointer"><span [innerHTML]="html_entity(item.pengingat_isi)"></span></ion-label> -->
+              
+            </div>
+          </ion-list>
+        </ion-card>
+        <ion-card class="dashboard-santri-ion-card-rectangle lg:ml-16" *ngIf="noHadist">
+          <div class="ion-card-title">Hadist/Doa Hari ini</div>
+          <ion-label style="font-weight: bold;" class="ion-text-wrap">{{hadistList.hadist_judul}}</ion-label>
+          <div class="dashboard-santri-card3-text1"><span [innerHTML]="html_entity(hadistisi)"></span>
+            <a style="cursor: pointer" (click)="readMore(hadistList.hadist_isi)"> read more.. </a>
+          </div>
+          <div class="santri-akun-ajak-lainnya-button" (click)="goAjak()">
+            <ion-button fill="clear" slot="end">
+              <ion-text class="santri-akun-ajak-lainnya-button-text normal-case">
+                Ajak yang lainnya
+              </ion-text>
+            </ion-button>
+            <ion-icon name="chevron-forward-circle-outline" style="color: black;zoom:1.4;"></ion-icon>
+          </div>
+        </ion-card>
+        <ion-card class="dashboard-santri-ion-card-rectangle lg:ml-16" *ngIf="!noHadist">
+          <div class="dashboard-santri-Rectangle-672">
+            <div class="dashboard-santri-ionchatbox-ellipses-outline"></div>
+            Belum ada Hadist/Doa Hari ini
+          </div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

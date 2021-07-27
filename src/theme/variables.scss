@@ -810,7 +810,7 @@
           border-radius: 50%;
           cursor: pointer;
           content:url('../assets/images/akar-icons_circle-chevron-up.svg');       
-          z-index: 110;
+          z-index: 102;
         }
         .button-dark-mode-true {
           position: fixed;
@@ -828,7 +828,7 @@
           border-radius: 50%;
           cursor: pointer;             
           content:url('../assets/images/Vector_dark.svg');        
-          z-index: 110;
+          z-index: 102;
         }  
         .button-dark-mode-false {
           position: fixed;
@@ -846,7 +846,7 @@
           border-radius: 50%;
           cursor: pointer;             
           content:url('../assets/images/Vector.svg');       
-          z-index: 110;
+          z-index: 102;
         }  
         .Ellipse-2 {
           position: absolute;
@@ -864,6 +864,7 @@
           border-radius: 50%;
           cursor: pointer;             
           content:url('../assets/images/Vector.svg');       
+          z-index: 102;
         }  
         .Vector {
           width: 20px;
@@ -2658,6 +2659,7 @@
               border-radius: 50%;
               cursor: pointer;             
               content:url('../assets/images/Vector_dark.svg');       
+              z-index: 102;
             }  
             .Sign-up-registrasi{
               width: 71px;

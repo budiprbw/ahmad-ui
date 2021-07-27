@@ -610,7 +610,6 @@ export class AhmadproviderService {
       "santri_gender": santri_gender,
       "santri_telepon": santri_telepon,
       "santri_kerja": santri_kerja,
-      "santri_lokasi_photo": santri_lokasi_photo,
       "santri_alamat": santri_alamat,
       "santri_kode_pos": santri_kode_pos,
       "santri_kelurahan": santri_kelurahan,
@@ -619,30 +618,22 @@ export class AhmadproviderService {
       "santri_provinsi": santri_provinsi
     };
     return new Promise(resolve => {
-
-      this.httpclient.post(this.api_santri_profile_save + santri_id, data).subscribe(data => {
-
-        /** upload foto santri */
-        let options: FileUploadOptions = {
-          fileKey: 'file',
-          fileName: santri_lokasi_photo.fileNameFromPath + santri_lokasi_photo.type,
-          chunkedMode: false,
-          mimeType: "image/jpeg",
-          headers: {}
-        }
-        const fileTransfer: FileTransferObject = this.transfer.create();
-
-        fileTransfer.upload(santri_lokasi_photo, this.api_photo_profile_santri, options)
-          .then((data) => {
-            console.log('success upload santri poto');
-          }, (err) => {
-            console.log(err);
-          });
+      this.httpclient.put(this.api_santri_profile_save + santri_id, data).subscribe(data => {
         resolve(data);
+        /** upload foto santri */
+        let response: any;
+        let formData = new FormData();
+        formData.append('id', santri_id);
+        formData.append("santri_photo", santri_lokasi_photo, santri_lokasi_photo.name);
+        this.httpclient.post(this.api_photo_profile_santri, formData).subscribe(data_Poto => {
+          resolve(data_Poto);
+        }, err => {
+          console.log(err);
+        });
       }, err => {
         console.log(err);
       });
-      resolve(data);
+
     });
   }
   santri_bimbingan_penilaian(santri_id,pendamping_id,materi_id,bimbingan_materi_angka,bimbingan_materi_huruf,bimbingan_materi_catatan) {
@@ -1157,7 +1148,8 @@ export class AhmadproviderService {
     let usrinfo: any;
     usrinfo = JSON.parse(localStorage.getItem("usrinfo"));
     if (!(usrinfo)) {
-      this.route.navigateByUrl('/login?login_mode='+login_mode, { replaceUrl: true });
+      //this.route.navigateByUrl('/login?login_mode='+login_mode, { replaceUrl: true });
+      this.route.navigateByUrl('/webdashboard', { replaceUrl:true });    
     }
     return usrinfo;
   }

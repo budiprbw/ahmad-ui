@@ -36,7 +36,7 @@ export const environment = {
       upload_poto:"santri/upload/photo",
       find_by_email:"santri/byemail",
       kuesioner_simpan: "kuesioner/santri/simpan",
-      update_profile :"santri/update/profile",
+      update_profile :"santri/update/profile/",
       register_referal:"santri/register/referral",      
       bimbingan_progress : "bimbingan/dashboard/santri/",
       bimbingan_penilaian :"bimbingan/penilaian/santri",
@@ -109,11 +109,11 @@ export const environment = {
         logo: 'assets/socialShare/twitter.png',
         shareType: 'shareViaTwitter'
     },
-    {
-        title: 'Instagram',
-        logo: 'assets/socialShare/Instagram-circle.png',
-        shareType: 'shareViaInstagram'
-    },
+    // {
+    //     title: 'Instagram',
+    //     logo: 'assets/socialShare/Instagram-circle.png',
+    //     shareType: 'shareViaInstagram'
+    // },
     {
         title: 'Email',
         logo: 'assets/socialShare/mail.png',

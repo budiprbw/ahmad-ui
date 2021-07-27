@@ -58,8 +58,8 @@ export class DonaturProfilePage implements OnInit {
       this.initdata();
   }
   initdata() {
-    this.userInfo();    
-    this.bindData();
+    this.userInfo();   
+    this.getDonatur();     
     this.getpropinsi();
   }
   userInfo() {
@@ -68,10 +68,17 @@ export class DonaturProfilePage implements OnInit {
     this.user_email = this.usrinfo.user_email;
     this.user_displayName = this.usrinfo.user_displayName;
     this.donatur_nama = this.usrinfo.user_displayName;
-    this.login_by = this.usrinfo.login_by;
-    this.donaturData = this.usrinfo.ref_object;
+    this.login_by = this.usrinfo.login_by;    
     this.donatur_id= this.usrinfo.ref_object.id;
-    this.donaturData= this.usrinfo.ref_object;
+  }
+  async getDonatur(){
+    await this.asp.login_donatur(this.user_email).then(
+      data => {
+        this.donaturData = data;
+        this.donatur_id= this.donaturData.id;
+        if (this.donaturData.donatur_lokasi_photo!=null) this.user_photoURL= this.donaturData.donatur_lokasi_photo;
+        this.bindData();
+      });
   }
   bindData(){
     if (this.donaturData.donatur_status=="2")
@@ -125,7 +132,7 @@ export class DonaturProfilePage implements OnInit {
   async getkec(v: any) {
     let val:any="";
     if (v.target!=null) val=v.target.value; else val=v;
-    this.asp.getkec_bykota(val).then(
+    await this.asp.getkec_bykota(val).then(
       data => {
         this.kecamatansInitial = data;
       });

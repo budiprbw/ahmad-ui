@@ -39,8 +39,6 @@ export class BuatpasswordPage implements OnInit {
       this.user_email = this.usrinfo.user_email;
       this.login_by   = this.usrinfo.login_by;
       this.user_displayName = this.usrinfo.user_displayName;
-      // if (this.login_mode=="donatur")this.user_tipe="1";
-      // if (this.login_mode=="santri")this.user_tipe="2";
   }
  
   public toggleTextPassword_1(): void {
@@ -131,7 +129,15 @@ export class BuatpasswordPage implements OnInit {
   redirectMe()
   {
     if (this.login_mode=="santri"){
+      let mode=localStorage.getItem("mode");
+      if (mode=="tabakunsantri")
+      {
+        this.asp.go_previous_page();
+      }
+      else{
         this.route.navigate(['santri-kuesioner']);
+      }
+        
     }
     if (this.login_mode=="donatur"){
       var item_donasi:any=JSON.parse(localStorage.getItem("item_donasi"));

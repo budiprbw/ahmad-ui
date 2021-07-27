@@ -62,9 +62,9 @@
 
                     <img src="assets/images/banner.webp" style="no-repeat;min-width: 100%; min-height: 100%;" class="lg:w-1048 lg:min-h-660 w-343" >
 
-                    <div [ngClass]="is_dark_mode=='0'?'button-dark-mode-false':'button-dark-mode-true'" (click)="darkmode()"></div>
+                    <div [ngClass]="is_dark_mode=='0'?'button-dark-mode-false':'button-dark-mode-true'" (click)="darkmode()" style="z-index: 102"></div>
 
-                    <div class="Ellipse-1" (click)="gotToTop()"> </div>
+                    <div class="Ellipse-1" (click)="gotToTop()" style="z-index: 102"> </div>
                 </div>
 
             </ion-col>
@@ -123,7 +123,7 @@
         <ion-row class="mb-10">
             <ion-col>
                 <ion-card class="bg-white  dark:bg-gelapbaru  rounded-3xl shadow-md mt-5 lg:ml-6 lg:mr-10 lg:min-h-530 lg:min-w-1275">
-                    <div class="grid grid-rows-6 grid-cols-1 lg:grid-rows-1 lg:grid-cols-paket lg:gap-1">
+                    <div class="grid grid-rows-1 grid-cols-1 lg:grid-rows-1 lg:grid-cols-paket lg:gap-1">
                         <div class="rounded-lg bg-cover lg:w-474 ">
                             <img src="assets/images/image-paket.webp"  style="no-repeat;min-width: 100%;" class="w-343 h-343" />
                         </div>
@@ -174,7 +174,7 @@
                                     </div>
                                     <div class="lg:flex-auto lg:h-4 lg:mb-10 mt-2 ">
                                         <ion-button fill="clear" class="h-12  lg:w-336 w-307 lg:mt-4 bg-white dark:bg-gelapbaru rounded-2xl border-black border bg-white   lg:rounded-2xl border-black dark:border-gold lg:border"
-                                            (click)="shareLink('donatur')">
+                                            (click)="showShareOptions('santri')">
                                             <ion-text class=" text-black text-md-14 dark:text-gold  lg:text-black lg:text-md-16 items-center normal-case lg:pr-3">
                                                 Bagikan Halaman ini
                                             </ion-text>
@@ -212,7 +212,7 @@
                             </div>
                             <div class="lg:flex-initial lg:mt-2 ">
                                 <ion-button fill="clear" class="lg:w-64 w-270 bg-gold rounded-2xl  border-black border lg:bg-gold lg:border-black lg:border "
-                                    (click)="shareLink('santri')">
+                                    (click)="showShareOptions('donatur')">
                                     <ion-text class="text-black text-md-14 lg:text-black lg:text-md-16 text-left normal-case lg:pr-3">
                                         Bagikan Halaman ini
                                     </ion-text>

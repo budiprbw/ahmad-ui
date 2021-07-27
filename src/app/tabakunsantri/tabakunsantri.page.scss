@@ -1,0 +1,165 @@
+ion-toolbar {
+--background: var(--ion-color-goldd);
+}
+.santri-akun-Ellipse-87 {
+    width: 48px;
+    height: 48px;
+    margin: 0 16px 0 0;
+    }
+.santri-akun-Rectangle-637{
+    width: 343px;    
+    height: 80px;
+    //margin: 16px;
+    padding: 16px 133px 16px 16px;
+    border-radius: 14px;
+    box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
+    background-color: var(--ion-color-white);
+}
+.santri-akun-nama-User{
+    position: absolute;
+    top:15%;
+    //width: 79px;
+    margin: 0 51px 6px 55px;
+    height: 20px;
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000000;
+}
+.santri-akun-emailemailcom{
+    position: absolute;
+      top:40%;
+    //width: 130px;
+    height: 20px;
+    margin: 6px 0 2px 55px;
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    text-align: left;
+    color: #828282;
+
+}
+.santri-akun-Rectangle-638 {
+    width: 343px;
+    height: 288px;
+    //margin: 16px 16px 26px;
+    padding: 10px;
+    border-radius: 14px;
+    box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
+    background-color: var(--ion-color-white);
+  }
+  .santri-akun-rubah-profile{
+    width: 311px;
+    height: 52px;
+    margin: 0 0 16px;
+    padding: 16px;
+    border-radius: 14px;
+    border: solid 1px var(--ion-color-goldd);
+    background-color: var(--fill-placeholder);
+    cursor: pointer;
+  }
+  .santri-akun-rubah-profile-text{
+    width: 130px;
+    height: 20px;
+    margin: 0 173px 0 0;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    text-align: left;
+    color: var(--ion-color-black);
+  }
+  
+  .santri-akun-rubah-password{
+    width: 311px;
+    height: 52px;
+    margin: 16px 0;
+    padding: 16px;
+    border-radius: 14px;
+     border: solid 1px var(--ion-color-goldd);
+    background-color: var(--fill-placeholder);
+    cursor: pointer;
+  }
+  .santri-akun-rubah-password-text{
+    width: 130px;
+    height: 20px;
+    margin: 0 173px 0 0;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    text-align: left;
+    color: var(--ion-color-black);
+  }  
+  .santri-akun-button-keluar{
+    width: 343px;
+    height: 52px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    //margin: 0px 0px 0px 9px;//margin: 40px 16px 32px 62px;
+    padding: 16px 20px;
+    object-fit: contain;
+    border-radius: 14px;
+    box-shadow: 2px 4px 12px 0 rgba(252, 198, 4, 0.2);
+    background-color: #ff3333;
+  }
+  .santri-akun-button-keluar-text{
+    //width: 47px;
+    height: 20px;
+    flex-grow: 0;
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    text-align: center;
+    color: var(--ion-color-white);
+}
+.vector1{
+    position: absolute;
+    top:7%;
+    margin: 0px 0px 0px 155px;    
+    flex-grow: 0;
+  }
+  .vector2{
+    position: absolute;
+    top:31%;
+    margin: 16px;
+    margin: 0px 0px 0px 118px;
+    flex-grow: 0;
+  }
+  .vector3{
+    position: absolute;
+    top:55%;
+    margin: 16px;
+    margin: 0px 0px 0px 131px;
+    flex-grow: 0;
+  } 
+  .vector4{
+    position: absolute;
+    top:78%;
+    margin: 16px;
+    margin: 0px 0px 0px 213px;
+    flex-grow: 0;
+  }    
+  
