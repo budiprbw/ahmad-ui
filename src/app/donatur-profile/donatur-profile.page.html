@@ -44,26 +44,26 @@
                         <ion-label>Pilih Propinsi</ion-label>
                         <ion-select interface="popover" placeholder="Pilih Propinsi" (ionChange)="getkota($event)" [(ngModel)]="donatur_provinsi"
                             name="donatur_provinsi">
-                            <ion-select-option value="{{ item.provinsi }}" *ngFor="let item of propinsiInitial">{{ item.provinsi}}
+                            <ion-select-option value="{{ item.province_id }}" *ngFor="let item of propinsiInitial">{{ item.province}}
                             </ion-select-option>
                         </ion-select>
                     </ion-item>
                     <ion-item>
                         <ion-label>Pilih Kota/Kabupaten</ion-label>
                         <ion-select interface="popover" placeholder="Pilih Kota/Kab" (ionChange)="getkec($event)" [(ngModel)]="donatur_kota" name="donatur_kota">
-                            <ion-select-option value="{{ item.kota }}" *ngFor="let item of kotaInitial">{{ item.kota }}</ion-select-option>
+                            <ion-select-option value="{{ item.city_id }}" *ngFor="let item of kotaInitial">{{ item.city_name }}</ion-select-option>
 
                         </ion-select>
                     </ion-item>
                     <ion-item>
                         <ion-label>Pilih Kecamatan</ion-label>
-                        <ion-select interface="popover" placeholder="Pilih Kecamatan" (ionChange)="getkel($event)" [(ngModel)]="donatur_kecamatan"
+                        <ion-select interface="popover" placeholder="Pilih Kecamatan" [(ngModel)]="donatur_kecamatan"
                             name="donatur_kecamatan">
-                            <ion-select-option value="{{ item.kecamatan }}" *ngFor="let item of kecamatansInitial">{{ item.kecamatan}}
+                            <ion-select-option value="{{ item.subdistrict_id }}" *ngFor="let item of kecamatansInitial">{{ item.subdistrict_name}}
                             </ion-select-option>
                         </ion-select>
                     </ion-item>
-                    <ion-item>
+                    <ion-item class="hidden">
                         <ion-label>Pilih Kelurahan</ion-label>
                         <ion-select interface="popover" placeholder="Pilih Kelurahan" (ionChange)="getkodepos($event)" [(ngModel)]="donatur_kelurahan"
                             name="donatur_kelurahan">
@@ -74,7 +74,7 @@
                     <ion-item>
                         <ion-label>Pilih Kode Pos</ion-label>
                         <ion-select interface="popover" placeholder="Pilih Kode Pos" [(ngModel)]="donatur_kode_pos" name="donatur_kode_pos">
-                            <ion-select-option value="{{ item.kode_pos }}" *ngFor="let item of kodeposInitial">{{ item.kode_pos}}</ion-select-option>
+                            <ion-select-option value="{{ item.postal_code }}" *ngFor="let item of kodeposInitial">{{ item.postal_code}}</ion-select-option>
                         </ion-select>
                     </ion-item>
                     <div class="catatan_santri_profile">

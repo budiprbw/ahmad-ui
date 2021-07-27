@@ -53,6 +53,11 @@ export const environment = {
     lookup:{
       kode_pos:{
         all_propinsi: "kodepos/list/provinsi/all",
+        kota_list_byprovinsi:"kodepos/list/provinsi/",
+        Kecamatan_list_bykota:"kodepos/list/kota/",
+        kelurahan_list_bykec:"kodepos/list/kecamatan/",
+        kodepos_list_bykel:"kodepos/list/kelurahan/",
+        kodepos_list_bykodepos:"kodepos/list/kodepos/",
         kotabyprovinsi :"kodepos/kotabyprovinsi/",
         kecamatanbykota :"kodepos/kecamatanbykota/",
         kelurahanbykecamatan :"kodepos/kelurahanbykecamatan/",

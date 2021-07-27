@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { AhmadproviderService } from '../ahmadprovider.service';
 
 @Component({
@@ -26,7 +26,6 @@ export class DaftarPage implements OnInit {
   public donasi:any;
 
   constructor(
-    private route: Router,
     public asp: AhmadproviderService,
     public router: ActivatedRoute
   ) { }
@@ -144,13 +143,13 @@ export class DaftarPage implements OnInit {
   }
   redirectMe() {
     if (this.login_mode == "santri") {
-      this.route.navigateByUrl('/santri-kuesioner', { replaceUrl: true });
+      this.asp.go_page_santri_kuesioner();
     }
     if (this.login_mode == "donatur") {
       // bila donatur  sudah donasi atau belum
       // kalau sudah donasi redirect ke pembayaran-donasi
       if (this.donasi == null) {
-        this.route.navigateByUrl('/donatur-profile', { replaceUrl: true });
+        this.asp.go_page_donatur_profile();
       }
       else {
         this.goPembayaran();
@@ -190,11 +189,11 @@ export class DaftarPage implements OnInit {
       "donasiproduk": this.donasi.produk
     };
     localStorage.setItem("item_donasi", JSON.stringify(item_donasi));
-    this.route.navigateByUrl('/pembayaran-donasi', { replaceUrl: true });
+    this.asp.go_page_donasi_pembayaran();
 
   }
   goBack() {
-    this.route.navigate(['webdashboard']);
+    this.asp.go_page_home();
   }
 
 

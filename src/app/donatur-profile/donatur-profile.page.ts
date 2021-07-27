@@ -93,14 +93,14 @@ export class DonaturProfilePage implements OnInit {
       this.donatur_kerja= this.donaturData.donatur_kerja;
       this.donatur_no_ktp= this.donaturData.donatur_nid;
       this.donatur_alamat= this.donaturData.donatur_alamat;
-      this.donatur_provinsi=  this.donaturData.donatur_provinsi;
+      this.donatur_provinsi=  this.donaturData.donatur_provinsi_id;
       this.getkota(this.donatur_provinsi);
-      this.donatur_kota =this.donaturData.donatur_kota;
+      this.donatur_kota =this.donaturData.donatur_kota_id;
       this.getkec(this.donatur_kota);
-      this.donatur_kecamatan= this.donaturData.donatur_kecamatan;
-      this.getkel(this.donatur_kecamatan);
-      this.donatur_kelurahan= this.donaturData.donatur_kelurahan;
-      this.getkodepos(this.donatur_kelurahan);
+      this.donatur_kecamatan= this.donaturData.donatur_kecamatan_id;
+      // this.getkel(this.donatur_kecamatan);
+      // this.donatur_kelurahan= this.donaturData.donatur_kelurahan;
+      // this.getkodepos(this.donatur_kelurahan);
       this.donatur_kode_pos= this.donaturData.donatur_kode_pos;
     }    
   }
@@ -124,7 +124,7 @@ export class DonaturProfilePage implements OnInit {
       val=v;
     }
     
-    await this.asp.getkota_bypropinsi(val).then(
+    await this.asp.kota_list_byprovinsi(val).then(
       data => {
         this.kotaInitial = data;
       });
@@ -132,7 +132,13 @@ export class DonaturProfilePage implements OnInit {
   async getkec(v: any) {
     let val:any="";
     if (v.target!=null) val=v.target.value; else val=v;
-    await this.asp.getkec_bykota(val).then(
+    for (var i = 0; i < this.kotaInitial.length; i++) {   
+       let data={
+        postal_code:this.kotaInitial[i].postal_code
+       }     
+      this.kodeposInitial.push(data);
+    }    
+    await this.asp.kecamaran_list_bykota(val).then(
       data => {
         this.kecamatansInitial = data;
       });

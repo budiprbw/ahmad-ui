@@ -62,7 +62,9 @@ export class AhmadproviderService {
   private api_list_berita_kampanye = this.api_url + environment.ahmadApi.lookup.list_berita_kampanye;
   private api_list_berita_entitas = this.api_url + environment.ahmadApi.lookup.list_berita_entitas;
   private api_all_propinsi = this.api_url + environment.ahmadApi.lookup.kode_pos.all_propinsi;
-  private api_kota_bypropinsi = this.api_url + environment.ahmadApi.lookup.kode_pos.kotabyprovinsi;
+  private api_kota_list_byprovinsi = this.api_url + environment.ahmadApi.lookup.kode_pos.kota_list_byprovinsi;  
+  private api_kecamaran_list_bykota = this.api_url + environment.ahmadApi.lookup.kode_pos.Kecamatan_list_bykota;    
+  private api_kota_bypropinsi = this.api_url + environment.ahmadApi.lookup.kode_pos.kotabyprovinsi;  
   private api_kec_bykota = this.api_url + environment.ahmadApi.lookup.kode_pos.kecamatanbykota;
   private api_kel_bykec = this.api_url + environment.ahmadApi.lookup.kode_pos.kelurahanbykecamatan;
   private api_kodepos_bykel = this.api_url + environment.ahmadApi.lookup.kode_pos.kodeposbykelurahan;
@@ -385,6 +387,24 @@ export class AhmadproviderService {
       });
     });
   }
+  kota_list_byprovinsi(province_id) {
+    return new Promise(resolve => {
+      this.httpclient.get(this.api_kota_list_byprovinsi + province_id).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+  kecamaran_list_bykota(city_id) {
+    return new Promise(resolve => {
+      this.httpclient.get(this.api_kecamaran_list_bykota + city_id).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
   getkota_bypropinsi(propinsi) {
     return new Promise(resolve => {
       this.httpclient.get(this.api_kota_bypropinsi + propinsi).subscribe(data => {
@@ -393,7 +413,8 @@ export class AhmadproviderService {
         console.log(err);
       });
     });
-  }
+  }  
+
   getkec_bykota(kota) {
     return new Promise(resolve => {
       this.httpclient.get(this.api_kec_bykota + kota).subscribe(data => {

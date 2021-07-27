@@ -93,9 +93,9 @@ export class SantriProfilePage implements OnInit {
       this.santri_kota =this.santriData.santri_kota;
       this.getkec(this.santri_kota);
       this.santri_kecamatan= this.santriData.santri_kecamatan;
-      this.getkel(this.santri_kecamatan);
-      this.santri_kelurahan= this.santriData.santri_kelurahan;
-      this.getkodepos(this.santri_kelurahan);
+      // this.getkel(this.santri_kecamatan);
+      // this.santri_kelurahan= this.santriData.santri_kelurahan;
+      // this.getkodepos(this.santri_kelurahan);
       this.santri_kode_pos= this.santriData.santri_kode_pos;
   }
   getpropinsi() {
@@ -117,7 +117,7 @@ export class SantriProfilePage implements OnInit {
     {
       val=v;
     }
-    await this.asp.getkota_bypropinsi(val).then(
+    await this.asp.kota_list_byprovinsi(val).then(
       data => {
         this.kotaInitial = data;
       });
@@ -125,7 +125,13 @@ export class SantriProfilePage implements OnInit {
   async getkec(v: any) {
     let val:any="";
     if (v.target!=null) val=v.target.value; else val=v;
-    await this.asp.getkec_bykota(val).then(
+    for (var i = 0; i < this.kotaInitial.length; i++) {   
+      let data={
+       postal_code:this.kotaInitial[i].postal_code
+      }     
+     this.kodeposInitial.push(data);
+    }    
+    await this.asp.kecamaran_list_bykota(val).then(
       data => {
         this.kecamatansInitial = data;
       });
