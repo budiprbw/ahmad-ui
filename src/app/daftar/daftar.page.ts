@@ -130,7 +130,7 @@ export class DaftarPage implements OnInit {
     }
   }
   savePassword() {
-    this.asp.userChangePassword(this.id_user, this.user_email, this.newpassword, this.user_tipe).then(
+    this.asp.userverification(this.id_user, this.user_email, this.newpassword).then(
       data => {
         this.response = data;
         if (this.response.status == 'error') {

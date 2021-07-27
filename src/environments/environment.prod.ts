@@ -72,7 +72,8 @@ export const environment = {
       change_password:"user/change/password/",
       pesan_aktif: "pesan/aktif/byuser/",
       update_as_read :"pesan/update/read/",
-      pesan_delete:"pesan/update/delete/"
+      pesan_delete:"pesan/update/delete/",
+      user_verification:"user/verification/"
     },
     product:{
       by_id :"produk/byid/"

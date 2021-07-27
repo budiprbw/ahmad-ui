@@ -87,6 +87,8 @@ export class AhmadproviderService {
   private api_user_pesan_aktif = this.api_url + environment.ahmadApi.user.pesan_aktif;  
   private api_user_update_as_read = this.api_url + environment.ahmadApi.user.update_as_read;  
   private api_user_pesan_delete = this.api_url + environment.ahmadApi.user.pesan_delete;  
+  private api_user_verification = this.api_url + environment.ahmadApi.user.user_verification;  
+  
   
 
   //#endregion
@@ -137,6 +139,28 @@ export class AhmadproviderService {
     };
     return new Promise(resolve => {
       this.httpclient.put(this.api_user_change_password + id_user, data).subscribe(data => {
+        let result = {
+          "message": '',
+          "status": 'OK',
+          "data": data
+        };
+        resolve(result);
+      }, err => {
+        let result = {
+          "message": err.message,
+          "status": 'error'
+        };
+        resolve(result);
+      });
+    });
+  }
+  userverification(id_user, email, password) {
+    let data = {
+      "email": email,
+      "password": password
+    };
+    return new Promise(resolve => {
+      this.httpclient.put(this.api_user_verification + id_user, data).subscribe(data => {
         let result = {
           "message": '',
           "status": 'OK',
