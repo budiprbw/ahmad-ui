@@ -23,7 +23,7 @@ export class DonaturProfilePage implements OnInit {
   public user_displayName: string = "";
   public login_by: string = "";
   public result: any;
-  public donatur_id: string;
+  public donatur_id: string;  
   public donatur_no_hp: string;
   public donatur_nama: string;
   public donatur_tmp_lahir: string;
@@ -36,9 +36,12 @@ export class DonaturProfilePage implements OnInit {
   public donatur_alamat: string;
   public donatur_kode_pos: string;
   public donatur_kelurahan: string;
-  public donatur_kecamatan: string;
-  public donatur_kota: string;
-  public donatur_provinsi: string;
+  public donatur_kecamatan: any;
+  public donatur_kecamatan_id: string;
+  public donatur_kota: any;
+  public donatur_kota_id: string;
+  public donatur_provinsi: any;
+  public donatur_provinsi_id: string;
   public donatur_no_ktp: string;
   public error_msg:string="";
 
@@ -57,10 +60,11 @@ export class DonaturProfilePage implements OnInit {
   ngOnInit() {
       this.initdata();
   }
-  initdata() {
-    this.userInfo();   
-    this.getDonatur();     
-    this.getpropinsi();
+  async initdata() {
+    this.userInfo();      
+    await this.getpropinsi();
+    await this.getDonatur();     
+    this.bindData();
   }
   userInfo() {
     this.usrinfo =  this.asp.getUserInfo();
@@ -76,11 +80,10 @@ export class DonaturProfilePage implements OnInit {
       data => {
         this.donaturData = data;
         this.donatur_id= this.donaturData.id;
-        if (this.donaturData.donatur_lokasi_photo!=null) this.user_photoURL= this.donaturData.donatur_lokasi_photo;
-        this.bindData();
+        if (this.donaturData.donatur_lokasi_photo!=null) this.user_photoURL= this.donaturData.donatur_lokasi_photo;        
       });
   }
-  bindData(){
+  async bindData(){
     if (this.donaturData.donatur_status=="2")
     {
       this.donatur_telepon=this.donaturData.donatur_telepon;
@@ -93,15 +96,18 @@ export class DonaturProfilePage implements OnInit {
       this.donatur_kerja= this.donaturData.donatur_kerja;
       this.donatur_no_ktp= this.donaturData.donatur_nid;
       this.donatur_alamat= this.donaturData.donatur_alamat;
-      this.donatur_provinsi=  this.donaturData.donatur_provinsi_id;
-      this.getkota(this.donatur_provinsi);
-      this.donatur_kota =this.donaturData.donatur_kota_id;
-      this.getkec(this.donatur_kota);
-      this.donatur_kecamatan= this.donaturData.donatur_kecamatan_id;
+      this.donatur_provinsi_id=  this.donaturData.donatur_provinsi_id;
+      this.donatur_provinsi=  this.propinsiInitial.filter(a => a.province_id ===this.donatur_provinsi_id.toString())[0];
+      await this.getkota(this.donatur_provinsi_id);
+      this.donatur_kota_id =this.donaturData.donatur_kota_id; 
+      this.donatur_kota=  this.kotaInitial.filter(a => a.city_id ===this.donatur_kota_id.toString())[0];
+      await this.getkec(this.donatur_kota_id);
+      this.donatur_kecamatan_id= this.donaturData.donatur_kecamatan_id;
+      this.donatur_kecamatan=  this.kecamatansInitial.filter(a => a.subdistrict_id ===this.donatur_kecamatan_id.toString())[0];
       // this.getkel(this.donatur_kecamatan);
       // this.donatur_kelurahan= this.donaturData.donatur_kelurahan;
       // this.getkodepos(this.donatur_kelurahan);
-      this.donatur_kode_pos= this.donaturData.donatur_kode_pos;
+      this.donatur_kode_pos= this.donaturData.donatur_kode_pos.toString();
     }    
   }
   async getpropinsi() {
@@ -113,7 +119,7 @@ export class DonaturProfilePage implements OnInit {
   async getkota(v: any) {
     let val:any="";
     if (v.target!=null) {
-      val=v.target.value; 
+      val=v.target.value.province_id; 
       this.donatur_kota="";
       this.donatur_kecamatan= "";
       this.donatur_kelurahan= "";
@@ -131,7 +137,7 @@ export class DonaturProfilePage implements OnInit {
   }
   async getkec(v: any) {
     let val:any="";
-    if (v.target!=null) val=v.target.value; else val=v;
+    if (v.target!=null) val=v.target.value.city_id; else val=v;
     for (var i = 0; i < this.kotaInitial.length; i++) {   
        let data={
         postal_code:this.kotaInitial[i].postal_code
@@ -187,9 +193,12 @@ export class DonaturProfilePage implements OnInit {
           this.donatur_alamat,
           this.donatur_kode_pos,
           this.donatur_kelurahan,
-          this.donatur_kecamatan,
-          this.donatur_kota,
-          this.donatur_provinsi).then(
+          this.donatur_kecamatan.subdistrict_id,
+          this.donatur_kecamatan.subdistrict_name,
+          this.donatur_kota.city_id,
+          this.donatur_kota.city_name,
+          this.donatur_provinsi.province_id,
+          this.donatur_provinsi.province).then(
             data => {
               this.response = data;
               this.redirectMe();

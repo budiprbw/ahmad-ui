@@ -3,9 +3,10 @@
 @import 'tailwindcss/components';
 
 @import 'tailwindcss/utilities';
+
 // Ionic Variables and Theming. For more info, please see:
 // http://ionicframework.com/docs/theming/
-@import url('https://fonts.googleapis.com/css2?family=Poppins');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900');
 //@import url('https://fonts.googleapis.com/css2?family=Poppins,wght@600&display=swap');
 
 
@@ -93,9 +94,25 @@
   --greyish-brown:#4f4f4f;
         /*====for web =======*/
         /*=== dashboard =====*/
+        .backTransparent .modal-wrapper {
+          height: 200px;
+        }
         .modal-wrapper {
             width: 370px;
             height: 476px;
+        }
+        .Belajar-Alquran-Lebih-Bersedekah-Lebih {
+          height: 138px;
+          margin: 118px 501px 14px 128px;
+          font-family: Poppins;
+          font-size: 62px;
+          font-weight: 600;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.12;
+          letter-spacing: -0.3px;
+          text-align: left;
+          color: var(--goldd);
         }
         .logo {
           display: flex;
@@ -1177,7 +1194,7 @@
             .heroicons-solidoffice-building {
                 width: 24px;
                 height: 24px;
-                margin: 28px 16px 76px 10px;
+                margin: 28px 16px 76px 40px;
                 object-fit: contain;
                 display: flex;
                 flex-direction: row;
@@ -1187,7 +1204,7 @@
             .heroicons-solidoffice-building-dark {
               width: 24px;
               height: 24px;
-              margin: 28px 16px 76px 10px;
+              margin: 28px 16px 76px 40px;
               object-fit: contain;
               display: flex;
               flex-direction: row;
@@ -1197,7 +1214,7 @@
             .heroicons-solidphone{
                 width: 24px;
                 height: 24px;
-                margin: 26px 16px 19px 10px;
+                margin: 26px 16px 19px 40px;
                 object-fit: contain;
                 display: flex;
                 flex-direction: row;
@@ -1207,7 +1224,7 @@
             .heroicons-solidphone-dark{
               width: 24px;
               height: 24px;
-              margin: 26px 16px 19px 10px;
+              margin: 26px 16px 19px 40px;
               object-fit: contain;
               display: flex;
               flex-direction: row;
@@ -1217,7 +1234,7 @@
             .heroicons-solidmail {
                 width: 24px;
                 height: 24px;
-                margin: 48px 16px 47px 10px;
+                margin: 48px 16px 47px 40px;
                 object-fit: contain;
                 display: flex;
                 flex-direction: row;
@@ -1227,7 +1244,7 @@
             .heroicons-solidmail-dark {
               width: 24px;
               height: 24px;
-              margin: 48px 16px 47px 10px;
+              margin: 48px 16px 47px 40px;
               object-fit: contain;
               display: flex;
               flex-direction: row;
@@ -1615,13 +1632,22 @@
             background-color: var(--ion-color-white);
           }
           .santri-Rectangle-628{
-            width: 375px;
+            width: 480px;
             height: 152px;
             flex-grow: 0; 
             margin: 25px 0 0 -10px;                        
             padding: 16px;
             box-shadow: 0 -4px 12px 0 rgba(0, 0, 0, 0.15);
             background-color: var(--ion-color-white);
+          }
+          .home-Rectangle-628{
+            width: 375px;
+            height: 152px;
+            flex-grow: 0;
+            margin: 531px 0 0;
+            padding: 16px;
+            box-shadow: 0 -4px 12px 0 rgba(0, 0, 0, 0.15);
+            background-color: var(--ion-colorwhite);
           }
           .Password-Santri {
             width: 375px;
@@ -2725,6 +2751,7 @@
       display: none
     }
   } 
+  
 //}
 .colx{
   background-color:white; border-radius: 25px;

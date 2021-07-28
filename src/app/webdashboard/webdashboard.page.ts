@@ -111,7 +111,6 @@ export class WebdashboardPage implements OnInit {
   gotToTop()
   {       
     this.content.scrollToTop(1500);
-
   }
   html_entity(val){
      return this.asp.html_entity(val);
@@ -152,7 +151,7 @@ export class WebdashboardPage implements OnInit {
         wsurl='program-santri';
       }
       this.asp.shareLink(wsurl);
-     
+      
   }
 
   // setMetaTag(){   
@@ -163,6 +162,11 @@ export class WebdashboardPage implements OnInit {
   //   this.metaService.addTag({ name: 'robots', content: 'index,follow' });
   //   this.metaService.addTag({ property: 'og:image', content: 'https://dev.ahmadproject.org/assets/images/ahmad-project.png'});
   // }  
- 
+gotoKontak(css_nm){
+  
+  document.querySelector(css_nm).scrollIntoView({ 
+    behavior: 'smooth', block: 'nearest', inline: 'end'
+  });
+}  
 
 }

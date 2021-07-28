@@ -644,8 +644,11 @@ export class AhmadproviderService {
     santri_alamat,
     santri_kode_pos,
     santri_kelurahan,
+    santri_kecamatan_id,
     santri_kecamatan,
+    santri_kota_id,
     santri_kota,
+    santri_provinsi_id,
     santri_provinsi) {
     let data = {
       "santri_id": santri_id,
@@ -658,8 +661,11 @@ export class AhmadproviderService {
       "santri_alamat": santri_alamat,
       "santri_kode_pos": santri_kode_pos,
       "santri_kelurahan": santri_kelurahan,
+      "santri_kecamatan_id": santri_kecamatan_id,
       "santri_kecamatan": santri_kecamatan,
+      "santri_kota_id": santri_kota_id,
       "santri_kota": santri_kota,
+      "santri_provinsi_id": santri_provinsi_id,
       "santri_provinsi": santri_provinsi
     };
     return new Promise(resolve => {
@@ -1117,14 +1123,16 @@ export class AhmadproviderService {
     donatur_alamat,
     donatur_kode_pos,
     donatur_kelurahan,
-    donatur_kecamatan,
+    donatur_kecamatan_id,
+    donatur_kecamatan,    
+    donatur_kota_id,
     donatur_kota,
-    donatur_provinsi,
-
+    donatur_provinsi_id,
+    donatur_provinsi 
   ) {
     let data = {
       "donatur_id": donatur_id,
-      "donatur_nid": donatur_no_ktp,
+      "donatur_nid": donatur_no_ktp,      
       "donatur_nama": donatur_nama,
       "donatur_tmp_lahir": donatur_tmp_lahir,
       "donatur_tgl_lahir": donatur_tgl_lahir,
@@ -1135,9 +1143,12 @@ export class AhmadproviderService {
       "donatur_alamat": donatur_alamat,
       "donatur_kode_pos": donatur_kode_pos,
       "donatur_kelurahan": donatur_kelurahan,
+      "donatur_kecamatan_id":donatur_kecamatan_id,
       "donatur_kecamatan": donatur_kecamatan,
+      "donatur_kota_id":donatur_kota_id,
       "donatur_kota": donatur_kota,
-      "donatur_provinsi": donatur_provinsi
+      "donatur_provinsi_id":donatur_provinsi_id,
+      "donatur_provinsi": donatur_provinsi      
     };
     return new Promise(resolve => {
 

@@ -44,22 +44,22 @@
                         <ion-label>Pilih Propinsi</ion-label>
                         <ion-select interface="popover" placeholder="Pilih Propinsi" (ionChange)="getkota($event)" [(ngModel)]="donatur_provinsi"
                             name="donatur_provinsi">
-                            <ion-select-option value="{{ item.province_id }}" *ngFor="let item of propinsiInitial">{{ item.province}}
+                            <ion-select-option [value]="item" *ngFor="let item of propinsiInitial">{{ item.province}}
                             </ion-select-option>
                         </ion-select>
                     </ion-item>
                     <ion-item>
                         <ion-label>Pilih Kota/Kabupaten</ion-label>
                         <ion-select interface="popover" placeholder="Pilih Kota/Kab" (ionChange)="getkec($event)" [(ngModel)]="donatur_kota" name="donatur_kota">
-                            <ion-select-option value="{{ item.city_id }}" *ngFor="let item of kotaInitial">{{ item.city_name }}</ion-select-option>
+                            <ion-select-option [value]="item"  *ngFor="let item of kotaInitial">{{ item.city_name }}</ion-select-option>
 
                         </ion-select>
                     </ion-item>
                     <ion-item>
                         <ion-label>Pilih Kecamatan</ion-label>
-                        <ion-select interface="popover" placeholder="Pilih Kecamatan" [(ngModel)]="donatur_kecamatan"
+                        <ion-select interface="popover" placeholder="Pilih Kecamatan" [(ngModel)]="donatur_kecamatan" 
                             name="donatur_kecamatan">
-                            <ion-select-option value="{{ item.subdistrict_id }}" *ngFor="let item of kecamatansInitial">{{ item.subdistrict_name}}
+                            <ion-select-option  [value]="item"  *ngFor="let item of kecamatansInitial">{{ item.subdistrict_name}}
                             </ion-select-option>
                         </ion-select>
                     </ion-item>
