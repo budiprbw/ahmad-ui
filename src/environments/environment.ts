@@ -44,7 +44,8 @@ export const environment = {
       berita_kampanye_santri:"berita/kampanye/santri/",
       pengingat_santri_byid:"pengingat/santri/byid/",
       pengingat_bimbingan_simpan:"pengingat/bimbingan/simpan",
-      santri_byid :"santri/byid/"
+      santri_byid :"santri/byid/",
+      santri_lacak_produk:"santri/lacak/produk/"
     },
     pendamping:{
       santri_by_pendampingId: "pendamping/santri/byid/",

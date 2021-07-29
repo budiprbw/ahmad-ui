@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { NavController, NavParams, AlertController, LoadingController, ToastController } from '@ionic/angular';
+import { NavController, NavParams, AlertController,Platform, LoadingController, ToastController,ModalController } from '@ionic/angular';
 import { Location } from '@angular/common';
 import { Router,NavigationExtras } from '@angular/router';
 import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer/ngx';
@@ -9,6 +9,7 @@ import { Storage } from '@ionic/storage';
 import { environment } from 'src/environments/environment';
 import { DomSanitizer } from '@angular/platform-browser'
 import { AngularFireAuth } from '@angular/fire/auth';
+import { SocialShareComponent } from './components/social-share/social-share.component';
 
 @Injectable({
   providedIn: 'root'
@@ -48,6 +49,7 @@ export class AhmadproviderService {
   private api_pengingat_santri_byid = this.api_url + environment.ahmadApi.santri.pengingat_santri_byid;
   private api_pengingat_bimbingan_simpan = this.api_url + environment.ahmadApi.santri.pengingat_bimbingan_simpan;
   private api_santri_byid = this.api_url + environment.ahmadApi.santri.santri_byid;
+  private api_santri_lacak_produk = this.api_url + environment.ahmadApi.santri.santri_lacak_produk;
   
   
   //#endregion
@@ -129,6 +131,8 @@ export class AhmadproviderService {
     public route: Router,
     private sanitized: DomSanitizer,
     private fireAuth: AngularFireAuth,
+    private platform:Platform,
+    public modalCtrl: ModalController,
   ) { }
 
 
@@ -454,6 +458,15 @@ export class AhmadproviderService {
   santri_byid(id) {
     return new Promise(resolve => {
       this.httpclient.get(this.api_santri_byid + id).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }  
+  santri_lacak_produk(id) {
+    return new Promise(resolve => {
+      this.httpclient.get(this.api_santri_lacak_produk + id).subscribe(data => {
         resolve(data);
       }, err => {
         console.log(err);
@@ -1287,14 +1300,28 @@ export class AhmadproviderService {
 
   async shareLink(wsurl:string){
     let appUrl = environment.ahmadApi.AppUrl;    
-    if (navigator.share){
-      await navigator.share({
-        title: "Ahmad Project",
-        url: appUrl+ wsurl
-      }).then(()=>{
-        console.log("thanks for sharing");
-      }).catch(console.error);
+    if (this.platform.is('desktop')) {      
+          const modal = await this.modalCtrl.create({
+            component: SocialShareComponent,
+            componentProps: { 
+              value:  appUrl+ wsurl
+            },
+            cssClass: 'backTransparent',
+            backdropDismiss: true
+          });
+          return modal.present();
     }
+    else
+    {        
+          if (navigator.share){
+            await navigator.share({
+              title: "Ahmad Project",
+              url: appUrl+ wsurl
+            }).then(()=>{
+              console.log("thanks for sharing");
+            }).catch(console.error);
+          }
+    }    
   }
 
   go_page_penilaian_santri(santri_id,pendamping_id){

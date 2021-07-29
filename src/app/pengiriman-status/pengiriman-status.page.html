@@ -17,8 +17,9 @@
                 <div  *ngFor="let item of deliverylist;">
                     <div class="timeline-container right">
                         <div class="timeline-content">
-                          <div class="pengiriman-status-tanggal">{{item.delivery_date}}</div>
-                          <div class="pengiriman-status-text">{{item.delivery_desc}}</div>
+                          <div class="pengiriman-status-tanggal">{{item.kirim_manifest_tanggal}}</div>
+                          <div class="pengiriman-status-text">{{item.kirim_manifest_deskripsi}}</div>
+                          <div class="pengiriman-status-text">{{item.kirim_manifest_kota}}</div>
                         </div>
                       </div>
                 </div>

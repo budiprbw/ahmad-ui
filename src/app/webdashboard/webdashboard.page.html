@@ -5,28 +5,31 @@
                 <ion-title>
                     <div class="hidden lg:block lg:flex justify-between ">
                         <div class="logo flex-initial text-justify"></div>
-                        <div class="menu-header"><a class="text-black" href="#tentang_ahmad">Program AHMad Project</a></div>
+                        <div class="menu-header"><a class="dark:text-gold text-black" href="#tentang_ahmad">Program AHMad Project</a></div>
                         <div class="menu-header" routerLink="/paket-pembelajaran">Paket Pembelajaran</div>
                         <div class="menu-header" routerLink="/donasi-program">Menjadi Donatur</div>
                         <div class="menu-header pl-8" routerLink="/faq-list">FAQ</div>
-                        <div class="menu-header"><a class="text-black" href="#kemitraan">Kemitraan</a></div>
-                        <div class="menu-header"><a class="text-black kontak" href="#kontak" >Kontak</a></div>
+                        <div class="menu-header"><a class="dark:text-gold text-black" href="#kemitraan">Kemitraan</a></div>
+                        <div class="menu-header"><a class="dark:text-gold text-black kontak" href="#kontak" >Kontak</a></div>
                     </div>
                     <div class="lg:hidden block">
                             <div class="logo"></div>
                     </div>                    
                 </ion-title>
             </ion-toolbar>
+            
             <ion-button class="button_masuk " slot="end"  fill="clear" routerLink="/signin">
                 <ion-text class="text-masuk normal-case">
                     Masuk 
                 </ion-text>
             </ion-button>
-            <ion-button class="font-poppins hidden  button_registrasi  lg:block lg:bg-black dark:bg-gold  dark:text-gold lg:text-gold lg:rounded-xl" slot="end" fill="clear" routerLink="/signin">
+            
+            <ion-button class="font-poppins  lg:block hidden g:block lg:bg-black dark:bg-gold  dark:text-gold lg:text-gold lg:rounded-xl" style="height: 40px;" slot="end" fill="clear" routerLink="/signin">
                 <ion-text class="Sign-up-registrasi normal-case">
                     Registrasi
                 </ion-text>
             </ion-button>
+            
         </ion-toolbar>
     </div>
 </ion-header>
@@ -169,7 +172,7 @@
                                     </div>
                                     <div class="lg:flex-auto lg:h-4 lg:mb-10 mt-2 ">
                                         <ion-button fill="clear" class="h-12  lg:w-336 w-307 lg:mt-4 bg-white dark:bg-gelapbaru rounded-2xl border-black border bg-white   lg:rounded-2xl border-black dark:border-gold lg:border"
-                                            (click)="showShareOptions('santri')">
+                                            (click)="shareLink('santri')">
                                             <ion-text class=" text-black text-md-14 dark:text-gold  lg:text-black lg:text-md-16 items-center normal-case lg:pr-3">
                                                 Bagikan Halaman ini
                                             </ion-text>
@@ -206,7 +209,7 @@
                             </div>
                             <div class="lg:flex-initial lg:mt-2 ">
                                 <ion-button fill="clear" class="lg:w-64 w-270 bg-gold rounded-2xl  border-black border lg:bg-gold lg:border-black lg:border "
-                                    (click)="showShareOptions('donatur')">
+                                    (click)="shareLink('donatur')">
                                     <ion-text class="text-black text-md-14 lg:text-black lg:text-md-16 text-left normal-case lg:pr-3">
                                         Bagikan Halaman ini
                                     </ion-text>

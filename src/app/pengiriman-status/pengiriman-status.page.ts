@@ -9,6 +9,9 @@ import { AhmadproviderService } from '../ahmadprovider.service';
 })
 export class PengirimanStatusPage implements OnInit {
   public deliverylist:any=[];
+  public usrinfo:any;
+  public santri_id:string="";
+
   constructor(
     public asp: AhmadproviderService,
     public route : Router
@@ -20,21 +23,15 @@ export class PengirimanStatusPage implements OnInit {
   goBack(){
     this.route.navigateByUrl('/santri-program', { replaceUrl: true });    
   } 
-  initialDeliveryStatus(){
-    let row1 ={
-      "delivery_date": "2021-06-01",
-      "delivery_desc": "Paket dikirimkan ",    
-    };
-    this.deliverylist.push(row1);
-    let row2 ={
-      "delivery_date": "2021-06-02",
-      "delivery_desc": "Paket diinput oleh kurir",    
-    };
-    this.deliverylist.push(row2);
-    let row3 ={
-      "delivery_date": "2021-06-03",
-      "delivery_desc": "Paket menuju kota tujuan [BOGOR]",    
-    };
-    this.deliverylist.push(row3);
+  async userInfo() {
+    this.usrinfo = this.asp.getUserInfo();
+    this.santri_id= this.usrinfo.ref_object.id;
+  }
+  async initialDeliveryStatus(){  
+    await this.asp.santri_lacak_produk(this.santri_id).then(
+      data => {
+        let result:any =data
+        this.deliverylist = result.manifest;                        
+      });        
   }
 }

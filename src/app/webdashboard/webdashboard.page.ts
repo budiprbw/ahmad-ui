@@ -1,7 +1,7 @@
 import { Component, OnInit,ViewChild  } from '@angular/core';
 import { IonContent,Platform } from '@ionic/angular';
-import { AhmadproviderService } from '../ahmadprovider.service';
 import { ModalController } from '@ionic/angular';
+import { AhmadproviderService } from '../ahmadprovider.service';
 import { SocialShareComponent } from '../components/social-share/social-share.component';
 
 @Component({
@@ -117,7 +117,6 @@ export class WebdashboardPage implements OnInit {
   }
 
   async showShareOptions(mode) {
-
     let wsurl='';
     if (mode=='donatur'){
       wsurl='donasi-program';
@@ -150,8 +149,7 @@ export class WebdashboardPage implements OnInit {
       if (mode=='santri'){
         wsurl='program-santri';
       }
-      this.asp.shareLink(wsurl);
-      
+      this.asp.shareLink(wsurl);      
   }
 
   // setMetaTag(){   
