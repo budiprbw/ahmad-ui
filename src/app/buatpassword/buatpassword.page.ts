@@ -145,7 +145,7 @@ export class BuatpasswordPage implements OnInit {
         this.route.navigateByUrl('/pembayaran-donasi', { replaceUrl: true });
       }     
       else{
-       this.asp.go_previous_page();
+       this.asp.go_page_donatur_profile();
       }
     }              
   }

@@ -18,13 +18,13 @@
                 </ion-title>
             </ion-toolbar>
             
-            <ion-button class="button_masuk " slot="end"  fill="clear" routerLink="/signin">
+            <ion-button class="button_masuk " slot="end"  fill="clear" routerLink="/signin" [queryParams]="{mode: 'Masuk'}">
                 <ion-text class="text-masuk normal-case">
                     Masuk 
                 </ion-text>
             </ion-button>
             
-            <ion-button class="font-poppins  lg:block hidden g:block lg:bg-black dark:bg-gold  dark:text-gold lg:text-gold lg:rounded-xl" style="height: 40px;" slot="end" fill="clear" routerLink="/signin">
+            <ion-button class="font-poppins  lg:block hidden g:block lg:bg-black dark:bg-gold  dark:text-gold lg:text-gold lg:rounded-xl" style="height: 40px;" slot="end" fill="clear" routerLink="/signin" [queryParams]="{mode: 'Registrasi'}">
                 <ion-text class="Sign-up-registrasi normal-case">
                     Registrasi
                 </ion-text>

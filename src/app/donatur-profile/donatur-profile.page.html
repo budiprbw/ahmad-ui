@@ -82,7 +82,7 @@
                     </div>
                 </ion-card>
                 <ion-card class="donatur-Rectangle-645 lg:ml-16  ml-0">
-                    <ion-select interface="popover" placeholder="Status Pekerjaan" [(ngModel)]="donatur_kerja" name="donatur_kerja">
+                    <ion-select interface="popover"  placeholder="Status Pekerjaan" [(ngModel)]="donatur_kerja" name="donatur_kerja">
                         <ion-select-option value="PEGAWAI NEGERI">PEGAWAI NEGERI</ion-select-option>
                         <ion-select-option value="KARYAWAN SWASTA">KARYAWAN SWASTA</ion-select-option>
                         <ion-select-option value="TNI/POLRI">TNI/POLRI</ion-select-option>
@@ -96,9 +96,9 @@
                         <ion-select-option value="LAINNYA">LAINNYA</ion-select-option>
                     </ion-select>
                     <ion-input placeholder="No KTP" name="donatur_no_ktp" placeholder="No KTP" [(ngModel)]="donatur_no_ktp" name="donatur_no_ktp"></ion-input>
-                </ion-card>
-                <h5><ion-text color="danger" [innerHtml]="html_entity(error_msg)"></ion-text></h5>
+                </ion-card>                
                 <ion-card class="donatur-Rectangle-628 lg:ml-16  ml-0">
+                    <h5><ion-text color="danger" [innerHtml]="html_entity(error_msg)"></ion-text></h5>
                     <ion-button fill="clear" class="masuk-santri-donatur-button" (click)="goSaveProfile()">
                         <ion-text class="donatur-profile-card2-Sign-up normal-case">
                             Simpan

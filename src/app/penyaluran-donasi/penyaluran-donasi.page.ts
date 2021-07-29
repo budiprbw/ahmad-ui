@@ -224,7 +224,7 @@ export class PenyaluranDonasiPage implements OnInit {
       "temp_donasi_produk_total": this.total_donasi
     };
     donasiproduktemp.push(item_produk_temp);    
-
+    if (this.donasi_random_santri=="")this.donasi_random_santri="0";
     let item_donasi = {
       "donasi_tanggal": today ,
       "donasi_cara_bayar": cara_bayar,

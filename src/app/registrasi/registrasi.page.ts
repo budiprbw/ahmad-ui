@@ -300,8 +300,7 @@ export class RegistrasiPage implements OnInit {
           this.error_msg = "Silahkan cek inbox anda di " + this.user_email + " untuk melanjutkan proses berikutnya";          
           this.asp.go_page_confirm_message(this.error_msg); 
         }            
-        else{
-          this.asp.dismissLoading();
+        else{          
           this.buatpasswordAhmadProject();  
         }
       };  

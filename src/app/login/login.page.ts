@@ -139,24 +139,30 @@ export class LoginPage implements OnInit {
           this.error_msg = this.response.message + ', not register with google';
         }
         else {
-          let object_ref: any;
-          if (this.login_mode == "donatur") object_ref = this.response.data.donatur;
-          if (this.login_mode == "santri") object_ref = this.response.data.santri;
-          if (this.login_mode == "pendamping") object_ref = this.response.data.pendamping;
-          let userinfo = {
-            "user_id": this.response.id,
-            "user_email": this.response.email,
-            "user_displayName": this.response.name,
-            "is_approve": this.response.approve,
-            "user_photoURL": "",
-            "login_by": "gmail",
-            "login_mode": this.login_mode,
-            "ref_object": object_ref,
-            "route_from": "login"
-          };
-          this.user = userinfo;
-          this.asp.setUserInfo(userinfo);
-          this.redirectMe();
+          if (this.response.data.status == 'error') {
+            this.error_msg = this.response.data.message ;
+          }
+          else
+          {          
+              let object_ref: any;
+              if (this.login_mode == "donatur") object_ref = this.response.data.donatur;
+              if (this.login_mode == "santri") object_ref = this.response.data.santri;
+              if (this.login_mode == "pendamping") object_ref = this.response.data.pendamping;
+              let userinfo = {
+                "user_id": this.response.data.id,
+                "user_email": this.response.data.email,
+                "user_displayName": this.response.data.name,
+                "is_approve": this.response.data.approve,
+                "user_photoURL": "",
+                "login_by": "gmail",
+                "login_mode": this.login_mode,
+                "ref_object": object_ref,
+                "route_from": "login"
+              };
+              this.user = userinfo;
+              this.asp.setUserInfo(userinfo);
+              this.redirectMe();
+            }  
         }
       });
   }

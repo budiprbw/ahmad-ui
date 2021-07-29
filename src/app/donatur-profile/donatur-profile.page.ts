@@ -28,8 +28,8 @@ export class DonaturProfilePage implements OnInit {
   public donatur_nama: string;
   public donatur_tmp_lahir: string;
   public donatur_tgl_lahir: string;
-  public donatur_gender: string;
-  public donatur_agama: string;
+  public donatur_gender: string="";
+  public donatur_agama: string="";
   public donatur_telepon: string;
   public donatur_lokasi_photo: any;
   public donatur_kerja: string;
@@ -215,14 +215,17 @@ export class DonaturProfilePage implements OnInit {
     if (this.donatur_telepon=="") msg+= newLine +"No telp";    
     if (this.donatur_alamat=="")  msg+= newLine +"Alamat";
     if (this.donatur_no_ktp=="")  msg+= newLine +"No Ktp";
+    if (this.donatur_gender=="")  msg+= newLine +"Jenis Kelamin";
+    if (this.donatur_agama=="")  msg+= newLine +"Agama";
     if (msg!="")
     {
       msg="Silahkan check inputan" +msg;
-      this.error_msg=msg;
+      
     }
     else{
       retVal=true;
     }
+    this.error_msg=msg;
     return retVal;
   }
   html_entity(val){

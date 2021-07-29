@@ -19,6 +19,7 @@ export class SigninPage implements OnInit {
   public referal_kode: any;
   public is_referal:boolean=false;
   public user_tipe:string="";
+  public mode:string="";
 
   constructor(
     private google: GooglePlus,
@@ -35,6 +36,11 @@ export class SigninPage implements OnInit {
   async ngOnInit() {
     this.asp.clearLocalstorage();
     this.cek_referal();
+    this.router.queryParams.subscribe((params: any) => {
+      if (params['mode']) {
+        this.mode = params['mode'];
+      }
+    });
   }
   cek_referal() {
     this.router.params.subscribe((params: any) => {
@@ -58,7 +64,14 @@ export class SigninPage implements OnInit {
      this.asp.go_previous_page();
   }
   goLogin(p){
-    this.asp.go_page_login(p);
+    if (this.mode=="Registrasi"){
+      this.asp.go_page_registrasi(p);
+    }
+    else
+    {
+      this.asp.go_page_login(p);
+    }
+    
   }
 
 

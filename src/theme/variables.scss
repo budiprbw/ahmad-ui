@@ -101,19 +101,12 @@
             width: 370px;
             height: 476px;
         }
-        .Belajar-Alquran-Lebih-Bersedekah-Lebih {
-          height: 138px;
-          margin: 118px 501px 14px 128px;
-          font-family: Poppins;
-          font-size: 62px;
-          font-weight: 600;
-          font-stretch: normal;
-          font-style: normal;
-          line-height: 1.12;
-          letter-spacing: -0.3px;
-          text-align: left;
-          color: var(--goldd);
-        }
+
+        ion-select{
+          --placeholder-opacity: 1 !important;
+          color:black;
+        }       
+        
         .logo {
           display: flex;
           flex-direction: row;

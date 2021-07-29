@@ -1168,15 +1168,17 @@ export class AhmadproviderService {
       this.httpclient.put(this.api_donatur_profile_save + donatur_id, data).subscribe(data => {
         resolve(data);
         /** upload foto donatur */
-        let response: any;
-        let formData = new FormData();
-        formData.append('id', donatur_id);
-        formData.append("donatur_photo", donatur_lokasi_photo, donatur_lokasi_photo.name);
-        this.httpclient.post(this.api_photo_profile_donatur, formData).subscribe(data_Poto => {
-          resolve(data_Poto);
-        }, err => {
-          console.log(err);
-        });
+        if (donatur_lokasi_photo!=null){
+          let response: any;
+          let formData = new FormData();
+          formData.append('id', donatur_id);
+          formData.append("donatur_photo", donatur_lokasi_photo, donatur_lokasi_photo.name);
+          this.httpclient.post(this.api_photo_profile_donatur, formData).subscribe(data_Poto => {
+            resolve(data_Poto);
+          }, err => {
+            console.log(err);
+          });
+        }        
       }, err => {
         console.log(err);
       });
