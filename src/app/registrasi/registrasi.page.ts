@@ -92,8 +92,9 @@ export class RegistrasiPage implements OnInit {
   onLoginError(err) {
     console.log(err);
   }
-  logout() {
-    this.fireAuth.signOut().then(() => {
+  async logout() {    
+    await this.fireAuth.signOut().then(() => {
+      console.log('logout') ;
     });
   }
   gotologinpage() {
@@ -149,7 +150,7 @@ export class RegistrasiPage implements OnInit {
       this.asp.santri_register_referal(this.user_email,this.nama_lengkap,this.referal_kode).then(
         data => {
           this.response = data; 
-          if (this.response.status == 'error') {
+          if (this.response.status == 'error') {            
             this.error_msg = this.response.message;
           }
           else {
@@ -221,8 +222,7 @@ export class RegistrasiPage implements OnInit {
         data => {
           this.response = data;
           if (this.response.status == 'error') {
-            this.error_msg = this.response.message;  
-                      
+            this.error_msg = this.response.message;                        
           }
           else {
             item_donasi.temp_donasi_no= this.response.data.temp_donasi_no;
@@ -268,6 +268,7 @@ export class RegistrasiPage implements OnInit {
         data => {
           let retval:any = data;
           if (retval.data.status == 'error') {
+              this.logout();
               this.error_msg = retval.data.message;                                  
           }
           else
@@ -293,6 +294,7 @@ export class RegistrasiPage implements OnInit {
     this.asp.register_donatur(this.user_email,this.nama_lengkap).then(data => {
       this.response = data; 
       if (this.response.status == 'error') {  
+        this.logout();
         this.error_msg = this.response.message;
       }
       else {

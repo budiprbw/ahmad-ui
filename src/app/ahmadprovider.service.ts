@@ -50,7 +50,7 @@ export class AhmadproviderService {
   private api_pengingat_bimbingan_simpan = this.api_url + environment.ahmadApi.santri.pengingat_bimbingan_simpan;
   private api_santri_byid = this.api_url + environment.ahmadApi.santri.santri_byid;
   private api_santri_lacak_produk = this.api_url + environment.ahmadApi.santri.santri_lacak_produk;
-  
+  private api_santri_dashboard = this.api_url + environment.ahmadApi.santri.santri_dashboard;
   
   //#endregion
 
@@ -455,6 +455,24 @@ export class AhmadproviderService {
       });
     });
   }  
+  santri_dashboard(santri_id) {
+    return new Promise(resolve => {
+      this.httpclient.get(this.api_santri_dashboard + santri_id).subscribe(data => {
+        let result = {
+          "message": '',
+          "status": 'OK',
+          "data": data
+        };
+        resolve(result);
+      }, err => {
+        let result = {
+          "message": err.message,
+          "status": 'error'
+        };
+        resolve(result);
+      });
+    });
+  }
   santri_byid(id) {
     return new Promise(resolve => {
       this.httpclient.get(this.api_santri_byid + id).subscribe(data => {
@@ -685,15 +703,18 @@ export class AhmadproviderService {
       this.httpclient.put(this.api_santri_profile_save + santri_id, data).subscribe(data => {
         resolve(data);
         /** upload foto santri */
-        let response: any;
-        let formData = new FormData();
-        formData.append('id', santri_id);
-        formData.append("santri_photo", santri_lokasi_photo, santri_lokasi_photo.name);
-        this.httpclient.post(this.api_photo_profile_santri, formData).subscribe(data_Poto => {
-          resolve(data_Poto);
-        }, err => {
-          console.log(err);
-        });
+        if (santri_lokasi_photo!=null)
+        {
+            let response: any;
+            let formData = new FormData();
+            formData.append('id', santri_id);
+            formData.append("santri_photo", santri_lokasi_photo, santri_lokasi_photo.name);
+            this.httpclient.post(this.api_photo_profile_santri, formData).subscribe(data_Poto => {
+              resolve(data_Poto);
+            }, err => {
+              console.log(err);
+            });
+          }
       }, err => {
         console.log(err);
       });

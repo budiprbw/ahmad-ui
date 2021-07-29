@@ -29,6 +29,7 @@ export class PengingatDonasiPage implements OnInit {
     }
   }
   goRiwayatDonasi(){    
+    this.asp.removeItemDonasi();
     this.router.navigateByUrl('/donasi-riwayat');
   }
   goBack(){

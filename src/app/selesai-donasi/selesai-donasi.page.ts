@@ -19,7 +19,7 @@ export class SelesaiDonasiPage implements OnInit {
   ngOnInit() {
     this.usrinfo =  this.asp.getUserInfo();   
     this.user_email = this.usrinfo.user_email;
-    this.asp.removeItemDonasi();
+    //this.asp.removeItemDonasi();
     //this.asp.removeUserInfo();
   }
   goBack(){

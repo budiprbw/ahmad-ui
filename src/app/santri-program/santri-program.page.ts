@@ -28,12 +28,20 @@ export class SantriProgramPage implements OnInit {
     this.getNamaDonatur();
     this.getNamaPendamping();
     this.initialsantriprogram();
-    this.bulan_pendampingan="0.70";
-    this.progress_belajar="0.92";
+    this.getsantriDashboard()
+    // this.bulan_pendampingan="0.70";
+    // this.progress_belajar="0.92";
   }
   viewUser(){
     this.usrinfo = this.asp.getUserInfo();
     this.santri_id  = this.usrinfo.ref_object.id;
+  }
+  async getsantriDashboard(){
+    await this.asp.santri_dashboard(this.santri_id).then(data=>{
+        let retval:any=data;
+        this.progress_belajar=retval.data.santri_progress_belajar;
+        this.bulan_pendampingan=retval.data.santri_progress_waktu;
+    })
   }
   async getSantri(){
     await this.asp.santri_byid(this.santri_id).then(
@@ -63,22 +71,18 @@ export class SantriProgramPage implements OnInit {
   getNamaPendamping(){
     this.nama_pendamping="Ustad Khalid";
   }
-  initialsantriprogram(){
-    let row1 ={
-      "progam_name": "Bab 1",
-      "program_nilai": "1"  ,    
-    };
-    this.programlist.push(row1);
-    let row2 ={
-      "progam_name": "Bab 2",
-      "program_nilai": "0.90",    
-    };
-    this.programlist.push(row2);
-    let row3 ={
-      "progam_name": "Bab 3",
-      "program_nilai": "0.5",       
-    };
-    this.programlist.push(row3);
+  async initialsantriprogram(){
+    await this.asp.getlist_materi().then(
+      data => {
+        let result:any=data;
+        for (var i = 0; i < result.length; i++) {   
+                let data={
+                  "progam_name":result[i].materi_nama,
+                  "program_nilai": "0"  
+                }     
+                this.programlist.push(data);
+          }
+      });         
   }
   goBack(){
     this.asp.go_previous_page();

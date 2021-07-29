@@ -18,6 +18,7 @@ export class PengirimanStatusPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.userInfo();
     this.initialDeliveryStatus();
   }
   goBack(){

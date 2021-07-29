@@ -130,22 +130,27 @@ export class SantriProfilePage implements OnInit {
       val=v;
     }
     await this.asp.kota_list_byprovinsi(val).then(
-      data => {
-        this.kotaInitial = data;
+      data => {        
+        this.kotaInitial = data;       
       });
   }
   async getkec(v: any) {
-    let val:any="";
+    let val:any="";   
     if (v.target!=null) val=v.target.value.city_id; else val=v;
-    for (var i = 0; i < this.kotaInitial.length; i++) {   
-      let data={
-       postal_code:this.kotaInitial[i].postal_code
-      }     
-     this.kodeposInitial.push(data);
-    }    
     await this.asp.kecamaran_list_bykota(val).then(
       data => {
         this.kecamatansInitial = data;
+
+        this.kodeposInitial= [];
+        for (var i = 0; i < this.kotaInitial.length; i++) {   
+          if ( this.kotaInitial[i].city_id==val){
+                  let data={
+                  postal_code:this.kotaInitial[i].postal_code
+                }     
+                this.kodeposInitial.push(data);
+          }
+        }
+
       });
   }  
   async getkel(v: any) {
