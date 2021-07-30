@@ -65,7 +65,8 @@ public nama_donatur:string="";
     this.programlist.push(row3);
   }
   goBack(){
-    this.route.navigateByUrl('/donasi-santri-list', { replaceUrl:true });
+    //this.route.navigateByUrl('/donasi-santri-list', { replaceUrl:true });
+    this.asp.go_previous_page();
   } 
 
 

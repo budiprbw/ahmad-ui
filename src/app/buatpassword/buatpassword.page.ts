@@ -145,9 +145,12 @@ export class BuatpasswordPage implements OnInit {
         this.route.navigateByUrl('/pembayaran-donasi', { replaceUrl: true });
       }     
       else{
-       this.asp.go_page_donatur_profile();
+       this.asp.go_page_donatur_profile();  
       }
     }              
+    if( this.login_mode=="pendamping"){      
+      this.route.navigateByUrl('/dashboard-pendamping/tabakunpendamping');
+    }
   }
   goBack(){
    this.redirectMe();

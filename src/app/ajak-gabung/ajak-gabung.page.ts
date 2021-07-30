@@ -40,6 +40,10 @@ export class AjakGabungPage implements OnInit {
               this.user_tipe = "2";
               this.referal_kode = this.usrinfo.ref_object.santri_kode;
               break;
+            case 'pendamping':
+              this.user_tipe = "3";
+              this.referal_kode = this.usrinfo.ref_object.pendamping_kode;
+              break; 
           }
         }
       })  

@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="end">
+          <ion-button>          
+            <ion-icon slot="icon-only" name="notifications-circle-outline" size="large"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      <ion-title class="ion-text-center" style="margin-left:-50px">Reward</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="w-full" [scrollEvents]="true">
+    <ion-grid class="ion-grid lg:w-480 w-375">
+        <ion-row style=" height: 812px;">
+            <ion-col>
+                <ion-card class="dashboard-pendamping-Rectangle-657 lg:ml-16 ml-0">
+                  <div class="Total-Reward-anda">Total Reward anda</div>
+                  <div class="nilai-reward">Rp00.000.000</div>
+                  <div class="latest-update">Update terakhir 1 menit yang lalu</div>
+                </ion-card>
+                <ion-card class="monitoring-Rectangle-638 lg:ml-16 ml-0">
+                    <div class="monitoring-list-santri-text" style="cursor: pointer" >Riwayat Perolehan Reward
+                      <ion-icon name="arrow-forward-circle-outline" class="text-black" style="zoom:2.0;float: right;"></ion-icon>
+                    </div>
+                  </ion-card>
+                <ion-card class="dashboard-pendamping-Rectangle-657 lg:ml-16 ml-0">
+                    <div class="Kode-Referral">Kode Referral</div>
+                    <div class="dashboard-pendamping-pengingat-button" (click)="ajakLainnya()">
+                      <ion-button fill="clear" slot="end">
+                        <ion-text class="dashboard-pendamping-pengingat--button-text normal-case">
+                          Bagikan Kode Referral
+                        </ion-text>
+                      </ion-button>
+                      <ion-icon name="chevron-forward-circle-outline" style="color: black;zoom:1.4;"></ion-icon>
+                    </div>
+                    <div class="Kode-anda-dipakai-oleh-0-dari-7-Orang">Kode anda dipakai oleh {{Referral_min}} dari {{Referral_max}} orang</div>
+                  </ion-card>
+            </ion-col>
+        </ion-row>    
+    </ion-grid>
+</ion-content>

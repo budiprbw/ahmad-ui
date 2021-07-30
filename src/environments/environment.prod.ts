@@ -47,7 +47,10 @@ export const environment = {
     },
     pendamping:{
       santri_by_pendampingId: "pendamping/santri/byid/",
-      hadist_by_pendampingId:"hadist/entitas/pendamping/"
+      hadist_by_pendampingId:"hadist/entitas/pendamping/",
+      pengingat_pendamping_list_byid:"pengingat/pendamping/list/byid/",
+      pendamping_dashboard:"pendamping/dashboard/",
+      pendamping_byid:"pendamping/byid/"
     },
     lookup:{
       kode_pos:{

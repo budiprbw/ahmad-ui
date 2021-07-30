@@ -1,3 +1,4 @@
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
@@ -10,13 +11,19 @@ describe('DashboardPendampingPage', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ DashboardPendampingPage ],
-      imports: [IonicModule.forRoot()]
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      //imports: [IonicModule.forRoot()]
     }).compileComponents();
 
+    // fixture = TestBed.createComponent(DashboardPendampingPage);
+    // component = fixture.componentInstance;
+    // fixture.detectChanges();
+  }));
+  beforeEach(() => {
     fixture = TestBed.createComponent(DashboardPendampingPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  }));
+  });
 
   it('should create', () => {
     expect(component).toBeTruthy();

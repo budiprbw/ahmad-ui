@@ -57,6 +57,10 @@ export class AhmadproviderService {
   //#region Pendamping
   private api_santri_by_pendampingId = this.api_url + environment.ahmadApi.pendamping.santri_by_pendampingId;
   private api_hadist_by_pendampingId = this.api_url + environment.ahmadApi.pendamping.hadist_by_pendampingId;
+  private api_pengingat_pendamping_list_byid = this.api_url + environment.ahmadApi.pendamping.pengingat_pendamping_list_byid;
+  private api_pendamping_dashboard = this.api_url + environment.ahmadApi.pendamping.pendamping_dashboard;
+  private api_pendamping_byid = this.api_url + environment.ahmadApi.pendamping.pendamping_byid;
+  
   //#endregion 
 
   //#region Data Master
@@ -821,6 +825,60 @@ export class AhmadproviderService {
       });
     });
   }
+  pengingat_pendamping_list_byid(pendamping_id) {
+    return new Promise(resolve => {
+      this.httpclient.get(this.api_pengingat_pendamping_list_byid + pendamping_id).subscribe(data => {
+        let result = {
+          "message": '',
+          "status": 'OK',
+          "data": data
+        };
+        resolve(result);
+      }, err => {
+        let result = {
+          "message": err.message,
+          "status": 'error'
+        };
+        resolve(result);
+      });
+    });
+  }
+  pendamping_dashboard(pendamping_id) {
+    return new Promise(resolve => {
+      this.httpclient.get(this.api_pendamping_dashboard + pendamping_id).subscribe(data => {
+        let result = {
+          "message": '',
+          "status": 'OK',
+          "data": data
+        };
+        resolve(result);
+      }, err => {
+        let result = {
+          "message": err.message,
+          "status": 'error'
+        };
+        resolve(result);
+      });
+    });
+  }
+  pendamping_byid(pendamping_id) {
+    return new Promise(resolve => {
+      this.httpclient.get(this.api_pendamping_byid + pendamping_id).subscribe(data => {
+        let result = {
+          "message": '',
+          "status": 'OK',
+          "data": data
+        };
+        resolve(result);
+      }, err => {
+        let result = {
+          "message": err.message,
+          "status": 'error'
+        };
+        resolve(result);
+      });
+    });
+  }
   //#endregion
 
   //#region Proses Donatur 
@@ -1327,7 +1385,7 @@ export class AhmadproviderService {
           const modal = await this.modalCtrl.create({
             component: SocialShareComponent,
             componentProps: { 
-              value:  appUrl+ wsurl
+              value:  wsurl
             },
             cssClass: 'backTransparent',
             backdropDismiss: true
@@ -1395,6 +1453,9 @@ export class AhmadproviderService {
   go_ajak_gabung_donatur(){
     this.route.navigateByUrl('/ajak-gabung?mode=donatur');
   }
+  go_ajak_gabung_pendamping(){
+    this.route.navigateByUrl('/ajak-gabung?mode=pendamping');
+  }
   go_santri_program(santri_id){
     this.route.navigate(['santri-program', { santri_id: santri_id }]);
   }
@@ -1412,6 +1473,9 @@ export class AhmadproviderService {
   }
   go_page_donatur_profile(){
     this.route.navigateByUrl('/donatur-profile', { replaceUrl: true });
+  }
+  go_page_pendamping_profile(){
+    this.route.navigateByUrl('/pendamping-profile', { replaceUrl: true });
   }
   go_page_santri_kuesioner(){
     this.route.navigateByUrl('/santri-kuesioner', { replaceUrl: true });

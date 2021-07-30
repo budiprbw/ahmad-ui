@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center" style="margin-left:-50px">Monitoring Santri</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="w-full" [scrollEvents]="true">
+  <ion-grid class="ion-grid lg:w-480 w-375">
+    <ion-row>
+      <ion-col>
+        <ion-card class="monitoring-pendamping-statistik-card lg:ml-16">
+          <div class="text-black mb-3 font-bold font-poppins">Statistik Santri Penerima Donasi Anda</div>
+          <div class="grid grid-rows-1 grid-cols-2 gap-2  justify-between">
+            <div class="bg-gold text-black rounded-xl">
+              <div class="text-center text-md-12 font-bold pt-2 font-poppins">Santri Aktif</div>
+              <div class="box-paket-tersalurkan-value">{{santri_aktif}}</div>
+            </div>
+            <div class="bg-black text-gold rounded-xl">
+              <div class="text-md-12 font-bold  pl-1 pt-2 ">Santri Selesai Belajar</div>
+              <div class="box-santri-belajar-value">{{santri_selesai}}</div>
+            </div>
+          </div>
+          <div class="box-progress">
+            <div class="box-progress-title">
+              Progress Pembelajaran Santri Aktif
+            </div>
+            <div class="box-progress-value">{{bimbingan_santri_progress * 100 | number : '1.2-2'}} %</div>
+          </div>
+        </ion-card>
+        <ion-card class="monitoring-Rectangle-638 lg:ml-16 ml-0">
+          <div class="monitoring-list-santri-text" style="cursor: pointer" (click)="goSantriList()">List Santri
+            <ion-icon name="arrow-forward-circle-outline" class="text-black" style="zoom:2.0;float: right;"></ion-icon>
+          </div>
+        </ion-card>
+        <ion-card class="monitoring-Rectangle-638 lg:ml-16 ml-0">
+          <div class="monitoring-pengiriman-text"  style="cursor: pointer" (click)="goStatusPengiriman()">Status Pengiriman Paket Donasi
+            <ion-icon name="arrow-forward-circle-outline" class="text-black" style="zoom:2.0;float: right;"></ion-icon>
+          </div>
+        </ion-card>
+        <ion-card class="dashboard-pendamping-Rectangle-657 lg:ml-16 ml-0">
+            <div class="Kode-Referral">Kode Referral</div>
+            <div class="dashboard-pendamping-pengingat-button" (click)="ajakLainnya()">
+              <ion-button fill="clear" slot="end">
+                <ion-text class="dashboard-pendamping-pengingat--button-text normal-case">
+                  Bagikan Kode Referral
+                </ion-text>
+              </ion-button>
+              <ion-icon name="chevron-forward-circle-outline" style="color: black;zoom:1.4;"></ion-icon>
+            </div>
+            <div class="Kode-anda-dipakai-oleh-0-dari-7-Orang">Kode anda dipakai oleh {{Referral_min}} dari {{Referral_max}} orang</div>
+          </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

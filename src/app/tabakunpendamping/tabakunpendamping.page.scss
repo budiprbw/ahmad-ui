@@ -1,0 +1,329 @@
+ion-toolbar {
+    --background: var(--ion-color-goldd);
+    }
+    .donatur-akun-Ellipse-87 {
+        width: 48px;
+        height: 48px;
+        margin: 0 16px 0 0;
+      }
+.donatur-akun-Rectangle-637{
+    width: 343px;    
+    height: 80px;
+    //margin: 16px;
+    padding: 16px 133px 16px 16px;
+    border-radius: 14px;
+    box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
+    background-color: var(--ion-color-white);
+}
+.donatur-akun-nama-User{
+    position: absolute;
+    top:15%;
+    //width: 79px;
+    margin: 0 51px 6px 55px;
+    height: 20px;
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000000;
+}
+.donatur-akun-emailemailcom{
+    position: absolute;
+      top:40%;
+    //width: 130px;
+    height: 20px;
+    margin: 6px 0 2px 55px;
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    text-align: left;
+    color: #828282;
+
+}
+.donatur-akun-Rectangle-638 {
+    width: 343px;
+    height: 288px;
+    //margin: 16px 16px 26px;
+    padding: 10px;
+    border-radius: 14px;
+    box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
+    background-color: var(--ion-color-white);
+  }
+  .donatur-akun-rubah-profile{
+    width: 311px;
+    height: 52px;
+    margin: 0 0 16px;
+    padding: 16px;
+    border-radius: 14px;
+    border: solid 1px var(--ion-color-goldd);
+    background-color: var(--fill-placeholder);
+    cursor: pointer;
+  }
+  .donatur-akun-rubah-profile-text{
+    width: 130px;
+    height: 20px;
+    margin: 0 173px 0 0;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    text-align: left;
+    color: var(--ion-color-black);
+  }
+  
+  .donatur-akun-rubah-password{
+    width: 311px;
+    height: 52px;
+    margin: 16px 0;
+    padding: 16px;
+    border-radius: 14px;
+     border: solid 1px var(--ion-color-goldd);
+    background-color: var(--fill-placeholder);
+    cursor: pointer;
+  }
+  .donatur-akun-rubah-password-text{
+    width: 130px;
+    height: 20px;
+    margin: 0 173px 0 0;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    text-align: left;
+    color: var(--ion-color-black);
+  }
+  .donatur-akun-program{
+    width: 343px;
+    //height: 230px;
+    flex-grow: 0;
+    padding: 24px 16px 17px;
+    border-radius: 14px;
+    box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
+    background-color: var(--ion-color-white);
+  }
+  .donatur-akun-program-title{
+    width: 135px;
+    height: 27px;
+    flex-grow: 0;
+    margin: 0 98px 16px 78px;
+    font-family: Poppins;
+    font-size: 18px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.3px;
+    text-align: left;
+    color: var(--ion-color-black);
+  }
+  .donatur-akun-program-content{
+    width: 311px;
+    //height: 82px;
+    flex-grow: 0;
+    margin: 16px 0 12px;
+    font-family: Poppins;
+    font-size: 13px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.3px;
+    text-align: left;
+    color: var(--ion-color-black);
+  }
+  .donatur-akun-button{
+    //width: 311px;
+    height: 52px;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 12px 0 0;
+    padding: 16px 20px;
+    object-fit: contain;
+    border-radius: 14px;
+    box-shadow: 2px 4px 4px 0 rgba(0, 0, 0, 0.15);
+    background-color: var(--ion-color-goldd);
+  }
+  .donatur-akunSign-up{
+    width: 102px;
+    height: 20px;
+    flex-grow: 0;
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    text-align: center;
+    color: var(--ion-color-black);
+  }
+  .donatur-akun-ajak-lainnya-button{
+    //position: absolute;
+    top :75%;
+    width: 288px;
+    height: 52px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 70px;
+    //margin: 16px 32px;
+   // padding: 16px 20px;
+    object-fit: contain;
+    border-radius: 14px;
+    box-shadow: 2px 4px 12px 0 rgba(252, 198, 4, 0.2);
+    background-color: var(--ion-color-goldd);
+  }
+  .donatur-akun-ajak-lainnya-button-text{
+    //width: 129px;
+      height: 20px;
+      flex-grow: 0;
+      font-family: Poppins;
+      font-size: 14px;
+      font-weight: 600;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.43;
+      letter-spacing: normal;
+      text-align: center;
+      color: var(--ion-color-black);
+  }
+  .donatur-akun-button-keluar{
+    width: 343px;
+    height: 52px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    //margin: 0px 0px 0px 9px;//margin: 40px 16px 32px 62px;
+    padding: 16px 20px;
+    object-fit: contain;
+    border-radius: 14px;
+    box-shadow: 2px 4px 12px 0 rgba(252, 198, 4, 0.2);
+    background-color: #ff3333;
+  }
+  .donatur-akun-button-keluar-text{
+    //width: 47px;
+    height: 20px;
+    flex-grow: 0;
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    text-align: center;
+    color: var(--ion-color-white);
+}
+.donatur-akun-ajak-keluarga{
+    height: 460px;
+    width: 343px;
+    //margin: 36px 46px 36px 46px;
+    padding: 26px 43px 36px 26px;
+    object-fit: contain;
+    //transform: rotate(180deg);
+    border-radius: 32px;
+    box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32);
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), linear-gradient(to top, rgba(185, 185, 185, 0.68), #212121), linear-gradient(to bottom, #c4c4c4, #c4c4c4);
+    background-size: auto;
+    background-position: center;
+    background-image: url('../../assets/images/banner.webp');
+  }
+  .donatur-akun-ajak-keluarga-text1{
+    //width: 311px;
+    height: 54px;
+    flex-grow: 0;
+    margin: 10px 0px 30px 0px;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.12;
+    letter-spacing: -0.3px;
+    text-align: left;
+    color: var(--ion-color-goldd);
+  }
+  .donatur-akun-ajak-keluarga-text2{
+    width: 280px;
+    height: 100px;
+    flex-grow: 0;
+    margin: 20px 12px 0 0;
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.63;  
+    letter-spacing: -0.3px;
+    text-align: left;
+    color: var(--ion-color-goldd);
+  }
+  .vector1{
+    position: absolute;
+    top:7%;
+    //margin: 16px;
+    margin: 0px 0px 0px 155px;    
+    //width: 4px;
+    //height: 8px;
+    flex-grow: 0;
+    //background-color: var(--ion-color-black);
+  }
+  .vector2{
+    position: absolute;
+    top:31%;
+    margin: 16px;
+    margin: 0px 0px 0px 118px;
+    flex-grow: 0;
+  }
+  .vector3{
+    position: absolute;
+    top:55%;
+    margin: 16px;
+    margin: 0px 0px 0px 131px;
+    flex-grow: 0;
+  } 
+  .vector4{
+    position: absolute;
+    top:78%;
+    margin: 16px;
+    margin: 0px 0px 0px 213px;
+    flex-grow: 0;
+  }    
+  .Kode-anda-dipakai-oleh-0-dari-7-Orang {    
+    width: 233px;
+    height: 20px;
+    margin: 12px 78px 0 30px;
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.67;
+    letter-spacing: normal;
+    text-align: left;
+    color: var(--ion-color-white);
+  }
+    
+

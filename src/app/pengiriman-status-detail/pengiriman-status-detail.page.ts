@@ -14,7 +14,8 @@ export class PengirimanStatusDetailPage implements OnInit {
   public deliverydetaillist:any=[];
   constructor(
     private route: Router,
-    private router:ActivatedRoute
+    private router:ActivatedRoute,
+    public asp: AhmadproviderService,
 
   ) { }
 
@@ -24,40 +25,14 @@ export class PengirimanStatusDetailPage implements OnInit {
     this.initialdeliverydetailStatus();
   }
   goBack() {
-    this.route.navigateByUrl('/pengiriman-status-donasi', { replaceUrl: true });
-    this.initialdeliverydetailStatus();
+    this.asp.go_previous_page();
   }
-  initialdeliverydetailStatus(){
-    let row1 ={
-      "delivery_date": "25/05/2021 - 13:00",
-      "delivery_desc": "Paket Dikirimkan",    
-    };
-    this.deliverydetaillist.push(row1);
-    let row2 ={
-      "delivery_date": "25/05/2021 - 13:00",
-      "delivery_desc": "Paket diinput oleh kurir",    
-    };
-    this.deliverydetaillist.push(row2);
-    let row3 ={
-      "delivery_date": "26/05/2021 - 13:00",
-      "delivery_desc": "Paket menuju kota tujuan [BOGOR]",    
-    };
-    this.deliverydetaillist.push(row3);
-    let row4 ={
-      "delivery_date": "26/05/2021 - 13:00",
-      "delivery_desc": "Paket tiba kota tujuan [BOGOR]",    
-    };
-    this.deliverydetaillist.push(row4);
-    let row5 ={
-      "delivery_date": "26/05/2021 - 15:00",
-      "delivery_desc": "Paket dikirimkan ke alamat penerima",    
-    };
-    this.deliverydetaillist.push(row5);
-    let row6 ={
-      "delivery_date": "26/05/2021 - 17:00",
-      "delivery_desc": "Paket diterima [Penerima: Keluarga]",    
-    };
-    this.deliverydetaillist.push(row6);
+ async initialdeliverydetailStatus(){
+    await this.asp.santri_lacak_produk(this.santri_id).then(
+      data => {
+        let result:any =data
+        this.deliverydetaillist = result.manifest;                        
+      });   
   }
 
 }
