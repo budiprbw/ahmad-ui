@@ -50,7 +50,9 @@ export const environment = {
       hadist_by_pendampingId:"hadist/entitas/pendamping/",
       pengingat_pendamping_list_byid:"pengingat/pendamping/list/byid/",
       pendamping_dashboard:"pendamping/dashboard/",
-      pendamping_byid:"pendamping/byid/"
+      pendamping_byid:"pendamping/byid/",
+      pendamping_register_referral:"pendamping/register/referral",
+      register:"pendamping/register"
     },
     lookup:{
       kode_pos:{

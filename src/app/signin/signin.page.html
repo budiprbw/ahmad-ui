@@ -11,7 +11,7 @@
 <ion-grid class="Login-Wall lg:w-480 w-375 ">
   <ion-row>
     <ion-col>
-      <ion-card class="Rectangle-597 lg:mt-20 mt-20">
+      <ion-card class="Rectangle-597 lg:mt-40 lg:ml-16 mt-20 ml-0">
         <ion-card-content >
           <div class="Pilih-salah-satu">Pilih salah satu</div>
           <ion-button fill="clear" class="s-button"  (click)="goLogin('santri')">
@@ -22,7 +22,7 @@
             <ion-text class="s-sign-up normal-case">Donatur</ion-text>
             <ion-icon name="chevron-forward-circle-outline" class="text-black items-center " ></ion-icon>
           </ion-button>
-          <ion-button fill="clear" class="s-button"  (click)="goLogin('pendamping')">
+          <ion-button fill="clear" class="s-button"  (click)="goLogin('pendamping')"  *ngIf="isRegistrasi" >
             <ion-text class="s-sign-up normal-case">Pendamping</ion-text>
             <ion-icon name="chevron-forward-circle-outline" class="text-black items-center " ></ion-icon>
           </ion-button>

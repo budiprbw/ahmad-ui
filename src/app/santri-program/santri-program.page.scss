@@ -57,7 +57,7 @@
   }
   .program-santri-Rectangle-656{
     width: 343px;
-    height: 486px;
+    //height: 486px;
     //margin: 16px;
     padding: 16px;
     border-radius: 14px;
@@ -148,4 +148,33 @@
     letter-spacing: normal;
     text-align: left;
     color: #000000;
+}
+.tgl-progress{
+    //width: 69px;
+    height: 20px;
+    flex-grow: 0;
+    margin: 0 6px 0 0;
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.67;
+    letter-spacing: normal;
+    text-align: left;
+    color: var(--ion-color-black);
+}
+.sisa-bulan{
+    //width: 74px;
+    height: 20px;
+    margin: 6px 0 16px 58px;
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.67;
+    letter-spacing: normal;
+    text-align: right;
+    color: var(--ion-color-black);
 }

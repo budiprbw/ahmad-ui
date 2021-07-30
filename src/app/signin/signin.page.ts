@@ -20,6 +20,7 @@ export class SigninPage implements OnInit {
   public is_referal:boolean=false;
   public user_tipe:string="";
   public mode:string="";
+  public isRegistrasi:boolean=false;
 
   constructor(
     private google: GooglePlus,
@@ -41,6 +42,13 @@ export class SigninPage implements OnInit {
         this.mode = params['mode'];
       }
     });
+    if (this.mode=="Registrasi"){
+       this.isRegistrasi=false; 
+    }
+    else
+    {
+      this.isRegistrasi=true; 
+    }    
   }
   cek_referal() {
     this.router.params.subscribe((params: any) => {
@@ -54,6 +62,10 @@ export class SigninPage implements OnInit {
         if (this.user_tipe.toUpperCase()=='SANTRI')
         { 
             this.asp.go_page_program_santri();
+        }
+        if (this.user_tipe.toUpperCase()=='PENDAMPING')
+        { 
+            this.asp.go_page_program_pendamping();
         }
         localStorage.setItem("referal_kode", this.referal_kode);
         this.is_referal=true;

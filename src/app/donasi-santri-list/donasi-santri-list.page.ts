@@ -33,17 +33,13 @@ export class DonasiSantriListPage implements OnInit {
   getListSantriByDonatur(){
     if (this.usrinfo.login_mode=="donatur")
     {
-      this.santri_list_title="Total Santri Penerima Donasi";
+      this.santri_list_title="Total Santri Penerima Donasi"
       this.donatur_id= this.usrinfo.ref_object.id;
         this.asp.bimbingan_list_santri_bydonaturid(this.donatur_id).then(
           data=> {        
                 let result:any;
                 result =data;                         
-                if (result.data.length === 0)
-                {
-                  this.error_msg = "tidak ada data ";
-                }
-                else
+                if (result.data.length > 0)
                 {
                       for(let i =0; i <= result.data.length-1; i++) {
                         let santri_lokasi_photo="assets/images/no-image.png";

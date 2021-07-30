@@ -126,6 +126,9 @@ export class RegistrasiPage implements OnInit {
       case "santri":
           this.register_santri();
           break;
+      case "pendamping":
+          this.register_pendamping();
+          break;
     }
   }
   register_donatur() {
@@ -178,6 +181,73 @@ export class RegistrasiPage implements OnInit {
     }
     else {
       this.asp.register_santri(this.user_email,
+        this.nama_lengkap).then(
+          data => {
+            this.response = data; //user+santri
+            if (this.response.status == 'error') {
+              this.error_msg = this.response.message;
+            }
+            else {
+              if (this.login_by != "google") {
+                this.error_msg = "Silahkan cek inbox anda di " + this.user_email + " untuk melanjutkan proses berikutnya";
+                this.asp.go_page_confirm_message( this.error_msg); 
+              }
+              else {
+                let userinfo = {
+                  "user_id": this.response.id,
+                  "user_email": this.response.email,
+                  "user_displayName": this.response.name,
+                  "user_photoURL": "",
+                  "login_by": "google",
+                  "login_mode": this.login_mode,
+                  "ref_object": this.response.santri,
+                  "route_from": "registrasi"
+                };
+                this.asp.setUserInfo(userinfo);
+                this.route.navigateByUrl('/buatpassword', { replaceUrl: true });
+                this.route.ngOnDestroy();
+              }
+            }
+            if (this.login_by != "google") this.asp.dismissLoading();
+          });
+    }
+  }
+  register_pendamping(){
+    //if (this.login_by!="google")this.asp.presentLoading("register processing");
+    this.referal_kode=localStorage.getItem("referal_kode");
+    if (this.referal_kode) // via referal
+    {
+      this.asp.pendamping_register_referal(this.user_email,this.nama_lengkap,this.referal_kode).then(
+        data => {
+          this.response = data; 
+          if (this.response.status == 'error') {            
+            this.error_msg = this.response.message;
+          }
+          else {
+            if (this.login_by != "google") {
+              this.error_msg = "Silahkan cek inbox anda di " + this.user_email + " untuk melanjutkan proses berikutnya";
+              this.asp.go_page_confirm_message(this.error_msg);
+            }
+            else {
+              let userinfo = {
+                "user_id": this.response.id,
+                "user_email": this.response.email,
+                "user_displayName": this.response.name,
+                "user_photoURL": "",
+                "login_by": "google",
+                "login_mode": this.login_mode,
+                "ref_object": this.response.pendamping,
+                "route_from": "registrasi"
+              };
+              this.asp.setUserInfo(userinfo);
+              this.route.navigateByUrl('/buatpassword', { replaceUrl: true });
+              this.route.ngOnDestroy();
+            }
+          }
+        })
+    }
+    else {
+      this.asp.register_pendamping(this.user_email,
         this.nama_lengkap).then(
           data => {
             this.response = data; //user+santri

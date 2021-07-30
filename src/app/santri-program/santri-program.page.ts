@@ -16,6 +16,9 @@ export class SantriProgramPage implements OnInit {
  public santri_id:any;
  public usrinfo:any;
  public santri_status_text="";
+ public santri_sisa_bulan:string=""
+ public bimbingan_mulai:any;
+ public bimbingan_akhir:any;
 
   constructor(
     public asp: AhmadproviderService,
@@ -25,8 +28,6 @@ export class SantriProgramPage implements OnInit {
   ngOnInit() {
     this.viewUser();
     this.getSantri();
-    this.getNamaDonatur();
-    this.getNamaPendamping();
     this.initialsantriprogram();
     this.getsantriDashboard()
     // this.bulan_pendampingan="0.70";
@@ -41,6 +42,11 @@ export class SantriProgramPage implements OnInit {
         let retval:any=data;
         this.progress_belajar=retval.data.santri_progress_belajar;
         this.bulan_pendampingan=retval.data.santri_progress_waktu;
+        this.santri_sisa_bulan  =retval.data.santri_sisa_bulan;
+        this.bimbingan_mulai  =retval.data.bimbingan_mulai;
+        this.bimbingan_akhir  =retval.data.bimbingan_akhir;
+        this.nama_donatur=retval.data.donatur;
+        this.nama_pendamping=retval.data.pendamping;
     })
   }
   async getSantri(){
@@ -65,12 +71,7 @@ export class SantriProgramPage implements OnInit {
           
       });
   }
-  getNamaDonatur(){
-      this.nama_donatur="H.Dermawan";
-  }
-  getNamaPendamping(){
-    this.nama_pendamping="Ustad Khalid";
-  }
+ 
   async initialsantriprogram(){
     await this.asp.getlist_materi().then(
       data => {

@@ -60,6 +60,8 @@ export class AhmadproviderService {
   private api_pengingat_pendamping_list_byid = this.api_url + environment.ahmadApi.pendamping.pengingat_pendamping_list_byid;
   private api_pendamping_dashboard = this.api_url + environment.ahmadApi.pendamping.pendamping_dashboard;
   private api_pendamping_byid = this.api_url + environment.ahmadApi.pendamping.pendamping_byid;
+  private api_pendamping_register_referral = this.api_url + environment.ahmadApi.pendamping.pendamping_register_referral;
+  private api_register_pendamping = this.api_url + environment.ahmadApi.pendamping.register;
   
   //#endregion 
 
@@ -879,6 +881,33 @@ export class AhmadproviderService {
       });
     });
   }
+  register_pendamping(user_email, nama_lengkap) {
+    let data = {
+      "email": user_email,
+      "name": nama_lengkap
+    };
+    return new Promise(resolve => {
+      this.httpclient.post(this.api_register_pendamping, data).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+  pendamping_register_referal(user_email, nama_lengkap,referral_code) {
+    let data = {
+      "email": user_email,
+      "name": nama_lengkap,
+      "referral_id":referral_code
+    };
+    return new Promise(resolve => {
+      this.httpclient.post(this.api_pendamping_register_referral, data).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
   //#endregion
 
   //#region Proses Donatur 
@@ -1509,6 +1538,9 @@ export class AhmadproviderService {
   }
   go_page_program_santri(){
     this.route.navigateByUrl('/program-santri');    
+  }
+  go_page_program_pendamping(){
+    this.route.navigateByUrl('/program-pendamping');    
   }
   go_page_pengingat_bimbingan(){
     this.route.navigateByUrl('/pengingat-bimbingan');    
