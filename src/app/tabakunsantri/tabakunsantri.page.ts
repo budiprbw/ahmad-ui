@@ -16,6 +16,9 @@ export class TabakunsantriPage implements OnInit {
   public santri_id: string;
   public santriData:any;
   public line_data_lembaga:any=[];
+  public Referral_min:string="0";
+  public Referral_max:string="0";
+
 
   constructor(
     public asp: AhmadproviderService,
@@ -23,15 +26,26 @@ export class TabakunsantriPage implements OnInit {
 
   ngOnInit() {
     this.userInfo();
-    this.getSantri();
+    this.getsantriDashboard();
   }
+
+  
   async getSantri(){
     await this.asp.login_santri(this.user_email).then(
       data => {
         this.santriData = data;
-        this.santri_id= this.santriData.id;
         if (this.santriData.santri_lokasi_photo!=null) this.user_photoURL= this.santriData.santri_lokasi_photo;
       });
+  }
+  async getsantriDashboard(){
+    await this.asp.santri_dashboard(this.santri_id).then(data=>{
+        let retval:any=data;
+        if (retval.data.status!="error")
+        {
+          this.Referral_min=retval.data.santri_min_referral;
+          this.Referral_max=retval.data.santri_max_referral;
+        }        
+    })
   }
   userInfo() {
     this.usrinfo = this.asp.getUserInfo();
@@ -39,6 +53,8 @@ export class TabakunsantriPage implements OnInit {
     this.user_email = this.usrinfo.user_email;
     this.user_displayName = this.usrinfo.user_displayName;
     this.login_by = this.usrinfo.login_by;    
+    this.santri_id= this.usrinfo.ref_object.id;
+    this.getSantri();
     localStorage.removeItem("mode");
   }
   goProfile(){
@@ -48,6 +64,9 @@ export class TabakunsantriPage implements OnInit {
   goUbahPassword(){        
     localStorage.setItem("mode","tabakunsantri");
     this.asp.go_page_buatpassword();   
+  }
+  goAjak(){
+    this.asp.go_ajak_gabung_santri();
   }
   goKeluar(){
     this.asp.go_page_home();

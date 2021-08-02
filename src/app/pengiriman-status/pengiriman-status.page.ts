@@ -22,7 +22,7 @@ export class PengirimanStatusPage implements OnInit {
     this.initialDeliveryStatus();
   }
   goBack(){
-    this.route.navigateByUrl('/santri-program', { replaceUrl: true });    
+    this.asp.go_previous_page();
   } 
   async userInfo() {
     this.usrinfo = this.asp.getUserInfo();

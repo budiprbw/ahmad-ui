@@ -16,6 +16,8 @@ export class TabakunPage implements OnInit {
   public donatur_id: string;
   public donaturData:any;
   public line_data_lembaga:any=[];
+  public Referral_min:string="0";
+  public Referral_max:string="0";
 
   constructor(
     public asp: AhmadproviderService,
@@ -25,6 +27,7 @@ export class TabakunPage implements OnInit {
     this.userInfo();
     this.getDonatur();
     this.getDataLembaga();
+    this.getDonaturDashboard();
   }
   userInfo() {
     this.usrinfo = this.asp.getUserInfo();
@@ -32,12 +35,12 @@ export class TabakunPage implements OnInit {
     this.user_email = this.usrinfo.user_email;
     this.user_displayName = this.usrinfo.user_displayName;
     this.login_by = this.usrinfo.login_by;
+    this.donatur_id = this.usrinfo.ref_object.id;
   }
   async getDonatur(){
     await this.asp.login_donatur(this.user_email).then(
       data => {
-        this.donaturData = data;
-        this.donatur_id= this.donaturData.id;
+        this.donaturData = data;        
         if (this.donaturData.donatur_lokasi_photo!=null) this.user_photoURL= this.donaturData.donatur_lokasi_photo;
       });
   }
@@ -46,6 +49,16 @@ export class TabakunPage implements OnInit {
       data=> {        
             this.line_data_lembaga=data;            
       });
+  }
+  async getDonaturDashboard(){
+    await this.asp.donatur_dashboard(this.donatur_id).then(data=>{
+        let retval:any=data;
+        if (retval.data.status!="error")
+        {
+          this.Referral_min=retval.data.donatur_min_referral;
+          this.Referral_max=retval.data.donatur_max_referral;
+        }  
+    })
   }
   goAjak(){
     this.asp.go_ajak_gabung_donatur();

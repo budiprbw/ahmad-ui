@@ -17,11 +17,11 @@
   <ion-grid class="ion-grid lg:w-480 w-375">
     <ion-row>
       <ion-col>
-        <ion-card class="dashboard-pendamping-Rectangle-657 lg:ml-16 ml-0" style="display: none">
+        <ion-card class="dashboard-pendamping-Rectangle-657 lg:ml-16 ml-0" >
           <div class="Kode-Referral">Kode Referral</div>
-          <div class="dashboard-pendamping-pengingat-button" (click)="ajakLainnya()">
+          <div class="ahmad-button-goldd" (click)="ajakLainnya()">
             <ion-button fill="clear" slot="end">
-              <ion-text class="dashboard-pendamping-pengingat--button-text normal-case">
+              <ion-text class="ahmad-button-goldd-text normal-case">
                 Bagikan Kode Referral
               </ion-text>
             </ion-button>
@@ -36,9 +36,9 @@
             Mohon bersabar, belum ada santri yang perlu bimbingan anda
           </div>
         </ion-card>
-        <ion-card class="dashboard-santri-ion-card-rectangle lg:ml-16 ml-0" *ngIf="noProgram">
+        <ion-card class="ahmad-card-no-data lg:ml-16 ml-0" *ngIf="noProgram">
           <div *ngFor="let item of santrilist;">
-            <ion-card class="donasi-pendamping-list-Rectangle-597">
+            <ion-card class="ahmad-box-small">
               <ion-avatar class="pt-4 pl-3">
                 <img src="assets/images/no-image.png" style="height: 30px;width:30px;"><br>
               </ion-avatar>
@@ -65,9 +65,9 @@
             </ion-item>
           </ion-list>
         </ion-card>
-        <ion-card class="dashboard-santri-ion-card-rectangle lg:ml-16 ml-0" *ngIf="!noPengingat">
-          <div class="dashboard-santri-Rectangle-672">
-            <div class="dashboard-santri-ionchatbox-ellipses-outline"></div>
+        <ion-card class="ahmad-card-no-data lg:ml-16 ml-0" *ngIf="!noPengingat">
+          <div class="ahmad-card-no-data-box-small">
+            <div class="ahmad-card-no-data-box-small-icon"></div>
             Belum ada Pengingat Hari ini
           </div>
         </ion-card>
@@ -75,29 +75,29 @@
           <div class="ion-card-title-1">Pengingat Progress Santri</div>
           <div *ngFor="let item of pengingatList;">
             <ion-card class="donasi-pendamping-list-Rectangle-597">
-              <div class="tgl-pengingat">{{item.created_at | date:'dd-MM-yyyy'}}</div>
-              <div class="pesan-pengingat"> {{item.pengingat_isi}}</div>
+              <div class="ahmad-tgl-pengingat">{{item.created_at | date:'dd-MM-yyyy'}}</div>
+              <div class="ahmad-pesan-pengingat"> {{item.pengingat_isi}}</div>
             </ion-card>
           </div>
         </ion-card>
 
         <ion-card class="dashboard-pendamping-ion-card-rectangle lg:ml-16 ml-0" *ngIf="noHadist">
-          <div class="ion-card-title">Hadist/Doa Hari ini</div>
+          <div class="ahmad-card-title">Hadist/Doa Hari ini</div>
           <ion-label style="font-weight: bold;" class="ion-text-wrap">{{hadistList.hadist_judul}}</ion-label>
-          <div class="dashboard-santri-card3-text1"><span [innerHTML]="html_entity(hadistisi)"></span>
+          <div class="ahmad-card-text"><span [innerHTML]="html_entity(hadistisi)"></span>
             <a style="cursor: pointer" (click)="readMore(hadistList.hadist_isi)"> read more.. </a>
           </div>
         </ion-card>
-        <ion-card class="dashboard-santri-ion-card-rectangle lg:ml-16 ml-0" *ngIf="!noHadist">
-          <div class="dashboard-santri-Rectangle-672">
-            <div class="dashboard-santri-ionchatbox-ellipses-outline"></div>
+        <ion-card class="ahmad-card-no-data lg:ml-16 ml-0" *ngIf="!noHadist">
+          <div class="ahmad-card-no-data-box-small">
+            <div class="ahmad-card-no-data-box-small-icon"></div>
             Belum ada Hadist/Doa Hari ini
           </div>
         </ion-card>
-        <ion-card class="dashboard-santri-ion-card-rectangle lg:ml-16 ml-0">
-          <div class="dashboard-pendamping-pengingat-button" (click)="goPengingat()">
+        <ion-card class="ahmad-card-no-data lg:ml-16 ml-0">
+          <div class="ahmad-button-goldd" (click)="goPengingat()">
             <ion-button fill="clear" slot="end">
-              <ion-text class="dashboard-pendamping-pengingat--button-text normal-case">
+              <ion-text class="ahmad-button-goldd-text normal-case">
                 Pengingat Bimbingan
               </ion-text>
             </ion-button>

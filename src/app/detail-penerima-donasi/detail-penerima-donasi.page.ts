@@ -18,6 +18,9 @@ public progress_belajar:any="";
 public programlist:any=[];
 public nama_pendamping:any="";
 public nama_donatur:string="";
+public santri_sisa_bulan:string=""
+public bimbingan_mulai:any;
+public bimbingan_akhir:any;
 
 
   constructor(
@@ -32,13 +35,11 @@ public nama_donatur:string="";
         this.santri = this.route.getCurrentNavigation().extras.state.santri;
         this.santri_id= this.santri.santri_id;
         this.nama_santri= this.santri.nama_santri;
-        this.progress_belajar=this.santri.pencapaian;
       }
     });
     
-    this.bulan_pendampingan="0.70";
-    //this.progress_belajar="0.92";
     this.getMateri();
+    this.getsantriDashboard();
 
   }
   async getMateri(){
@@ -47,23 +48,19 @@ public nama_donatur:string="";
         this.programlist = data;
       });
   }
-  initialsantriprogram(){
-    let row1 ={
-      "progam_name": "Bab 1",
-      "program_nilai": "1"  ,    
-    };
-    this.programlist.push(row1);
-    let row2 ={
-      "progam_name": "Bab 2",
-      "program_nilai": "0.90",    
-    };
-    this.programlist.push(row2);
-    let row3 ={
-      "progam_name": "Bab 3",
-      "program_nilai": "0.5",       
-    };
-    this.programlist.push(row3);
+  async getsantriDashboard(){
+    await this.asp.santri_dashboard(this.santri_id).then(data=>{
+        let retval:any=data;
+        this.progress_belajar=retval.data.santri_progress_belajar;
+        this.bulan_pendampingan=retval.data.santri_progress_waktu;
+        this.santri_sisa_bulan  =retval.data.santri_sisa_bulan;
+        this.bimbingan_mulai  =retval.data.bimbingan_mulai;
+        this.bimbingan_akhir  =retval.data.bimbingan_akhir;
+        this.nama_donatur=retval.data.donatur;
+        this.nama_pendamping=retval.data.pendamping;
+    })
   }
+
   goBack(){
     //this.route.navigateByUrl('/donasi-santri-list', { replaceUrl:true });
     this.asp.go_previous_page();

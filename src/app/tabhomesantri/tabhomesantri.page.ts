@@ -19,6 +19,11 @@ export class TabhomesantriPage implements OnInit {
    public user_id:string="";
    public hadistList:any=[];
    public hadistisi:any=[];
+   public bulan_pendampingan:any="";
+   public progress_belajar:any="";
+   public santri_sisa_bulan:string=""
+   public bimbingan_mulai:any;
+   public bimbingan_akhir:any;
   
     constructor(
       public asp: AhmadproviderService,
@@ -32,6 +37,7 @@ export class TabhomesantriPage implements OnInit {
         this.viewUser();   
         this.getHadistHariini();
         this.getPengingatSantri();
+        this.getsantriDashboard();
     }
   
     viewUser(){
@@ -80,6 +86,16 @@ export class TabhomesantriPage implements OnInit {
             this.noHadist  =true;
           }
         });   
+    }
+    async getsantriDashboard(){
+      await this.asp.santri_dashboard(this.santri_id).then(data=>{
+          let retval:any=data;
+          this.progress_belajar=retval.data.santri_progress_belajar;
+          this.bulan_pendampingan=retval.data.santri_progress_waktu;
+          this.santri_sisa_bulan  =retval.data.santri_sisa_bulan;
+          this.bimbingan_mulai  =retval.data.bimbingan_mulai;
+          this.bimbingan_akhir  =retval.data.bimbingan_akhir;
+      })
     }
   
     beritadetail(item){    

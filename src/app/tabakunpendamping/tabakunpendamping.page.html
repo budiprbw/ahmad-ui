@@ -42,33 +42,26 @@
                           <div class="donatur-akun-program-title">{{line_data_lembaga.lembaga_landing_pendamping_judul}}</div>
                           <div class="donatur-akun-program-content">
                               <span [innerHTML]="html_entity(line_data_lembaga.lembaga_landing_pendamping_isi)"></span>
-                          </div>
-                          <div class="donatur-akun-button " style="display:none">
-                              <ion-button fill="clear" slot="end" routerLink="/santri-kuesioner">
-                                  <ion-text class="donatur-akunSign-up normal-case">
-                                      Menjadi Santri
-                                  </ion-text>
-                              </ion-button>               
-                              <ion-icon name="arrow-forward-circle-outline" style="color: var(--ion-color-goldd);" size="large"></ion-icon>
-                      </div>
+                          </div>                       
                     </ion-card> 
-                    <ion-card class="donatur-akun-ajak-keluarga lg:ml-16 ml-0">
-                        <div class="donatur-akun-ajak-keluarga-text1">
+                    <ion-card class="ahmad-card-ajak-keluarga lg:ml-16 ml-0">
+                        <div class="ahmad-card-ajak-keluarga-text1">
                               Ajak <span style="color:white">keluarga, teman</span> dan kerabat
                               bergabung dengan program ini <span style="color:white">baik menjadi</span> donatur <span style="color:white">atau</span> santri
                         </div>
-                        <div class="donatur-akun-ajak-keluarga-text2">
+                        <div class="ahmad-card-ajak-keluarga-text2">
                               Asmaul Husna Makna dan Doa (AHMaD) project adalah sebuah program khusus untuk siapa saja yang ingin belajar memahami makna  dibalik nama-nama ALLAH SWT yang terdapat didalam Ayat Alquran
                         </div>
-                        <div class="donatur-akun-ajak-lainnya-button " (click)="goAjak()" style="display:none">
+                        <br>
+                        <div class="ahmad-button-goldd " (click)="goAjak()" >
                               <ion-button fill="clear" slot="end">
-                                  <ion-text class="donatur-akun-ajak-lainnya-button-text normal-case">
+                                  <ion-text class="ahmad-button-goldd-text normal-case">
                                       Ajak yang lainnya
                                   </ion-text>
                               </ion-button>  
                               <ion-icon name="chevron-forward-circle-outline" style="color: black;zoom:1.4;" ></ion-icon>                                           
                         </div>
-                        <div class="Kode-anda-dipakai-oleh-0-dari-7-Orang" style="display:none">Kode anda dipakai oleh {{Referral_min}} dari {{Referral_max}} orang</div>
+                        <div class="Kode-anda-dipakai-oleh-0-dari-7-Orang"  ><span class="text-white">Kode anda dipakai oleh {{Referral_min}} dari {{Referral_max}} orang</span></div>
                         
                     </ion-card>
                      <div class="donatur-akun-button-keluar lg:ml-16 ml-0">

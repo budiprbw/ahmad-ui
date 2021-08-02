@@ -89,6 +89,7 @@ module.exports = {
       },
       spacing: {
         md: '46px',
+        md_1: '33px',
         sm: '20px',
       },
       boxShadow: {

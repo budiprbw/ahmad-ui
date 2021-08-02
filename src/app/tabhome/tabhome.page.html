@@ -36,7 +36,7 @@
                 <div class="dashboard-donatur-box-progress-title">
                   Progress Pembelajaran Santri Aktif
                 </div>
-                <div class="dashboard-donatur-box-progress-value">{{donatur_progress.bimbingan_santri_progress * 100}} %</div>
+                <div class="ahmad-box-progress-value">{{donatur_progress.bimbingan_santri_progress * 100}} %</div>
               </div>
               <div class="dashboard-donatur-lihat-detail" (click)="goLihatdetail()">
                 <ion-label>Lihat Detail</ion-label>
@@ -65,8 +65,8 @@
                 <ion-icon name="arrow-forward-circle-outline" style="color: var(--ion-color-goldd);" size="large"></ion-icon>
               </div>
             </ion-card>
-            <ion-card class="dashboard-donatur-card3 lg:ml-16">
-              <div class="dashboard-donatur-card3-title">Hadis /Doa Hari Ini</div>
+            <ion-card class="ahmad-card lg:ml-16">
+              <div class="ahmad-card-title">Hadis /Doa Hari Ini</div>
 
               <ion-label style="font-weight: bold;" class="ion-text-wrap">{{hadistList.hadist_judul}}</ion-label>
               <div class="dashboard-donatur-card3-text1"><span [innerHTML]="html_entity(hadistisi)"></span></div>

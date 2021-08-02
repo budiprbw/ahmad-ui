@@ -217,6 +217,10 @@ const routes: Routes = [
   {
     path: 'view-pembayaran-donasi',
     loadChildren: () => import('./view-pembayaran-donasi/view-pembayaran-donasi.module').then( m => m.ViewPembayaranDonasiPageModule)
+  },
+  {
+    path: 'tabprogramsantri',
+    loadChildren: () => import('./tabprogramsantri/tabprogramsantri.module').then( m => m.TabprogramsantriPageModule)
   }
 ];
 @NgModule({

@@ -61,7 +61,8 @@ export class SantriPenilaianPage implements OnInit {
         }
         else
         {
-          this.asp.presentToast("Penilaian sudah disimpan");          
+          this.asp.presentToast("Penilaian sudah disimpan"); 
+          this.asp.go_previous_page();         
         }
       });
   }

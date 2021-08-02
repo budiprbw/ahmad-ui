@@ -15,8 +15,15 @@
         <ion-card  class="ajak-gabung-card-rectangle lg:ml-16 ml-0">
                 <div class="pl-4 pr-5">
                   <ion-input placeholder="Nomor Hp/whatsapp" [(ngModel)]="no_telepon" name="no_telepon"></ion-input>
-                  <ion-text color="danger"><h3>{{error_msg}}</h3></ion-text>
                 </div>  
+                <ion-item *ngIf="isPendamping">
+                    <ion-label>Bergabung Sebagai</ion-label>
+                  <ion-select placeholder="Pilih"  [(ngModel)]="tipe_gabung" name="tipe_gabung" >
+                        <ion-select-option value="1">Sebagai Donastur</ion-select-option>
+                        <ion-select-option value="2">Sebagai Santri</ion-select-option>
+                  </ion-select>
+                </ion-item>
+                <div class="error_msg"  [innerHtml]="html_entity(error_msg)"></div>
                 <ion-button fill="clear" class="ajak-gabung-button" (click)="goAjak()">
                   <ion-text class="ajak-gabung-Sign-up normal-case">
                     Simpan dan lanjutkan

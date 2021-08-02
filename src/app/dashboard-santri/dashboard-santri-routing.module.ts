@@ -11,6 +11,10 @@ const routes: Routes = [
       {
         path: 'tabhomesantri',
         loadChildren: () => import('../tabhomesantri/tabhomesantri.module').then( m => m.TabhomesantriPageModule)
+      },      
+      {
+        path: 'tabprogramsantri',
+        loadChildren: () => import('../tabprogramsantri/tabprogramsantri.module').then( m => m.TabprogramsantriPageModule)
       },
       {
         path: 'tabakunsantri',
