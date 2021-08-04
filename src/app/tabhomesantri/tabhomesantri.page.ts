@@ -24,6 +24,8 @@ export class TabhomesantriPage implements OnInit {
    public santri_sisa_bulan:string=""
    public bimbingan_mulai:any;
    public bimbingan_akhir:any;
+   public unread_pesan:number=0;
+   public adaPesan:boolean=false;
   
     constructor(
       public asp: AhmadproviderService,
@@ -38,6 +40,7 @@ export class TabhomesantriPage implements OnInit {
         this.getHadistHariini();
         this.getPengingatSantri();
         this.getsantriDashboard();
+        this.getUnreadPesan();
     }
   
     viewUser(){
@@ -97,7 +100,15 @@ export class TabhomesantriPage implements OnInit {
           this.bimbingan_akhir  =retval.data.bimbingan_akhir;
       })
     }
-  
+    async getUnreadPesan(){
+        await this.asp.user_pesan_unread(this.user_id).then(
+          data=> {        
+            let result:any;
+            result=data;
+            this.unread_pesan= result.length;
+            if (result.length>0)this.adaPesan=true;
+          });             
+    }  
     beritadetail(item){    
       this.asp.go_page_detail_berita(item);      
     }

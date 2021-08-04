@@ -1,9 +1,12 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="end">
-      <ion-button (click)="goInfoMasuk()">          
-        <ion-icon slot="icon-only" name="notifications-circle-outline" size="large"></ion-icon>
-      </ion-button>
+      <ion-button (click)="goInfoMasuk()" style="height: 60px;width: 60px;">
+        <ion-icon slot="icon-only" name="notifications-circle-outline" style="zoom:1.1"></ion-icon>
+        <ion-badge color="danger" style="position: absolute; right: -7px; top: -1px;">
+          <span style="font-size:9px " *ngIf="adaPesan">{{unread_pesan}}</span>
+        </ion-badge>
+      </ion-button>    
     </ion-buttons>
     <ion-title class="ion-text-center">Dashboard Donatur</ion-title>
   </ion-toolbar>
@@ -36,17 +39,17 @@
                 <div class="dashboard-donatur-box-progress-title">
                   Progress Pembelajaran Santri Aktif
                 </div>
-                <div class="ahmad-box-progress-value">{{donatur_progress.bimbingan_santri_progress * 100}} %</div>
+                <div class="ahmad-box-progress-value">{{donatur_progress.bimbingan_santri_progress * 100 | number : '1.2-2'}} %</div>
               </div>
               <div class="dashboard-donatur-lihat-detail" (click)="goLihatdetail()">
                 <ion-label>Lihat Detail</ion-label>
-                <ion-icon name="chevron-forward-circle-outline" class="vector0" size="large"></ion-icon>
+                <ion-icon name="chevron-forward-circle-outline" class="vector0"></ion-icon>
               </div>
             </ion-card>
             <ion-card class="dashboard-donatur-pengingat lg:ml-16" *ngIf="adaDonasi" (click)="goPengingat()">
               <div class="dashboard-donatur-pengingat-text">
                 Pengingat Pembayaran Donasi
-                <ion-icon name="chevron-forward-circle-outline" class="vector" size="large"></ion-icon>
+                <ion-icon name="chevron-forward-circle-outline" class="vector"></ion-icon>
               </div>
               <div class="dashboard-donatur-pengingat-content">{{pengingatList.pengingat_judul}} - {{pengingatList.created_at
                 | date:'dd-MM-yyyy'}} </div>

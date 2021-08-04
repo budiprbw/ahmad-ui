@@ -38,8 +38,8 @@ module.exports = {
           '375': '375px',
           '343': '343px',
           '336': '336px',
-          '311': '311px',
           '326': '326px',
+          '311': '311px',          
           '307': '307px',
           '290': '290px',
           '280': '280px',
@@ -53,7 +53,7 @@ module.exports = {
         greyish_brown: '#4f4f4f',
         terang: '#efeffe',
         gelap: '#000000',
-        gelapbaru: '#1b1c20'
+        gelapbaru: '#1b1c20'        
       },
       fontFamily: {
         poppins: ['"Poppins"', 'cursive'],

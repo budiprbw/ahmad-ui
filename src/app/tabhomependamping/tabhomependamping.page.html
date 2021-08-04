@@ -1,16 +1,19 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
+    <!-- <ion-buttons slot="start">
       <ion-button (click)="goBack()">
         <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
       </ion-button>
-    </ion-buttons>
+    </ion-buttons> -->
     <ion-buttons slot="end">
-      <ion-button (click)="goInfoMasuk()">
-        <ion-icon slot="icon-only" name="notifications-circle-outline"></ion-icon>
-      </ion-button>
+      <ion-button (click)="goInfoMasuk()" style="height: 60px;width: 60px;">
+        <ion-icon slot="icon-only" name="notifications-circle-outline" style="zoom:1.1"></ion-icon>
+        <ion-badge color="danger" style="position: absolute; right: -7px; top: -1px;">
+          <span style="font-size:9px " *ngIf="adaPesan">{{unread_pesan}}</span>
+        </ion-badge>
+      </ion-button>    
     </ion-buttons>
-    <ion-title class="ion-text-center" style="margin-left:-50px">Dashboard Pendamping</ion-title>
+    <ion-title   class="ion-text-center" >Dashboard Pendamping</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content class="w-full" [scrollEvents]="true">
@@ -30,7 +33,7 @@
           <div class="Kode-anda-dipakai-oleh-0-dari-7-Orang">Kode anda dipakai oleh {{Referral_min}} dari {{Referral_max}} orang</div>
         </ion-card>
 
-        <ion-card class="dashboard-pendamping-ion-card-rectangle lg:ml-16 ml-0" *ngIf="!noProgram">
+        <!-- <ion-card class="dashboard-pendamping-ion-card-rectangle lg:ml-16 ml-0" *ngIf="!noProgram">
           <div class="dashboard-pendamping-Rectangle-671">
             <div class="dashboard-pendamping-ionbook-outline"></div>
             Mohon bersabar, belum ada santri yang perlu bimbingan anda
@@ -48,7 +51,7 @@
               </div>
             </ion-card>
           </div>
-        </ion-card>
+        </ion-card> -->
         <ion-card class="dashboard-pendamping-ion-card-rectangle lg:ml-16 ml-0" *ngIf="!noBerita">
           <div class="dashboard-pendamping-Rectangle-672">
             <div class="dashboard-pendamping-ionchatbox-ellipses-outline"></div>
@@ -71,7 +74,7 @@
             Belum ada Pengingat Hari ini
           </div>
         </ion-card>
-        <ion-card class="dashboard-pendamping-Rectangle-657 lg:ml-16 ml-0" *ngIf="noPengingat">
+        <ion-card class="ahmad-card lg:ml-16 ml-0" *ngIf="noPengingat">
           <div class="ion-card-title-1">Pengingat Progress Santri</div>
           <div *ngFor="let item of pengingatList;">
             <ion-card class="donasi-pendamping-list-Rectangle-597">
@@ -94,7 +97,7 @@
             Belum ada Hadist/Doa Hari ini
           </div>
         </ion-card>
-        <ion-card class="ahmad-card-no-data lg:ml-16 ml-0">
+        <ion-card class="ahmad-card-no-data lg:ml-16 ml-0" style="display:none">
           <div class="ahmad-button-goldd" (click)="goPengingat()">
             <ion-button fill="clear" slot="end">
               <ion-text class="ahmad-button-goldd-text normal-case">
@@ -106,11 +109,11 @@
         </ion-card>
         <div class="pendamping-akun-button-keluar  lg:ml-16 ml-0">
           <ion-button fill="clear" slot="end" (click)="goKeluar()">
-            <ion-text class="pendamping-akun-button-keluar-text">
+            <ion-text class="pendamping-akun-button-keluar-text normal-case">
               Keluar
             </ion-text>
           </ion-button>
-          <ion-icon name="arrow-forward-circle-outline" style="color: white" size="large"></ion-icon>
+          <ion-icon name="chevron-forward-circle-outline" class="text-white" style="zoom:1.5"></ion-icon>
         </div>
       </ion-col>
     </ion-row>

@@ -37,6 +37,7 @@ export class SigninPage implements OnInit {
   async ngOnInit() {
     this.asp.clearLocalstorage();
     this.cek_referal();
+    this.darkMode();
     this.router.queryParams.subscribe((params: any) => {
       if (params['mode']) {
         this.mode = params['mode'];
@@ -82,8 +83,12 @@ export class SigninPage implements OnInit {
     else
     {
       this.asp.go_page_login(p);
-    }
-    
+    }    
+  }
+  darkMode(){
+    let is_dark_mode=this.asp.isDarkMode();   
+    if (is_dark_mode=='1') this.asp.seDarkMode();
+
   }
 
 

@@ -15,7 +15,7 @@ export class PembayaranDonasiPage implements OnInit {
   public total_donasi:string="";
   public durasi_donasi:string="";
   public qty_donasi:string="";  
-  public kode_unik:number=212;  
+  public kode_unik:string="000";  
   public nominal_donasi_text:string="";  
   public gran_total:number=0;  
   public gran_total_text:string="";  
@@ -37,6 +37,7 @@ export class PembayaranDonasiPage implements OnInit {
   
   ngOnInit() {
     this.initUserInfo();
+    
     this.simpanDonasidariTemp();
     /*
     this.route.queryParams.subscribe(params => {
@@ -67,7 +68,7 @@ export class PembayaranDonasiPage implements OnInit {
   simpanDonasidariTemp(){
     var temp_donasi_no:string="";
     var item_donasi:any= JSON.parse(localStorage.getItem("item_donasi"));
-    if (item_donasi) {
+    if (item_donasi) {    
       temp_donasi_no= item_donasi.temp_donasi_no;
       this.jenis_donasi= item_donasi.jenis_donasi_text;
       this.donasi_tanggal =item_donasi.donasi_tanggal;
@@ -76,9 +77,11 @@ export class PembayaranDonasiPage implements OnInit {
       this.qty_donasi= item_donasi.donasi_jumlah_santri;
       this.durasi_donasi= this.format_number(item_donasi.durasi_donasi);
       let total_bayar = parseFloat(item_donasi.donasi_tagih);
-      this.gran_total = (total_bayar+this.kode_unik);
+      this.kode_unik= item_donasi.donasi_temp_kode_unik;
+      this.gran_total = (total_bayar+ parseFloat(this.kode_unik));      
       this.gran_total_text ="Rp." + this.format_number(this.gran_total);      
       this.bank_selected= item_donasi.bank_selected;
+      
       /*
         this.asp.donaturRegisterDonasi(this.user_email,this.user_displayName,temp_donasi_no).then(
             data => {
@@ -158,6 +161,7 @@ export class PembayaranDonasiPage implements OnInit {
       this.asp.simpan_donasi( this.usrinfo.ref_object.id,
         item_donasi.rekening_id,
         item_donasi.donasi_tanggal,
+        this.kode_unik,
         item_donasi.donasi_jumlah_santri,
         item_donasi.donasi_tagih,
         item_donasi.donasi_total_harga, 

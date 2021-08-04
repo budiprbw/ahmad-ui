@@ -85,7 +85,8 @@ export const environment = {
       pesan_aktif: "pesan/aktif/byuser/",
       update_as_read :"pesan/update/read/",
       pesan_delete:"pesan/update/delete/",
-      user_verification:"user/verification/"
+      user_verification:"user/verification/",
+      pesan_unread_byuser:"pesan/unread/byuser/"
     },
     product:{
       by_id :"produk/byid/"

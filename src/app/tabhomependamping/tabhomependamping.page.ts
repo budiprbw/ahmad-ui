@@ -24,6 +24,10 @@ export class TabhomependampingPage implements OnInit {
   public pendamping_dashboard:any=[];
   public Referral_min:string="0";
   public Referral_max:string="0";
+  public unread_pesan:number=0;
+  public adaPesan:boolean=false;
+  public user_id:any;
+
 
 
   constructor(
@@ -42,12 +46,14 @@ export class TabhomependampingPage implements OnInit {
     this.getHadistHariini();
     this.getPengingat();
     this.getDashboard();
+    this.getUnreadPesan();
   }
   viewUser() {
     this.usrinfo = this.asp.getUserInfo();
     this.pendamping_id = this.usrinfo.ref_object.id;
     this.user_email = this.usrinfo.user_email;
     this.user_displayName = this.usrinfo.user_displayName;
+    this.user_id  = this.usrinfo.user_id;
   }
   async getSantri() {
     await this.asp.santri_by_pendampingId(this.pendamping_id).then(
@@ -123,7 +129,15 @@ export class TabhomependampingPage implements OnInit {
             }
       });
   }
-
+  async getUnreadPesan() {
+    await this.asp.user_pesan_unread(this.user_id).then(
+      data => {
+        let result: any;
+        result = data;
+        this.unread_pesan = result.length;
+        if (result.length > 0) this.adaPesan = true;
+      });
+  }  
   goLihatDetail(item) {
     this.asp.go_page_penilaian_santri(item.id, this.pendamping_id);
   }

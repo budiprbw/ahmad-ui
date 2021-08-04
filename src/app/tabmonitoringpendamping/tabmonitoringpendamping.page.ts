@@ -54,6 +54,7 @@ export class TabmonitoringpendampingPage implements OnInit {
             }
       });
   }
+
   ajakLainnya(){
     this.asp.go_ajak_gabung_pendamping();
   }
@@ -64,6 +65,11 @@ export class TabmonitoringpendampingPage implements OnInit {
   goStatusPengiriman(){
     this.asp.go_page_pengiriman_status_donasi();
   }
-  
+  goPengingat(){
+    this.asp.go_page_pengingat_bimbingan(); 
+  }
+  goPenilaian(){
+    this.asp.go_page_daftar_santri_penilaian();
+  }
 
 }

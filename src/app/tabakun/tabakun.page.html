@@ -19,31 +19,31 @@
                   <ion-card class="donatur-akun-Rectangle-638 lg:ml-16 ml-0" >
                     <div class="donatur-akun-rubah-profile" (click)="goProfile()">
                       <div class="donatur-akun-rubah-profile-text">Ubah Profil
-                        <ion-icon name="chevron-forward-circle-outline" class="vector1" size="large"></ion-icon>
+                        <ion-icon name="chevron-forward-circle-outline" class="vector1"></ion-icon>
                       </div>
                     </div>
-                    <div class="donatur-akun-rubah-password lg:ml-16 ml-0" (click)="goUbahPassword()">
+                    <div class="donatur-akun-rubah-password " (click)="goUbahPassword()">
                       <div class="donatur-akun-rubah-password-text">Ubah Password
-                        <ion-icon name="chevron-forward-circle-outline" class="vector2" size="large"></ion-icon>
+                        <ion-icon name="chevron-forward-circle-outline" class="vector2"></ion-icon>
                       </div>
                     </div>
-                    <div class="donatur-akun-rubah-password lg:ml-16 ml-0">
+                    <div class="donatur-akun-rubah-password">
                       <div class="donatur-akun-rubah-password-text">Tentang Kami
-                        <ion-icon name="chevron-forward-circle-outline" class="vector3" size="large"></ion-icon>
+                        <ion-icon name="chevron-forward-circle-outline" class="vector3"></ion-icon>
                       </div>
                     </div>
-                    <div class="donatur-akun-rubah-password lg:ml-16 ml-0"  (click)="goFAQ()">
+                    <div class="donatur-akun-rubah-password"  (click)="goFAQ()">
                       <div class="donatur-akun-rubah-password-text">FAQ
-                        <ion-icon name="chevron-forward-circle-outline" class="vector4" size="large"></ion-icon>
+                        <ion-icon name="chevron-forward-circle-outline" class="vector4" ></ion-icon>
                       </div>
                     </div>
                   </ion-card>
-                  <ion-card class="donatur-akun-program lg:ml-16 ml-0">
+                  <ion-card class="donatur-akun-program " style="display:none">
                         <div class="donatur-akun-program-title">{{line_data_lembaga.lembaga_landing_santri_judul}}</div>
                         <div class="donatur-akun-program-content">
                             <span [innerHTML]="html_entity(line_data_lembaga.lembaga_landing_santri_isi)"></span>
                         </div>
-                        <div class="donatur-akun-button " style="display:none">
+                        <div class="donatur-akun-button " >
                             <ion-button fill="clear" slot="end" routerLink="/santri-kuesioner">
                                 <ion-text class="donatur-akunSign-up normal-case">
                                     Menjadi Santri

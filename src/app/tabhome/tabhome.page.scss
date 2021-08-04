@@ -173,8 +173,8 @@ ion-toolbar {
         top: 50%;
         width: 300px;
         height: 80px;
-        margin: 12px 0 16px;
-        padding: 6px 50px 6px 51px;
+        margin: 15px 0 16px 5px;
+        padding: 6px 50px 6px 31px;
         border-radius: 14px;
         border: solid 1px var(--ion-color-goldd);
       }
@@ -189,9 +189,22 @@ ion-toolbar {
       }
       .dashboard-donatur-lihat-detail{
         position: absolute;
-        top: 88%;
-        padding: 0px 0px 0px 210px;
+        top: 88%;        
         cursor: pointer;
+        //width: 67px;
+        height: 20px;
+        flex-grow: 0;
+        //margin: 0 6px 0 0;
+        padding: 9px 0px 0px 210px;
+        font-family: Poppins;
+        font-size: 12px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.67;
+        letter-spacing: normal;
+        text-align: left;
+        color: var(--ion-color-black);
 
       }
       .dashboard-donatur-box-progress-title{
@@ -262,7 +275,7 @@ ion-toolbar {
         color:var(--ion-color-goldd);
       }
       .dashboard-donatur-pengingat-text{
-        width: 223px;
+        width: 100%;
         height: 20px;
         margin: 0 72px 6px 0;
         font-family: Poppins;
@@ -292,20 +305,23 @@ ion-toolbar {
       .vector{
           position: absolute;
           top:12%;
-        flex-grow: 0;
-        padding: 0 0px 0px 60px;
+          flex-grow: 0;
+          padding: 5px 0px 0px 49px;
+          zoom: 1.3;
         //background-color: var(--ion-color-black);      
       }
       .vector0{
-        position: absolute;
-        top:-36%;
-         flex-grow: 0;
-         padding: 0 0px 0px 2px;
-    }
-    ion-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-    }
+          position: absolute;
+          top: 0%;
+          flex-grow: 0;
+          padding: 6px 0px 0px 3px;
+          zoom: 1.5;
+        }
+
+      ion-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        }

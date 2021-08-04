@@ -276,6 +276,10 @@ export class LoginPage implements OnInit {
   public getType() {
     return this.isActiveToggleTextPassword ? 'password' : 'text';
   }
+  public getName(){
+    return this.isActiveToggleTextPassword ? 'eye':'eye-off-outline';
+    
+  }
 
 }
 

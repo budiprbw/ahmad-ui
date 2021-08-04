@@ -18,6 +18,8 @@ export class TabhomePage implements OnInit {
   public hadistisi:any=[];
   public donatur_progress:any=[];
   public riwayatlist:any=[];
+  public unread_pesan:number=0;
+  public adaPesan:boolean=false;
 
   constructor(
     public asp: AhmadproviderService
@@ -31,6 +33,7 @@ export class TabhomePage implements OnInit {
     this.getBeritaKampanye();    
     this.getDataLembaga();
     this.getListPengingat();  
+    this.getUnreadPesan();
   }
   viewUser(){
     localStorage.setItem("login_mode","donatur");
@@ -84,6 +87,15 @@ export class TabhomePage implements OnInit {
         this.donatur_progress=retval.data;
     })
   }
+  async getUnreadPesan() {
+    await this.asp.user_pesan_unread(this.user_id).then(
+      data => {
+        let result: any;
+        result = data;
+        this.unread_pesan = result.length;
+        if (result.length > 0) this.adaPesan = true;
+      });
+  }  
   
   goLihatdetail(){
     this.asp.go_page_santri_list();

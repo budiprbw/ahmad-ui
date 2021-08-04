@@ -284,6 +284,7 @@ export class RegistrasiPage implements OnInit {
     this.asp.presentLoading("Registrasi processing");
     this.asp.save_donasi_temp(item_donasi.rekening_id,
       item_donasi.donasi_tanggal,
+      item_donasi.donasi_temp_kode_unik,
       item_donasi.donasi_jumlah_santri,
       item_donasi.donasi_tagih,
       item_donasi.donasi_total_harga, 

@@ -22,7 +22,8 @@
             <div class="password-Rectangle-630">
               <ion-input [type]="getType()" placeholder="password anda" required [(ngModel)]="user_password" name="user_password">                  
               </ion-input>
-              <ion-icon name="eye" (click)="toggleTextPassword()" class="ioneye"></ion-icon>
+              <ion-icon [name]="getName()" (click)="toggleTextPassword()" class="ioneye"></ion-icon>
+              
               
             </div>
             <ion-text color="danger">

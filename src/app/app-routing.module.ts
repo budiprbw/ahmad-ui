@@ -221,6 +221,10 @@ const routes: Routes = [
   {
     path: 'tabprogramsantri',
     loadChildren: () => import('./tabprogramsantri/tabprogramsantri.module').then( m => m.TabprogramsantriPageModule)
+  },
+  {
+    path: 'daftar-santri-penilaian',
+    loadChildren: () => import('./daftar-santri-penilaian/daftar-santri-penilaian.module').then( m => m.DaftarSantriPenilaianPageModule)
   }
 ];
 @NgModule({

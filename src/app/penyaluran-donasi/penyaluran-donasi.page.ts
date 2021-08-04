@@ -23,6 +23,7 @@ export class PenyaluranDonasiPage implements OnInit {
   public donasi_random_santri_text: string = "Pilih Santri";
   public banklist:any=[];
   public bankListSelected:any=[];
+  public kode_unik:string="000";  
   public produk :any;
   public result_temp:any;
   public error_msg:string="";
@@ -37,8 +38,9 @@ export class PenyaluranDonasiPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.kode_unik = this.asp.random_kode_unik();
     this.getProduct();
-    this.getBank();    
+    this.getBank();        
   }
 
   goBack() {    
@@ -227,6 +229,7 @@ export class PenyaluranDonasiPage implements OnInit {
     if (this.donasi_random_santri=="")this.donasi_random_santri="0";
     let item_donasi = {
       "donasi_tanggal": today ,
+      "donasi_temp_kode_unik": this.kode_unik,
       "donasi_cara_bayar": cara_bayar,
       "jenis_donasi_text": this.jenis_donasi_text,
       "donasi_tagih": nominal_donasi,

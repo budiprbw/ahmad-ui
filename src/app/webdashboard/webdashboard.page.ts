@@ -40,6 +40,7 @@ export class WebdashboardPage implements OnInit {
     this.asp.clearLocalstorage();
     this.initDataLembaga();
     this.toggleGroup(0);
+    this.cekDarkMode();
   }
 
   async initDataLembaga(){
@@ -79,26 +80,24 @@ export class WebdashboardPage implements OnInit {
   isGroupShown(group) {    
       return this.shownGroup === group;
   };
- 
+  cekDarkMode(){
+    let is_dark_mode=this.asp.isDarkMode();  
+    if (is_dark_mode=='1') this.asp.seDarkMode();
+  }
   darkmode()
-  {       
+  { 
+    this.is_dark_mode=this.asp.isDarkMode();          
     if (this.is_dark_mode=='0')
     {
       /* ionic css     */
-      document.body.setAttribute('color-theme','dark');
+      this.asp.seDarkMode();      
       this.is_dark_mode='1';
-      let htmlclass= document.querySelector('html').classList ;          
-      htmlclass.add("class",'dark');  
     }
     else{
-      /* document.body.setAttribute('color-theme','light');  */
-      document.body.setAttribute('color-theme','light'); 
-      let htmlclass= document.querySelector('html').classList ;          
-      htmlclass.remove('dark');       
+      /* document.body.setAttribute('color-theme','light');  */      
       this.is_dark_mode='0';
-      
-    }
-      
+      this.asp.removeDarkMode();
+    }      
   }
   getScrollPos(event:any) {
     const pos = event.detail.scrollTop;

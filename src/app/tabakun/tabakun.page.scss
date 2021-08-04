@@ -93,7 +93,7 @@ ion-toolbar {
     cursor: pointer;
   }
   .donatur-akun-rubah-password-text{
-    width: 130px;
+    width: 180px;
     height: 20px;
     margin: 0 173px 0 0;
     font-family: Poppins;
@@ -222,32 +222,33 @@ ion-toolbar {
     position: absolute;
     top:7%;
     //margin: 16px;
-    margin: 0px 0px 0px 155px;    
+    margin: 3px 0px 0px 115px;  
     //width: 4px;
     //height: 8px;
     flex-grow: 0;
+    zoom:1.5;
     //background-color: var(--ion-color-black);
   }
   .vector2{
     position: absolute;
     top:31%;
-    margin: 16px;
-    margin: 0px 0px 0px 118px;
+    margin: 3px 0px 0px 90px;
     flex-grow: 0;
+    zoom:1.5;
   }
   .vector3{
     position: absolute;
     top:55%;
-    margin: 16px;
-    margin: 0px 0px 0px 131px;
+    margin:3px 0px 0px 98px;
     flex-grow: 0;
+    zoom:1.5;
   } 
   .vector4{
     position: absolute;
     top:78%;
-    margin: 16px;
-    margin: 0px 0px 0px 213px;
+    margin: 3px 0px 0px 152px;
     flex-grow: 0;
+    zoom:1.5;
   }    
     
 

@@ -95,7 +95,8 @@ export class AhmadproviderService {
   private api_user_by_hashcode = this.api_url + environment.ahmadApi.user.by_hashcode;
   private api_user_change_password = this.api_url + environment.ahmadApi.user.change_password;
   private api_user_pesan_aktif = this.api_url + environment.ahmadApi.user.pesan_aktif;  
-  private api_user_update_as_read = this.api_url + environment.ahmadApi.user.update_as_read;  
+  private api_user_update_as_read = this.api_url + environment.ahmadApi.user.update_as_read; 
+  private api_pesan_unread_byuser = this.api_url + environment.ahmadApi.user.pesan_unread_byuser;   
   private api_user_pesan_delete = this.api_url + environment.ahmadApi.user.pesan_delete;  
   private api_user_verification = this.api_url + environment.ahmadApi.user.user_verification;  
   
@@ -250,6 +251,16 @@ export class AhmadproviderService {
       });
     });
   }
+  user_pesan_unread(user_id) {
+    return new Promise(resolve => {
+      this.httpclient.get(this.api_pesan_unread_byuser+ user_id).subscribe(data => {
+        resolve(data);
+      }, err => {
+        console.log(err);
+      });
+    });
+  }
+
   update_pesan_as_read(id_pesan) {
     let data = {
       "id_pesan": id_pesan,
@@ -911,10 +922,11 @@ export class AhmadproviderService {
   //#endregion
 
   //#region Proses Donatur 
-  save_donasi_temp(rekening_id,donasi_tanggal,jumlah_santri,donasi_tagih,donasi_total_harga,donasi_cara_bayar, donasiproduk) {
+  save_donasi_temp(rekening_id,donasi_tanggal,donasi_temp_kode_unik,jumlah_santri,donasi_tagih,donasi_total_harga,donasi_cara_bayar, donasiproduk) {
     let data = {
       "rekening_id": rekening_id,
       "donasi_tanggal": donasi_tanggal,
+      "donasi_temp_kode_unik": donasi_temp_kode_unik,
       "donasi_jumlah_santri": jumlah_santri,
       "temp_donasi_nominal": donasi_tagih,
       "donasi_total_harga":donasi_total_harga,
@@ -1122,7 +1134,7 @@ export class AhmadproviderService {
     });
   }
 
-  simpan_donasi(donatur_id,rekening_id,donasi_tanggal,jumlah_santri,donasi_tagih,donasi_total_harga,donasi_cara_bayar, donasiproduk,donasi_random_santri) {
+  simpan_donasi(donatur_id,rekening_id,donasi_tanggal,donasi_kode_unik,jumlah_santri,donasi_tagih,donasi_total_harga,donasi_cara_bayar, donasiproduk,donasi_random_santri) {
     let data = {
       "donatur_id": donatur_id,
       "rekening_id": rekening_id,
@@ -1131,6 +1143,7 @@ export class AhmadproviderService {
       "donasi_cara_bayar":donasi_cara_bayar,
       "donasi_jumlah_santri": jumlah_santri,
       "donasi_tanggal": donasi_tanggal,
+      "donasi_kode_unik":donasi_kode_unik,
       "donasiproduk": donasiproduk,
       "donasi_random_santri": donasi_random_santri
     };
@@ -1353,8 +1366,36 @@ export class AhmadproviderService {
   async removeItemDonasi() {
     await localStorage.removeItem("item_donasi");
   }
-  clearLocalstorage(){
-    localStorage.clear();
+  clearLocalstorage(){    
+    localStorage.removeItem("usrinfo");
+    localStorage.removeItem("item_donasi");
+    localStorage.removeItem("login_mode");
+    localStorage.removeItem("mode");
+    localStorage.removeItem("referal_kode");
+  }  
+  seDarkMode() {
+    localStorage.setItem("darkMode", 'dark');
+    /* 
+      set element to dark
+    */
+   document.body.setAttribute('color-theme','dark');   
+   let htmlclass= document.querySelector('html').classList ;          
+   htmlclass.add("class",'dark');  
+  }
+  removeDarkMode() {
+    localStorage.removeItem("darkMode");
+    /* 
+      remove element to dark
+    */
+    document.body.setAttribute('color-theme','light'); 
+    let htmlclass= document.querySelector('html').classList ;          
+    htmlclass.remove('dark');       
+  }
+  isDarkMode(){
+    let retVal:string ='0'; 
+    let darkMode =localStorage.getItem("darkMode");
+    if (darkMode) retVal='1';
+    return retVal;         
   }
   go_previous_page() {
     this.location.back();
@@ -1562,6 +1603,15 @@ export class AhmadproviderService {
   }
   go_page_pengiriman_status_donasi(){
     this.route.navigateByUrl('/pengiriman-status-donasi');   
+  }
+  go_page_daftar_santri_penilaian(){
+    this.route.navigateByUrl('/daftar-santri-penilaian');    
+  }
+  random_kode_unik(){
+      let max=999;
+      let kode_unik:number = Math.floor(Math.random() * max);
+      let nomor: string= kode_unik.toString().padStart(3, '0');
+      return nomor;
   }
 
 

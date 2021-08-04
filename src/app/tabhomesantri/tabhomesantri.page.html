@@ -6,9 +6,12 @@
       </ion-button>
     </ion-buttons>
     <ion-buttons slot="end">
-      <ion-button (click)="goInfoMasuk()">
-        <ion-icon slot="icon-only" name="notifications-circle-outline"></ion-icon>
-      </ion-button>
+      <ion-button (click)="goInfoMasuk()" style="height: 60px;width: 60px;">
+        <ion-icon slot="icon-only" name="notifications-circle-outline" style="zoom:1.1"></ion-icon>
+        <ion-badge color="danger" style="position: absolute; right: -7px; top: -1px;">
+          <span style="font-size:9px " *ngIf="adaPesan">{{unread_pesan}}</span>
+        </ion-badge>
+      </ion-button>    
     </ion-buttons>
     <ion-title class="ion-text-center" style="margin-left:-50px">Dashboard Santri</ion-title>
   </ion-toolbar>

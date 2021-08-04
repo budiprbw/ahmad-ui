@@ -128,6 +128,7 @@
           object-fit: contain;              
         }      
         .button_masuk {
+          width: 88px;
           height: 40px;
           flex-grow: 0;
           display: flex;
@@ -953,7 +954,7 @@
             object-fit: contain;
             border-radius: 14px;
             box-shadow: 2px 4px 4px 0 rgba(0, 0, 0, 0.15);
-            background-color: var(--ion-color-black);
+           //background-color: var(--ion-color-black);
         }
         .card6-sign-up{
           //width: 154px;
@@ -2055,12 +2056,12 @@
         }
         .ahmad-tgl-pengingat
             {   
-            width: 46px;
+            width: 96px;
             // height: 20px;
             margin: 5px 241px 0px 10px;
             font-family: Poppins;
-            font-size: 8px;
-            font-weight: 500;
+            font-size: 10px;
+            font-weight: 600;
             font-stretch: normal;
             font-style: normal;
             line-height: 2.5;
@@ -2126,7 +2127,7 @@
         .ahmad-box-progress-value{
           width: 150px;
           height: 48px;
-          margin: 5px 71px 0;
+          margin: 5px 71px 0px 40px;
           font-family: Poppins;
           font-size: 32px;
           font-weight: bold;
@@ -2139,7 +2140,7 @@
         }
         .ahmad-card-title{
           height: 20px;
-          margin: 0 0px 12px 0;
+          margin: 0 0px 15px 0;
           font-family: Poppins;
           font-size: 14px;
           font-weight: 600;
@@ -2423,6 +2424,7 @@
       background-image: url('../assets/images/logo_dark.svg');
     }
     .button_masuk {
+      width: 88px;
       height: 40px;
       flex-grow: 0;
       display: flex;
@@ -2789,8 +2791,8 @@
                  padding: 16px 20px;
                  object-fit: contain;
                  border-radius: 14px;
-               box-shadow: 2px 4px 4px 0 rgba(0, 0, 0, 0.15);
-                 background-color: var(--ion-color-goldd);
+                 box-shadow: 2px 4px 4px 0 rgba(0, 0, 0, 0.15);
+                 //background-color: var(--ion-color-goldd);
              }
              .card6-sign-up{
                //width: 154px;
@@ -2975,7 +2977,7 @@
               color: var(--ion-color-black);
             }
             .card5-Frequently-Ask-Question {
-              width: 389px;
+              //width: 389px;
               height: 48px;
               font-family: Poppins;
               font-stretch: normal;

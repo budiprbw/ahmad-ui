@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center" style="margin-left:-150px" >Penilaian Santri</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="w-full" [scrollEvents]="true">
+  <ion-grid class="donasi-santri-list  lg:w-480 w-375">
+    <ion-row>
+      <ion-col>
+        <div class="donasi-santri-box-title lg:ml-1">
+          <div class="donasi-santri-title">{{santri_list_title}}</div>
+          <div class="donasi-santri-text">{{total_santri}} Santri</div>
+          <ion-text color="danger">
+            <h5>{{error_msg}}</h5>
+          </ion-text>
+        </div>        
+        <div *ngFor="let item of santrilist;">
+          <ion-card class="ahmad-card lg:ml-1" style="padding: 0px">
+            <div (click)="goLihatDetail(item)">
+              <ion-avatar class="pt-4 pl-3">
+                <img [src]="getPhoto(item)" style="height: 30px;width:30px;">
+              </ion-avatar>
+              <ion-icon name="chevron-forward-circle-outline" style="color: black;zoom:1.5;padding-left:98px;cursor: pointer;position: absolute;top: 35%;"></ion-icon>
+              <div class="daftar-nama-santri"  style="cursor: pointer" >
+                {{item.santri_nama}}                            
+              </div>                                      
+            </div>
+          </ion-card>
+        </div>
+      </ion-col>
+    </ion-row>
+    </ion-grid> 
+</ion-content>
