@@ -189,11 +189,12 @@ export class AhmadproviderService {
       });
     });
   }
-  user_login(user_name, user_password, user_tipe) {
+  user_login(user_name, user_password, user_tipe,remember_token) {
     let data = {
       "email": user_name,
       "password": user_password,
       "tipe": user_tipe,
+      "remember_token": remember_token
     };
     return new Promise(resolve => {
       this.httpclient.post(this.api_user_login, data).subscribe(data => {
@@ -203,9 +204,10 @@ export class AhmadproviderService {
       });
     });
   }
-  user_login_gmail(user_name) {
+  user_login_gmail(user_name,remember_token) {
     let data = {
-      "email": user_name
+      "email": user_name,
+      "remember_token": remember_token
     };
     return new Promise(resolve => {
       this.httpclient.post(this.api_user_login_gmail, data).subscribe(data => {
@@ -926,7 +928,7 @@ export class AhmadproviderService {
     let data = {
       "rekening_id": rekening_id,
       "donasi_tanggal": donasi_tanggal,
-      "donasi_temp_kode_unik": donasi_temp_kode_unik,
+      "temp_donasi_kode_unik": donasi_temp_kode_unik,
       "donasi_jumlah_santri": jumlah_santri,
       "temp_donasi_nominal": donasi_tagih,
       "donasi_total_harga":donasi_total_harga,
@@ -1373,6 +1375,22 @@ export class AhmadproviderService {
     localStorage.removeItem("mode");
     localStorage.removeItem("referal_kode");
   }  
+  setPushNotifToken(token){
+    console.log('set token ' + token);
+    localStorage.setItem("remember_token", token);
+  }
+  getPushNotifToken(){
+    let result="";
+    let token =localStorage.getItem("remember_token");
+    if (token){
+      result=token;
+    }
+    return result;
+  }
+  removePushNotifToken(token){
+    localStorage.removeItem("remember_token");
+  }
+
   seDarkMode() {
     localStorage.setItem("darkMode", 'dark');
     /* 
@@ -1509,8 +1527,8 @@ export class AhmadproviderService {
   go_page_home(){
     let usrinfo:any = this.getUserInfo(); 
     if(usrinfo!=null){
-      if (usrinfo.login_by=="gmail"){
-        this.fireAuth.signOut().then(() => {
+      if (usrinfo.login_by=="gmail"){        
+        this.fireAuth.signOut().then(() => {          
         });
       }
     }

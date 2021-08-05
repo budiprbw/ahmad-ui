@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
 import { Push, PushObject, PushOptions } from '@ionic-native/push/ngx';
+import { AhmadproviderService } from './ahmadprovider.service';
 
 @Component({
   selector: 'app-root',
@@ -19,6 +20,7 @@ export class AppComponent implements OnInit  {
     private statusBar: StatusBar,
     private push: Push,
     public alertCtrl: AlertController,
+    public asp:AhmadproviderService
   ) {}
   ngOnInit(): void{
     
@@ -27,6 +29,9 @@ export class AppComponent implements OnInit  {
       this.splashScreen.hide();
       if (this.platform.is('android')){
         this.pushSetup();
+      }
+      else{
+        this.asp.setPushNotifToken('-1');
       }
       
 
@@ -112,6 +117,7 @@ export class AppComponent implements OnInit  {
     pushObject.on('registration').subscribe((registration: any) => {
       let token:any  = registration.registrationId;
       console.log('Device registered', token);
+      this.asp.setPushNotifToken(token);
     });
 
     pushObject.on('notification').subscribe((notification: any) =>  {   
@@ -128,14 +134,15 @@ export class AppComponent implements OnInit  {
               {
                 text: 'Open',
                 handler: () => {
-                  console.log('I care about humanity');
-                  this.router.navigate([landing_page, referal_id]);
+                  console.log('Open page');
+                  //this.router.navigate([landing_page, referal_id]);
                 }
               },
               {
                 text: 'Back to home',
                 handler: () => {
-                  this.router.navigateByUrl('/webdashboard');   
+                  //this.router.navigateByUrl('/webdashboard');   
+                  console.log('Back to home');
                 }
               }
             ]
@@ -145,7 +152,7 @@ export class AppComponent implements OnInit  {
         }
         else
         {
-          this.router.navigate([landing_page, referal_id]);
+          //this.router.navigate([landing_page, referal_id]);
           console.log('Received a notification', notification);
         }          
     });

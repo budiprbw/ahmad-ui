@@ -1,11 +1,11 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
+    <ion-buttons slot="start" class="hidden">
       <ion-button (click)="goBack()">
         <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title class="ion-text-center">Program Santri</ion-title>
+    <ion-title class="ion-text-center text-gold">Program Santri</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content class="w-full" [scrollEvents]="true">
@@ -13,10 +13,10 @@
     <ion-row>
       <ion-col>
         <ion-card class="ahmad-card lg:ml-16 ml-0">
-          <div class="ahmad-card-title">Status Pengiriman Paket Pembelajaran</div>
-          <div class="ahmad-card-title">
-            <ion-icon name="checkmark-circle" color="success"></ion-icon>{{santri_status_text}}
-            <ion-icon name="arrow-forward-circle-outline" style="color: black;padding-left:140px;cursor: pointer; " (click)="goStatusPengiriman()"></ion-icon>
+          <div class="Status-Pengiriman-Paket-Pembelajaran">Status Pengiriman Paket Pembelajaran</div>
+          <div class="Paket-sudah-diterima">
+            <ion-icon name="checkmark-circle" color="success" ></ion-icon>{{santri_status_text}}
+            <ion-icon name="arrow-forward-circle-outline" style="float:right; color: black;cursor: pointer; " (click)="goStatusPengiriman()"></ion-icon>
           </div>
         </ion-card>
         <ion-card class="ahmad-card lg:ml-16  ml-0" *ngIf="noProgram">

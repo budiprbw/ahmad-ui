@@ -132,7 +132,9 @@ export class LoginPage implements OnInit {
     this.asp.go_page_registrasi(this.login_mode);
   }
   goLogin_gmail() {
-    this.asp.user_login_gmail(this.user_email).then(
+    let remember_token = this.asp.getPushNotifToken();
+    console.log(remember_token);
+    this.asp.user_login_gmail(this.user_email,remember_token).then(
       data => {
         this.response = data;
         if (this.response.status == 'error') {
@@ -172,7 +174,8 @@ export class LoginPage implements OnInit {
     this.asp.dismissLoading();
   }
   getuserlogin() {
-    this.asp.user_login(this.user_email, this.user_password, this.user_tipe).then(
+    let remember_token = this.asp.getPushNotifToken();
+    this.asp.user_login(this.user_email, this.user_password, this.user_tipe,remember_token).then(
       data => {
         this.response = data;
         if (this.response.status == 'error') {

@@ -14,7 +14,7 @@ export class ViewPembayaranDonasiPage implements OnInit {
   public total_donasi:string="";
   public durasi_donasi:string="";
   public qty_donasi:string="";  
-  public kode_unik:number=212;  
+  public kode_unik:number=0;  
   public nominal_donasi_text:string="";  
   public gran_total:number=0;  
   public gran_total_text:string="";  
@@ -54,9 +54,10 @@ export class ViewPembayaranDonasiPage implements OnInit {
     this.router.queryParams.subscribe(params => {
       if (this.route.getCurrentNavigation().extras.state) {
             this.item_donasi = this.route.getCurrentNavigation().extras.state.item_donasi;
-            let kode_unik:number=212;
+            
             let durasi_donasi:number= 0;
             this.donasi_tanggal=this.item_donasi.donasi_tanggal;
+            this.kode_unik=this.item_donasi.cicilan[0].bayar.bayar_kode_unik;
             durasi_donasi=this.item_donasi.donasi_total_harga/this.item_donasi.donasi_nominal;
             let cara_bayar =this.item_donasi.donasi_cara_bayar;
               switch (cara_bayar) {
@@ -78,7 +79,7 @@ export class ViewPembayaranDonasiPage implements OnInit {
             this.qty_donasi= this.item_donasi.donasi_jumlah_santri;
             this.durasi_donasi= this.format_number(durasi_donasi);
             let total_bayar = parseFloat(this.item_donasi.donasi_nominal);
-            this.gran_total = (total_bayar+kode_unik);
+            this.gran_total = (total_bayar+this.kode_unik);
             this.gran_total_text ="Rp." + this.format_number(this.gran_total);     
             this.getBank();
             

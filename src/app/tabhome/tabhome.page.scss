@@ -127,7 +127,7 @@ ion-toolbar {
       }
       .dashboard-donatur-sudah-donasi{
         width: 343px;
-        height: 273px;
+        //height: 273px;
         //margin: 24px 16px 16px 10px;        
         padding: 16px 15px 36px 15px;
         border-radius: 14px;
@@ -169,11 +169,11 @@ ion-toolbar {
         background-color: var(--ion-color-black);
       }
       .dashboard-donatur-box-progress{
-        position: absolute;
-        top: 50%;
+        //position: absolute;
+        //top: 50%;
         width: 300px;
         height: 80px;
-        margin: 15px 0 16px 5px;
+        margin: 20px 0 16px 5px;
         padding: 6px 50px 6px 31px;
         border-radius: 14px;
         border: solid 1px var(--ion-color-goldd);

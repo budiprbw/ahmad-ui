@@ -1,20 +1,30 @@
 
-  .dashboard-santri-Lihat-Detail {
-    height: 20px;
-    flex-grow: 0;
-    margin: 0 6px 0 0;
-    padding-top: 10px;
-    font-family: Poppins;
-    font-size: 12px;
-    font-weight: 500;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: 1.67;
-    letter-spacing: normal;
-    text-align: left;
-    color: var(--ion-color-black);
-    float:right;
-    cursor: pointer;
-  }
+.dashboard-santri-Lihat-Detail {
+  //height: 20px;
+  flex-grow: 0;
+  margin: 0 6px 0 0;
+  padding-top: 10px;
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.67;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--ion-color-black);
+  float:right;
+  cursor: pointer;
+}
 
-  
+.vector{
+  width: 16px;
+  height: 16px;
+  flex-grow: 0;
+  margin: 2px 0 2px 4px;
+  object-fit: contain;
+  position: absolute;
+}
+ion-toolbar {
+  --background: var(--ion-color-black);
+}

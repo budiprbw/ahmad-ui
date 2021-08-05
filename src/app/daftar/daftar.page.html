@@ -17,12 +17,12 @@
                 <div class="daftar-Rectangle-630" >
                   <ion-input [type]="getType_1()" class="flex items-center" placeholder="password anda" required [(ngModel)]="newpassword" name="newpassword" >                      
                   </ion-input>
-                  <ion-icon name="eye"  (click)="toggleTextPassword_1()" style="padding-left:15px;cursor:pointer" slot=“end”  ></ion-icon>                  
+                  <ion-icon [name]="getName_1()"  (click)="toggleTextPassword_1()" style="padding-left:15px;cursor:pointer" slot=“end”  ></ion-icon>                  
                 </div>  
                 <div class="daftar-Rectangle-630" >
                   <ion-input [type]="getType_2()" placeholder="ulangi password anda" [(ngModel)]="confirmassword" required  name="confirmassword" >                      
                   </ion-input>                  
-                  <ion-icon name="eye" (click)="toggleTextPassword_2()" style="padding-left:15px;cursor:pointer" slot=“end” ></ion-icon>
+                  <ion-icon [name]="getName_2()" (click)="toggleTextPassword_2()" style="padding-left:15px;cursor:pointer" slot=“end” ></ion-icon>
                 </div>
                 <ion-text color="danger"><h3>{{error_msg}}</h3></ion-text>
                 <ion-button fill="clear" class="masuk-santri-donatur-button" (click)="goBuatpassword()">

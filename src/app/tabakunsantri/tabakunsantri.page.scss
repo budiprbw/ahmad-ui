@@ -1,5 +1,5 @@
 ion-toolbar {
---background: var(--ion-color-goldd);
+--background: var(--ion-color-black);
 }
 .santri-akun-Ellipse-87 {
     width: 48px;
@@ -68,7 +68,7 @@ ion-toolbar {
     cursor: pointer;
   }
   .santri-akun-rubah-profile-text{
-    width: 130px;
+    width: 180px;
     height: 20px;
     margin: 0 173px 0 0;
     font-family: Poppins;
@@ -93,7 +93,7 @@ ion-toolbar {
     cursor: pointer;
   }
   .santri-akun-rubah-password-text{
-    width: 180px;
+    width: 280px;
     height: 20px;
     margin: 0 173px 0 0;
     font-family: Poppins;
@@ -138,14 +138,13 @@ ion-toolbar {
 .vector1{
     position: absolute;
     top:7%;
-    margin: 3px 0px 0px 115px;    
+    margin: 3px 0px 0px 108px;    
     flex-grow: 0;
     zoom: 1.5;
   }
   .vector2{
     position: absolute;
     top:31%;
-    margin: 16px;
     margin:  3px 0px 0px 90px;
     flex-grow: 0;
     zoom: 1.5;
@@ -153,7 +152,6 @@ ion-toolbar {
   .vector3{
     position: absolute;
     top:55%;
-    margin: 16px;
     margin: 3px 0px 0px 98px;
     flex-grow: 0;
     zoom: 1.5;
@@ -161,7 +159,6 @@ ion-toolbar {
   .vector4{
     position: absolute;
     top:78%;
-    margin: 16px;
     margin:3px 0px 0px 152px;
     flex-grow: 0;
     zoom: 1.5;

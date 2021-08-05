@@ -1,10 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { ActivatedRoute, Router } from '@angular/router';
-import { LoadingController, Platform } from '@ionic/angular';
-import { AngularFireAuth } from '@angular/fire/auth';
-import  firebase from 'firebase';
-import { Location } from '@angular/common';
 import { AhmadproviderService } from '../ahmadprovider.service';
 
 @Component({
@@ -23,11 +18,6 @@ export class SigninPage implements OnInit {
   public isRegistrasi:boolean=false;
 
   constructor(
-    private google: GooglePlus,
-    public loadingController: LoadingController,
-    private fireAuth: AngularFireAuth,
-    private platform: Platform,
-    public location: Location,
     public asp: AhmadproviderService,
     private router: ActivatedRoute,
     public route: Router,

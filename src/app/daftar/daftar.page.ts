@@ -178,7 +178,7 @@ export class DaftarPage implements OnInit {
     let item_donasi = {
       "donasi_tanggal": this.donasi.donasi_tanggal,
       "donasi_cara_bayar": this.donasi.donasi_cara_bayar,
-      "donasi_temp_kode_unik": this.donasi.donasi_temp_kode_unik,
+      "donasi_temp_kode_unik": this.donasi.cicilan[0].bayar.bayar_kode_unik,
       "jenis_donasi_text": jenis_donasi_text,
       "donasi_tagih": this.donasi.donasi_nominal,
       "donasi_total_harga": this.donasi.donasi_total_harga,
@@ -197,6 +197,13 @@ export class DaftarPage implements OnInit {
     this.asp.go_page_home();
   }
 
-
+  public getName_1(){
+    return this.isActiveToggleTextPassword_1 ? 'eye':'eye-off-outline';
+    
+  }
+  public getName_2(){
+    return this.isActiveToggleTextPassword_2 ? 'eye':'eye-off-outline';
+    
+  }
 
 }
