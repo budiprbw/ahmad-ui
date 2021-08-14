@@ -4,11 +4,12 @@
             <ion-toolbar >
                 <ion-title>
                     <div class="hidden lg:block lg:flex justify-between ">
+                        <div class="lg:w-70">&nbsp;</div>
                         <div class="logo flex-initial text-justify"></div>
                         <div class="menu-header"><a class="dark:text-gold text-black" href="#tentang_ahmad">Program AHMad Project</a></div>
-                        <div class="menu-header" routerLink="/paket-pembelajaran">Paket Pembelajaran</div>
-                        <div class="menu-header" routerLink="/donasi-program">Menjadi Donatur</div>
-                        <div class="menu-header pl-8" routerLink="/faq-list">FAQ</div>
+                        <div class="menu-header"><a class="dark:text-gold text-black" href="#product">Paket Pembelajaran</a></div>
+                        <div class="menu-header"><a class="dark:text-gold text-black" href="#menjadi_donatur">Menjadi Donatur</a></div>
+                        <div class="menu-header"><a class="dark:text-gold text-black" href="#FAQ">FAQ</a></div>
                         <div class="menu-header"><a class="dark:text-gold text-black" href="#kemitraan">Kemitraan</a></div>
                         <div class="menu-header"><a class="dark:text-gold text-black kontak" href="#kontak" >Kontak</a></div>
                     </div>
@@ -22,8 +23,7 @@
                     Masuk 
                 </ion-text>
             </ion-button>
-            
-            <ion-button class="font-poppins  lg:block hidden g:block lg:bg-black dark:bg-gold  dark:text-gold lg:text-gold lg:rounded-xl" style="height: 40px;" slot="end" fill="clear" routerLink="/signin" [queryParams]="{mode: 'Registrasi'}">
+            <ion-button class="font-poppins  lg:block hidden g:block lg:bg-black dark:bg-gold  dark:text-gold lg:text-gold lg:rounded-xl" style="height: 40px;margin-right: 98px" slot="end" fill="clear" routerLink="/signin" [queryParams]="{mode: 'Registrasi'}">
                 <ion-text class="Sign-up-registrasi normal-case">
                     Registrasi
                 </ion-text>
@@ -32,83 +32,82 @@
         </ion-toolbar>
     </div>
 </ion-header>
-<ion-content class="w-full" [scrollEvents]="true" 
-(ionScroll)="getScrollPos($event)" >
-<ion-slide>
-    <ion-grid class="font-poppins lg:bg-terang dark:bg-gelap">                                    
-        <ion-row>
-            <ion-col>                                            
-                <div class="bg-auto bg-no-repeat bg-cover h-auto rounded-2xl text-gold font-poppins text-left pr-1 " *ngIf="no_data_lembaga">
-                    <div class="grid grid-rows-3  lg:grid-rows-1 grid-cols-1 absolute pl-8 lg:pt-10">
-                        <div class="text-md-24  pt-2 lg:pt-20 pt-5 lg:text-md-62 lg:font-semibold  lg:pl-12 tracking-tight ">
-                            <div >Belajar Alquran <span class="text-white">lebih,</span></div>
-                            <div><span class="text-white">Bersedekah</span> Lebih</div>
-                        </div>
-                        <div class=" text-md-12 font-semibold text-left lg:text-md-20 lg:pt-1  lg:pl-12 pr-10 text-justify tracking-tight " >
-                            <div>Asmaul Husna Makna dan Doa (AHMaD) project adalah sebuah</div>
-                            <div>program khusus untuk siapa saja yang ingin belajar memahami makna</div>
-                            <div>dibalik nama-nama ALLAH SWT yang terdapat didalam Ayat Alquran</div>
-                        </div>
-                        <div class="hidden lg:block lg:pt-20 lg:pl-10 ">
-                            <ion-button fill="clear" class="card1-button_lanjut " routerLink="/signin">
-                                <ion-text class="Sign-up normal-case lg:pr-3">
-                                    Pelajari Lebih Lanjut
-                                </ion-text>                                
-                                <ion-icon name="chevron-forward-circle-outline" class="text-black items-center " ></ion-icon>
-                            </ion-button>                            
-                        </div>
+<ion-content class="w-full" [scrollEvents]="true" (ionScroll)="getScrollPos($event)"  >
+<ion-slide>   
+    <ion-grid class="font-poppins lg:bg-terang dark:bg-gelap "   no-padding >
+            <div class="grid lg:grid-rows-1 lg:grid-cols-card grid-rows-1 grid-cols-device ">
+                    <div >&nbsp;</div>
+                    <div class="bg-cover h-auto rounded-2xl text-gold font-poppins text-left mt-10"  *ngIf="no_data_lembaga">
+                            <div class="grid grid-rows-3  lg:grid-rows-1 grid-cols-1 absolute pl-8 lg:pt-10">
+                                <div class="text-md-24  pt-2 lg:pt-20 pt-5 lg:text-md-62 lg:font-semibold  lg:pl-12 tracking-tight ">
+                                    <div >Belajar Alquran <span class="text-white">lebih,</span></div>
+                                    <div><span class="text-white">Bersedekah</span> Lebih</div>
+                                </div>
+                                <div class=" text-md-12 font-semibold text-left lg:text-md-20 lg:pt-1  lg:pl-12 pr-10 text-justify tracking-tight " >
+                                    <div>Asmaul Husna Makna dan Doa (AHMaD) project adalah sebuah</div>
+                                    <div>program khusus untuk siapa saja yang ingin belajar memahami makna</div>
+                                    <div>dibalik nama-nama ALLAH SWT yang terdapat didalam Ayat Alquran</div>
+                                </div>
+                                <div class="hidden lg:block lg:pt-20 lg:pl-10 ">
+                                    <ion-button fill="clear" class="card1-button_lanjut " routerLink="/signin">
+                                        <ion-text class="Sign-up normal-case lg:pr-3">
+                                            Pelajari Lebih Lanjut
+                                        </ion-text>                                
+                                        <ion-icon name="chevron-forward-circle-outline" class="text-black items-center " ></ion-icon>
+                                    </ion-button>                            
+                                </div>
+                            </div>
+                            <div class="lg:hidden block ">
+                                <img src="assets/images/banner.webp" style="no-repeat;min-width: 100%; min-height: 100%;width:357px;height: 260px;"  >
+                            </div>           
+                            <div class="lg:block hidden">
+                                  <img src="assets/images/banner@2x.webp"  class="banner"  >
+                            </div>
+                            <div [ngClass]="is_dark_mode=='0'?'button-dark-mode-false':'button-dark-mode-true'" (click)="darkmode()" style="z-index: 102"></div>                
+                            <div class="Ellipse-1" (click)="gotToTop()" style="z-index: 102"> </div>
                     </div>
-                    <div class="lg:hidden block ">
-                        <img src="assets/images/banner.webp" style="no-repeat;min-width: 100%; min-height: 100%;width:357px;height: 260px;"  >
-                    </div>           
-                    <div class="lg:block hidden">
-                            <img src="assets/images/banner.webp" style="no-repeat;min-width: 100%; min-height: 100%;width:1292px;height: 708px;"  >
-                    </div>
-                    <div [ngClass]="is_dark_mode=='0'?'button-dark-mode-false':'button-dark-mode-true'" (click)="darkmode()" style="z-index: 102"></div>
-
-                    <div class="Ellipse-1" (click)="gotToTop()" style="z-index: 102"> </div>
-                </div>
-
-            </ion-col>
-        </ion-row>
+                    <div>&nbsp;</div>
+            </div>
         <ion-row class="mb-10">
-            <ion-col>                    
-                    <div class="bg-white bg-auto lg:w-1275 dark:bg-gelapbaru  rounded-3xl shadow-md mt-5 lg:ml-6 lg:mr-10" *ngIf="no_data_lembaga" id="tentang_ahmad">
-                        <div class="text-md-18 dark:text-gold text-center lg:text-5xl text-black font-bold font-poppins mt-5 lg:pt-9 mb-5">
-                            {{line_data_lembaga.lembaga_tentang_ahmad_judul}}
-                        </div>
-                        <div class="dark:text-bluey_grey lg:text-black text-justify pr-5 lg:mr-10 pl-5 lg:pl-12 text-md-12 lg:text-md-18 ">
-                            <span [innerHTML]="html_entity(line_data_lembaga.lembaga_tentang_ahmad_isi)"></span>
-                        </div>
-                        
-                        <ion-slides [options]="slideOptsOne">
+            <ion-col>               
+                    <div class="grid lg:grid-rows-1 lg:grid-cols-card-1 grid-cols-1 grid-rows-1 grid-cols-device   ">
+                        <div >&nbsp;</div>
+                        <div class="bg-white bg-auto dark:bg-gelapbaru  rounded-3xl shadow-md mt-5 " *ngIf="no_data_lembaga"
+                            id="tentang_ahmad">
+                            <div class="text-md-18 dark:text-gold text-center lg:text-5xl text-black font-bold font-poppins mt-5 lg:pt-9 mb-5">
+                                {{line_data_lembaga.lembaga_tentang_ahmad_judul}}
+                            </div>
+                            <div class="dark:text-bluey_grey lg:text-black text-justify pr-5 lg:mr-10 pl-5 lg:pl-12 text-md-12 lg:text-md-18 ">
+                                <span [innerHTML]="html_entity(line_data_lembaga.lembaga_tentang_ahmad_isi)"></span>
+                            </div>                    
+                            <ion-slides [options]="slideOptsOne">
                                 <ion-slide *ngFor="let data of images_carousel">
                                     <div class="grid grid-rows-1 grid-cols-1 lg:grid-rows-1 lg:grid-cols-program gap-1 lg:pl-12 lg:mt-9  mt-3">
                                         <div class="lg:block hidden ">
-                                            <div >
-                                                    <img src="{{data.image_santri}}" style="no-repeat;width: 500px; height:321px;" />
-                                            </div>                                                                                              
+                                            <div>
+                                                <img src="{{data.image_santri}}" style="no-repeat;width: 500px; height:321px;" />
+                                            </div>
                                         </div>
                                         <div class="lg:p-sm lg:block hidden lg:mb-20">
-                                                <div class="lg:mt-5 font-poppins font-bold text-black dark:text-gold text-xl lg:text-5xl lg:font-bold text-left">
-                                                    {{data.carousel_title}}
-                                                </div>
-                                                <div class="lg:mr-10 lg:mt-5 font-poppins font-bold text-black dark:text-bluey_grey text-justify">
-                                                    <span [innerHTML]="html_entity(data.carousel_content)"></span>
-                                                </div>
-                                                <div class="lg:h-4 lg:w-10 lg:mt-5 mt-5">
-                                                    <ion-button fill="clear" class="lg:h-12 lg:w-72 h-52 w-307 bg-white rounded-2xl  border-black dark:border-gold border bg-white  dark:bg-gelapbaru  lg:border-black lg:border"
-                                                        routerLink="/signin">
-                                                        <ion-text class=" text-black dark:text-gold  text-md-14 lg:text-black lg:text-md-16  items-center normal-case lg:pr-3">
-                                                            Pelajari Lebih Lanjut
-                                                        </ion-text>
-                                                        <ion-icon name="chevron-forward-circle-outline" class="dark:text-gold text-black     items-center"></ion-icon>
-                                                    </ion-button>
-                                                </div>
+                                            <div class="lg:mt-5 font-poppins font-bold text-black dark:text-gold text-xl lg:text-5xl lg:font-bold text-left">
+                                                {{data.carousel_title}}
+                                            </div>
+                                            <div class="lg:mr-10 lg:mt-5 font-poppins font-bold text-black dark:text-bluey_grey text-justify">
+                                                <span [innerHTML]="html_entity(data.carousel_content)"></span>
+                                            </div>
+                                            <div class="lg:h-4 lg:w-10 lg:mt-5 mt-5">
+                                                <ion-button fill="clear" class="lg:h-12 lg:w-72 h-52 w-307 bg-white rounded-2xl  border-black dark:border-gold border bg-white  dark:bg-gelapbaru  lg:border-black lg:border"
+                                                    routerLink="/signin">
+                                                    <ion-text class=" text-black dark:text-gold  text-md-14 lg:text-black lg:text-md-16  items-center normal-case lg:pr-3">
+                                                        Pelajari Lebih Lanjut
+                                                    </ion-text>
+                                                    <ion-icon name="chevron-forward-circle-outline" class="dark:text-gold text-black     items-center"></ion-icon>
+                                                </ion-button>
+                                            </div>
                                         </div>
                                         <div class="lg:hidden block ">
                                             <table>
-                                                <tr >
+                                                <tr>
                                                     <td class="pl-3">
                                                         <img src="{{data.image_santri}}" style="no-repeat;width: 307px; height:197;" />
                                                     </td>
@@ -141,240 +140,261 @@
                                                     </td>
                                                 </tr>
                                             </table>
-                                         </div>   
+                                        </div>
                                     </div>
-                                </ion-slide>                                
-                        </ion-slides>
-                
-                    </div>
-            </ion-col>
-        </ion-row>
-        <ion-row class="mb-5">
-            <ion-col>
-                <ion-card class="bg-white  dark:bg-gelapbaru  rounded-3xl shadow-md mt-5 lg:ml-6 lg:mr-10 lg:min-h-530 lg:w-1275">
-                    <div class="grid grid-rows-1 grid-cols-1 lg:grid-rows-1 lg:grid-cols-paket lg:gap-1">
-                        <div class="rounded-lg bg-cover lg:w-474 pl-3">
-                            <img src="assets/images/image-paket-2.webp"  style="no-repeat;min-width: 100%;height:100%;" class="w-343 h-343" />
+                                </ion-slide>
+                            </ion-slides>                    
                         </div>
-                        <div class="lg:p-md">
-                            <div class="font-poppins font-bold text-black text-md-18 dark:text-gold lg:text-5xl lg:font-bold text-left mt-10 pl-3">
-                                {{line_data_lembaga.lembaga_landing_produk_judul}}
+                        <div>&nbsp;</div>
+                    </div>
+                </ion-col>
+        </ion-row>
+        <ion-row class="mb-10">
+            <ion-col>
+                    <div class="grid lg:grid-rows-1 lg:grid-cols-card-1 grid-cols-device">
+                            <div >&nbsp;</div>
+                            <div class="bg-white  dark:bg-gelapbaru  rounded-3xl shadow-md lg:min-h-530 ">
+                                <div class="grid grid-rows-2 grid-cols-1 lg:grid-rows-1 lg:grid-cols-paket lg:gap-1">
+                                    <div class="rounded-lg bg-cover lg:w-474 ">
+                                        <img src="assets/images/image-paket-2.webp" style="no-repeat;min-width: 100%;height:100%;" class="w-343 h-343" />
+                                    </div>
+                                    <div class="lg:p-md" id="product">
+                                        <div class="font-poppins font-bold text-black text-md-18 dark:text-gold lg:text-5xl lg:font-bold text-left mt-10 pl-3">
+                                            {{line_data_lembaga.lembaga_landing_produk_judul}}
+                                        </div>
+                                        <div class="font-poppins text-black dark:text-bluey_grey text-justify mt-5 pl-3 pr-5 lg:pr-3 lg:text-md-18 text-md-12 mt-5 font-semibold">
+                                            <span [innerHTML]="html_entity(line_data_lembaga.lembaga_landing_produk_isi)"></span>
+                                        </div>
+                                        <div class="font-poppins font-bold text-black text-md-14 dark:text-bluey_grey lg:text-xl text-left mt-3">
+                                            <div class="lg:flex ">
+                                                <div class="lg:flex-initial lg:h-4 lg:mb-3 mt-5 pl-1">
+                                                    <ion-button fill="clear" class=" h-52 w-311  bg-gold rounded-2xl   lg:bg-gold  lg:rounded-2xl" routerLink="/paket-pembelajaran">
+                                                        <ion-text class=" text-black text-md-14  lg:text-black lg:text-md-16 items-center normal-case lg:pr-3">
+                                                            Lihat Detail Paket Pembelajaran
+                                                        </ion-text>
+                                                        <ion-icon name="chevron-forward-circle-outline" class="text-black items-center"></ion-icon>
+                                                    </ion-button>
+                                                </div>
+                                                <div class="lg:flex-initial lg:h-4 lg:mb-3 mt-2 pl-1">
+                                                    <ion-button fill="clear" class="h-52   w-311 lg:mt-4 bg-white dark:bg-gelapbaru rounded-2xl border-black border bg-white   lg:rounded-2xl border-black dark:border-gold lg:border"
+                                                        (click)="shareLink('santri')">
+                                                        <ion-text class=" text-black text-md-14 dark:text-gold  lg:text-black lg:text-md-16 items-center normal-case lg:pr-3">
+                                                            Bagikan Halaman ini
+                                                        </ion-text>
+                                                        <ion-icon name="share-social-outline" class="text-black dark:text-gold"></ion-icon>
+                                                    </ion-button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                            
                             </div>
-                            <div class="font-poppins text-black dark:text-bluey_grey text-justify mt-5 pl-3 pr-5 lg:pr-10 lg:text-md-18 text-md-12 mt-5 font-semibold">
-                                <span [innerHTML]="html_entity(line_data_lembaga.lembaga_landing_produk_isi)"></span>                                
+                            <div >&nbsp;</div>
+                        </div>
+            </ion-col>
+        </ion-row>        
+        <ion-row class="mb-5" >
+            <ion-col >
+                    <div class="grid lg:grid-rows-1 lg:grid-cols-card  grid-cols-device">
+                    <div>&nbsp;</div>
+                    <div >
+                        <div class=" lg:pl-12 " id="menjadi_donatur">
+                            <div class="font-poppins font-bold text-black text-md-18 lg:text-5xl text-left lg:pt-20 absolute lg:pl-12 pl-5 pt-10 ">
+                                {{line_data_lembaga.lembaga_landing_donatur_judul}}
                             </div>
-                            <div class="font-poppins font-bold text-black text-md-14 dark:text-bluey_grey lg:text-xl text-left mt-3">
-                                <div class="lg:flex ">                                    
-                                    <div class="lg:flex-initial lg:h-4 lg:mb-10 mt-5 pl-1">
-                                        <ion-button fill="clear" class=" h-52 lg:w-336 w-311  bg-gold rounded-2xl   lg:bg-gold  lg:rounded-2xl"
-                                            routerLink="/paket-pembelajaran">
-                                            <ion-text class=" text-black text-md-14  lg:text-black lg:text-md-16 items-center normal-case lg:pr-3">
-                                                Lihat Detail Paket Pembelajaran
+                            <div class="font-poppins lg:pl-12 lg:pt-20 pt-10 absolute pl-5 pr-24 mt-10">
+                                <div class="font-poppins text-justify text-black lg:pt-5 text-md-12 lg:pr-10 lg:w-1060 lg:text-md-18 font-semibold mt-5">
+                                    <span [innerHTML]="html_entity(line_data_lembaga.lembaga_landing_donatur_isi)"></span>
+                                </div>
+                                <div class="lg:flex">
+                                    <div class="lg:flex-initial lg:mt-2 mt-1 lg:pr-5">
+                                        <ion-button fill="clear" class="lg:w-64 w-270 bg-black rounded-2xl  border-black border lg:bg-black   lg:border-black lg:border "
+                                            routerLink="/donasi-program">
+                                            <ion-text class=" text-gold text-md-14 lg:text-gold lg:text-md-16  text-left normal-case lg:pr-3">
+                                                Pelajari Lebih Lanjut
                                             </ion-text>
-                                            <ion-icon name="chevron-forward-circle-outline" class="text-black items-center"></ion-icon>
+                                            <ion-icon name="chevron-forward-circle-outline" class="text-gold"></ion-icon>
                                         </ion-button>
                                     </div>
-                                    <div class="lg:flex-initial lg:h-4 lg:mb-10 mt-2 pl-1">
-                                        <ion-button fill="clear" class="h-52  lg:w-336 w-311 lg:mt-4 bg-white dark:bg-gelapbaru rounded-2xl border-black border bg-white   lg:rounded-2xl border-black dark:border-gold lg:border"
-                                            (click)="shareLink('santri')">
-                                            <ion-text class=" text-black text-md-14 dark:text-gold  lg:text-black lg:text-md-16 items-center normal-case lg:pr-3">
+                                    <div class="lg:flex-initial lg:mt-2 ">
+                                        <ion-button fill="clear" class="lg:w-64 w-270 bg-gold rounded-2xl  border-black border lg:bg-gold lg:border-black lg:border "
+                                            (click)="shareLink('donatur')">
+                                            <ion-text class="text-black text-md-14 lg:text-black lg:text-md-16 text-left normal-case lg:pr-3">
                                                 Bagikan Halaman ini
                                             </ion-text>
-                                            <ion-icon name="share-social-outline" class="text-black dark:text-gold" ></ion-icon>
+                                            <ion-icon name="share-social-outline" class="text-black"></ion-icon>
                                         </ion-button>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="lg:hidden block ">
+                            <img src="assets/images/Rectangle-608-vertical.webp" style="min-height:470px;min-width: 363px;margin-left:-22px" />
+                        </div>                        
+                        <div class="lg:block hidden">   
+                                <img src="assets/images/Rectangle-608-horizontal.webp" style="no-repeat;min-width: 100%; min-height:460px;" class="image-block" />                         
+                        </div>    
+                    </div>
+                    <div>&nbsp;</div>                    
+                    </div>                    
+                    
+            </ion-col>
+        </ion-row>        
+        <ion-row class="mb-5">
+            <ion-col>
+                    <div class="grid lg:grid-rows-1 lg:grid-cols-card-1  grid-cols-device">
+                        <div>&nbsp;</div>
+                        <div class="bg-white dark:bg-gelapbaru rounded-3xl shadow-md  pl-5" id="FAQ">
+                            <div class="card5-Frequently-Ask-Question lg:text-5xl text-md-18 text-black font-bold dark:text-gold lg:pt-10  lg:mb-20">
+                                Frequently Ask Question
+                            </div>
+                            <ion-list class="dark:bg-gelapbaru ">
+                                <div *ngFor="let d of ask_question; let i=index" text-wrap (click)="toggleGroup(i)" [ngClass]="{active: isGroupShown(i)}">
+                                    <div class="flex justify-between card5-Rectangle-614 xs:w-307 lg:w-1060 mt-3 lg:ml-9 mr-2 mb-2 ">
+                                        <div class="card5-title lg:text-md-18 lg:font-bold text-md-12 font-semibold  pt-3 pl-6">{{d.faq_tanya}}</div>
+                                        <div class="pt-3 pr-5">
+                                            <ion-icon color="warning" item-right [name]="isGroupShown(i) ? 'arrow-down-circle-outline' : 'arrow-up-circle-outline'" size="large"></ion-icon>
+                                        </div>
+                                    </div>
+                                    <div *ngIf="isGroupShown(i)" class="text-black text-left text-md-13 dark:text-bluey_grey lg:text-md-18 lg:pl-12 pl-6">{{d.faq_jawab}}</div>
+                                </div>
+                            </ion-list>
+                        </div>
+                        <div>&nbsp;</div>
+                    </div>
+            </ion-col>
+        </ion-row>
+        <ion-row class="mb-9">
+            <ion-col>
+                    <div class="grid lg:grid-rows-1 lg:grid-cols-card-1   grid-cols-device">
+                        <div>&nbsp;</div>
+                        <div class="bg-white dark:bg-gelapbaru rounded-3xl shadow-md mt-10  lg:min-h-322 ">
+                            <ion-card-content>
+                                <div class="lg:pl-8 lg:mb-10" id="kemitraan">
+                                    <div class="font-poppins lg:pt-10  font-bold text-black text-md-18 lg:text-5xl  text-left  lg:mb-10 mb-5 dark:text-gold lg:mt-5 pr-10">
+                                        {{line_data_lembaga.lembaga_landing_mitra_judul}}
+                                    </div>
+                                    <div class="font-poppins font-bold text-black text-md-12  lg:text-md-18 lg:font-bold text-left dark:text-bluey_grey pr-2 lg:mr-10 text-justify">
+                                        <span [innerHTML]="html_entity(line_data_lembaga.lembaga_landing_mitra_isi)"></span>
+                                    </div>
+                                    <div class="lg:block hidden">
+                                        <div class="card6-button-lanjut dark:border-gold border bg-black dark:bg-gelapbaru">
+                                            <ion-button fill="clear" routerLink="/signin">
+                                                <ion-text class="lg:text-md-16 text-md-14 text-gold dark:text-gold normal-case lg:pr-3">
+                                                    Pelajari Lebih Lanjut
+                                                </ion-text>
+                                                <ion-icon name="chevron-forward-circle-outline" class="text-gold  items-center"></ion-icon>
+                                            </ion-button>
+                                        </div>
+                                    </div>
+                                    <div class="lg:hidden block">
+                                        <div class="card6-button-lanjut dark:border-gold border bg-white dark:bg-gelapbaru border-black">
+                                            <ion-button fill="clear" routerLink="/signin">
+                                                <ion-text class="lg:text-md-16 text-md-14 text-black dark:text-gold normal-case lg:pr-3">
+                                                    Pelajari Lebih Lanjut
+                                                </ion-text>
+                                                <ion-icon name="chevron-forward-circle-outline" class="text-black dark:text-gold  items-center"></ion-icon>
+                                            </ion-button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ion-card-content>
+                        </div>
+                        <div>&nbsp;</div>
                     </div>
 
-                </ion-card>
-            </ion-col>
-        </ion-row>        
-        <ion-row class="mb-5">
-            <ion-col >
-                <div class="lg:ml-3 lg:mr-2">
-                    <div class="font-poppins font-bold text-black text-md-18 lg:text-5xl text-left lg:pl-12 lg:pt-10 absolute pl-8 pt-8 ">                    
-                        {{line_data_lembaga.lembaga_landing_donatur_judul}}
-                    </div>
-                    <div class="font-poppins lg:pl-12 lg:pt-20 pt-10 absolute pl-8 mt-12 pr-24 ">
-                        <div class="font-poppins text-justify text-black text-md-12  lg:text-md-18 font-semibold">
-                            <span [innerHTML]="html_entity(line_data_lembaga.lembaga_landing_donatur_isi)"></span>
-                        </div>    
-                        <div class="lg:flex ">
-                            <div class="lg:flex-initial lg:mt-2 mt-1 lg:pr-5">
-                                <ion-button fill="clear" class="lg:w-64 w-270 bg-black rounded-2xl  border-black border lg:bg-black   lg:border-black lg:border "
-                                    routerLink="/donasi-program">
-                                    <ion-text class=" text-gold text-md-14 lg:text-gold lg:text-md-16  text-left normal-case lg:pr-3">
-                                        Pelajari Lebih Lanjut
-                                    </ion-text>
-                                    <ion-icon name="chevron-forward-circle-outline" class="text-gold" ></ion-icon>
-                                </ion-button>
-                            </div>
-                            <div class="lg:flex-initial lg:mt-2 ">
-                                <ion-button fill="clear" class="lg:w-64 w-270 bg-gold rounded-2xl  border-black border lg:bg-gold lg:border-black lg:border "
-                                    (click)="shareLink('donatur')">
-                                    <ion-text class="text-black text-md-14 lg:text-black lg:text-md-16 text-left normal-case lg:pr-3">
-                                        Bagikan Halaman ini
-                                    </ion-text>
-                                    <ion-icon name="share-social-outline" class="text-black" ></ion-icon>
-                                </ion-button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="lg:hidden block ">
-                        <img src="assets/images/Rectangle-608-vertical.webp" style="min-height:470px;min-width: 343px" />
-                    </div>
-                    <div class="lg:block hidden ">
-                        <img src="assets/images/Rectangle-608-horizontal.webp" style="no-repeat;min-width: 100%; min-height:460px; width:1244px" />
-                    </div>   
-                </div>
-            </ion-col>
-        </ion-row>        
-        <ion-row class="mb-5">
-            <ion-col>
-                <div class="bg-white dark:bg-gelapbaru rounded-3xl shadow-md  lg:ml-6 lg:mr-10 lg:w-1275 pl-5">
-                        <div class="card5-Frequently-Ask-Question lg:text-5xl text-md-18 text-black font-bold dark:text-gold lg:pt-10  lg:mb-20">
-                            Frequently Ask Question
-                        </div>
-                        <ion-list class="dark:bg-gelapbaru ">
-                            <div *ngFor="let d of ask_question; let i=index" text-wrap (click)="toggleGroup(i)" [ngClass]="{active: isGroupShown(i)}">
-                                <div class="flex justify-between card5-Rectangle-614 xs:w-307 mt-3 lg:ml-9 mr-2 mb-2 ">
-                                    <div class="card5-title lg:text-md-18 lg:font-bold text-md-12 font-semibold  pt-3 pl-6">{{d.faq_tanya}}</div>
-                                    <div class="pt-3 pr-5">
-                                        <ion-icon color="warning" item-right [name]="isGroupShown(i) ? 'arrow-down-circle-outline' : 'arrow-up-circle-outline'" size="large"></ion-icon>
-                                    </div>
-                                </div>
-                                <div *ngIf="isGroupShown(i)" class="text-black text-left text-md-13 dark:text-bluey_grey lg:text-md-18 lg:pl-12 pl-6">{{d.faq_jawab}}</div>
-                            </div>
-                        </ion-list>
-                </div>
             </ion-col>
         </ion-row>
         <ion-row class="mb-9">
             <ion-col>
-                <ion-card class="bg-white dark:bg-gelapbaru rounded-3xl shadow-md mt-10  lg:ml-6 lg:mr-10 lg:min-h-322 lg:min-w-1275">
-                    <ion-card-content>
-                        <div class="lg:pl-8" id="kemitraan">
-                            <div class="font-poppins lg:pt-10  font-bold text-black text-md-18 lg:text-5xl  text-left  lg:mb-10 mb-5 dark:text-gold lg:mt-5 pr-10">
-                                {{line_data_lembaga.lembaga_landing_mitra_judul}}
-                            </div>
-                            <div class="font-poppins font-bold text-black text-md-12  lg:text-md-18 lg:font-bold text-left dark:text-bluey_grey pr-2 lg:mr-10 text-justify">
-                                <span [innerHTML]="html_entity(line_data_lembaga.lembaga_landing_mitra_isi)"></span>    
-                            </div>
-                            <div class="lg:block hidden">
-                                <div class="card6-button-lanjut dark:border-gold border bg-black dark:bg-gelapbaru">
-                                    <ion-button fill="clear" routerLink="/signin">
-                                        <ion-text class="lg:text-md-16 text-md-14 text-gold dark:text-gold normal-case lg:pr-3">
-                                            Pelajari Lebih Lanjut
-                                        </ion-text>
-                                        <ion-icon name="chevron-forward-circle-outline" class="text-gold  items-center"></ion-icon>
-                                    </ion-button>
-                                </div>
-                            </div>                       
-                            <div class="lg:hidden block">
-                                <div class="card6-button-lanjut dark:border-gold border bg-white dark:bg-gelapbaru border-black">
-                                    <ion-button fill="clear" routerLink="/signin">
-                                        <ion-text class="lg:text-md-16 text-md-14 text-black dark:text-gold normal-case lg:pr-3">
-                                            Pelajari Lebih Lanjut
-                                        </ion-text>
-                                        <ion-icon name="chevron-forward-circle-outline" class="text-black dark:text-gold  items-center"></ion-icon>
-                                    </ion-button>
-                                </div>
-                            </div>     
-                        </div>
-                    </ion-card-content>
-                </ion-card>
-            </ion-col>
-        </ion-row>
-        <ion-row class="mb-9">
-            <ion-col>
-                    <ion-card class="bg-white dark:bg-gelapbaru rounded-3xl shadow-md mt-10  lg:ml-6 lg:mr-10 lg:min-w-1275 text-md-12 lg:text-md-18">
-                        <div class="grid grid-rows-1 grid-cols-1  lg:grid-cols-2 lg:gap-1" id="kontak">
+                    <div class="grid lg:grid-rows-1 lg:grid-cols-card-1  grid-cols-device">
+                        <div>&nbsp;</div>
+                        <div class="bg-white dark:bg-gelapbaru rounded-3xl shadow-md mt-10  text-md-12 lg:text-md-18">
+                            <div class="grid grid-rows-1 grid-cols-1  lg:grid-cols-2 lg:gap-1" id="kontak">
                                 <div>
-                                    <div class="lg:pt-10 pl-10 font-poppins font-bold pl-4 text-black text-md-18 lg:text-5xl lg:font-bold text-left lg:mb-5 lg:pl-4 lg:pt-5 dark:text-gold ">
-                                        Kontak 
+                                    <div class="lg:pt-10 pl-10 font-poppins font-bold pl-4 text-black text-md-18 lg:text-5xl lg:font-bold text-left lg:mb-5 lg:pl-10 lg:pt-5 dark:text-gold ">
+                                        Kontak
                                     </div>
                                     <div [ngClass]="is_dark_mode=='0'?'heroicons-solidoffice-building':'heroicons-solidoffice-building-dark'">
-                                            <div class="text-black dark:text-bluey_grey pl-10  absolute text-left pt-8 lg:pt-1 lg:w-96 ">
-                                                {{line_data_lembaga.lembaga_alamat}}
-                                            </div>
+                                        <div class="text-black dark:text-bluey_grey pl-10  absolute text-left pt-8 lg:pt-10 lg:w-96 w-72">
+                                            {{line_data_lembaga.lembaga_alamat}}
+                                        </div>
                                     </div>
                     
                                     <div [ngClass]="is_dark_mode=='0'?'heroicons-solidphone':'heroicons-solidphone-dark'">
                                         <div class="text-black dark:text-bluey_grey pl-10 absolute text-left ">
                                             {{line_data_lembaga.lembaga_telepon}}
                                         </div>
-                                        <!-- <div class="text-black dark:text-bluey_grey pl-10 absolute text-left pt-8 ">
-                                                {{line_data_lembaga.lembaga_telepon}}
-                                        </div> -->
-                                    </div>                                
+                                    </div>
+
                                     <div [ngClass]="is_dark_mode=='0'?'heroicons-solidmail':'heroicons-solidmail-dark'">
                                         <div class="text-black dark:text-bluey_grey pl-10">
-                                                {{line_data_lembaga.lembaga_email}}
+                                            {{line_data_lembaga.lembaga_email}}
                                         </div>
                                     </div>
                     
-                                </div>                    
-                                <div class="rounded-md bg-cover">
-                                    <!-- <img src="assets/images/Rectangle 623.webp" > -->
-                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.788692986346!2d106.79749781396727!3d-6.29147969544646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f1e67710fbf1%3A0x6917ab780cd8dff6!2sCilandak%20Town%20Square!5e0!3m2!1sen!2sid!4v1627467379934!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                                 </div>
+                                <div class="rounded-md bg-cover">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.788692986346!2d106.79749781396727!3d-6.29147969544646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f1e67710fbf1%3A0x6917ab780cd8dff6!2sCilandak%20Town%20Square!5e0!3m2!1sen!2sid!4v1627467379934!5m2!1sen!2sid"
+                                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                                </div>
+                            </div>
                         </div>
-                    </ion-card>
+                        <div>&nbsp;</div>
+                    </div>
             </ion-col>
         </ion-row>
 
-        <ion-row>
-            <ion-col>
-            <div class="bg-black w-full pt-5">
-                <div class="logo_putih mb-5">
-                    <img src="assets/images/logo_putih.svg">
+    <ion-row>
+        <ion-col>
+        <div class="bg-black w-full pt-5">
+            <div class="logo_putih mb-5">
+                <img src="assets/images/logo_putih.svg">
+            </div>
+            <div class="grid grid-rows-3 grid-cols-1 lg:grid-rows-1 lg:grid-cols-4 lg:gap-1">
+                <div >
+                    <ion-button fill="clear"  class="rounded-2xl border w-64" routerLink="/paket-pembelajaran">
+                        <ion-text class="footer-Paket-Pembelajaran normal-case">
+                            Paket Pembelajaran
+                        </ion-text>
+                    </ion-button>
                 </div>
-                <div class="grid grid-rows-3 grid-cols-1 lg:grid-rows-1 lg:grid-cols-4 lg:gap-1">
-                    <div >
-                        <ion-button fill="clear"  class="rounded-2xl border w-64" routerLink="/paket-pembelajaran">
-                            <ion-text class="footer-Paket-Pembelajaran normal-case">
-                                Paket Pembelajaran
-                            </ion-text>
-                        </ion-button>
-                    </div>
-                    <div>
-                        <ion-button fill="clear" class="rounded-2xl border w-64" routerLink="/program-santri">
-                            <ion-text class="footer-Program-Santri normal-case">
-                                Program Santri
-                            </ion-text>
-                        </ion-button>
-                    </div>
-                    <div>
-                        <ion-button fill="clear" class="rounded-2xl border w-64" routerLink="/donasi-program">
-                            <ion-text class="footer-Program-Donatur normal-case">
-                                Program Donatur
-                            </ion-text>
-                        </ion-button>
-                    </div>
-                    <div>
-                        <ion-button fill="clear" class="rounded-2xl border w-64" routerLink="/program-pendamping" >
-                            <ion-text class="footer-Program-Pendamping normal-case">
-                                Program Pendamping
-                            </ion-text>
-                        </ion-button>
-                    </div>
+                <div>
+                    <ion-button fill="clear" class="rounded-2xl border w-64" routerLink="/program-santri">
+                        <ion-text class="footer-Program-Santri normal-case">
+                            Program Santri
+                        </ion-text>
+                    </ion-button>
                 </div>
-                <div class="flex justify-center pt-10">
-                    <div><img src="assets/images/akar-icons_instagram-fill.svg"></div>
-                    <div class="pl-10"><img src="assets/images/icons-wa.svg"></div>                    
+                <div>
+                    <ion-button fill="clear" class="rounded-2xl border w-64" routerLink="/donasi-program">
+                        <ion-text class="footer-Program-Donatur normal-case">
+                            Program Donatur
+                        </ion-text>
+                    </ion-button>
                 </div>
-                <div class="flex justify-center pt-10 pb-10 text-white text-xs-10 lg:text-md font-bold ">
-                    © All rights reserved. 2021 - Dilindungi oleh Undang - Undang.
+                <div>
+                    <ion-button fill="clear" class="rounded-2xl border w-64" routerLink="/program-pendamping" >
+                        <ion-text class="footer-Program-Pendamping normal-case">
+                            Program Pendamping
+                        </ion-text>
+                    </ion-button>
                 </div>
-            </div>   
-        </ion-col> 
-        </ion-row>
-    </ion-grid>
+            </div>
+            <div class="flex justify-center pt-10">
+                <div><img src="assets/images/akar-icons_instagram-fill.svg"></div>
+                <div class="pl-10"><img src="assets/images/icons-wa.svg"></div>                    
+            </div>
+            <div class="flex justify-center pt-10 pb-10 text-white text-xs-10 lg:text-md font-bold ">
+                © All rights reserved. 2021 - Dilindungi oleh Undang - Undang.
+            </div>
+        </div>   
+    </ion-col> 
+    </ion-row>
+</ion-grid>
 </ion-slide>
-
 </ion-content>
+
 <ion-footer class="lg:hidden block bg-white dark:bg-gelapbaru">
         <ion-card class="bg-white dark:bg-gelapbaru rounded-3xl shadow-md mt-1 h-auto  ">
             <div class="lg:flex justify-center">

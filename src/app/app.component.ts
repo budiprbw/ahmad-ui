@@ -6,6 +6,9 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
 import { Push, PushObject, PushOptions } from '@ionic-native/push/ngx';
 import { AhmadproviderService } from './ahmadprovider.service';
+import { Deeplinks } from '@ionic-native/deeplinks/ngx';
+import { NgZone } from '@angular/core';
+import { matches } from '@ionic/core/dist/types/components/nav/view-controller';
 
 @Component({
   selector: 'app-root',
@@ -20,21 +23,25 @@ export class AppComponent implements OnInit  {
     private statusBar: StatusBar,
     private push: Push,
     public alertCtrl: AlertController,
+    private deeplinks:Deeplinks,
+    private zone: NgZone,
     public asp:AhmadproviderService
   ) {}
-  ngOnInit(): void{
-    
+  ngAfterViewInit(){
+    this.handleHardwareBackbutton();
+  }
+  ngOnInit(): void{    
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      
       if (this.platform.is('android')){
         this.pushSetup();
       }
       else{
         this.asp.setPushNotifToken('-1');
       }
-      
-
+      this.initializeApp();
       this.ga.startTrackerWithId('UA-XXXXXXXXXX-X')
       .then(() => {
         console.log('Google analytics is ready now');
@@ -67,9 +74,10 @@ export class AppComponent implements OnInit  {
 
   trackEvent(val) {
     // Label and Value are optional, Value is numeric
-    this.ga.trackEvent('Category', 'Action', 'Label', val)
+    this.ga.trackEvent('Category', 'Action', 'Label', val);
+
   }  
-  pushSetup(){
+  async pushSetup(){
     /*
     json send postman:
     post: https://fcm.googleapis.com/fcm/send
@@ -114,7 +122,7 @@ export class AppComponent implements OnInit  {
     }
     const pushObject: PushObject = this.push.init(options);
     
-    pushObject.on('registration').subscribe((registration: any) => {
+    await pushObject.on('registration').subscribe((registration: any) => {
       let token:any  = registration.registrationId;
       console.log('Device registered', token);
       this.asp.setPushNotifToken(token);
@@ -161,8 +169,54 @@ export class AppComponent implements OnInit  {
       console.error('Error with Push plugin', error)
     );    
 
-
   };
- 
+  async checkAppInstalled(){
+    const fun = navigator['getInstalledRelatedApps'];
+     let listOfInstalledApps = await fun.call(navigator);
+     console.log(listOfInstalledApps);
+  }
+  initializeApp() {
+    this.deeplinks.routeWithNavController(this.navCtrl, {
+      '/login': 'login',
+      '/': 'webdashboard'
+    }).subscribe((match) => {
+      //console.log('Successfully matched route', match);
+      let result: any = match;
+      const internalPath = match.$link.path + '?' + match.$link.queryString;
+      //console.log(internalPath);
+      this.zone.run(() => {
+        this.router.navigateByUrl(internalPath);
+      });
+    }, (nomatch) => {
+      console.error('Got a deeplink that didn\'t match', nomatch);
+    });
+  }
+
+  handleHardwareBackbutton() {
+      this.platform.backButton.subscribeWithPriority(5, () => {
+        this.alertCtrl.create({
+          header: 'Application Termination',
+          subHeader: 'AHmad Project',
+          message: "Do you want to close the application ?",
+          buttons: [
+            {
+              text: 'EXIT',
+              handler: () => {
+                navigator['app'].exitApp();
+              }
+            },
+            {
+              text: 'STAY',
+              handler: () => {
+                console.log('STAY');
+              }
+            }
+          ]
+        }).then(res => {            
+          res.present();
+        });;
+      })
+    }
+  
 
 }
