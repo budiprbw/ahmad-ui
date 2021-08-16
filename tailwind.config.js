@@ -26,11 +26,13 @@ module.exports = {
     },
     extend: {
         width: {
-          '1275': '1275px',
+          '1275': '1275px',          
           '1244': '1244px',
           '1224': '1224px',
+          '1060': '1060px',
           '1048': '1048px',
           '1330': '1330px',
+          '798': '798px',
           '681': '681px',
           '500': '500px',
           '480': '480px',
@@ -43,7 +45,8 @@ module.exports = {
           '307': '307px',
           '290': '290px',
           '280': '280px',
-          '270': '270px',                                        
+          '270': '270px',    
+          '70': '70px',                                        
         },     
       colors: {
         gold: '#fcc604',
@@ -86,11 +89,15 @@ module.exports = {
       gridTemplateColumns: {
         'paket': '474px minmax(0, 1fr)',
         'program': '546px minmax(0, 1fr)',
+        'card':'78px minmax(0, 1fr) 58px',
+        'card-1':'88px minmax(0, 1fr) 78px',
+        'device':'16px minmax(0, 1fr) 16px'
       },
       spacing: {
         md: '46px',
         md_1: '33px',
         sm: '20px',
+        xx: '98px',
       },
       boxShadow: {
         'md-A': 'box-shadow: 0 3px 5px 0 rgba(176, 190, 197, 0.32), 0 8px 24px 0 rgba(176, 190, 197, 0.32)'

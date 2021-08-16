@@ -1,0 +1,5 @@
+ion-content {
+    // overwrite inline styles
+    --ion-background-color:var(--color-background);
+    font-family: var(--bs-font-sans-serif);
+}    

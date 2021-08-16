@@ -4,8 +4,8 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./webdashboard/webdashboard.module').then( m => m.WebdashboardPageModule),   
-  },
+    loadChildren: () => import('./mainhome/mainhome.module').then( m => m.MainhomePageModule)
+  },  
   {
     path: 'signin',
     loadChildren: () => import('./signin/signin.module').then( m => m.SigninPageModule)
@@ -225,6 +225,10 @@ const routes: Routes = [
   {
     path: 'daftar-santri-penilaian',
     loadChildren: () => import('./daftar-santri-penilaian/daftar-santri-penilaian.module').then( m => m.DaftarSantriPenilaianPageModule)
+  },
+  {
+    path: 'mainhome',
+    loadChildren: () => import('./mainhome/mainhome.module').then( m => m.MainhomePageModule)
   }
 ];
 @NgModule({

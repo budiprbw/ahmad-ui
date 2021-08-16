@@ -92,9 +92,17 @@ export class RegistrasiPage implements OnInit {
   onLoginError(err) {
     console.log(err);
   }
-  async logout() {    
-    await this.fireAuth.signOut().then(() => {
-      console.log('logout') ;
+  logout() {    
+    this.fireAuth.signOut().then(() => {
+      var myWindowURL = "https://mail.google.com/mail/u/0/?logout&hl=en", myWindowName = "ONE";
+      var myWindowProperties  = "width=300,height=310,top=100,left=100,menubar=no,toolbar=no,titlebar=no,statusbar=no";
+      var openWindow;
+       setTimeout(function() {
+             openWindow = window.open(myWindowURL, myWindowName, myWindowProperties); 
+         }, 1000);
+       setTimeout(function() { 
+           openWindow.close() 
+       }, 2000);     
     });
   }
   gotologinpage() {

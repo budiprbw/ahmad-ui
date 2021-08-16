@@ -10,6 +10,7 @@ import { environment } from 'src/environments/environment';
 import { DomSanitizer } from '@angular/platform-browser'
 import { AngularFireAuth } from '@angular/fire/auth';
 import { SocialShareComponent } from './components/social-share/social-share.component';
+import { GooglePlus } from '@ionic-native/google-plus/ngx';
 
 @Injectable({
   providedIn: 'root'
@@ -140,6 +141,7 @@ export class AhmadproviderService {
     private fireAuth: AngularFireAuth,
     private platform:Platform,
     public modalCtrl: ModalController,
+    private google: GooglePlus,
   ) { }
 
 
@@ -1343,7 +1345,7 @@ export class AhmadproviderService {
     usrinfo = JSON.parse(localStorage.getItem("usrinfo"));
     if (!(usrinfo)) {
       //this.route.navigateByUrl('/login?login_mode='+login_mode, { replaceUrl: true });
-      this.route.navigateByUrl('/webdashboard', { replaceUrl:true });    
+      this.route.navigateByUrl('/home', { replaceUrl:true });    
     }
     return usrinfo;
   }
@@ -1525,15 +1527,33 @@ export class AhmadproviderService {
     this.route.navigate(['view-pembayaran-donasi'], navigationExtras);
   }
   go_page_home(){
-    let usrinfo:any = this.getUserInfo(); 
-    if(usrinfo!=null){
-      if (usrinfo.login_by=="gmail"){        
-        this.fireAuth.signOut().then(() => {          
+    if (this.platform.is('cordova')) {
+      if (this.platform.is('android')) {
+        this.google.logout().then(() => {    
         });
       }
     }
+    else
+    {
+        let usrinfo:any = this.getUserInfo(); 
+        if(usrinfo!=null){
+          if (usrinfo.login_by=="gmail"){        
+            this.fireAuth.signOut().then(() => {       
+              var myWindowURL = "https://mail.google.com/mail/u/0/?logout&hl=en", myWindowName = "ONE";
+              var myWindowProperties  = "width=300,height=310,top=100,left=100,menubar=no,toolbar=no,titlebar=no,statusbar=no";
+              var openWindow;
+                setTimeout(function() {
+                      openWindow = window.open(myWindowURL, myWindowName, myWindowProperties); 
+                  }, 1000);
+                setTimeout(function() { 
+                    openWindow.close() 
+                }, 2000);     
+            });
+          }
+        }
+    }
     this.clearLocalstorage();
-    this.route.navigateByUrl('/webdashboard', { replaceUrl:true });    
+    this.route.navigateByUrl('/mainhome', { replaceUrl:true });    
   }
   go_ajak_gabung_santri(){
     this.route.navigateByUrl('/ajak-gabung?mode=santri');
@@ -1624,6 +1644,9 @@ export class AhmadproviderService {
   }
   go_page_daftar_santri_penilaian(){
     this.route.navigateByUrl('/daftar-santri-penilaian');    
+  }
+  go_page_your_url(url){
+    this.route.navigateByUrl('/'+ url, { replaceUrl: true });
   }
   random_kode_unik(){
       let max=999;

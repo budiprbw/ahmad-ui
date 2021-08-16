@@ -7,6 +7,7 @@ import {  ActivatedRoute } from '@angular/router';
 import { AhmadproviderService } from '../ahmadprovider.service';
 import { ModalController } from '@ionic/angular';
 import { ModalKonfirmasiDonasiPage } from '../modal-konfirmasi-donasi/modal-konfirmasi-donasi.page';
+import { State } from '@ionic/core/dist/types/stencil-public-runtime';
 
 @Component({
   selector: 'app-login',
@@ -24,6 +25,7 @@ export class LoginPage implements OnInit {
   public login_mode: string = "";
   public isActiveToggleTextPassword: boolean = true;
   public notPendamping: boolean = false;
+  public return_url:string="";
 
 
   constructor(
@@ -52,6 +54,9 @@ export class LoginPage implements OnInit {
             this.user_tipe = "3";
             break;
         }
+      }
+      if (params['return_url']) {
+        this.return_url = params['return_url'];
       }
     });
 
@@ -103,9 +108,31 @@ export class LoginPage implements OnInit {
     console.log(err);
   }
 
-  logout() {
-    this.fireAuth.signOut().then(() => {
-    });
+  
+  logout() {            
+    if (this.platform.is('cordova')) {
+      if (this.platform.is('android')) {
+        this.google.logout().then(() => {    
+        });
+      }
+    }
+    else{
+      this.fireAuth.signOut().then(() => {    
+        //let newTab = window.open();
+        //newTab.location.href = "https://mail.google.com/mail/u/0/?logout&hl=en";      
+        //var myWindow =window.open("https://mail.google.com/mail/u/0/?logout&hl=en;window.close();", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=400,height=400");
+        //window.opener.close();
+        var myWindowURL = "https://mail.google.com/mail/u/0/?logout&hl=en", myWindowName = "ONE";
+        var myWindowProperties  = "width=300,height=310,top=100,left=100,menubar=no,toolbar=no,titlebar=no,statusbar=no";
+        var openWindow;
+        setTimeout(function() {
+              openWindow = window.open(myWindowURL, myWindowName, myWindowProperties); 
+          }, 1000);
+        setTimeout(function() { 
+            openWindow.close() 
+        }, 2000);      
+      });
+    }    
   }
 
   goBack() {
@@ -150,21 +177,32 @@ export class LoginPage implements OnInit {
               if (this.login_mode == "donatur") object_ref = this.response.data.donatur;
               if (this.login_mode == "santri") object_ref = this.response.data.santri;
               if (this.login_mode == "pendamping") object_ref = this.response.data.pendamping;
-              let userinfo = {
-                "user_id": this.response.data.id,
-                "user_email": this.response.data.email,
-                "user_displayName": this.response.data.name,
-                "is_approve": this.response.data.approve,
-                "user_photoURL": "",
-                "login_by": "gmail",
-                "login_mode": this.login_mode,
-                "ref_object": object_ref,
-                "route_from": "login"
-              };
-              this.user = userinfo;
-              this.asp.setUserInfo(userinfo);
-              this.redirectMe();
+              if (object_ref==null)
+              {
+                this.error_msg =  'login anda tidak register menggunakan google';          
+              }
+              else
+              {
+                let userinfo = {
+                  "user_id": this.response.data.id,
+                  "user_email": this.response.data.email,
+                  "user_displayName": this.response.data.name,
+                  "is_approve": this.response.data.approve,
+                  "user_photoURL": "",
+                  "login_by": "gmail",
+                  "login_mode": this.login_mode,
+                  "ref_object": object_ref,
+                  "route_from": "login"
+                };
+                this.user = userinfo;
+                this.asp.setUserInfo(userinfo);
+                this.redirectMe();
+              }
+              
             }  
+        }
+        if (this.error_msg!=""){
+          this.logout();
         }
       });
   }
@@ -175,6 +213,7 @@ export class LoginPage implements OnInit {
   }
   getuserlogin() {
     let remember_token = this.asp.getPushNotifToken();
+    console.log(remember_token);
     this.asp.user_login(this.user_email, this.user_password, this.user_tipe,remember_token).then(
       data => {
         this.response = data;
@@ -228,6 +267,10 @@ export class LoginPage implements OnInit {
         }
         if (is_donasi) {
           this.asp.go_page_donasi_pembayaran();
+        }
+        else if (this.return_url!="")
+        {
+          this.asp.go_page_your_url(this.return_url);
         }
         else {
           switch (this.user.ref_object.donatur_status) {

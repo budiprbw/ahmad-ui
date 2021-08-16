@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AhmadproviderService } from '../ahmadprovider.service';
 
 
+declare var loadExternalJs;
 @Component({
   selector: 'app-paket-pembelajaran',
   templateUrl: './paket-pembelajaran.page.html',
@@ -28,6 +29,9 @@ export class PaketPembelajaranPage implements OnInit {
     this.asp.removeItemDonasi();
     this.cek_referal();
     this.getBeritaKampanye();
+  }
+  ngAfterViewInit() {
+    loadExternalJs();
   }
   cek_referal() {
     this.referal_kode=localStorage.getItem("referal_kode");

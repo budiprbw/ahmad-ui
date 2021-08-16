@@ -18,16 +18,16 @@ import {  RouterModule } from '@angular/router';
 import { GoogleAnalytics } from '@ionic-native/google-analytics/ngx';
 import { FileTransfer,  FileTransferObject } from '@ionic-native/file-transfer/ngx';
 import { Storage } from '@ionic/storage';
-import {HashLocationStrategy, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { Push } from '@ionic-native/push/ngx';
 import { SocialShareComponent } from './components/social-share/social-share.component';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+import { Deeplinks } from '@ionic-native/deeplinks/ngx';
 
 
 @NgModule({
   declarations: [AppComponent,SocialShareComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
+  imports: [BrowserModule, IonicModule.forRoot({animated: false}), AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,HttpClientModule,RouterModule],    
     
@@ -36,6 +36,7 @@ import { SocialSharing } from '@ionic-native/social-sharing/ngx';
     SplashScreen,
     GooglePlus,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    Deeplinks,
     AhmadproviderService,   
     GoogleAnalytics,
     FileTransfer,

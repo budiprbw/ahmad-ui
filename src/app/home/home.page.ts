@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+declare var loadExternalJs;
 
 @Component({
   selector: 'app-home',
@@ -10,6 +11,10 @@ export class HomePage implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
+  }
+  ngAfterViewInit(){
+    loadExternalJs();
   }
 
 }

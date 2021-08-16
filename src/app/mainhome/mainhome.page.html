@@ -1,0 +1,347 @@
+<ion-content class="w-full" [scrollEvents]="true" (ionScroll)="getScrollPos($event)"  >
+  <div class="content-wrapper" > 
+    <header class="wrapper bg-light">
+      <nav  [class]="setNavBarClass()" >
+        <div class="container flex-lg-row flex-nowrap align-items-center">
+          <div class="navbar-brand w-100"><a href="#mainhome"><img src="assets/img/logo.svg" srcset="assets/img/logo@2x.png 2x" alt="" /></a></div>
+          <div class="navbar-collapse offcanvas-nav">
+            <div class="offcanvas-header d-lg-none d-xl-none">
+              <a href="index.html#home"><img src="assets/img/logo.svg" srcset="assets/img/logo@2x.png 2x" alt="" /></a>
+              <button type="button" class="btn-close btn-close-white offcanvas-close offcanvas-nav-close" aria-label="Close"></button>
+            </div>
+            <ul class="navbar-nav nav-atas">
+              <li class="nav-item"><a class="nav-link scroll " (click)="scroll('program')">Program AHMad Project</a></li>
+              <li class="nav-item"><a class="nav-link scroll" (click)="scroll('paket')" >Paket Pembelajaran</a></li>
+              <li class="nav-item"><a class="nav-link scroll" (click)="scroll('donatur')" >Menjadi Donatur</a></li>
+              <li class="nav-item"><a class="nav-link scroll" (click)="scroll('faq')">FAQ</a></li>
+              <li class="nav-item"><a class="nav-link scroll" (click)="scroll('kemitraan')">Kemitraan</a></li>
+              <li class="nav-item"><a class="nav-link scroll" (click)="scroll('kontak')">Kontak</a></li>
+            </ul>
+            <!-- /.navbar-nav -->
+          </div>
+          <!-- /.navbar-collapse -->
+          <div class="navbar-other ms-lg-4">
+            <ul class="navbar-nav flex-row align-items-center ms-auto" data-sm-skip="true"> 
+              <li class="nav-item d-md-block">
+                <a routerLink="/signin" class="btn btn-sm btn-outline-black btn-menu-atas">Masuk</a>
+              </li>
+              <li class="nav-item d-none d-md-block d-sm-none d-md-block">
+                <a routerLink="/signin" [queryParams]="{mode: 'Registrasi'}" class="btn btn-sm btn-black btn-menu-atas">Registrasi</a>
+              </li>
+              <li class="nav-item ms-lg-0 d-none">
+                <div class="navbar-hamburger d-lg-none d-xl-none ms-auto"><button class="hamburger animate plain" data-toggle="offcanvas-nav"><span></span></button></div>
+              </li>
+            </ul>
+            <!-- /.navbar-nav -->
+          </div>
+          <!-- /.navbar-other -->
+        </div>
+        <!-- /.container -->
+      </nav>     
+    </header>
+  
+    <!-- /header -->  
+    <section class="wrapper" id="mainhome">
+      <div class="container">
+        <div class="card bg-banner rounded-5 mt-2">
+          <div class="card-body p-md-10 py-xl-15 px-xl-15">
+            <div class="row gx-lg-8 gx-xl-0 gy-10 align-items-center">
+               
+              <!--/column -->
+              <div class="col-lg-7 text-gold text-lg-start" data-group="page-title"  data-delay="1">
+                <h1 class="display-1 mb-5 text-gold">
+                  Belajar Alquran <span class="text-white">Lebih, Bersedekah</span>  
+                  Lebih</h1>
+                <p class="lead teks-banner lh-sm pe-xl-10 text-gold">Asmaul Husna Makna dan Doa (AHMaD) project adalah sebuah
+                  program khusus untuk siapa saja yang ingin belajar memahami makna 
+                  dibalik nama-nama ALLAH SWT yang terdapat didalam Ayat Alquran</p>
+                <div class="d-flex justify-content-lg-start " data-group="page-title-buttons" data-delay="1">
+                  <a routerLink="/signin" class="btn btn-head btn-lg btn-primary rounded-6 mb-2">Pelajari Lebih Lanjut <span class="circle-icon"><i class="uil uil-angle-right"></i></span></a>
+                </div>
+              </div>
+              <!--/column -->
+            </div>
+            <!--/.row -->
+          </div>
+          <!--/.card-body -->
+        </div> 
+        <!--/.card -->
+      </div>
+      <!-- /.container -->
+    </section>
+    <!-- /section -->
+    <section id="program">
+      <div class="container">
+        <div class="card rounded-5 mt-2">
+          <div class="card-body p-md-10 py-xl-11 px-xl-11">
+            <div class="row">
+              <div class="col-md-12 col-lg-12">
+                <h2 class="teks-header mb-6 text-center">{{line_data_lembaga.lembaga_tentang_ahmad_judul}}</h2>
+                <p class="mb-10">
+                  <span [innerHTML]="html_entity(line_data_lembaga.lembaga_tentang_ahmad_isi)"></span>
+                </p>
+              </div>
+            </div>
+            <div class="carousel owl-carousel gap-small" data-loop="true" data-dots="true" data-autoplay="true" data-autoplay-timeout="3000" data-interval="3000" data-responsive='{"0":{"items": "1"}, "768":{"items": "1"}, "992":{"items": "1"}, "1200":{"items": "1"}}'>
+              <div class="item" >
+                <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center">
+                  <div class="col-md-12 col-lg-6 position-relative">
+                    <figure class="rounded"><img src="assets/img/program-santri.jpg" srcset="assets/img/program-santri@2x.jpg 2x" alt=""></figure>
+                  </div>
+                  <!--/column -->
+                  <div class="col-lg-6">
+                    <h2 class="teks-sub-header mb-3"> {{line_data_lembaga.lembaga_landing_santri_judul}}</h2>
+                     <p class="mb-6" [innerHTML]="html_entity(line_data_lembaga.lembaga_landing_santri_isi)"></p>
+                    <div class="row gx-xl-10 gy-6">
+                      <div class="col-md-12">
+                        <div class="d-flex flex-row">
+                          <a routerLink="/program-santri" class="btn btn-md btn-outline-black rounded-6" >Pelajari Lebih Lanjut <span class="circle-icon"><i class="uil uil-angle-right"></i></span></a>
+                        </div>
+                      </div>  
+                    </div>
+                    <!--/.row -->
+                  </div>
+                  <!--/column -->
+                </div> 
+              </div>
+              <div class="item">
+                <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center">
+                  <div class="col-md-12 col-lg-6 position-relative">
+                    <figure class="rounded"><img src="assets/img/program-pendamping.jpg" srcset="assets/img/program-pendamping@2x.jpg 2x" alt=""></figure>
+                  </div>
+                  <!--/column -->
+                  <div class="col-lg-6">
+                    <h2 class="teks-sub-header mb-3">{{line_data_lembaga.lembaga_landing_pendamping_judul}}</h2>
+                     <p class="mb-6"  [innerHTML]="html_entity(line_data_lembaga.lembaga_landing_pendamping_isi)"></p>
+                    <div class="row gx-xl-10 gy-6">
+                      <div class="col-md-12">
+                        <div class="d-flex flex-row">
+                          <a routerLink="/program-pendamping" class="btn btn-md btn-outline-black rounded-6" >Pelajari Lebih Lanjut <span class="circle-icon"><i class="uil uil-angle-right"></i></span></a>
+                        </div>
+                      </div>  
+                    </div>
+                    <!--/.row -->
+                  </div>
+                  <!--/column -->
+                </div> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <section id="paket">
+      <div class="container">
+        <div class="card shadow-lg rounded-5">
+          <div class="row gx-0">
+            <div class="col-lg-4 image-wrapper bg-image bg-cover rounded-top rounded-lg-start" data-image-src="assets/img/paket-pembelajaran.jpg" style="background-image: url(assets/img/paket-pembelajaran.jpg);">
+            </div>
+            <!--/column -->
+            <div class="col-lg-8">
+              <div class="p-10 p-md-11 p-lg-13">
+                <div class="">
+                  <h2 class="teks-header mb-3">{{line_data_lembaga.lembaga_landing_produk_judul}}</h2>
+                  <p  [innerHTML]="html_entity(line_data_lembaga.lembaga_landing_produk_isi)"></p>                    
+                 
+                  <a routerLink="/paket-pembelajaran" class="btn btn-md btn-primary rounded-6 mb-2 mr-2">Lihat Detail Paket Pembelajaran <span class="circle-icon"><i class="uil uil-angle-right"></i></span></a>
+                  <a (click)="shareLink('santri')" class="btn btn-md btn-outline-black rounded-6 mb-2">Bagikan Halaman Ini <span class="circle-icon"><i class="uil uil-angle-right"></i></span></a>
+                </div> 
+                <!-- /.owl-carousel -->
+              </div>
+              <!--/div -->
+            </div>
+            <!--/column -->
+          </div>
+          <!--/.row -->
+        </div>
+        
+      </div>
+    </section>
+  
+    <section id="donatur">
+      <div class="container">
+        <div class="card bg-donatur rounded-5 mt-2">
+          <div class="card-body p-md-10">
+            <div class="row gx-lg-8 gx-xl-0 gy-10 align-items-center"> 
+              <!--/column -->
+              <div class="col-lg-8 text-lg-start">
+                <h2 class="teks-sub-header mb-3">{{line_data_lembaga.lembaga_landing_donatur_judul}}</h2>
+                  <p class="mb-32" [innerHTML]="html_entity(line_data_lembaga.lembaga_landing_donatur_isi)"></p>
+                   
+                  <a routerLink="/donasi-program" class="btn btn-md btn-black rounded-6 mb-2 mr-2">Pelajari Lebih Lanjut <span class="circle-icon"><i class="uil uil-angle-right"></i></span></a>
+                  <a (click)="shareLink('donatur')"class="btn btn-md btn-outline-black rounded-6 mb-2">Bagikan Halaman Ini <i class="uil uil-share-alt"></i></a>
+                </div>
+              </div>
+              <!--/column -->
+            </div>
+            <!--/.row -->
+          </div>
+          <!--/.card-body -->
+        </div> 
+    </section>
+  
+    <section id="faq">
+      <div class="container">
+        <div class="card rounded-5 mt-2">
+          <div class="card-body p-md-10 py-xl-11 px-xl-11">
+            <div class="row">
+              <div class="col-md-12 col-lg-12">
+                <h2 class="teks-header mb-6 text-center">Frequently Ask Question</h2>
+                <div class="accordion accordion-wrapper" id="pertanyaan">                    
+                    <div *ngFor="let d of ask_question; let i=index" >
+                        <div class="card accordion-item">
+                            <div class="card-header black" id="heading{{i}}">
+                              <button  [class]="classButton(i)"  data-bs-toggle="collapse"  (click)="toggleGroup(i)" attr.data-target="#collapse{{i}}" [attr.aria-expanded]="isExpand(i)" attr.aria-controls="collapse{{i}}"> {{d.faq_tanya}} </button>
+                            </div>
+                            <div id="collapse{{i}}" [class]="classGroupShown(i)"   attr.aria-labelledby="heading{{i}}" data-bs-parent="#pertanyaan">
+                                <div class="card-body faq" >
+                                  <p>{{d.faq_jawab}}</p>
+                                </div>
+                              </div>
+                        </div> 
+                    </div> 
+                   
+                  </div>
+              </div>
+            </div> 
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <section id="kemitraan">
+      <div class="container">
+        <div class="card rounded-5 mt-2">
+          <div class="card-body p-md-10 py-xl-11 px-xl-11">
+            <div class="row">
+              <div class="col-md-12 col-lg-12">
+                <h2 class="teks-sub-header mb-6">{{line_data_lembaga.lembaga_landing_mitra_judul}}</h2>
+                <p class="mb-10" [innerHTML]="html_entity(line_data_lembaga.lembaga_landing_mitra_isi)"></p>
+                  <a routerLink="/signin" class="btn btn-md btn-outline-black rounded-6" >Pelajari Lebih Lanjut <span class="circle-icon"><i class="uil uil-angle-right"></i></span></a>
+              </div>
+            </div> 
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <section id="kontak">
+      <div class="container">
+        <div class="card shadow-lg rounded-5">
+          <div class="row gx-0">
+                
+            <!--/column -->
+            <div class="col-lg-6">
+              
+              <div class="p-11 p-md-11">
+                <h2 class="teks-header mb-6">Kontak</h2>
+                <div class="d-flex flex-row">
+                 
+                  <div>
+                    <div class="icon text-primary fs-28 me-4 mt-n1 " style="position: absolute;padding-top:5px;"> 
+                      <img src="assets/img/heroicons-solid_office-building.svg">                      
+                    </div>
+                  </div>
+                  <div class="align-self-start justify-content-start pl-10">
+                    <h5 class="mb-1">Address</h5>
+                    <address>{{line_data_lembaga.lembaga_alamat}}</address>
+                  </div>
+                </div>
+                <!--/div -->
+                <div class="d-flex flex-row">
+                  <div>
+                    <div class="icon text-primary fs-28 me-4 mt-n1"> 
+                      <img src="assets/img/heroicons-solid_phone.svg">
+                    </div>
+                  </div>
+                  <div>
+                    <h5 class="mb-1">Phone</h5>
+                    <p>{{line_data_lembaga.lembaga_telepon}}</p>
+                  </div>
+                </div>
+                <!--/div -->
+                <div class="d-flex flex-row">
+                  <div>
+                    <div class="icon text-primary fs-28 me-4 mt-n1">
+                      <img src="assets/img/heroicons-solid_mail.svg">
+                    </div>
+                  </div>
+                  <div>
+                    <h5 class="mb-1">E-mail</h5>
+                    <p class="mb-0">
+                      <a href="mailto:{{line_data_lembaga.lembaga_email}}" class="link-body">{{line_data_lembaga.lembaga_email}}</a>
+                    </p>
+                  </div>
+                </div>
+                <!--/div -->
+              </div>
+              <!--/div -->
+            </div>
+            <div class="col-lg-6 align-self-stretch">
+              <div class="map map-full rounded-top rounded-lg-start">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.788692986346!2d106.79749781396727!3d-6.29147969544646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f1e67710fbf1%3A0x6917ab780cd8dff6!2sCilandak%20Town%20Square!5e0!3m2!1sen!2sid!4v1627467379934!5m2!1sen!2sid" style="width:100%; height: 100%; border:0" allowfullscreen></iframe>
+              </div>
+              <!-- /.map -->
+            </div>
+            <!--/column -->
+          </div>
+          <!--/.row -->
+        </div>
+        
+      </div>
+    </section>
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="bg-dark text-inverse">
+    <div class="container text-center footer-padding">
+      <div class="row mt-lg-0">
+        <div class="col-xl-10 mx-auto">
+          <div class="justify-content-center mb-5" style="display: inline-block">
+            <a routerLink="index.html#mainhome"><img src="assets/img/logo-white.svg" /></a>
+          </div>
+          <div class="row mb-3">
+             <div class="justify-content-center ">
+                <a routerLink="/paket-pembelajaran" class="btn btn-md btn-outline-white btn-footer rounded-5 mr-2">Paket Pembelajaran</a>
+                <a routerLink="/program-santri" class="btn btn-md btn-outline-white btn-footer rounded-5 mr-2">Program Santri</a>
+                <a routerLink="/donasi-program" class="btn btn-md btn-outline-white btn-footer rounded-5 mr-2">Program Donatur</a>
+                <a routerLink="/program-pendamping" class="btn btn-md btn-outline-white btn-footer rounded-5 mr-2">Program Pendamping</a>
+             </div>
+          </div>
+          <!--/.row -->
+          <div class="nav social justify-content-center mb-5">
+            <a href="#"><img src="assets/img/akar-icons_whatsapp-fill.svg" /></a>
+            <a href="#"><img src="assets/img/akar-icons_instagram-fill.svg" /></a>
+          </div>
+  
+          <p class="text-white">
+            © All rights reserved. 2021 - Dilindungi oleh Undang - Undang.
+          </p>
+          <!-- /.social -->
+        </div>
+        <!-- /column -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container -->
+  </footer>
+  <div class="footer-nav-area" id="footerNav">
+    <div class="container py-5"> 
+      <div class="row mt-lg-0">
+        <div class="col-xl-10">
+          <div class="nav justify-content-center">
+            <a routerLink="/signin" [queryParams]="{mode: 'Registrasi'}" class="btn btn-md btn-primary rounded-6 btn-registrasi-akun mb-2">Registrasi Akun <span class="circle-icon"><i class="uil uil-angle-right"></i></span></a>
+            <a routerLink="/donasi-program" class="btn btn-md btn-outline-black rounded-6 btn-registrasi-akun mb-2">Menjadi Donatur Program<span class="circle-icon"><i class="uil uil-angle-right"></i></span></a>
+          </div>
+        </div> 
+      </div>
+      
+    </div>
+  </div>
+  
+  <div class="progress-wrap " [class]="setClassProgress()" (click)="gotToTop()" >
+    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+      <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+    </svg>
+  </div>
+  </ion-content>

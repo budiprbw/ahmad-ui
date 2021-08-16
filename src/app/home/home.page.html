@@ -1,51 +1,391 @@
-    
-  <ion-header class="ion-no-border">
-    <ion-toolbar>
-        <ion-toolbar>
-        <ion-buttons slot="start">
-          <ion-button color="primary">
-            <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
-          </ion-button>
-        </ion-buttons>
-        <ion-title><img src="assets/logo.jpg" height="40">AHMaD</ion-title>
-      </ion-toolbar>
-      
-      <ion-buttons slot="end">
-        <ion-button  expand="block" fill="outline" routerLink="/signin">
-          MASUK        
-        </ion-button>      
-      </ion-buttons>
-    </ion-toolbar>
-  </ion-header>
+<ion-content  [scrollEvents]="true">
+  <div class="content-wrapper" > 
+    <header class="wrapper bg-light">
+      <nav class="navbar classic transparent navbar-expand-lg navbar-light">
+        <div class="container flex-lg-row flex-nowrap align-items-center">
+          <div class="navbar-brand w-100"><a href="index.html#home"><img src="assets/img/logo.svg" srcset="assets/img/logo@2x.png 2x" alt="" /></a></div>
+          <div class="navbar-collapse offcanvas-nav">
+            <div class="offcanvas-header d-lg-none d-xl-none">
+              <a href="index.html#home"><img src="assets/img/logo.svg" srcset="assets/img/logo@2x.png 2x" alt="" /></a>
+              <button type="button" class="btn-close btn-close-white offcanvas-close offcanvas-nav-close" aria-label="Close"></button>
+            </div>
+            <ul class="navbar-nav nav-atas">
+              <li class="nav-item"><a class="nav-link scroll" href="#program">Program AHMad Project</a></li>
+              <li class="nav-item"><a class="nav-link scroll" href="#paket">Paket Pembelajaran</a></li>
+              <li class="nav-item"><a class="nav-link scroll" href="#donatur">Menjadi Donatur</a></li>
+              <li class="nav-item"><a class="nav-link scroll" href="#faq">FAQ</a></li>
+              <li class="nav-item"><a class="nav-link scroll" href="#kemitraan">Kemitraan</a></li>
+              <li class="nav-item"><a class="nav-link scroll" href="#kontak">Kontak</a></li>
+            </ul>
+            <!-- /.navbar-nav -->
+          </div>
+          <!-- /.navbar-collapse -->
+          <div class="navbar-other ms-lg-4">
+            <ul class="navbar-nav flex-row align-items-center ms-auto" data-sm-skip="true"> 
+              <li class="nav-item d-md-block">
+                <a href="#" class="btn btn-sm btn-outline-black btn-menu-atas">Masuk</a>
+              </li>
+              <li class="nav-item d-none d-md-block d-sm-none d-md-block">
+                <a href="#" class="btn btn-sm btn-black btn-menu-atas">Registrasi</a>
+              </li>
+              <li class="nav-item ms-lg-0 d-none">
+                <div class="navbar-hamburger d-lg-none d-xl-none ms-auto"><button class="hamburger animate plain" data-toggle="offcanvas-nav"><span></span></button></div>
+              </li>
+            </ul>
+            <!-- /.navbar-nav -->
+          </div>
+          <!-- /.navbar-other -->
+        </div>
+        <!-- /.container -->
+      </nav>     
+    </header>
+    <!-- /header -->  
+    <section class="wrapper" id="home">
+      <div class="container">
+        <div class="card bg-banner rounded-5 mt-2">
+          <div class="card-body p-md-10 py-xl-15 px-xl-15">
+            <div class="row gx-lg-8 gx-xl-0 gy-10 align-items-center">
+               
+              <!--/column -->
+              <div class="col-lg-7 text-gold text-lg-start" data-cues="slideInDown" data-group="page-title" data-delay="600">
+                <h1 class="display-1 mb-5 text-gold">
+                  Belajar Alquran <span class="text-white">Lebih, Bersedekah</span>  
+                  Lebih</h1>
+                <p class="lead teks-banner lh-sm pe-xl-10 text-gold">Asmaul Husna Makna dan Doa (AHMaD) project adalah sebuah
+                  program khusus untuk siapa saja yang ingin belajar memahami makna 
+                  dibalik nama-nama ALLAH SWT yang terdapat didalam Ayat Alquran</p>
+                <div class="d-flex justify-content-lg-start " data-cues="slideInDown" data-group="page-title-buttons" data-delay="900">
+                  <a href="#" class="btn btn-head btn-lg btn-primary rounded-6 mb-2">Pelajari Lebih Lanjut <span class="circle-icon"><i class="uil uil-angle-right"></i></span></a>
+                </div>
+              </div>
+              <!--/column -->
+            </div>
+            <!--/.row -->
+          </div>
+          <!--/.card-body -->
+        </div> 
+        <!--/.card -->
+      </div>
+      <!-- /.container -->
+    </section>
+    <!-- /section -->
+    <section id="program">
+      <div class="container">
+        <div class="card rounded-5 mt-2">
+          <div class="card-body p-md-10 py-xl-11 px-xl-11">
+            <div class="row">
+              <div class="col-md-12 col-lg-12">
+                <h2 class="teks-header mb-6 text-center">Apa itu AHMaD Project</h2>
+                <p class="mb-10">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Arcu vel ut ut eget eu neque, risus. Dolor integer aliquet commodo purus. In aliquam enim lobortis pharetra praesent aliquet arcu. Feugiat mattis fermentum sit at in praesent pulvinar tortor imperdiet. Viverra volutpat duis ultrices neque, in arcu, massa. Id quam pulvinar ornare pellentesque. Cursus vel magnis ut sem id integer. Eget quisque facilisis morbi nullam eu risus.
+                </p>
+              </div>
+            </div>
+            <div class="carousel owl-carousel gap-small" data-loop="true" data-dots="true" data-autoplay="true" data-autoplay-timeout="3000" data-interval="3000" data-responsive='{"0":{"items": "1"}, "768":{"items": "1"}, "992":{"items": "1"}, "1200":{"items": "1"}}'>
+              <div class="item">
+                <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center">
+                  <div class="col-md-12 col-lg-6 position-relative">
+                    <figure class="rounded"><img src="assets/img/program-santri.jpg" srcset="/assets/img/program-santri@2x.jpg 2x" alt=""></figure>
+                  </div>
+                  <!--/column -->
+                  <div class="col-lg-6">
+                    <h2 class="teks-sub-header mb-3">Program Santri</h2>
+                     <p class="mb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nullam aliquam placerat mauris risus. Consequat consequat lacus nulla ut sit. In enim at vel nulla ullamcorper. Tortor justo diam elementum mattis congue in in amet.</p>
+                    <div class="row gx-xl-10 gy-6">
+                      <div class="col-md-12">
+                        <div class="d-flex flex-row">
+                          <a href="#" class="btn btn-md btn-outline-black rounded-6" >Pelajari Lebih Lanjut <span class="circle-icon"><i class="uil uil-angle-right"></i></span></a>
+                        </div>
+                      </div>  
+                    </div>
+                    <!--/.row -->
+                  </div>
+                  <!--/column -->
+                </div> 
+              </div>
+              <div class="item">
+                <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center">
+                  <div class="col-md-12 col-lg-6 position-relative">
+                    <figure class="rounded"><img src="assets/img/program-pendamping.jpg" srcset="assets/img/program-pendamping@2x.jpg 2x" alt=""></figure>
+                  </div>
+                  <!--/column -->
+                  <div class="col-lg-6">
+                    <h2 class="teks-sub-header mb-3">Program Pendamping</h2>
+                     <p class="mb-6">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nullam aliquam placerat mauris risus. Consequat consequat lacus nulla ut sit. In enim at vel nulla ullamcorper. Tortor justo diam elementum mattis congue in in amet.</p>
+                    <div class="row gx-xl-10 gy-6">
+                      <div class="col-md-12">
+                        <div class="d-flex flex-row">
+                          <a href="#" class="btn btn-md btn-outline-black rounded-6" >Pelajari Lebih Lanjut <span class="circle-icon"><i class="uil uil-angle-right"></i></span></a>
+                        </div>
+                      </div>  
+                    </div>
+                    <!--/.row -->
+                  </div>
+                  <!--/column -->
+                </div> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   
-    
-    
-
-    <ion-content >
-        <ion-card >
-            <ion-grid style="border: 0cm">  
-                <ion-row  >
-                    <ion-col  size="12"  size-md="5" offset-md="2" size-lg="6" offset-lg="3"   class="colx-dark">                      
-                        <ion-card-content>
-                            <ion-text color="warning">
-                                <h1>Belajar Al quran <span style="color:white">lebih</span> ,</h1>
-                              </ion-text>
-                              <ion-text color="warning">
-                                  <h1><span style="color:white">Bersedekah</span> lebih,</h1>
-                                   </ion-text>
-                               <ion-text color="warning">
-                                  Asmaul Husna Makna dan Doa(AHMaD) Project adalah sebuah program khusus untuk siapa 
-                                  saja yang ingin belajar memahami makna dibalik nama-nama Allah SWT  yang terdapat 
-                                  di dalam Alquran.
-                              </ion-text>
-                        </ion-card-content>
-                      </ion-col>
-                </ion-row>
-          </ion-grid>
-          </ion-card>
+    <section id="paket">
+      <div class="container">
+        <div class="card shadow-lg rounded-5">
+          <div class="row gx-0">
+            <div class="col-lg-4 image-wrapper bg-image bg-cover rounded-top rounded-lg-start" data-image-src="assets/img/paket-pembelajaran.jpg" style="background-image: url(assets/img/paket-pembelajaran.jpg);">
+            </div>
+            <!--/column -->
+            <div class="col-lg-8">
+              <div class="p-10 p-md-11 p-lg-13">
+                <div class="">
+                  <h2 class="teks-header mb-3">Paket Pembelajaran</h2>
+                  <p>
+                    Setiap Santri yang berkesempatan memperoleh Program AHMaD Project ini akan mendapatkan satu (1) paket pembelajaran dibawah ini:
+                  </p>
+                  <ul>
+                    <li>
+                      Satu (1) buah Kitab Alquran Asmaul Husna, yang berisikan tentang penjelasan makna nama Allah SWT di ayat Alquran yang berpasangan antara satu dan lainnya
+                    </li>
+                    <li>
+                      Satu (1) unit USB Flashdisk, yang berisikan file audio sebagai pelengkap dari materi Kitab Alquran Asmaul Husna
+                    </li>
+                    <li>
+                      Mendapatkan program pendampingan belajar selama 10 bulan, diharapkan agar materi dapat meresap kedalam kalbu.
+                    </li>
+                  </ul>
+                  <a href="#" class="btn btn-md btn-primary rounded-6 mb-2">Lihat Detail Paket Pembelajaran <span class="circle-icon"><i class="uil uil-angle-right"></i></span></a>
+                  <a href="#" class="btn btn-md btn-outline-black rounded-6 mb-2">Bagikan Halaman Ini <span class="circle-icon"><i class="uil uil-angle-right"></i></span></a>
+                </div> 
+                <!-- /.owl-carousel -->
+              </div>
+              <!--/div -->
+            </div>
+            <!--/column -->
+          </div>
+          <!--/.row -->
+        </div>
         
-       
+      </div>
+    </section>
+  
+    <section id="donatur">
+      <div class="container">
+        <div class="card bg-donatur rounded-5 mt-2">
+          <div class="card-body p-md-10">
+            <div class="row gx-lg-8 gx-xl-0 gy-10 align-items-center"> 
+              <!--/column -->
+              <div class="col-lg-8 text-lg-start">
+                <h2 class="teks-sub-header mb-3">Program Donatur</h2>
+                  <p class="mb-32">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id ullamcorper egestas imperdiet diam augue. Erat egestas amet, sit felis nisl tristique. Vitae a ultricies risus quam enim vel metus rhoncus, sagittis. In tristique sodales id convallis ac. Rhoncus viverra hendrerit magna bibendum.                  </p>
+                   
+                  <a href="#" class="btn btn-md btn-black rounded-6 mb-2">Pelajari Lebih Lanjut <span class="circle-icon"><i class="uil uil-angle-right"></i></span></a>
+                  <a href="#" class="btn btn-md btn-outline-black rounded-6 mb-2">Bagikan Halaman Ini <i class="uil uil-share-alt"></i></a>
+                </div>
+              </div>
+              <!--/column -->
+            </div>
+            <!--/.row -->
+          </div>
+          <!--/.card-body -->
+        </div> 
+    </section>
+  
+    <section id="faq">
+      <div class="container">
+        <div class="card rounded-5 mt-2">
+          <div class="card-body p-md-10 py-xl-11 px-xl-11">
+            <div class="row">
+              <div class="col-md-12 col-lg-12">
+                <h2 class="teks-header mb-6 text-center">Frequently Ask Question</h2>
+                <div class="accordion accordion-wrapper" id="pertanyaan">
+                  <div class="card accordion-item">
+                    <div class="card-header black" id="headingOne">
+                      <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Frequently Ask Question 1 </button>
+                    </div>
+                    <!--/.card-header -->
+                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#pertanyaan">
+                      <div class="card-body faq">
+                        <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cras mattis consectetur purus sit amet fermentum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cum sociis natoque penatibus et magnis dis parturient montes.</p>
+                      </div>
+                      <!--/.card-body -->
+                    </div>
+                    <!--/.accordion-collapse -->
+                  </div>
+                  <!--/.accordion-item -->
+                  <div class="card accordion-item">
+                    <div class="card-header black" id="headingTwo">
+                      <button class="collapsed" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"> Frequently Ask Question 2 </button>
+                    </div>
+                    <!--/.card-header -->
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#pertanyaan">
+                      <div class="card-body faq">
+                        <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cras mattis consectetur purus sit amet fermentum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cum sociis natoque penatibus et magnis dis parturient montes.</p>
+                      </div>
+                      <!--/.card-body -->
+                    </div>
+                    <!--/.accordion-collapse -->
+                  </div>
+                  <!--/.accordion-item -->
+                  <div class="card accordion-item">
+                    <div class="card-header black" id="headingThree">
+                      <button class="collapsed" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"> Frequently Ask Question 3 </button>
+                    </div>
+                    <!--/.card-header -->
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#pertanyaan">
+                      <div class="card-body faq">
+                        <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cras mattis consectetur purus sit amet fermentum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cum sociis natoque penatibus et magnis dis parturient montes.</p>
+                      </div>
+                      <!--/.card-body -->
+                    </div>
+                    <!--/.accordion-collapse -->
+                  </div>
+                  <!--/.accordion-item -->
+                </div>
+              </div>
+            </div> 
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <section id="kemitraan">
+      <div class="container">
+        <div class="card rounded-5 mt-2">
+          <div class="card-body p-md-10 py-xl-11 px-xl-11">
+            <div class="row">
+              <div class="col-md-12 col-lg-12">
+                <h2 class="teks-sub-header mb-6">Program Kemitraan</h2>
+                <p class="mb-10">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id ullamcorper egestas imperdiet diam augue. Erat egestas amet, sit felis nisl tristique. Vitae a ultricies risus quam enim vel metus rhoncus, sagittis. In tristique sodales id convallis ac. Rhoncus viverra hendrerit magna bibendum.                </p>
+                  <a href="#" class="btn btn-md btn-outline-black rounded-6" >Pelajari Lebih Lanjut <span class="circle-icon"><i class="uil uil-angle-right"></i></span></a>
+              </div>
+            </div> 
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <section id="kontak">
+      <div class="container">
+        <div class="card shadow-lg rounded-5">
+          <div class="row gx-0">
+                
+            <!--/column -->
+            <div class="col-lg-6">
+              
+              <div class="p-11 p-md-11">
+                <h2 class="teks-header mb-6">Kontak</h2>
+                <div class="d-flex flex-row">
+                 
+                  <div>
+                    <div class="icon text-primary fs-28 me-4 mt-n1"> 
+                      <img src="assets/img/heroicons-solid_office-building.svg">
+                    </div>
+                  </div>
+                  <div class="align-self-start justify-content-start">
+                    <h5 class="mb-1">Address</h5>
+                    <address>Jl. Lorem Ipsum sit dolor met No.100, Kecamatan Bogor, Kelurahan Bogor, Kota Bogor - Indonesia
+                      16122</address>
+                  </div>
+                </div>
+                <!--/div -->
+                <div class="d-flex flex-row">
+                  <div>
+                    <div class="icon text-primary fs-28 me-4 mt-n1"> 
+                      <img src="assets/img/heroicons-solid_phone.svg">
+                    </div>
+                  </div>
+                  <div>
+                    <h5 class="mb-1">Phone</h5>
+                    <p>0812 3456 7890 <br class="d-none d-md-block" />0812 3456 7890</p>
+                  </div>
+                </div>
+                <!--/div -->
+                <div class="d-flex flex-row">
+                  <div>
+                    <div class="icon text-primary fs-28 me-4 mt-n1">
+                      <img src="assets/img/heroicons-solid_mail.svg">
+                    </div>
+                  </div>
+                  <div>
+                    <h5 class="mb-1">E-mail</h5>
+                    <p class="mb-0">
+                      <a href="mailto:info@ahmadproject.org" class="link-body">info@ahmadproject.org</a>
+                    </p>
+                  </div>
+                </div>
+                <!--/div -->
+              </div>
+              <!--/div -->
+            </div>
+            <div class="col-lg-6 align-self-stretch">
+              <div class="map map-full rounded-top rounded-lg-start">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12689.82598376783!2d-122.02156526949733!3d37.3317!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x63bb79532baa6af4!2sApple%20Campus!5e0!3m2!1sen!2str!4v1583842280816!5m2!1sen!2str" style="width:100%; height: 100%; border:0" allowfullscreen></iframe>
+              </div>
+              <!-- /.map -->
+            </div>
+            <!--/column -->
+          </div>
+          <!--/.row -->
+        </div>
         
-       
-           
-    </ion-content>
+      </div>
+    </section>
+  </div>
+  <!-- /.content-wrapper -->
+  <footer class="bg-dark text-inverse">
+    <div class="container text-center footer-padding">
+      <div class="row mt-lg-0">
+        <div class="col-xl-10 mx-auto">
+          <div class="justify-content-center mb-5">
+            <a href="index.html#home"><img src="assets/img/logo-white.svg" /></a>
+          </div>
+          <div class="row mb-3">
+             <div class="justify-content-center ">
+                <a href="#paket" class="btn btn-md btn-outline-white btn-footer rounded-5">Paket Pembelajaran</a>
+                <a href="#" class="btn btn-md btn-outline-white btn-footer rounded-5">Program Santri</a>
+                <a href="#" class="btn btn-md btn-outline-white btn-footer rounded-5">Program Donatur</a>
+                <a href="#" class="btn btn-md btn-outline-white btn-footer rounded-5">Program Pendamping</a>
+             </div>
+          </div>
+          <!--/.row -->
+          
+          <div class="nav social justify-content-center mb-5">
+            <a href="#"><img src=".assets/img/akar-icons_whatsapp-fill.svg" /></a>
+            <a href="#"><img src="assets/img/akar-icons_instagram-fill.svg" /></a>
+          </div>
+  
+          <p class="text-white">
+            © All rights reserved. 2021 - Dilindungi oleh Undang - Undang.
+          </p>
+          <!-- /.social -->
+        </div>
+        <!-- /column -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container -->
+  </footer>
+  <div class="footer-nav-area" id="footerNav">
+    <div class="container py-5"> 
+      <div class="row mt-lg-0">
+        <div class="col-xl-10">
+          <div class="nav justify-content-center">
+            <a href="#" class="btn btn-md btn-primary rounded-6 btn-registrasi-akun mb-2">Registrasi Akun <span class="circle-icon"><i class="uil uil-angle-right"></i></span></a>
+            <a href="#" class="btn btn-md btn-outline-black rounded-6 btn-registrasi-akun mb-2">Menjadi Donatur Program<span class="circle-icon"><i class="uil uil-angle-right"></i></span></a>
+          </div>
+        </div> 
+      </div>
+      
+    </div>
+  </div>
+  
+  <div class="progress-wrap">
+    <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+      <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+    </svg>
+  </div>
+  </ion-content>
