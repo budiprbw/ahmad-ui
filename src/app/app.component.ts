@@ -33,6 +33,7 @@ export class AppComponent implements OnInit  {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      
       if (this.platform.is('android')){
         this.pushSetup();
       }
@@ -40,7 +41,6 @@ export class AppComponent implements OnInit  {
         this.asp.setPushNotifToken('-1');
       }
       this.initializeApp();
-
       this.ga.startTrackerWithId('UA-XXXXXXXXXX-X')
       .then(() => {
         console.log('Google analytics is ready now');
@@ -76,7 +76,7 @@ export class AppComponent implements OnInit  {
     this.ga.trackEvent('Category', 'Action', 'Label', val);
 
   }  
-  pushSetup(){
+  async pushSetup(){
     /*
     json send postman:
     post: https://fcm.googleapis.com/fcm/send
@@ -121,7 +121,7 @@ export class AppComponent implements OnInit  {
     }
     const pushObject: PushObject = this.push.init(options);
     
-    pushObject.on('registration').subscribe((registration: any) => {
+    await pushObject.on('registration').subscribe((registration: any) => {
       let token:any  = registration.registrationId;
       console.log('Device registered', token);
       this.asp.setPushNotifToken(token);
